@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "y4SCp1RwD56yzLv4VDGm1YmLRskej0006HrwqoEZFBUn1qjVfO5sIogabbSXI9omU6z4N3dTekyE6eFZcE8smw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\pdnud\\source\\repos\\JsonPopulator\\JsonPopulator\\JsonPopulator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pdnud\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
+    "C:\\Users\\pdnud\\.nuget\\packages\\htmlagilitypack\\1.11.32\\htmlagilitypack.1.11.32.nupkg.sha512",
+    "C:\\Users\\pdnud\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\pdnud\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

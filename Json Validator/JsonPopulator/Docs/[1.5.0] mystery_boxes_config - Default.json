@@ -1,0 +1,3305 @@
+[{
+		"boxId": "Starter",
+		"appearance": {
+			"mysteryBoxType": "StarterMystery",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"StarterBoxButtonTitle",
+				"titleLocalizationKey": "StarterMysteryBox",
+				"style": "LargePink",
+				"popIds": ["", "JimHalpert", "AprilLudgate", ""]
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "StarterMysteryBox"
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": false,
+				"titleLocalizationKey": "TrollsCarouselitemTitle",
+				"subtitleLocalizationKey": "TrollsCarouselitemSubtitle",
+				"popIds": ["Poppy", "KingTrollex", "GuyDiamond"],
+				"style":"Green"
+			}
+		},
+
+		"behaviourType": "Infinite",
+		"cost": 2500,
+		"eligiblePopIds": []
+	},
+	{
+		"boxId": "InfiniteDefaultBox",
+		"isDefaultBasicMysteryBox": true,
+		"appearance": {
+			"mysteryBoxType": "BasicMystery",
+			"storeButtonAppearance": {
+				"titleLocalizationKey": "MysteryBox",
+				"subtitleLocalizationKey": "RandomPopInside",
+				"style": "SmallBlue",
+				"popIds": ["Doc", "Shrek", "WoodyWoodpecker"],
+				"order": 99
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "MysteryBox",
+				"popIds": ["Marty1985","Doc","GuitarMarty","DrAlanGrant","DrIanMalcolm","TRex","Po","Tigress",
+					"Donkey","Shrek","PussInBoots","WoodyWoodpecker","ElDiablo","TBone","AmazingCarlos",
+					"Tumblebee","ChesterMcFreckle","Butterhorn","Picklez","Claire","JohnHammond","DennisNedry","Dilophosaurus","DrEllieSattler",
+					"CheerBear","TenderheartBear","FunshineBear","GrumpyBear","JimHalpert","PamBeesly","DarrylPhilbin","MichaelScott"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": false,
+				"titleLocalizationKey": "TrollsCarouselitemTitle",
+				"subtitleLocalizationKey": "TrollsCarouselitemSubtitle",
+				"popIds": ["Poppy", "KingTrollex", "GuyDiamond"],
+				"style":"Green"
+			}
+		},
+
+		"behaviourType": "Infinite",
+		"cost": 2500,
+		"rarityProbabilities": {
+			"Common": 70,
+			"Rare": 20,
+			"Epic": 9,
+			"Legendary": 1
+		},
+		"eligiblePopIds": ["Marty1985","Doc","GuitarMarty","DrAlanGrant","DrIanMalcolm","TRex","Po","Tigress",
+			"Donkey","Shrek","PussInBoots","WoodyWoodpecker","ElDiablo","TBone","AmazingCarlos",
+			"Tumblebee","ChesterMcFreckle","Butterhorn","Picklez","Claire","JohnHammond","DennisNedry","Dilophosaurus","DrEllieSattler",
+			"CheerBear","TenderheartBear","FunshineBear","GrumpyBear","JimHalpert","PamBeesly","DarrylPhilbin","MichaelScott"]
+	},
+	{
+		"boxId": "e0013_Trolls_ThemedExample",
+		"fandomId": "Trolls",
+		"startDate": "01/07/2021 0:00",
+		"endDate": "01/19/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"GeneralBoxRibbon",
+				"titleLocalizationKey": "TrollsBoxTitle",
+				"subtitleLocalizationKey": "TrollsBoxSubtitle",
+				"style": "MediumGreen",
+				"popIds": ["Poppy", "KingTrollex", "GuyDiamond"],
+				"order": 2,
+				"discount": 10
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "TrollsBoxTitle",
+				"popIds": ["Branch","Poppy", "KingTrollex", "GuyDiamond"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "TrollsBoxTitle",
+				"subtitleLocalizationKey": "TrollsBoxSubtitle",
+				"popIds": ["Poppy", "KingTrollex", "GuyDiamond"],
+				"style":"Green"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 10},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 10},
+			{"rewardType": "pop","rewardId": "GuyDiamond","amount": 1,"instances": 10},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 10}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Poppy","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Branch","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "z_CarouselTest",
+		"fandomId": "z_CarouselTest",
+		"startDate": "01/07/2021 0:00",
+		"endDate": "01/19/2021 0:00",
+		"appearance": {
+			"isEventBox": false,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"GeneralBoxRibbon",
+				"titleLocalizationKey": "z_CarouselTestBoxTitle",
+				"subtitleLocalizationKey": "z_CarouselTestBoxSubtitle",
+				"style": "MediumGreen",
+				"popIds": ["TRex", "BrideOfFrankenstein", "Frankenstein"],
+				"order": 4,
+				"discount": 20
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "z_CarouselTestBoxTitle",
+				"popIds": ["TRex","Frankenstein", "BrideOfFrankenstein", "Marty1985"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "z_CarouselTestBoxTitle",
+				"subtitleLocalizationKey": "z_CarouselTestBoxSubtitle",
+				"popIds": ["TRex", "BrideOfFrankenstein", "Frankenstein"],
+				"style":"Orange"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"prizes": [
+			{"rewardType": "pop","rewardId": "TRex","amount": 1,"instances": 10},
+			{"rewardType": "pop","rewardId": "Frankenstein","amount": 1,"instances": 10},
+			{"rewardType": "pop","rewardId": "BrideOfFrankenstein","amount": 1,"instances": 10},
+			{"rewardType": "pop","rewardId": "Marty1985","amount": 1,"instances": 10}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "BrideOfFrankenstein","specificPopAmount": 4}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0020b_GeneralMills",
+		"fandomId": "GeneralMills",
+		"startDate": "01/20/2021 0:05",
+		"endDate": "01/20/2021 23:55",
+		"appearance": {
+			"isEventBox": false,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"ThrowbackBoxRibbon",
+				"titleLocalizationKey": "GeneralMillsBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["Lucky", "PillsburyDoughboy", "TrixRabbit", "Sonny"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "GeneralMillsBoxTitle",
+				"popIds": ["BuzzBee","Sonny", "Lucky", "TrixRabbit", "PillsburyDoughboy"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "GeneralMillsBoxTitle",
+				"subtitleLocalizationKey": "ThrowbackCarouselitemSubtitle",
+				"popIds": ["TrixRabbit", "PillsburyDoughboy", "Lucky"],
+				"style":"Purple"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"prizes": [
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "PillsburyDoughboy","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "JimHalpert","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "PamBeesly","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "DarrylPhilbin","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "ChiefMartinBrody","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "BiffTannen","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "BuzzBee","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Sonny","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0021_BreakfastClub",
+		"fandomId": "TheBreakfastClub",
+		"startDate": "01/21/2021 0:00",
+		"endDate": "01/27/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"EventBoxRibbon",
+				"titleLocalizationKey": "BreakfastClubBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["AndrewClark","ClaireStandish", "AllisonReynolds", "RichardVernon"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "BreakfastClubBoxTitle",
+				"popIds": ["AndrewClark","RichardVernon", "AllisonReynolds", "ClaireStandish"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "BreakfastClubBoxTitle",
+				"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+				"popIds": ["AllisonReynolds", "ClaireStandish", "AndrewClark"],
+				"style":"Pink"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"ClaireStandish",
+			"AllisonReynolds",
+			"RichardVernon",
+			"AndrewClark"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "RichardVernon","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 3,"instances": 8},
+			{"rewardType": "pop","rewardId": "ClaireStandish","amount": 4,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "RonSwanson","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "BiffTannen","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "AndrewClark","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "RichardVernon","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 3000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "AllisonReynolds","specificPopAmount": 3}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 1,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0021b_HTTYD",
+		"fandomId": "HowToTrainYourDragon",
+		"startDate": "01/27/2021 0:05",
+		"endDate": "01/27/2021 23:55",
+		"appearance": {
+			"isEventBox": false,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumPurple",
+				"ribbonLocalizationKey":"ThrowbackBoxRibbon",
+				"titleLocalizationKey": "HTTYDBoxTitle",
+				"subtitleLocalizationKey": "ThrowbackBoxButtonSubtitle",
+				"popIds": ["LightFury", "Toothless", "Ruffrunner"],
+				"discount": 0,
+				"order": 2
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "HTTYDBoxTitle",
+				"popIds": ["Pouncer","Dart", "Ruffrunner", "LightFury", "Toothless"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Purple",
+				"titleLocalizationKey": "HTTYDBoxTitle",
+				"subtitleLocalizationKey": "ThrowbackCarouselitemSubtitle",
+				"popIds": ["LightFury", "Toothless", "Ruffrunner"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"Pouncer",
+			"Dart",
+			"Ruffrunner",
+			"LightFury",
+			"Toothless"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Dart","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "Toothless","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "RonSwanson","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "BiffTannen","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Pouncer","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Dart","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0022_AroundTheWorld",
+		"fandomId": "AroundTheWorld",
+		"startDate": "01/28/2021 0:00",
+		"endDate": "02/03/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"EventBoxRibbon",
+				"titleLocalizationKey": "AroundTheWorldBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["Finley", "Rosa", "Barkingham", "Ozzy"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "AroundTheWorldBoxTitle",
+				"popIds": ["Ozzy","Barkingham", "Finley", "Rosa"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "AroundTheWorldBoxTitle",
+				"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+				"popIds": ["Finley", "Rosa", "Barkingham"],
+				"style":"Pink"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"Rosa",
+			"Finley",
+			"Barkingham",
+			"Ozzy"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Barkingham","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Finley","amount": 3,"instances": 8},
+			{"rewardType": "pop","rewardId": "Rosa","amount": 4,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "RonSwanson","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "GuyDiamond","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Ozzy","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Barkingham","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 3000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Finley","specificPopAmount": 3}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 1,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1}
+		],
+		"lastChanceBoxPrizes": [
+			{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "Barkingham","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "Finley","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "Rosa","amount": 6,"instances": 1},
+			{"rewardType": "pop","rewardId": "Tula","amount": 6,"instances": 1}
+		]
+	},
+	{
+		"boxId": "e0022b_PeppermintLane",
+		"fandomId": "PeppermintLane",
+		"startDate": "02/03/2021 0:05",
+		"endDate": "02/03/2021 23:55",
+		"appearance": {
+			"isEventBox": false,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumGreen",
+				"ribbonLocalizationKey":"ThrowbackBoxRibbon",
+				"titleLocalizationKey": "PeppermintLaneBoxTitle",
+				"subtitleLocalizationKey": "ThrowbackBoxButtonSubtitle",
+				"popIds": ["MrsClaus", "SantaClaus", "FrostyFranklin"],
+				"discount": 0,
+				"order": 2
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "PeppermintLaneBoxTitle",
+				"popIds": ["MayorPattyNoble", "RobElf", "FrostyFranklin", "SantaClaus", "MrsClaus"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Green",
+				"titleLocalizationKey": "PeppermintLaneBoxTitle",
+				"subtitleLocalizationKey": "ThrowbackCarouselitemSubtitle",
+				"popIds": ["MrsClaus", "SantaClaus", "FrostyFranklin"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"MayorPattyNoble",
+			"RobElf",
+			"FrostyFranklin",
+			"SantaClaus",
+			"MrsClaus"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "MayorPattyNoble","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "RobElf","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "FrostyFranklin","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "SantaClaus","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "MrsClaus","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "RonSwanson","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "MayorPattyNoble","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "RobElf","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0023_BattlestarGalactica",
+		"fandomId": "BattlestarGalactica",
+		"startDate": "02/04/2021 0:00",
+		"endDate": "02/10/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"isMegaCollectionLastChanceBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"EventBoxRibbon",
+				"titleLocalizationKey": "BattlestarGalacticaBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["CaptainApollo", "CommanderAdama", "LtStarbuck", "CylonCenturion"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "BattlestarGalacticaBoxTitle",
+				"popIds": ["CylonCenturion","CaptainApollo", "LtStarbuck", "CommanderAdama"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "BattlestarGalacticaBoxTitle",
+				"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+				"popIds": ["LtStarbuck", "CommanderAdama", "CaptainApollo"],
+				"style":"Pink"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"CylonCenturion",
+			"CaptainApollo",
+			"LtStarbuck",
+			"CommanderAdama"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "CylonCenturion","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "CaptainApollo","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "LtStarbuck","amount": 3,"instances": 8},
+			{"rewardType": "pop","rewardId": "CommanderAdama","amount": 4,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "GuyDiamond","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "CylonCenturion","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "CaptainApollo","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 3000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "LtStarbuck","specificPopAmount": 3}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 1,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1}
+		],
+		"lastChanceBoxPrizes": [
+			{"rewardType": "pop","rewardId": "CylonCenturion","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "CaptainApollo","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "LtStarbuck","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "CommanderAdama","amount": 6,"instances": 1},
+			{"rewardType": "pop","rewardId": "CylonCommander","amount": 6,"instances": 1}
+		]
+	},
+	{
+		"boxId": "e0023a_BattlestarGalactica",
+		"fandomId": "BattlestarGalactica",
+		"startDate": "02/06/2021 1:00",
+		"endDate": "02/10/2021 0:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumGreen",
+				"ribbonLocalizationKey":"GeneralBoxRibbon",
+				"titleLocalizationKey": "BattlestarBonusBoxTitle",
+				"subtitleLocalizationKey": "BattlestarBonusBoxSubtitle",
+				"popIds": ["", "LtStarbuck", "CaptainApollo"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "BattlestarBonusBoxTitle",
+				"popIds": ["LtStarbuck", "CaptainApollo"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Green",
+				"titleLocalizationKey": "BattlestarBonusBoxTitle",
+				"subtitleLocalizationKey": "BattlestarBonusBoxSubtitle",
+				"popIds": ["", "LtStarbuck", "CaptainApollo"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"LtStarbuck",
+			"CaptainApollo"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "CaptainApollo","amount": 3,"instances": 1},
+			{"rewardType": "pop","rewardId": "LtStarbuck","amount": 3,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 15000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0023b_JurassicWorld",
+		"fandomId": "JurassicWorld",
+		"startDate": "02/10/2021 00:00",
+		"endDate": "02/11/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumGreen",
+				"ribbonLocalizationKey":"",
+				"titleLocalizationKey": "JurassicWorldBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["Blue", "Indoraptor", "Owen"],
+				"discount": 0,
+				"order": 2
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "JurassicWorldBoxTitle",
+				"popIds": ["Claire", "Stygimoloch", "Owen", "Blue", "Indoraptor"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Green",
+				"titleLocalizationKey": "JurassicWorldBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["Blue", "Indoraptor", "Owen"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"Claire",
+			"Stygimoloch",
+			"Owen",
+			"Blue",
+			"Indoraptor"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Stygimoloch","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Owen","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "Blue","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "Indoraptor","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Stygimoloch","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0023c_CareBears",
+		"fandomId": "CareBears",
+		"startDate": "02/10/2021 00:00",
+		"endDate": "02/11/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumPurple",
+				"ribbonLocalizationKey":"",
+				"titleLocalizationKey": "CareBearsBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["GrumpyBear", "BedtimeBear", "FunshineBear"],
+				"discount": 0,
+				"order": 2
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "CareBearsBoxTitle",
+				"popIds": ["CheerBear", "TenderheartBear", "FunshineBear", "GrumpyBear", "BedtimeBear"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Purple",
+				"titleLocalizationKey": "CareBearsBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["GrumpyBear", "BedtimeBear", "FunshineBear"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"CheerBear",
+			"TenderheartBear",
+			"FunshineBear",
+			"GrumpyBear",
+			"BedtimeBear"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "CheerBear","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "TenderheartBear","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "FunshineBear","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "GrumpyBear","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "BedtimeBear","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "CheerBear","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "TenderheartBear","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0024_ThePrincessBride",
+		"fandomId": "ThePrincessBride",
+		"startDate": "02/11/2021 0:00",
+		"endDate": "02/17/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"EventBoxRibbon",
+				"titleLocalizationKey": "ThePrincessBrideBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["PrincessButtercup", "Fezzik", "InigoMontoya", "Westley"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "ThePrincessBrideBoxTitle",
+				"popIds": ["Westley","PrincessButtercup", "InigoMontoya", "Fezzik"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "ThePrincessBrideBoxTitle",
+				"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+				"popIds": ["InigoMontoya", "Fezzik", "PrincessButtercup"],
+				"style":"Pink"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": [
+			"Westley",
+			"PrincessButtercup",
+			"InigoMontoya",
+			"Fezzik"
+		],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Westley","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "PrincessButtercup","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "InigoMontoya","amount": 3,"instances": 8},
+			{"rewardType": "pop","rewardId": "Fezzik","amount": 4,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Westley","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "PrincessButtercup","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "InigoMontoya","specificPopAmount": 3}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 1,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1}
+		],
+		"lastChanceBoxPrizes": [
+			{"rewardType": "pop","rewardId": "Westley","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "PrincessButtercup","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "InigoMontoya","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "Fezzik","amount": 6,"instances": 1},
+			{"rewardType": "pop","rewardId": "Vizzini","amount": 6,"instances": 1}
+		]
+	},
+	{
+		"boxId": "e0024c_VDayBox",
+		"fandomId": "",
+		"startDate": "02/12/2021 0:00",
+		"endDate": "02/16/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumPurple",
+				"ribbonLocalizationKey":"ValentinesRibbon",
+				"titleLocalizationKey": "VdayCouplesTitle",
+				"subtitleLocalizationKey": "VdayCouplesSubtitle",
+				"popIds": ["", "BrideOfFrankenstein", "Frankenstein"],
+				"discount": 0,
+				"order": 1
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "VdayCouplesTitle",
+				"popIds": ["JimHalpert", "PamBeesly", "AndyDwyer", "AprilLudgate", "DrAlanGrant", "DrEllieSattler", "Frankenstein", "BrideOfFrankenstein"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Purple",
+				"titleLocalizationKey": "VdayCouplesTitle",
+				"subtitleLocalizationKey": "VdayCouplesSubtitle",
+				"popIds": ["", "BrideOfFrankenstein", "Frankenstein"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["JimHalpert", "PamBeesly", "AndyDwyer", "AprilLudgate", "DrAlanGrant", "DrEllieSattler", "Frankenstein", "BrideOfFrankenstein"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "JimHalpert","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "PamBeesly","amount": 2,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "DrAlanGrant","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "DrEllieSattler","amount": 5,"instances": 2},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 2,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "Frankenstein","amount": 5,"instances": 2},
+			{"rewardType": "pop","rewardId": "BrideOfFrankenstein","amount": 5,"instances": 2}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0024b_Hostess",
+		"fandomId": "Hostess",
+		"startDate": "02/17/2021 00:00",
+		"endDate": "02/18/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumGreen",
+				"ribbonLocalizationKey":"",
+				"titleLocalizationKey": "HostessBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["TwinkieTheKid", "TwinkieTheKidChrome", "KingDingDong"],
+				"discount": 0,
+				"order": 2
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "HostessBoxTitle",
+				"popIds": ["CaptainCupcake", "FruitPieTheMagician", "KingDingDong", "TwinkieTheKid", "TwinkieTheKidChrome"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Green",
+				"titleLocalizationKey": "HostessBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["TwinkieTheKid", "TwinkieTheKidChrome", "KingDingDong"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["CaptainCupcake", "FruitPieTheMagician", "KingDingDong", "TwinkieTheKid", "TwinkieTheKidChrome"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "KingDingDong","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "TwinkieTheKid","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "TwinkieTheKidChrome","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "MayorPattyNoble","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "RobElf","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "FrostyFranklin","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "SantaClaus","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "CaptainCupcake","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "FruitPieTheMagician","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0024d_Jaws",
+		"fandomId": "Jaws",
+		"startDate": "02/17/2021 00:00",
+		"endDate": "02/18/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumOrange",
+				"ribbonLocalizationKey":"",
+				"titleLocalizationKey": "JawsBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["ChiefMartinBrody", "GreatWhiteShark", "Quint"],
+				"discount": 0,
+				"order": 1
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "JawsBoxTitle",
+				"popIds": ["MattHooper", "MayorLarryVaughn", "Quint", "ChiefMartinBrody", "GreatWhiteShark"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Orange",
+				"titleLocalizationKey": "JawsBoxTitle",
+				"subtitleLocalizationKey": "FinishCollectionSubtitle",
+				"popIds": ["ChiefMartinBrody", "GreatWhiteShark", "Quint"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["MattHooper", "MayorLarryVaughn", "Quint", "ChiefMartinBrody", "GreatWhiteShark"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Quint","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "ChiefMartinBrody","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "GreatWhiteShark","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "LabradorRetriever","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "MaineCoonCat","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "GermanShepherd","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "SiberianHusky","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "JohnHammond","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "DennisNedry","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dilophosaurus","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "DrEllieSattler","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "MattHooper","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "MayorLarryVaughn","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0025_Voltron",
+		"fandomId": "Voltron",
+		"startDate": "02/18/2021 0:00",
+		"endDate": "02/24/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"EventBoxRibbon",
+				"titleLocalizationKey": "VoltronBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["Keith", "Voltron", "Hunk", "Lance"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "VoltronBoxTitle",
+				"popIds": ["Pidge","Lance","Keith","Hunk","Voltron"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"titleLocalizationKey": "VoltronBoxTitle",
+				"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+				"popIds": ["Hunk", "Voltron", "Keith"],
+				"style":"Pink"
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["Pidge","Lance","Keith","Hunk","Voltron"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Pidge","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Lance","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Keith","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "Hunk","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "Voltron","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Pidge","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Lance","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Keith","specificPopAmount": 3}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 1,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1}
+		],
+		"lastChanceBoxPrizes": [
+			{"rewardType": "pop","rewardId": "Pidge","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "Lance","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "Keith","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "Hunk","amount": 6,"instances": 1},
+			{"rewardType": "pop","rewardId": "Shiro","amount": 6,"instances": 1},
+			{"rewardType": "pop","rewardId": "Voltron","amount": 6,"instances": 1}
+		]
+	},
+	{
+		"boxId": "e0025c_TinyDiamond",
+		"fandomId": "",
+		"startDate": "02/20/2021 00:00",
+		"endDate": "02/23/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumPurple",
+				"ribbonLocalizationKey":"ExclusivePopRibbon",
+				"titleLocalizationKey": "TinyDiamondBoxTitle",
+				"subtitleLocalizationKey": "TinyDiamondBoxSubtitle",
+				"popIds": ["", "TinyDiamond", ""],
+				"discount": 0,
+				"order": 1
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "TinyDiamondBoxTitle",
+				"popIds": ["TinyDiamond"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Purple",
+				"titleLocalizationKey": "TinyDiamondBoxTitle",
+				"subtitleLocalizationKey": "TinyDiamondBoxSubtitle",
+				"popIds": ["", "TinyDiamond", ""]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["TinyDiamond"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "TinyDiamond","amount": 2,"instances": 10},
+
+			{"rewardType": "pop","rewardId": "LabradorRetriever","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "MaineCoonCat","amount": 2,"instances": 5},
+			{"rewardType": "pop","rewardId": "GermanShepherd","amount": 5,"instances": 2},
+			{"rewardType": "pop","rewardId": "SiberianHusky","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "SiameseCat","amount": 1,"instances": 4},
+
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 2,"instances": 5},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 5,"instances": 2},
+			{"rewardType": "pop","rewardId": "GuyDiamond","amount": 1,"instances": 4},
+
+			{"rewardType": "pop","rewardId": "Picklez","amount": 1,"instances": 8},
+			{"rewardType": "pop","rewardId": "ChesterMcFreckle","amount": 2,"instances": 4},
+			{"rewardType": "pop","rewardId": "Butterhorn","amount": 2,"instances": 4},
+			{"rewardType": "pop","rewardId": "Tumblebee","amount": 5,"instances": 2}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0025b_Myths",
+		"fandomId": "Myths",
+		"startDate": "02/24/2021 00:00",
+		"endDate": "02/25/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumGreen",
+				"ribbonLocalizationKey":"",
+				"titleLocalizationKey": "MythsBoxTitle",
+				"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+				"popIds": ["Cyclops", "SnowyBigfoot", "Medusa"],
+				"discount": 0,
+				"order": 2
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "MythsBoxTitle",
+				"popIds": ["Chupacabra", "Krampus", "Cyclops", "SnowyBigfoot", "Medusa"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Green",
+				"titleLocalizationKey": "MythsBoxTitle",
+				"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+				"popIds": ["Cyclops", "SnowyBigfoot", "Medusa"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["Chupacabra", "Krampus", "Cyclops", "SnowyBigfoot", "Medusa"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Krampus","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "Cyclops","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "SnowyBigfoot","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "Medusa","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0025d_TheOffice",
+		"fandomId": "TheOffice",
+		"startDate": "02/24/2021 00:00",
+		"endDate": "02/25/2021 00:00",
+		"appearance": {
+			"isEventBox": false,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"style": "MediumOrange",
+				"ribbonLocalizationKey":"",
+				"titleLocalizationKey": "TheOfficeBoxTitle",
+				"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+				"popIds": ["MichaelScott", "DwightSchrute", "DarrylPhilbin"],
+				"discount": 0,
+				"order": 1
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "TheOfficeBoxTitle",
+				"popIds": ["JimHalpert", "PamBeesly", "DarrylPhilbin", "MichaelScott", "DwightSchrute"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Orange",
+				"titleLocalizationKey": "TheOfficeBoxTitle",
+				"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+				"popIds": ["MichaelScott", "DwightSchrute", "DarrylPhilbin"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["JimHalpert", "PamBeesly", "DarrylPhilbin", "MichaelScott", "DwightSchrute"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "JimHalpert","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "PamBeesly","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "DarrylPhilbin","amount": 3,"instances": 7},
+			{"rewardType": "pop","rewardId": "MichaelScott","amount": 4,"instances": 5},
+			{"rewardType": "pop","rewardId": "DwightSchrute","amount": 5,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1}
+		]
+	},
+	{
+		"boxId": "e0026_SavedByTheBell",
+		"fandomId": "SavedByTheBell",
+		"startDate": "02/25/2021 0:00",
+		"endDate": "03/03/2021 0:00",
+		"appearance": {
+			"isEventBox": true,
+			"mysteryBoxType": "LuckyMystery",
+			"theme":"",
+			"storeButtonAppearance": {
+				"ribbonLocalizationKey":"EventBoxRibbon",
+				"titleLocalizationKey": "SBTBBoxTitle",
+				"subtitleLocalizationKey": "",
+				"style": "LargePink",
+				"popIds": ["AcSlater", "LisaTurtle", "JessieSpano", "Screech"],
+				"order": 2,
+				"discount": 0
+			},
+			"purchaseScreenAppearance": {
+				"titleLocalizationKey": "SBTBBoxTitle",
+				"popIds": ["AcSlater", "Screech", "JessieSpano", "LisaTurtle"]
+			},
+			"mainHubAppearance": {
+				"canShowInCarousel": true,
+				"style":"Pink",
+				"titleLocalizationKey": "SBTBBoxTitle",
+				"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+				"popIds": ["JessieSpano", "LisaTurtle", "AcSlater"]
+			}
+		},
+
+		"behaviourType": "PullBased",
+		"featuredPopIds": ["AcSlater", "Screech", "JessieSpano", "LisaTurtle"],
+		"prizes": [
+			{"rewardType": "pop","rewardId": "AcSlater","amount": 1,"instances": 12},
+			{"rewardType": "pop","rewardId": "Screech","amount": 2,"instances": 10},
+			{"rewardType": "pop","rewardId": "JessieSpano","amount": 3,"instances": 8},
+			{"rewardType": "pop","rewardId": "LisaTurtle","amount": 4,"instances": 5},
+
+			{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+			{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+			{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+			{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+			{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+			{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+			{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1}
+		],
+		"tiers": [
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "AcSlater","specificPopAmount": 1}},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Screech","specificPopAmount": 2}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "JessieSpano","specificPopAmount": 3}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+			{"cost": 6000,"numPulls": 1},
+			{"cost": 1,"numPulls": 1},
+			{"cost": 6000,"numPulls": 1}
+		],
+		"lastChanceBoxPrizes": [
+			{"rewardType": "pop","rewardId": "AcSlater","amount": 1,"instances": 3},
+			{"rewardType": "pop","rewardId": "Screech","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "JessieSpano","amount": 3,"instances": 2},
+			{"rewardType": "pop","rewardId": "LisaTurtle","amount": 6,"instances": 1},
+			{"rewardType": "pop","rewardId": "KellyKapowski", "amount": 6,"instances": 1}
+		]
+	},
+		{
+			"boxId": "e0026c_FebruaryLastChance",
+			"fandomId": "",
+			"startDate": "02/26/2021 00:00",
+			"endDate": "03/04/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumGreen",
+					"ribbonLocalizationKey":"",
+					"titleLocalizationKey": "FebLastChanceBoxTitle",
+					"subtitleLocalizationKey": "FebLastChanceBoxSubtitle",
+					"popIds": ["Vizzini", "CylonCommander", "Voltron"],
+					"discount": 0,
+					"order": 2
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "FebLastChanceBoxTitle",
+					"popIds": ["CylonCommander", "Vizzini", "Shiro", "Voltron"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Green",
+					"titleLocalizationKey": "FebLastChanceBoxTitle",
+					"subtitleLocalizationKey": "FebLastChanceBoxSubtitle",
+					"popIds": ["Vizzini", "CylonCommander", "Voltron"]
+				}
+			},
+
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["CylonCommander", "Vizzini", "Shiro", "Voltron"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "CylonCommander","amount": 10,"instances": 2},
+				{"rewardType": "pop","rewardId": "Vizzini","amount": 10,"instances": 2},
+				{"rewardType": "pop","rewardId": "Shiro","amount": 10,"instances": 2},
+				{"rewardType": "pop","rewardId": "Voltron","amount": 10,"instances": 2},
+			
+				{"rewardType": "pop","rewardId": "LabradorRetriever","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "MaineCoonCat","amount": 2,"instances": 3},
+				{"rewardType": "pop","rewardId": "GermanShepherd","amount": 1,"instances": 4},
+			
+				{"rewardType": "pop","rewardId": "JohnHammond","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "DennisNedry","amount": 2,"instances": 3},
+				{"rewardType": "pop","rewardId": "Dilophosaurus","amount": 1,"instances": 4},
+			
+				{"rewardType": "pop","rewardId": "CheerBear","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "TenderheartBear","amount": 2,"instances": 3},
+				{"rewardType": "pop","rewardId": "FunshineBear","amount": 1,"instances": 4},
+			
+				{"rewardType": "pop","rewardId": "JimHalpert","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "PamBeesly","amount": 2,"instances": 3},
+				{"rewardType": "pop","rewardId": "DarrylPhilbin","amount": 1,"instances": 4},
+			
+				{"rewardType": "pop","rewardId": "Dracula","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 2,"instances": 3},
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 4},
+			
+				{"rewardType": "pop","rewardId": "MattHooper","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 2,"instances": 3},
+				{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 4}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0026b_TheBreakfastClub",
+			"fandomId": "BreakfastClubFandom",
+			"startDate": "03/03/2021 00:00",
+			"endDate": "03/04/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumOrange",
+					"ribbonLocalizationKey":"",
+					"titleLocalizationKey": "BreakfastClubBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["ClaireStandish", "JohnBender", "AllisonReynolds"],
+					"discount": 0,
+					"order": 3
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "BreakfastClubBoxTitle",
+					"popIds": ["AndrewClark", "RichardVernon", "AllisonReynolds", "ClaireStandish", "JohnBender"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Orange",
+					"titleLocalizationKey": "BreakfastClubBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["ClaireStandish", "JohnBender", "AllisonReynolds"]
+				}
+			},
+
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["AndrewClark", "RichardVernon", "AllisonReynolds", "ClaireStandish", "JohnBender"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "ClaireStandish","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "JohnBender","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "BiffTannen","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RonSwanson","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0027_ParksAndRecreation2",
+			"fandomId": "ParksAndRecreation2Fandom",
+			"startDate": "03/04/2021 0:00",
+			"endDate": "03/10/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "ParksAndRec2BoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["Tom", "BertMacklin", "AndyDwyerJohnnyKarate", "JeanRalphio"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "ParksAndRec2BoxTitle",
+					"popIds": ["JeanRalphio", "Tom", "AndyDwyerJohnnyKarate", "BertMacklin"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "ParksAndRec2BoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["AndyDwyerJohnnyKarate", "BertMacklin", "Tom"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["JeanRalphio", "Tom", "AndyDwyerJohnnyKarate", "BertMacklin"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "JeanRalphio","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Tom","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "AndyDwyerJohnnyKarate","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "BertMacklin","amount": 4,"instances": 5},
+		
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Blue","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TwinkieTheKid","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "JeanRalphio","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Tom","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "AndyDwyerJohnnyKarate","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "JeanRalphio","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "Tom","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "AndyDwyerJohnnyKarate","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "BertMacklin","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "RonSwansonCornrows", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0027a_ParksAndRecreation",
+			"fandomId": "ParksAndRecreationFandom",
+			"startDate": "03/06/2021 00:00",
+			"endDate": "03/09/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"",
+					"titleLocalizationKey": "ParksRecOtherBoxTitle",
+					"subtitleLocalizationKey": "ParksRecOtherBoxSubtitle",
+					"popIds": ["RonSwanson", "LilSebastian", "LeslieKnope"],
+					"order": 3,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "ParksRecOtherBoxTitle",
+					"popIds": ["AndyDwyer", "AprilLudgate", "LeslieKnope", "RonSwanson", "LilSebastian"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "ParksRecOtherBoxTitle",
+					"subtitleLocalizationKey": "ParksRecOtherBoxSubtitle",
+					"popIds": ["RonSwanson", "LilSebastian", "LeslieKnope"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["AndyDwyer", "AprilLudgate", "LeslieKnope", "RonSwanson", "LilSebastian"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "AprilLudgate","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "LeslieKnope","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "RonSwanson","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "LilSebastian","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "TenderheartBear","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "FunshineBear","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "DennisNedry","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Dilophosaurus","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "JimHalpert","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "PamBeesly","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "DarrylPhilbin","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "MichaelScott","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "BrideOfFrankenstein","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0027d_ParksAndRecreation",
+			"fandomId": "ParksAndRecreationFandom",
+			"startDate": "03/06/2021 00:00",
+			"endDate": "03/10/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "AndyDwyerBonusEventBoxTitle",
+					"subtitleLocalizationKey": "AndyDwyerBonusEventBoxSubtitle",
+					"popIds": ["AndyDwyerJohnnyKarate", "BertMacklin", "AndyDwyer"],
+					"order": 3,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "AndyDwyerBonusEventBoxTitle",
+					"popIds": ["AndyDwyer", "Owen", "AndyDwyerJohnnyKarate", "BertMacklin"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "AndyDwyerBonusEventBoxTitle",
+					"subtitleLocalizationKey": "AndyDwyerBonusEventBoxSubtitle",
+					"popIds": ["AndyDwyerJohnnyKarate", "BertMacklin", "AndyDwyer"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["AndyDwyerJohnnyKarate", "BertMacklin"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "Owen","amount": 3,"instances": 5},
+				{"rewardType": "pop","rewardId": "AndyDwyerJohnnyKarate","amount": 3,"instances": 5},
+				{"rewardType": "pop","rewardId": "BertMacklin","amount": 4,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0027b_AroundTheWorld",
+			"fandomId": "AroundTheWorldFandom",
+			"startDate": "03/10/2021 00:00",
+			"endDate": "03/11/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumGreen",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "AroundTheWorldBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["Rosa", "Tula", "Finley"],
+					"discount": 0,
+					"order": 4
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "AroundTheWorldBoxTitle",
+					"popIds": ["Ozzy", "Barkingham", "Finley", "Rosa", "Tula"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Green",
+					"titleLocalizationKey": "AroundTheWorldBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["Rosa", "Tula", "Finley"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Ozzy", "Barkingham", "Finley", "Rosa", "Tula"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Finley","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "Rosa","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "Tula","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Blue","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TwinkieTheKid","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0027c_UniversalMonsters",
+			"fandomId": "UniversalMonstersFandom",
+			"startDate": "03/10/2021 00:00",
+			"endDate": "03/11/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumOrange",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "UniversalMonstersBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["BrideOfFrankenstein", "Frankenstein", "Wolfman"],
+					"discount": 0,
+					"order": 3
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "UniversalMonstersBoxTitle",
+					"popIds": ["Dracula", "CreatureFromTheBlackLagoon", "Wolfman", "BrideOfFrankenstein", "Frankenstein"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Orange",
+					"titleLocalizationKey": "UniversalMonstersBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["BrideOfFrankenstein", "Frankenstein", "Wolfman"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Dracula", "CreatureFromTheBlackLagoon", "Wolfman", "BrideOfFrankenstein", "Frankenstein"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "BrideOfFrankenstein","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "Frankenstein","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Blue","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TwinkieTheKid","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0028_HTTYD2",
+			"fandomId": "HowToTrainYourDragonFandom",
+			"startDate": "03/11/2021 0:00",
+			"endDate": "03/17/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "HTTYD2BoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["Hookfang", "Astrid", "Stormfly", "BarfAndBelch"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "HTTYD2BoxTitle",
+					"popIds": ["BarfAndBelch", "Hookfang", "Stormfly", "Astrid"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "HTTYD2BoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["Stormfly", "Astrid", "Hookfang"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["BarfAndBelch", "Hookfang", "Stormfly", "Astrid"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "BarfAndBelch","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Hookfang","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Stormfly","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "Astrid","amount": 4,"instances": 5},
+		
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "SnowyBigfoot","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TwinkieTheKid","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "BarfAndBelch","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Hookfang","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Stormfly","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "BarfAndBelch","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "Hookfang","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "Stormfly","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "Astrid","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "Hiccup", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0028a_HTTYD",
+			"fandomId": "HowToTrainYourDragon2Fandom",
+			"startDate": "03/13/2021 00:00",
+			"endDate": "03/17/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "HTTYDOtherBoxTitle",
+					"subtitleLocalizationKey": "HTTYDOtherBoxSubtitle",
+					"popIds": ["LightFury", "Toothless", "Ruffrunner"],
+					"order": 3,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "HTTYDOtherBoxTitle",
+					"popIds": ["Pouncer", "Dart", "Ruffrunner", "LightFury", "Toothless"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "HTTYDOtherBoxTitle",
+					"subtitleLocalizationKey": "HTTYDOtherBoxSubtitle",
+					"popIds": ["LightFury", "Toothless", "Ruffrunner"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Pouncer", "Dart", "Ruffrunner", "LightFury", "Toothless"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Dart","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Ruffrunner","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "LightFury","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "Toothless","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Marty1985","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Doc","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "GuitarMarty","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "JohnHammond","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "DennisNedry","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Dilophosaurus","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "DrEllieSattler","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CheerBear","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "TenderheartBear","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "FunshineBear","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "GrumpyBear","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0028e_PiDayBox",
+			"fandomId": "",
+			"startDate": "03/14/2021 00:00",
+			"endDate": "03/17/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "PiDayBoxTitle",
+					"subtitleLocalizationKey": "PiDayBoxSubtitle",
+					"popIds": ["Doc2015", "DwightSchrute", "DocWithHelmet"],
+					"order": 1,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "PiDayBoxTitle",
+					"popIds": ["Doc", "DocWithHelmet", "Doc2015", "DwightSchrute", "BelsnickelDwight", "DrAlanGrant", 
+					"MattHooper", "Pidge", "Claire", "ChesterMcFreckle", "DrIanMalcolm", "RichardVernon"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "PiDayBoxTitle",
+					"subtitleLocalizationKey": "PiDayBoxSubtitle",
+					"popIds": ["Doc2015", "DwightSchrute", "DocWithHelmet"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Doc", "DocWithHelmet", "Doc2015", "DwightSchrute", "BelsnickelDwight"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Doc","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "DwightSchrute","amount": 2,"instances": 1},
+				{"rewardType": "pop","rewardId": "BelsnickelDwight","amount": 2,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "DrAlanGrant","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "Pidge","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "ChesterMcFreckle","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "DrIanMalcolm","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 6}
+			],
+			"tiers": [
+				{"cost": 3141,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0028f_StPaddysDayBox",
+			"fandomId": "",
+			"startDate": "03/17/2021 00:00",
+			"endDate": "03/19/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "StPaddysDayBoxTitle",
+					"subtitleLocalizationKey": "StPaddysBoxSubtitle",
+					"popIds": ["Finley", "Lucky", "Medusa"],
+					"order": 1,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "StPaddysDayBoxTitle",
+					"popIds": ["Picklez", "CreatureFromTheBlackLagoon", "Lucky", "Finley", "Medusa", 
+						"Shrek", "MayorPattyNoble", "ElfDwight", "Dilophosaurus", "Cyclops", "Frankenstein"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "StPaddysDayBoxTitle",
+					"subtitleLocalizationKey": "StPaddysBoxSubtitle",
+					"popIds": ["Finley", "Lucky", "Medusa"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Picklez", "CreatureFromTheBlackLagoon", "Lucky", "Finley", "Medusa"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Picklez","amount": 1,"instances": 7},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 2,"instances": 5},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 3,"instances": 3},
+				{"rewardType": "pop","rewardId": "Finley","amount": 3,"instances": 3},
+				{"rewardType": "pop","rewardId": "Medusa","amount": 4,"instances": 2},
+			
+				{"rewardType": "pop","rewardId": "Shrek","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "MayorPattyNoble","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "ElfDwight","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Dilophosaurus","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Frankenstein","amount": 1,"instances": 2}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0028c_BackToTheFuture2",
+			"fandomId": "BackToTheFuture2Fandom",
+			"startDate": "03/17/2021 00:00",
+			"endDate": "03/18/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumOrange",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "BackToTheFutureBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["BiffTannen", "MartyWithHoverboard", "Doc2015"],
+					"discount": 0,
+					"order": 3
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "BackToTheFutureBoxTitle",
+					"popIds": ["WesternMarty", "DocWithHelmet", "Doc2015", "BiffTannen", "MartyWithHoverboard"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Orange",
+					"titleLocalizationKey": "BackToTheFutureBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["BiffTannen", "MartyWithHoverboard", "Doc2015"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["WesternMarty", "DocWithHelmet", "Doc2015", "BiffTannen", "MartyWithHoverboard"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Doc2015","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "BiffTannen","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "MartyWithHoverboard","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "CheerBear","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "TenderheartBear","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "FunshineBear","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "GrumpyBear","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "JohnHammond","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "DennisNedry","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Dilophosaurus","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "DrEllieSattler","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0028b_BattlestarGalactica",
+			"fandomId": "BattlestarGalacticaFandom",
+			"startDate": "03/17/2021 00:00",
+			"endDate": "03/18/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumGreen",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "BattlestarGalacticaBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["CommanderAdama", "CylonCommander", "LtStarbuck"],
+					"discount": 0,
+					"order": 4
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "BattlestarGalacticaBoxTitle",
+					"popIds": ["CylonCenturion", "CaptainApollo", "LtStarbuck", "CommanderAdama", "CylonCommander"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Green",
+					"titleLocalizationKey": "BattlestarGalacticaBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["CommanderAdama", "CylonCommander", "LtStarbuck"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["CylonCenturion", "CaptainApollo", "LtStarbuck", "CommanderAdama", "CylonCommander"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "CylonCenturion","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "CaptainApollo","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "LtStarbuck","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "CommanderAdama","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "CylonCommander","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "SnowyBigfoot","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TwinkieTheKid","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0029_DoctorWho",
+			"fandomId": "DoctorWhoFandom",
+			"startDate": "03/18/2021 0:00",
+			"endDate": "03/24/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "DoctorWhoBoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["ThirteenthDoctor", "TenthDoctorWithHand", "NinthDoctor", "TwelfthDoctor"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "DoctorWhoBoxTitle",
+					"popIds": ["TwelfthDoctor", "ThirteenthDoctor", "NinthDoctor", "TenthDoctorWithHand"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "DoctorWhoBoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["NinthDoctor", "TenthDoctorWithHand", "ThirteenthDoctor"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["TwelfthDoctor", "ThirteenthDoctor", "NinthDoctor", "TenthDoctorWithHand"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "TwelfthDoctor","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "ThirteenthDoctor","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "NinthDoctor","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "TenthDoctorWithHand","amount": 4,"instances": 5},
+		
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "SnowyBigfoot","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "ClaireStandish","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "TwelfthDoctor","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "ThirteenthDoctor","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "NinthDoctor","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "TwelfthDoctor","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "ThirteenthDoctor","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "NinthDoctor","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "TenthDoctorWithHand","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "EleventhDoctorMop", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0029a_PremiumBox",
+			"fandomId": "",
+			"startDate": "03/20/2021 00:00",
+			"endDate": "03/24/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "PremiumBoxTitle",
+					"subtitleLocalizationKey": "PremiumBoxSubtitle",
+					"popIds": ["DwightSchrute", "BedtimeBear", "DrSexyIanMalcolm"],
+					"order": 1,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "PremiumBoxTitle",
+					"popIds": ["TinyDiamond", "DrSexyIanMalcolm", "DwightSchrute", "BedtimeBear", "GreatWhiteShark", "LilSebastian"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "PremiumBoxTitle",
+					"subtitleLocalizationKey": "PremiumBoxSubtitle",
+					"popIds": ["DwightSchrute", "BedtimeBear", "DrSexyIanMalcolm"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["TinyDiamond", "DrSexyIanMalcolm", "DwightSchrute", "BedtimeBear", "GreatWhiteShark", "LilSebastian"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "TinyDiamond","amount": 3,"instances": 1},
+				{"rewardType": "pop","rewardId": "DrSexyIanMalcolm","amount": 3,"instances": 1},
+				{"rewardType": "pop","rewardId": "DwightSchrute","amount": 3,"instances": 1},
+				{"rewardType": "pop","rewardId": "BedtimeBear","amount": 3,"instances": 1},
+				{"rewardType": "pop","rewardId": "GreatWhiteShark","amount": 3,"instances": 1},
+				{"rewardType": "pop","rewardId": "LilSebastian","amount": 3,"instances": 1},
+					
+				{"rewardType": "pop","rewardId": "DwightWithPrincessUnicorn","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 5},
+	
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 2,"instances": 4},
+				{"rewardType": "pop","rewardId": "StanleyWithPretzel","amount": 2,"instances": 4},
+				{"rewardType": "pop","rewardId": "HazmatMarty","amount": 2,"instances": 4}
+			],
+			"tiers": [
+				{"cost": 10000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0029b_ThePrincessBride",
+			"fandomId": "ThePrincessBrideFandom",
+			"startDate": "03/24/2021 00:00",
+			"endDate": "03/25/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumOrange",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "ThePrincessBrideBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["Fezzik", "Vizzini", "InigoMontoya"],
+					"discount": 0,
+					"order": 3
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "ThePrincessBrideBoxTitle",
+					"popIds": ["Westley", "PrincessButtercup", "InigoMontoya", "Fezzik", "Vizzini"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Orange",
+					"titleLocalizationKey": "ThePrincessBrideBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["Fezzik", "Vizzini", "InigoMontoya"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Westley", "PrincessButtercup", "InigoMontoya", "Fezzik", "Vizzini"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Westley","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "PrincessButtercup","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "InigoMontoya","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "Fezzik","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "Vizzini","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0029c_Trolls",
+			"fandomId": "TrollsFandom",
+			"startDate": "03/24/2021 00:00",
+			"endDate": "03/25/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumGreen",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "TrollsBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["GuyDiamond", "QueenBarb", "KingTrollex"],
+					"discount": 0,
+					"order": 4
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "TrollsBoxTitle",
+					"popIds": ["Branch", "Poppy", "KingTrollex", "GuyDiamond", "QueenBarb"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Green",
+					"titleLocalizationKey": "TrollsBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["GuyDiamond", "QueenBarb", "KingTrollex"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Branch", "Poppy", "KingTrollex", "GuyDiamond", "QueenBarb"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Poppy","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "KingTrollex","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "GuyDiamond","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "QueenBarb","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "CheerBear","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TenderheartBear","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "FunshineBear","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "JimHalpert","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "PamBeesly","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "DarrylPhilbin","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "BrideOfFrankenstein","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "ChiefMartinBrody","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0030_Pets2",
+			"fandomId": "Pets2Fandom",
+			"startDate": "03/25/2021 0:00",
+			"endDate": "03/31/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "PetsBoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["Dachschund", "Beagle", "FrenchBulldog", "LabradorRetrieverBlack"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "PetsBoxTitle",
+					"popIds": ["LabradorRetrieverBlack", "Dachschund", "FrenchBulldog", "Beagle"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "PetsBoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["FrenchBulldog", "Beagle", "Dachschund"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["LabradorRetrieverBlack", "Dachschund", "FrenchBulldog", "Beagle"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "LabradorRetrieverBlack","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Dachschund","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "FrenchBulldog","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "Beagle","amount": 4,"instances": 5},
+		
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Claire","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Stygimoloch","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Owen","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Blue","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "ClaireStandish","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "LabradorRetrieverBlack","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Dachschund","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "FrenchBulldog","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "LabradorRetrieverBlack","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "Dachschund","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "FrenchBulldog","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "Beagle","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "CalicoCat", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0030a_Pets",
+			"fandomId": "PetsFandom",
+			"startDate": "03/26/2021 00:00",
+			"endDate": "03/31/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "PetsOtherBoxTitle",
+					"subtitleLocalizationKey": "PetsOtherBoxSubtitle",
+					"popIds": ["SiberianHusky", "SiameseCat", "GermanShepherd"],
+					"order": 3,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "PetsOtherBoxTitle",
+					"popIds": ["LabradorRetriever", "MaineCoonCat", "GermanShepherd", "SiberianHusky", "SiameseCat"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "PetsOtherBoxTitle",
+					"subtitleLocalizationKey": "PetsOtherBoxSubtitle",
+					"popIds": ["SiberianHusky", "SiameseCat", "GermanShepherd"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["LabradorRetriever", "MaineCoonCat", "GermanShepherd", "SiberianHusky", "SiameseCat"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "LabradorRetriever","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "MaineCoonCat","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "GermanShepherd","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "SiberianHusky","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "SiameseCat","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0030b_Voltron",
+			"fandomId": "VoltronFandom",
+			"startDate": "03/31/2021 00:00",
+			"endDate": "04/01/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "VoltronBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["Hunk", "Shiro", "Keith"],
+					"discount": 0,
+					"order": 3
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "VoltronBoxTitle",
+					"popIds": ["Pidge", "Lance", "Keith", "Hunk", "Shiro"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "VoltronBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["Hunk", "Shiro", "Keith"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Pidge", "Lance", "Keith", "Hunk", "Shiro"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Pidge","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Lance","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Keith","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "Hunk","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "Shiro","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "AndyDwyer","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "AprilLudgate","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "LeslieKnope","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "Branch","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Poppy","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "KingTrollex","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Sonny","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "TrixRabbit","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "Pouncer","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Dart","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Ruffrunner","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "LightFury","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0030c_GeneralMills",
+			"fandomId": "GeneralMillsFandom",
+			"startDate": "03/31/2021 00:00",
+			"endDate": "04/01/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumGreen",
+					"ribbonLocalizationKey":"MarchManiaRibbon",
+					"titleLocalizationKey": "GeneralMillsBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["TrixRabbit", "PillsburyDoughboy", "Lucky"],
+					"discount": 0,
+					"order": 4
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "GeneralMillsBoxTitle",
+					"popIds": ["BuzzBee", "Sonny", "Lucky", "TrixRabbit", "PillsburyDoughboy"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Green",
+					"titleLocalizationKey": "GeneralMillsBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["TrixRabbit", "PillsburyDoughboy", "Lucky"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["BuzzBee", "Sonny", "Lucky", "TrixRabbit", "PillsburyDoughboy"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Sonny","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "TrixRabbit","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "PillsburyDoughboy","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Dracula","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "CreatureFromTheBlackLagoon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Wolfman","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "JimHalpert","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "PamBeesly","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "DarrylPhilbin","amount": 1,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "DocWithHelmet","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Doc2015","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "BiffTannen","amount": 1,"instances": 1},
+	
+				{"rewardType": "pop","rewardId": "MattHooper","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Quint","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "ChiefMartinBrody","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0031_Peeps",
+			"fandomId": "PeepsFandom",
+			"startDate": "04/01/2021 0:00",
+			"endDate": "04/07/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "PeepsBoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["PinkBunny", "YellowBunny", "BlueBunny", "LavenderBunny"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "PeepsBoxTitle",
+					"popIds": [ "LavenderBunny", "PinkBunny", "BlueBunny", "YellowBunny" ]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style": "Pink",
+					"titleLocalizationKey": "PeepsBoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": [ "BlueBunny", "YellowBunny", "PinkBunny" ]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["LavenderBunny", "PinkBunny", "BlueBunny", "YellowBunny"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "LavenderBunny","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "PinkBunny","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "BlueBunny","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "YellowBunny","amount": 4,"instances": 5},
+
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Finley","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Rosa","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "ClaireStandish","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "LavenderBunny","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "PinkBunny","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "BlueBunny","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "LavenderBunny","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "PinkBunny","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "BlueBunny","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "YellowBunny","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "YellowChick", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0031a_AprilFoolsBox",
+			"fandomId": "",
+			"startDate": "04/01/2021 00:00",
+			"endDate": "04/04/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralBoxRibbon",
+					"titleLocalizationKey": "AprilFoolsBoxTitle",
+					"subtitleLocalizationKey": "AprilFoolsBoxSubtitle",
+					"popIds": ["Lucky", "MartyWithHoverboard", "TrixRabbit"],
+					"order": 1,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "AprilFoolsBoxTitle",
+					"popIds": ["Westley", "MayorLarryVaughn", "Lucky", "MartyWithHoverboard", "TrixRabbit", "Marty1985", 
+					"ElDiablo", "WesternMarty", "FruitPieTheMagician", "DennisNedry", "WoodyWoodpecker", "PussInBoots"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "AprilFoolsBoxTitle",
+					"subtitleLocalizationKey": "AprilFoolsBoxSubtitle",
+					"popIds": ["Lucky", "MartyWithHoverboard", "TrixRabbit"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Westley", "MayorLarryVaughn", "Lucky", "MartyWithHoverboard", "TrixRabbit"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Westley","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "MayorLarryVaughn","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "MartyWithHoverboard","amount": 3,"instances": 1},
+				{"rewardType": "pop","rewardId": "TrixRabbit","amount": 3,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "Marty1985","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "ElDiablo","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "WesternMarty","amount": 1,"instances": 10},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "DennisNedry","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "WoodyWoodpecker","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "PussInBoots","amount": 1,"instances": 4}
+			],
+			"tiers": [
+				{"cost": 4000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0031b_SavedByTheBell",
+			"fandomId": "SavedByTheBellFandom",
+			"startDate": "04/07/2021 00:00",
+			"endDate": "04/08/2021 00:00",
+			"appearance": {
+				"isEventBox": false,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "MediumPurple",
+					"ribbonLocalizationKey":"GeneralRibbon",
+					"titleLocalizationKey": "SavedByTheBellBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["LisaTurtle", "KellyKapowski", "JessieSpano"],
+					"discount": 0,
+					"order": 2
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "SavedByTheBellBoxTitle",
+					"popIds": ["AcSlater", "Screech", "JessieSpano", "LisaTurtle", "KellyKapowski"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Purple",
+					"titleLocalizationKey": "SavedByTheBellBoxTitle",
+					"subtitleLocalizationKey": "CompleteCollectionSubtitle",
+					"popIds": ["LisaTurtle", "KellyKapowski", "JessieSpano"]
+				}
+			},
+	
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["AcSlater", "Screech", "JessieSpano", "LisaTurtle", "KellyKapowski"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "AcSlater","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Screech","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "JessieSpano","amount": 3,"instances": 7},
+				{"rewardType": "pop","rewardId": "LisaTurtle","amount": 4,"instances": 5},
+				{"rewardType": "pop","rewardId": "KellyKapowski","amount": 5,"instances": 1},
+			
+				{"rewardType": "pop","rewardId": "CaptainCupcake","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "FruitPieTheMagician","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "KingDingDong","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "ClaireStandish","amount": 1,"instances": 1},
+
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Finley","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Rosa","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			]
+		},
+		{
+			"boxId": "e0032_TheOffice3",
+			"fandomId": "TheOffice3Fandom",
+			"startDate": "04/08/2021 0:00",
+			"endDate": "04/14/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "TheOffice3BoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["Goldenface", "DateMike", "KevinMalone", "AndyBernard"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "TheOffice3BoxTitle",
+					"popIds": ["AndyBernard", "Goldenface", "KevinMalone", "DateMike"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "TheOffice3BoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["KevinMalone", "DateMike", "Goldenface"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["AndyBernard", "Goldenface", "KevinMalone", "DateMike"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "AndyBernard","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Goldenface","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "KevinMalone","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "DateMike","amount": 4,"instances": 5},
+
+				{"rewardType": "pop","rewardId": "Chupacabra","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Krampus","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Cyclops","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "Finley","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Rosa","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CylonCenturion","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "CaptainApollo","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "LtStarbuck","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "CommanderAdama","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "AndyBernard","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Goldenface","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "KevinMalone","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "AndyBernard","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "Goldenface","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "KevinMalone","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "DateMike","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "DwightSchruteHayKing", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0033_Myths2",
+			"fandomId": "Myths2Fandom",
+			"startDate": "04/15/2021 0:00",
+			"endDate": "04/21/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "Myths2BoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["Minotaur", "LochNessMonster", "TheKraken", "Pegasus"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "Myths2BoxTitle",
+					"popIds": [ "Pegasus", "Minotaur", "TheKraken", "LochNessMonster" ]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style": "Pink",
+					"titleLocalizationKey": "Myths2BoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": [ "TheKraken", "LochNessMonster", "Minotaur" ]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Pegasus", "Minotaur", "TheKraken", "LochNessMonster"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Pegasus","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Minotaur","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "TheKraken","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "LochNessMonster","amount": 4,"instances": 5},
+
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Finley","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AndrewClark","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "RichardVernon","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "AllisonReynolds","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Westley","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "PrincessButtercup","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "InigoMontoya","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Fezzik","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CylonCenturion","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "CaptainApollo","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "LtStarbuck","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "CommanderAdama","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Pegasus","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Minotaur","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "TheKraken","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "Pegasus","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "Minotaur","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "TheKraken","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "LochNessMonster","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "Jackalope", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0034_BackToTheFuture3",
+			"fandomId": "BackToTheFuture3Fandom",
+			"startDate": "04/22/2021 0:00",
+			"endDate": "04/28/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey": "EventBoxRibbon",
+					"titleLocalizationKey": "BackToTheFuture3BoxTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": [ "MartyFutureOutfit", "Einstein", "MartyGlasses", "Marty1955" ],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "BackToTheFuture3BoxTitle",
+					"popIds": [ "Marty1955", "MartyFutureOutfit", "MartyGlasses", "Einstein" ]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style": "Pink",
+					"titleLocalizationKey": "BackToTheFuture3BoxTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": [ "MartyGlasses", "Einstein", "MartyFutureOutfit" ]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Marty1955", "MartyFutureOutfit", "MartyGlasses", "Einstein"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Marty1955","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "MartyFutureOutfit","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "MartyGlasses","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "Einstein","amount": 4,"instances": 5},
+
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Finley","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "CylonCenturion","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "CaptainApollo","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "LtStarbuck","amount": 1,"instances": 1},
+		
+				{"rewardType": "pop","rewardId": "Westley","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "PrincessButtercup","amount": 1,"instances": 4},
+				{"rewardType": "pop","rewardId": "InigoMontoya","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Fezzik","amount": 1,"instances": 1},
+				{"rewardType": "pop","rewardId": "Pidge","amount": 1,"instances": 6},
+				{"rewardType": "pop","rewardId": "Lance","amount": 1,"instances": 5},
+				{"rewardType": "pop","rewardId": "Keith","amount": 1,"instances": 2},
+				{"rewardType": "pop","rewardId": "Hunk","amount": 1,"instances": 1}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "Marty1955","specificPopAmount": 1}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "MartyFutureOutfit","specificPopAmount": 2}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 3000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"SpecificPopId": "MartyGlasses","specificPopAmount": 3}},
+				{"cost": 6000,"numPulls": 1},
+				{"cost": 1,"numPulls": 1},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "Marty1955","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "MartyFutureOutfit","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "MartyGlasses","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "Einstein","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "DocStopwatch", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0035_AroundTheWorld2",
+			"fandomId": "AroundTheWorld2Fandom",
+			"startDate": "04/29/2021 0:00",
+			"endDate": "05/05/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "EventCarouselitemTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["Carmen", "Douglas", "Nora", "Hamsel"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "EventCarouselitemTitle",
+					"popIds": ["Hamsel", "Carmen", "Nora", "Douglas"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "EventCarouselitemTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["Nora", "Douglas", "Carmen"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["Hamsel", "Carmen", "Nora", "Douglas"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Hamsel","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "Carmen","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "Nora","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "Douglas","amount": 4,"instances": 5},
+
+				{"rewardType": "pop","rewardId": "WoodyWoodpecker","amount": 1,"instances": 35}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "Hamsel","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "Carmen","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "Nora","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "Douglas","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "Toshi", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "e0036_HelloKitty",
+			"fandomId": "HelloKittyFandom",
+			"startDate": "05/06/2021 0:00",
+			"endDate": "05/12/2021 0:00",
+			"appearance": {
+				"isEventBox": true,
+				"mysteryBoxType": "LuckyMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"style": "LargePink",
+					"ribbonLocalizationKey":"EventBoxRibbon",
+					"titleLocalizationKey": "EventCarouselitemTitle",
+					"subtitleLocalizationKey": "",
+					"popIds": ["HelloKittyMecha", "HelloKittyLand", "HelloKittySea", "HelloKittySky"],
+					"order": 2,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "EventCarouselitemTitle",
+					"popIds": ["HelloKittySky", "HelloKittyMecha", "HelloKittySea", "HelloKittyLand"]
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"style":"Pink",
+					"titleLocalizationKey": "EventCarouselitemTitle",
+					"subtitleLocalizationKey": "EventCarouselitemSubtitle",
+					"popIds": ["HelloKittySea", "HelloKittyLand", "HelloKittyMecha"]
+				}
+			},
+		
+			"behaviourType": "PullBased",
+			"featuredPopIds": ["HelloKittySky", "HelloKittyMecha", "HelloKittySea", "HelloKittyLand"],
+			"prizes": [
+				{"rewardType": "pop","rewardId": "HelloKittySky","amount": 1,"instances": 12},
+				{"rewardType": "pop","rewardId": "HelloKittyMecha","amount": 2,"instances": 10},
+				{"rewardType": "pop","rewardId": "HelloKittySea","amount": 3,"instances": 8},
+				{"rewardType": "pop","rewardId": "HelloKittyLand","amount": 4,"instances": 5},
+
+				{"rewardType": "pop","rewardId": "WoodyWoodpecker","amount": 1,"instances": 35}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1,"guarantee": {"LuckyPopPrize": true}},
+				{"cost": 6000,"numPulls": 1}
+			],
+			"lastChanceBoxPrizes": [
+				{"rewardType": "pop","rewardId": "HelloKittySky","amount": 1,"instances": 3},
+				{"rewardType": "pop","rewardId": "HelloKittyMecha","amount": 2,"instances": 2},
+				{"rewardType": "pop","rewardId": "HelloKittySea","amount": 3,"instances": 2},
+				{"rewardType": "pop","rewardId": "HelloKittyLand","amount": 6,"instances": 1},
+				{"rewardType": "pop","rewardId": "HelloKittySpace", "amount": 6,"instances": 1}
+			]
+		},
+		{
+			"boxId": "m0001_SharkBitingQuint",
+			"startDate": "03/11/3021 0:00",
+			"endDate": "04/08/3021 0:00",
+			"appearance": {
+				"isEventBox": false,
+				"isMegaCollectionLastChanceBox": true,
+				"mysteryBoxType": "DiamondMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"ribbonLocalizationKey":"",
+					"titleLocalizationKey": "MegaCollectionLastChanceBoxTitle",
+					"subtitleLocalizationKey": "MegaCollectionLastChanceBoxSubtitle",
+					"style": "MediumMegaCollection",
+					"order": 9,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "MegaCollectionLastChanceBoxTitle"
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"titleLocalizationKey": "MegaCollectionLastChanceBoxTitle",
+					"subtitleLocalizationKey": "MegaCollectionLastChanceBoxSubtitle",
+					"style":"MegaCollection"
+				}
+			},
+
+			"behaviourType": "PullBased",
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 2,"instances": 6},
+				{"rewardType": "pop","rewardId": "Finley","amount": 3,"instances": 3},
+
+				{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "Sonny","amount": 2,"instances": 6},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 3,"instances": 3}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1}			
+			]
+		},
+		{
+			"boxId": "m0002_FrankenFreddy",
+			"startDate": "04/08/3021 0:00",
+			"endDate": "05/06/3021 0:00",
+			"appearance": {
+				"isEventBox": false,
+				"isMegaCollectionLastChanceBox": true,
+				"mysteryBoxType": "DiamondMystery",
+				"theme":"",
+				"storeButtonAppearance": {
+					"ribbonLocalizationKey":"",
+					"titleLocalizationKey": "MegaCollectionLastChanceBoxTitle",
+					"subtitleLocalizationKey": "MegaCollectionLastChanceBoxSubtitle",
+					"style": "MediumMegaCollection",
+					"order": 9,
+					"discount": 0
+				},
+				"purchaseScreenAppearance": {
+					"titleLocalizationKey": "MegaCollectionLastChanceBoxTitle"
+				},
+				"mainHubAppearance": {
+					"canShowInCarousel": true,
+					"titleLocalizationKey": "MegaCollectionLastChanceBoxTitle",
+					"subtitleLocalizationKey": "MegaCollectionLastChanceBoxSubtitle",
+					"style":"MegaCollection"
+				}
+			},
+
+			"behaviourType": "PullBased",
+			"prizes": [
+				{"rewardType": "pop","rewardId": "Ozzy","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "Barkingham","amount": 2,"instances": 6},
+				{"rewardType": "pop","rewardId": "Finley","amount": 3,"instances": 3},
+
+				{"rewardType": "pop","rewardId": "BuzzBee","amount": 1,"instances": 8},
+				{"rewardType": "pop","rewardId": "Sonny","amount": 2,"instances": 6},
+				{"rewardType": "pop","rewardId": "Lucky","amount": 3,"instances": 3}
+			],
+			"tiers": [
+				{"cost": 6000,"numPulls": 1}			
+			]
+		}
+	]

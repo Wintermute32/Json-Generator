@@ -59,8 +59,8 @@ namespace JsonPopulator
                 Console.WriteLine("Date Time not calculated Properly");
                 return;
             }
-                startDate = dateAndTime[0].ToString("MM/dd/yy HH:mm");
-                endDate = dateAndTime[1].AddDays(-1).ToString("MM/dd/yy HH:mm");
+                startDate = dateAndTime[0].ToString("MM/dd/yyyy HH:mm");
+                endDate = dateAndTime[1].AddDays(-1).ToString("MM/dd/yyyy HH:mm");
         }
 
         public void GetEventNumber(string line)
@@ -70,8 +70,6 @@ namespace JsonPopulator
                 if (Regex.IsMatch(x, @"\b\d{4}"))
                     boxID = x + "_" + fandomName;
             }
-
-            if (boxID.Length)
 
         }
 

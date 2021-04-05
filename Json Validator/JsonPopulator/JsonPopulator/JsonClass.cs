@@ -101,7 +101,6 @@ namespace JsonPopulator
 
         public void GetFeaturedPopIds()
         {
-
         }
 
 

@@ -20,12 +20,20 @@ namespace JsonPopulator
             Program program = new Program();
             var eventID = program.GetUserInput();
             LivePlaybook livePlay = new LivePlaybook(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv", eventID);
-        
+
             Root root = new Root(eventID, livePlay);
 
-            string output = JsonConvert.SerializeObject(root);
+            PopDatabase popData = new PopDatabase(@"/Users/piercenudd/Projects/Json Generator/Json Validator/JsonPopulator/Docs/[1.5.0] Pop_Database - pop_database.csv", root);
 
-            Console.WriteLine(output);
+           var dataDict = popData.GetPopDict(popData.startDate);
+
+            foreach (KeyValuePair<string, string> entry in dataDict)
+                Console.WriteLine(entry.Key + " Equals " + entry.Value);
+
+
+           string output = JsonConvert.SerializeObject(root);
+
+            Console.WriteLine("\n" + output);
         }
 
   

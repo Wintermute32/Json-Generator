@@ -16,7 +16,8 @@ namespace JsonPopulator
         public PopDatabase(string databasePath, Root root)
         {
             this.databasePath = databasePath;
-            startDate = FixStartDate(root.startDate);
+            this.startDate = FixStartDate(root.startDate);
+            Console.WriteLine(startDate);
         }
 
         public Dictionary<string, string> GetPopDict (string startDate)
@@ -29,7 +30,20 @@ namespace JsonPopulator
                 if (allLines[i].Contains(startDate))
                 {
                     var lineSplit = allLines[i].Split(",");
-                    popDict.Add(lineSplit[0], lineSplit[6]);
+                    bool isEvent = false;
+
+                    foreach (var x in lineSplit)
+                    {
+                        if (x.ToLower() == "event")
+                            isEvent = true;
+                    }
+
+                    if (isEvent == true)
+                        popDict.Add(lineSplit[0], "event exclusive");
+
+                    else
+                        popDict.Add(lineSplit[0], lineSplit[6].ToLower());
+                            
                 }
             }
 
@@ -39,13 +53,9 @@ namespace JsonPopulator
 
         public string FixStartDate(string startDate)
         {
-            StringBuilder sb = new StringBuilder(startDate);
-            for (int i = 0; i < sb.Length; i++)
-                if (sb[i] == 0 && sb[i-1] != 2)
-                    sb.Remove(i, 1);
-
-            return sb.ToString();
+            return DateTime.Parse(startDate).ToString("M/d/yyyy");
         }
+      
 
 
         public void CheckPopIds(List<string> popIds)

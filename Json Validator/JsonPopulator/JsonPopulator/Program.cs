@@ -23,17 +23,20 @@ namespace JsonPopulator
 
             Root root = new Root(eventID, livePlay);
 
-            PopDatabase popData = new PopDatabase(@"/Users/piercenudd/Projects/Json Generator/Json Validator/JsonPopulator/Docs/[1.5.0] Pop_Database - pop_database.csv", root);
+            PopDatabase popData = new PopDatabase(@"C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\Docs\[1.5.0] Pop_Database - pop_database.csv", root);
 
-           var dataDict = popData.GetPopDict(popData.startDate);
+            var popDict = popData.GetPopDict(popData.startDate);
+            
+            foreach (var x in popDict)
+                Console.WriteLine(x.Key + ":" + x.Value);
 
-            foreach (KeyValuePair<string, string> entry in dataDict)
-                Console.WriteLine(entry.Key + " Equals " + entry.Value);
+            root.featuredPopIdsList = root.SetFeaturedPopIds(popDict); 
 
+           //root.SetFeaturedPopIds(popData.GetPopDict(popData.startDate));
 
            string output = JsonConvert.SerializeObject(root);
 
-            Console.WriteLine("\n" + output);
+            Console.WriteLine(output);
         }
 
   

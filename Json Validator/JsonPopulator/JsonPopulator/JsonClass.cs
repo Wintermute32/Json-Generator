@@ -80,7 +80,12 @@ namespace JsonPopulator
         public string endDate { get; set; }
         public Appearance appearance { get; set; }
         public string behaviourType { get; set; }
-        public List<string> featuredPopIds { get; set; }
+        public List<string> featuredPopIdsList
+        {
+            get { return featuredPopIdsList; }
+            set { featuredPopIdsList = new List<string>() { "common", "rare", "legendary", "event exclusive"}; }
+        }
+
         public List<Prize> prizes { get; set; }
         public List<Tier> tiers { get; set; }
         public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }
@@ -99,8 +104,20 @@ namespace JsonPopulator
             behaviourType = "";
         }
 
-        public void GetFeaturedPopIds()
+        public List<string> SetFeaturedPopIds(Dictionary<string,string> popIdDict)
         {
+            foreach (KeyValuePair<string, string> entry in popIdDict)
+
+
+                for (int i = 0; i < featuredPopIdsList.Count; i++)
+                    for ()
+                    if (entry.Value == featuredPopIdsList[i])
+                    {
+                        featuredPopIdsList[i] = entry.Key;
+                    }
+
+            return featuredPopIdsList;
+
         }
 
 

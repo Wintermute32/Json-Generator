@@ -14,6 +14,30 @@ namespace JsonPopulator
         public List<string> popIds { get; set; }
         public int order { get; set; }
         public int discount { get; set; }
+
+        public StoreButtonAppearance(string ipTitle, Dictionary<string, string> popDict)
+        {
+            style = "LargePink";
+            ribbonLocalizationKey = "EventBoxRibbon";
+            titleLocalizationKey = ipTitle + "BoxTitle";
+            subtitleLocalizationKey = "";
+            //popIds = getPopIds(popDict);
+            order = 2;
+            discount = 0;
+        }
+
+        public List<string> getPopIds(Dictionary<string, string> popDict)
+        {
+            List<string> rarities = new List<string>() {"rare", "epic", "legendary", "common" };
+            List<string> whatever = new List<string>();
+
+            foreach (KeyValuePair<string, string> entry in popDict)
+                for (int i = 0; i < popDict.Count; i++)
+                    if (entry.Value == rarities[i])
+                        whatever.Add(entry.Key);
+
+            return whatever;
+        }
     }
 
     public class PurchaseScreenAppearance
@@ -39,14 +63,14 @@ namespace JsonPopulator
         public StoreButtonAppearance storeButtonAppearance { get; set; }
         public PurchaseScreenAppearance purchaseScreenAppearance { get; set; }
         public MainHubAppearance mainHubAppearance { get; set; }
-    }
+        public Appearance(StoreButtonAppearance sbA)
+        {
+            isEventBox = true;
+            mysteryBoxType = "LuckyMystery";
+            theme = "";
+            storeButtonAppearance = sbA;
 
-    public class Prize
-    {
-        public string rewardType { get; set; }
-        public string rewardId { get; set; }
-        public int amount { get; set; }
-        public int instances { get; set; }
+        }
     }
 
     public class Guarantee
@@ -73,19 +97,13 @@ namespace JsonPopulator
 
     public class Root
     {
-
         public string boxId { get; set; }
         public string fandomId { get; set; }
         public string startDate { get; set; }
         public string endDate { get; set; }
         public Appearance appearance { get; set; }
         public string behaviourType { get; set; }
-        public List<string> featuredPopIdsList
-        {
-            get { return featuredPopIdsList; }
-            set { featuredPopIdsList = new List<string>() { "common", "rare", "legendary", "event exclusive"}; }
-        }
-
+        public List<string> featuredPopIdsList { get; set; }
         public List<Prize> prizes { get; set; }
         public List<Tier> tiers { get; set; }
         public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }
@@ -104,24 +122,18 @@ namespace JsonPopulator
             behaviourType = "";
         }
 
-        public List<string> SetFeaturedPopIds(Dictionary<string,string> popIdDict)
+        public void SetFeaturedPopIds(Dictionary<string,string> popIdDict)
         {
+            List<string> whatever = new List<string>() { "common", "rare", "epic", "legendary", "event exclusive" };
+
             foreach (KeyValuePair<string, string> entry in popIdDict)
+                for (int i = 0; i < popIdDict.Count; i++)
+                    if (entry.Value == whatever[i])
+                        whatever[i] = entry.Key;
 
-
-                for (int i = 0; i < featuredPopIdsList.Count; i++)
-                    for ()
-                    if (entry.Value == featuredPopIdsList[i])
-                    {
-                        featuredPopIdsList[i] = entry.Key;
-                    }
-
-            return featuredPopIdsList;
-
+            featuredPopIdsList = whatever;
         }
 
-
     }
-
 
 }

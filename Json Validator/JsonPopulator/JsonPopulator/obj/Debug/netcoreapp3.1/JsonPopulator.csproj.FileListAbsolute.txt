@@ -38,7 +38,6 @@ C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopula
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\bin\Debug\netcoreapp3.1\JsonPopulator.dll
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\bin\Debug\netcoreapp3.1\JsonPopulator.pdb
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\bin\Debug\netcoreapp3.1\CsvHelper.dll
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\obj\Debug\netcoreapp3.1\JsonPopulator.csprojAssemblyReference.cache
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonPopulator\obj\Debug\netcoreapp3.1\JsonPopulator.AssemblyInfoInputs.cache

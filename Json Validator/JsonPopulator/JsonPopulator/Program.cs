@@ -17,33 +17,31 @@ namespace JsonPopulator
 
         public static void Main(string[] args)
         {
-            Program program = new Program();
-            var eventID = program.GetUserInput();
-            LivePlaybook livePlay = new LivePlaybook(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv", eventID);
-
-            Root root = new Root(eventID, livePlay);
-
-            PopDatabase popData = new PopDatabase(@"C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\Docs\[1.5.0] Pop_Database - pop_database.csv", root);
-
-            var popDict = popData.GetPopDict(popData.startDate);
-            
-            foreach (var x in popDict)
-                Console.WriteLine(x.Key + ":" + x.Value);
-
-            root.featuredPopIdsList = root.SetFeaturedPopIds(popDict); 
-
-           //root.SetFeaturedPopIds(popData.GetPopDict(popData.startDate));
-
-           string output = JsonConvert.SerializeObject(root);
-
-            Console.WriteLine(output);
-        }
-
-  
-        public string GetUserInput()
-        {
             Console.WriteLine("Type the Event Name, no spaces with the set number IE: \'TheOffice3\'");
-            return Console.ReadLine();
+            string eventID = Console.ReadLine();
+
+            LivePlaybook livePlay = new LivePlaybook(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv", eventID);
+            Root root = new Root(eventID, livePlay);
+            PopDatabase popData = new PopDatabase(@"C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\Docs\[1.5.0] Pop_Database - pop_database.csv", root);
+            var startDate = popData.startDate;
+            var popDict = popData.GetPopDict(startDate);
+            StoreButtonAppearance sbA = new StoreButtonAppearance(eventID, popDict);
+            Appearance appearance = new Appearance(sbA);
+            root.SetFeaturedPopIds(popDict);
+
+            GachaParser gachaPar = new GachaParser();
+            var parsedGacha = gachaPar.ParseEventSheet(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0032_FunkoBlitz_EventRewards_TheOffice3_Clear - Event Gacha.csv");
+
+            var testMe = gachaPar.RetPopPrizeLine(parsedGacha);
+
+
+            root.appearance = appearance;
+            root.prizes = gachaPar.RetPopPrizeLine(parsedGacha);
+
+            string rootOutput = JsonConvert.SerializeObject(root, Formatting.Indented);
+
+            Console.WriteLine(rootOutput);
+
         }
 
     }
@@ -51,3 +49,4 @@ namespace JsonPopulator
 }
 
 
+ 

@@ -66,8 +66,6 @@ namespace JsonPopulator
     }
 
 
-       
-
     class EventDoc
     {
         List<string> eventSheet = new List<string>();

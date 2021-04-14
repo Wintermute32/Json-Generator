@@ -12,6 +12,7 @@ namespace JsonPopulator
         public List<Prize> EventPopsPrize = new List<Prize>();
         string[] rarityArray = new string[4] { "common", "epic", "rare", "legendary" };
 
+        //may want to rewrite to return full line without substrings. Parse into substrings in individual methods below
         public List<string> ParseEventSheet(string path)
         {
             string[] allLines = File.ReadAllLines(path);
@@ -39,8 +40,6 @@ namespace JsonPopulator
             }
             return parsedLines;
         }
-
-
         public List<Prize> RetPopPrizeLine(List<string> parsedLines)
         {
             List<Prize> boxPrizeList = new List<Prize>();
@@ -53,7 +52,8 @@ namespace JsonPopulator
             {
              var lineSplit = parsedLines[i].Split(",");
               
-              iD = lineSplit[2];
+              iD = lineSplit[2]; //need to validate ID names here
+
               amount = lineSplit[3];
               instances = lineSplit[4];
               Prize eventReward = new Prize(iD, amount, instances);
@@ -62,7 +62,12 @@ namespace JsonPopulator
             }
             return boxPrizeList;
         }
-         
-     }
+
+        public List<Tier> GetRewardTiers(List<string> parsedLines)
+        {
+            return null;
+        }
+
+    }
 
 }

@@ -29,7 +29,7 @@ namespace JsonPopulator
             Appearance appearance = new Appearance(sbA);
             root.SetFeaturedPopIds(popDict);
 
-            GachaParser gachaPar = new GachaParser();
+            GachaParser gachaPar = new GachaParser(popData);
             var parsedGacha = gachaPar.ParseEventSheet(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0032_FunkoBlitz_EventRewards_TheOffice3_Clear - Event Gacha.csv");
 
             var testMe = gachaPar.RetPopPrizeLine(parsedGacha);

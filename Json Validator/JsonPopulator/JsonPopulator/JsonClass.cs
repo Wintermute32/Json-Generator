@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Collections.Generic;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using CsvHelper;
+using CsvHelper.Configuration;
+using System.Globalization;
+using CsvHelper.Configuration.Attributes;
 
 namespace JsonPopulator
 {
-    public class PurchaseScreenAppearance
-    {
-        public string titleLocalizationKey { get; set; }
-        public List<string> popIds { get; set; }
-    }
-
     public class MainHubAppearance
     {
         public bool canShowInCarousel { get; set; }
@@ -20,23 +21,13 @@ namespace JsonPopulator
     }
     public class Guarantee
     {
+        [Name("Item Label")]
         public string SpecificPopId { get; set; }
-        public int specificPopAmount { get; set; }
-        public bool? LuckyPopPrize { get; set; }
-    }
-
-    public class Tier
-    {
-        public int cost { get; set; }
-        public int numPulls { get; set; }
-        public Guarantee guarantee { get; set; }
-        public Tier(int cost, int numPulls, Guarantee guarantee)
-        {
+        [Name("Box Pulls")]
+        public string specificPopAmount { get; set; }
         
-            // takes cost, num pulls and Guarantee Object
-        }
-
-
+        [Name("Box Guarantee")]
+        public string LuckyPopPrize { get; set; }
     }
 
     public class LastChanceBoxPrize

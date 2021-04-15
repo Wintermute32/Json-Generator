@@ -19,6 +19,11 @@ namespace JsonPopulator
             Console.WriteLine(startDate);
         }
 
+        public PopDatabase(string databasePath)
+        {
+            this.databasePath = databasePath;
+        }
+
         public Dictionary<string, string> GetPopDict (string startDate)
         {
             string[] allLines = File.ReadAllLines(databasePath);
@@ -41,8 +46,7 @@ namespace JsonPopulator
                         popDict.Add(lineSplit[0], "event exclusive");
 
                     else
-                        popDict.Add(lineSplit[0], lineSplit[6].ToLower());
-                            
+                        popDict.Add(lineSplit[0], lineSplit[6].ToLower());        
                 }
             }
 
@@ -54,10 +58,17 @@ namespace JsonPopulator
             return DateTime.Parse(startDate).ToString("M/d/yyyy");
         }
       
-        public bool CheckPopIds(string popId, List<string> popData)
+        public bool CheckPopIds(string popId)
         {
             string[] allLines = File.ReadAllLines(databasePath);
+            
+            for (int i = 0; i < allLines.Length; i++)
+                if (allLines[i].Contains(popId))
+                    return true;
+            return false;
+             
         }
+
 
     }
 

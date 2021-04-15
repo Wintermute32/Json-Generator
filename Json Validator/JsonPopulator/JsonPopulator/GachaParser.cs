@@ -5,6 +5,8 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.IO;
 
+
+//I SHOULD BE USING A FUCKING CSV HELPER. IT WILL AUTO GENERATE OBJECTS ACCORDING TO THE CSV HEADERS!
 namespace JsonPopulator
 {
     public class GachaParser
@@ -43,6 +45,7 @@ namespace JsonPopulator
         public List<Prize> RetPopPrizeLine(List<string> parsedLines)
         {
             List<Prize> boxPrizeList = new List<Prize>();
+            PopDatabase popDatabase = new PopDatabase(@"C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\Docs\[1.5.0] Pop_Database - pop_database.csv");
 
             var iD = "ID NADA";
             var amount = "AMOUNT NADA";
@@ -52,7 +55,8 @@ namespace JsonPopulator
             {
              var lineSplit = parsedLines[i].Split(",");
               
-              iD = lineSplit[2]; //need to validate ID names here
+               if( popDatabase.CheckPopIds(lineSplit[2]))
+                    iD = lineSplit[2];
 
               amount = lineSplit[3];
               instances = lineSplit[4];
@@ -65,6 +69,14 @@ namespace JsonPopulator
 
         public List<Tier> GetRewardTiers(List<string> parsedLines)
         {
+            parsedLines.RemoveRange(0, 1);
+            parsedLines.RemoveRange(12, parsedLines.Count - 12);
+
+            for (int i = 0; i < parsedLines.Count; i++)
+            {
+                parsedLines[i].Split("");
+            }
+
             return null;
         }
 

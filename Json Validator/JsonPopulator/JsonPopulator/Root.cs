@@ -11,8 +11,8 @@ namespace JsonPopulator
         public Appearance appearance { get; set; }
         public string behaviourType { get; set; }
         public List<string> featuredPopIdsList { get; set; }
-        public List<Prize> prizes { get; set; }
-        public List<Tier> tiers { get; set; }
+        public List<Prize> prizes {get; set;}
+        public List<Tier> tiers {get; set;}
         public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }
 
         public Root(string eventName, LivePlaybook livePlaybook)

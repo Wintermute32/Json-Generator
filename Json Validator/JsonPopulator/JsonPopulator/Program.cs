@@ -18,16 +18,9 @@ namespace JsonPopulator
 
         public static void Main(string[] args)
         {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-
-            var reader = new StreamReader(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0032_FunkoBlitz_EventRewards_TheOffice3_Clear - Event Gacha.csv");
-            reader.ReadLine();
-            var csv = new CsvReader(reader, config);
-            var records = csv.GetRecords<Tier>().ToList();
-            
-            foreach (var x in records)
-                Console.WriteLine("This is the records output: " + x.ToString());
-
+            //RunMeFirst();
+            RootPopulator();
+            TierPopulator();
 
             string eventID = Console.ReadLine();
 
@@ -37,6 +30,31 @@ namespace JsonPopulator
 
             //RunMeFirst();
 
+        }
+
+        private static void TierPopulator()
+        {
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+
+            var reader = new StreamReader(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0032_FunkoBlitz_EventRewards_TheOffice3_Clear - Event Gacha.csv");
+            reader.ReadLine();
+            var csv = new CsvReader(reader, config);
+            var records = csv.GetRecords<Tier>().ToList();
+
+            foreach (var x in records)
+                Console.WriteLine("This is the records output: " + x.cost + x.guarantee + x.numPulls);
+        }
+
+        private static void RootPopulator()
+        {
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+            config.HeaderValidated = null;
+            var reader = new StreamReader(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv");
+            reader.ReadLine();
+            reader.ReadLine();
+
+            var csv = new CsvReader(reader, config);
+            var records = csv.GetRecords<Root>().ToList();            
         }
 
         static void RunMeFirst()

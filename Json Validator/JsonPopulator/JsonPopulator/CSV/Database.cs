@@ -22,6 +22,18 @@ namespace JsonPopulator.CSV
         [Name("ExclusivityType")]
         public string eventExclusive { get; set; }
 
+
+
+        public List<string> PopIds(List<Database> popDatabase)
+        {
+            List<string> popIds = new List<string>();
+            foreach (var x in popDatabase)
+                popIds.Add(x.popID);
+
+            return popIds;
+
+        }
+
         public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
         {
             string[] allLines = File.ReadAllLines(databasePath);
@@ -51,16 +63,12 @@ namespace JsonPopulator.CSV
             return popDict;
         }
 
-        
-        public bool CheckPopIds(string popId, string databasePath)
+        public bool CheckPopIds(List<string> popIdList, string popName)
         {
-            string[] allLines = File.ReadAllLines(databasePath);
+            if (popIdList.Contains(popName))
+                return true;
 
-            for (int i = 0; i < allLines.Length; i++)
-                if (allLines[i].Contains(popId))
-                    return true;
             return false;
-
         } 
     }
 }

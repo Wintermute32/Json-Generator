@@ -9,6 +9,8 @@ using System.IO;
 //I SHOULD BE USING A FUCKING CSV HELPER. IT WILL AUTO GENERATE OBJECTS ACCORDING TO THE CSV HEADERS!
 namespace JsonPopulator
 {
+
+/*
     public class GachaParser
     {
         public List<Prize> EventPopsPrize = new List<Prize>();
@@ -81,5 +83,6 @@ namespace JsonPopulator
         }
 
     }
+*/
 
 }

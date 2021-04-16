@@ -1,30 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
+using System.Text;
+using System.Collections.Generic;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using CsvHelper;
 using System.Globalization;
+using System.Linq;
+using CsvHelper.Configuration.Attributes;
 
-namespace JsonPopulator
+namespace JsonPopulator.CSV
 {
-    class PopDatabase
+    class Database
     {
-        public string startDate { get; set; }
-        string databasePath;
-        //List<string> popIds = new List<string>();
+        [Name("PopId")]
+        public string popID { get; set; }
+        [Name("Rarity")]
+        public string rarity { get; set; }
+        [Name("ReleaseDate")]
+        public string releaseDate { get; set; }
+        [Name("ExclusivityType")]
+        public string eventExclusive { get; set; }
 
-        public PopDatabase(string databasePath, Root root)
-        {
-            this.databasePath = databasePath;
-            this.startDate = FixStartDate(root.startDate);
-            Console.WriteLine(startDate);
-        }
-
-        public PopDatabase(string databasePath)
-        {
-            this.databasePath = databasePath;
-        }
-
-        public Dictionary<string, string> GetPopDict (string startDate)
+        public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
         {
             string[] allLines = File.ReadAllLines(databasePath);
             Dictionary<string, string> popDict = new Dictionary<string, string>();
@@ -46,30 +44,23 @@ namespace JsonPopulator
                         popDict.Add(lineSplit[0], "event exclusive");
 
                     else
-                        popDict.Add(lineSplit[0], lineSplit[6].ToLower());        
+                        popDict.Add(lineSplit[0], lineSplit[6].ToLower());
                 }
             }
 
             return popDict;
         }
 
-        public string FixStartDate(string startDate)
-        {
-            return DateTime.Parse(startDate).ToString("M/d/yyyy");
-        }
-      
-        public bool CheckPopIds(string popId)
+        
+        public bool CheckPopIds(string popId, string databasePath)
         {
             string[] allLines = File.ReadAllLines(databasePath);
-            
+
             for (int i = 0; i < allLines.Length; i++)
                 if (allLines[i].Contains(popId))
                     return true;
             return false;
-             
-        }
 
-
+        } 
     }
-
 }

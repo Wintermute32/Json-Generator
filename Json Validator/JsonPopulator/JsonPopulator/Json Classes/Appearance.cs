@@ -10,13 +10,14 @@
         public PurchaseScreenAppearance purchaseScreenAppearance { get; set; }
         public MainHubAppearance mainHubAppearance { get; set; }
         
-        public Appearance(StoreButtonAppearance sbA)
+        public Appearance(StoreButtonAppearance sbA, PurchaseScreenAppearance psA, MainHubAppearance mhA)
         {
             isEventBox = true;
             mysteryBoxType = "LuckyMystery";
             theme = "";
             storeButtonAppearance = sbA;
-
+            purchaseScreenAppearance = psA;
+            mainHubAppearance = mhA;
         }
     }
 

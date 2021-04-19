@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.IO;
+using JsonPopulator.CSV;
 
 namespace JsonPopulator
 {
@@ -14,12 +15,6 @@ namespace JsonPopulator
         public int amount { get; set; }
         public int instances { get; set; }
 
-        public Prize(string iD, string amount, string instances)
-        {
-            rewardType = "pop";
-            rewardId = iD;
-            this.amount = Convert.ToInt32(amount);
-            this.instances = Convert.ToInt32(instances);
-        }
+     
     }
 }

@@ -28,7 +28,7 @@ namespace JsonPopulator
             var playbookRecords = csv.GetRecords<Playbook>().ToList();
 
             foreach (var x in playbookRecords)
-                if (x.fandomName.Contains(eventID))
+                if (x.fandomName.ToLower().Contains(eventID.ToLower()))
                 {
                     Console.WriteLine("Playbook found!");
                     return x;
@@ -61,7 +61,6 @@ namespace JsonPopulator
                 Console.WriteLine("Event Name Not Found");
 
             return popData;
-
         }
 
         public List<Gacha> GachaPopulator(string gachaPath)
@@ -70,6 +69,8 @@ namespace JsonPopulator
             var config = new CsvConfiguration(CultureInfo.InvariantCulture);
             config.HeaderValidated = null;
             config.MissingFieldFound = null;
+            config.IgnoreBlankLines = true;
+
             var reader = new StreamReader(gachaPath);
             reader.ReadLine();
 

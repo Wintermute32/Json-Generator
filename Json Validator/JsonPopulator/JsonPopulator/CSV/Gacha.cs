@@ -11,7 +11,7 @@ using CsvHelper.Configuration.Attributes;
 
 namespace JsonPopulator.CSV
 {
-    class Gacha
+    public class Gacha
     {
      [Name("Tier")]
     public string tier { get; set; }
@@ -38,5 +38,29 @@ namespace JsonPopulator.CSV
         public string instances { get; set; }
 
         public string rewardType = "pop";
+        public List<Prize> PrizeList(List<Gacha> gachaList)
+        {
+            List<Prize> prizeList = new List<Prize>();
+
+            for (int i = 0; i < gachaList.Count; i++)
+            {
+                Prize addMePrize = new Prize();
+
+                if (gachaList[i].amount != "" && gachaList[i].instances != "")
+                {
+                    addMePrize.rewardId = gachaList[i].popID;
+                    addMePrize.rewardType = gachaList[i].rewardType;
+                    addMePrize.amount = Convert.ToInt32(gachaList[i].amount);
+                    addMePrize.instances = Convert.ToInt32(gachaList[i].instances);
+                }
+
+                if (addMePrize.rewardType != null)
+                    prizeList.Add(addMePrize);
+            }
+
+            return prizeList;
+        }
     }
+
+   
 }

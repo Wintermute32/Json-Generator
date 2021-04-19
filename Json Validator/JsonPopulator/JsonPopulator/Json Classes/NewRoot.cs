@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using JsonPopulator.CSV;
 
 namespace JsonPopulator.Json_Classes
 {
@@ -17,13 +18,16 @@ namespace JsonPopulator.Json_Classes
         public List<Tier> tiers { get; set; }
         public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }
 
-        public NewRoot(Playbook playbook)
+        List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };
+
+
+        public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {
             behaviourType = "";
-            boxId = "e_" + playbook.eventNumber + "_" + playbook.boxID.Trim();
+            boxId = "e" + playbook.eventNumber + "_" + playbook.boxID.Trim();
             fandomId = playbook.fandomName;
             FixDates(playbook.startDate, playbook.endDate);
-
+            SetFeaturedPopIds(popDict);
         }
         public void FixDates(string startDate, string endDate)
         {
@@ -34,5 +38,17 @@ namespace JsonPopulator.Json_Classes
             this.startDate = revisedStart;
             this.endDate = revisedEnd;
         }
+
+        public void SetFeaturedPopIds(Dictionary<string, string> popIdDict)
+        {
+            foreach (KeyValuePair<string, string> entry in popIdDict)
+                for (int i = 0; i < rarityList.Count; i++)
+                    if (entry.Value == rarityList[i])
+                        rarityList[i] = entry.Key;
+
+            featuredPopIdsList = rarityList;
+        }
+
+
     }
 }

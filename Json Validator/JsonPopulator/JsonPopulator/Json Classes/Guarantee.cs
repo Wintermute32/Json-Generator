@@ -1,24 +1,23 @@
-﻿using System;
+﻿using JsonPopulator.CSV;
+using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using CsvHelper;
-using CsvHelper.Configuration;
 using System.Globalization;
+using System.Linq;
 using CsvHelper.Configuration.Attributes;
+
 
 namespace JsonPopulator
 {
-    public class Tier
+    public class Guarantee
     {
-        [Name("Cost (Coins)")]
-        public int cost { get; set; }
-        [Name("Box Pulls")]
-        public int numPulls { get; set; }
-        public Guarantee guarantee { get; set; }
-
+        public string SpecificPopId { get; set; }
+        public string specificPopAmount { get; set; } 
+        public bool LuckyPopPrize { get; set; }
     }
 
 }

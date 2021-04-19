@@ -23,7 +23,6 @@ namespace JsonPopulator.CSV
         public string eventExclusive { get; set; }
 
 
-
         public List<string> PopIds(List<Database> popDatabase)
         {
             List<string> popIds = new List<string>();

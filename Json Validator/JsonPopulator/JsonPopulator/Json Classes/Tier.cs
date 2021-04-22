@@ -30,6 +30,7 @@ namespace JsonPopulator
         public string amount { get; set; }
         public Guarantee guarantee { get; set; }
 
+
         public List<Tier> GenerateTierList(List<Gacha> gachaList)
         {
             List<Tier> tierList = new List<Tier>();
@@ -38,16 +39,20 @@ namespace JsonPopulator
             {
                 Tier tier = new Tier();
                 tier.boxGuarantee = gachaList[i].guarantee;
-                tier.amount = gachaList[i].amount;
+               
+                foreach (var x in gachaList[i].guarantee)
+                    if (Char.IsNumber(x))
+                        tier.amount = x.ToString();
+     
                 tier.cost = gachaList[i].cost; //convoluted. Need to get rid of "";
                 tier.numPulls = Convert.ToInt32(gachaList[i].boxPulls);
 
                 Console.WriteLine("The tier obejct guarantee field should be: " + gachaList[i].guarantee);
 
-                if (gachaList[i].guarantee != null)
+                if (gachaList[i].guarantee != "") //added to control for Json serialization not skipping null values
                     tier.isGuarantee = true;
 
-                if (Convert.ToInt32(gachaList[i].tier) < 12) //Our conventions in the Json don't match our conventions in the Event Sheet
+                if (Convert.ToInt32(gachaList[i].tier) < 12)
                     tierList.Add(tier);
             }
             return tierList;
@@ -73,9 +78,10 @@ namespace JsonPopulator
 
                         guarantee.specificPopAmount = tierList[i].amount;
 
-                     
                     if (tierList[i].boxGuarantee == "Random Event Pop")
                         guarantee.LuckyPopPrize = true;
+                    else
+                        guarantee.LuckyPopPrize = null;
                    
 
                         tierList[i].guarantee = guarantee;
@@ -83,6 +89,8 @@ namespace JsonPopulator
                 }
                 return tierList;
         }
+
+    
 
     }
 

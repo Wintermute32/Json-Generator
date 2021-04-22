@@ -47,6 +47,8 @@ namespace JsonPopulator
             List<Gacha> gachaList = converters.GachaPopulator(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0034_FunkoBlitz_EventRewards_BackToTheFutureSet3_Clear - Event Gacha.csv");
             newRoot.prizes = gacha.PrizeList(gachaList);
             newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
+
+            var serializerSettings = new JsonSerializerSettings();
           
             string rootOutput = JsonConvert.SerializeObject(newRoot, Formatting.Indented, new JsonSerializerSettings
             {
@@ -57,7 +59,7 @@ namespace JsonPopulator
         }
 
 
-
+        //Need to figure out how to assign a null value to LukcyPopPrize
 
     }
 

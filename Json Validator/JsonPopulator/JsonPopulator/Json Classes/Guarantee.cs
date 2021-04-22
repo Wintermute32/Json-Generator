@@ -17,7 +17,7 @@ namespace JsonPopulator
     {
         public string SpecificPopId { get; set; }
         public string specificPopAmount { get; set; } 
-        public bool LuckyPopPrize { get; set; }
+        public bool? LuckyPopPrize { get; set; }
     }
-
+       
 }

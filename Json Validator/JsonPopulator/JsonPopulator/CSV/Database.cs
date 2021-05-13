@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 using System.Text;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
@@ -40,25 +41,21 @@ namespace JsonPopulator.CSV
 
             for (int i = 0; i < allLines.Length; i++)
             {
+                bool isEvent = false; 
                 if (allLines[i].Contains(startDate))
                 {
                     var lineSplit = allLines[i].Split(",");
-                    bool isEvent = false;
 
                     foreach (var x in lineSplit)
-                    {
-                        if (x.ToLower() == "event")
+                        if (x == "Event")
                             isEvent = true;
-                    }
 
-                    if (isEvent == true)
-                        popDict.Add(lineSplit[0], "event exclusive");
+                    popDict.Add(lineSplit[0], isEvent ? "event exclusive" : lineSplit[6].ToLower());
 
-                    else
-                        popDict.Add(lineSplit[0], lineSplit[6].ToLower());
                 }
             }
-
+            foreach (var x in popDict)
+                Debug.WriteLine("dicctionary values are: " + x.Key + " and " + x.Value);
             return popDict;
         }
 

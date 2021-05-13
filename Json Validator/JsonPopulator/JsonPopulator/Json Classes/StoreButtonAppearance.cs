@@ -26,11 +26,11 @@ namespace JsonPopulator
 
         public List<string> getPopIds(Dictionary<string, string> popDict)
         {
-            List<string> rarities = new List<string>() {"rare", "epic", "legendary", "common" };
+            List<string> rarities = new List<string>() {"rare", "legendary", "epic", "common" };
             List<string> whatever = new List<string>();
 
-            foreach (KeyValuePair<string, string> entry in popDict)
-                for (int i = 0; i < rarities.Count; i++)
+            for (int i = 0; i < rarities.Count; i++)
+                foreach (KeyValuePair<string, string> entry in popDict)
                     if (entry.Value == rarities[i])
                         whatever.Add(entry.Key);
 

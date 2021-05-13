@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "+IFmE7LCotddYjwyuBVh9766c2AUcZJDLkPnvnqE2GSZ4N17hqgHpYs9anUWab+0iZPbITjnME/V8GrWf+L8DQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\pdnud\\OneDrive\\Documents\\Repos\\Json Generator\\Json Validator\\JsonPopulator\\Pop Ownership\\Pop Ownership.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pdnud\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}

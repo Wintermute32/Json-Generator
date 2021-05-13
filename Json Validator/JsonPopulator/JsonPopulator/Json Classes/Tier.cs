@@ -14,7 +14,7 @@ namespace JsonPopulator
 {
     public class Tier
     {
-        public string cost { get; set; } //needs to go back to int
+        public int cost { get; set; } //needs to go back to int
         public int numPulls { get; set; }
 
         [JsonIgnore]
@@ -34,17 +34,23 @@ namespace JsonPopulator
         public List<Tier> GenerateTierList(List<Gacha> gachaList)
         {
             List<Tier> tierList = new List<Tier>();
-
+           
             for (int i = 0; i < gachaList.Count; i++)
             {
                 Tier tier = new Tier();
+                StringBuilder sb = new StringBuilder(gachaList[i].cost);
+                sb.Replace("\"", "12");
+     
+                //tier.cost = Convert.ToInt32(sb.Replace('\"', '2')); Why Wont this convert!?
+
                 tier.boxGuarantee = gachaList[i].guarantee;
                
                 foreach (var x in gachaList[i].guarantee)
                     if (Char.IsNumber(x))
                         tier.amount = x.ToString();
-     
-                tier.cost = gachaList[i].cost; //convoluted. Need to get rid of "";
+
+
+
                 tier.numPulls = Convert.ToInt32(gachaList[i].boxPulls);
 
                 Console.WriteLine("The tier obejct guarantee field should be: " + gachaList[i].guarantee);
@@ -78,8 +84,10 @@ namespace JsonPopulator
 
                         guarantee.specificPopAmount = tierList[i].amount;
 
+                     
                     if (tierList[i].boxGuarantee == "Random Event Pop")
                         guarantee.LuckyPopPrize = true;
+                        
                     else
                         guarantee.LuckyPopPrize = null;
                    

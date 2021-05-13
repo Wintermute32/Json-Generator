@@ -12,7 +12,7 @@ namespace JsonPopulator
 
         public MainHubAppearance(string fandomName, Dictionary<string, string> popDict)
         {
-            List<string> mainHubRarities = new List<string>() { "common", "rare", "epic", "legendary" };
+            List<string> mainHubRarities = new List<string>() { "legendary", "epic", "rare" };
             List<string> addToMePopId = new List<string>();
 
             canShowInCarousel = true;

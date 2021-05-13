@@ -8,6 +8,8 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
 using System.Linq;
+using JsonPopulator.CSV;
+using JsonPopulator.Json_Classes;
 
 namespace JsonPopulator
 {
@@ -18,75 +20,57 @@ namespace JsonPopulator
 
         public static void Main(string[] args)
         {
-            //RunMeFirst();
-            RootPopulator();
-            TierPopulator();
-
-            string eventID = Console.ReadLine();
-
-            LivePlaybook livePlay = new LivePlaybook(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv", eventID);
-
-            Root root = new Root(eventID, livePlay);
-
-            //RunMeFirst();
-
-        }
-
-        private static void TierPopulator()
-        {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-
-            var reader = new StreamReader(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0032_FunkoBlitz_EventRewards_TheOffice3_Clear - Event Gacha.csv");
-            reader.ReadLine();
-            var csv = new CsvReader(reader, config);
-            var records = csv.GetRecords<Tier>().ToList();
-
-            foreach (var x in records)
-                Console.WriteLine("This is the records output: " + x.cost + x.guarantee + x.numPulls);
-        }
-
-        private static void RootPopulator()
-        {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-            config.HeaderValidated = null;
-            var reader = new StreamReader(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv");
-            reader.ReadLine();
-            reader.ReadLine();
-
-            var csv = new CsvReader(reader, config);
-            var records = csv.GetRecords<Root>().ToList();            
-        }
-
-        static void RunMeFirst()
-        {
+            string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
+            string populatorPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
             Console.WriteLine("Type the Event Name, no spaces with the set number IE: \'TheOffice3\'");
             string eventID = Console.ReadLine();
 
-            LivePlaybook livePlay = new LivePlaybook(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv", eventID);
-            Root root = new Root(eventID, livePlay);
-            PopDatabase popData = new PopDatabase(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv", root);
-            var startDate = popData.startDate;
-            var popDict = popData.GetPopDict(startDate);
+            Converters converters = new Converters();
+            Database database = new Database();
+            Gacha gacha = new Gacha();
 
+            var eventPlaybook = converters.PlaybookPopulator(populatorPath, eventID);
+            eventPlaybook.FixStartDate(eventPlaybook.startDate);
+            List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
 
-            StoreButtonAppearance sbA = new StoreButtonAppearance(eventID, popDict);
-            Appearance appearance = new Appearance(sbA);
-            root.SetFeaturedPopIds(popDict);
+            Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.startDateAlternate, databasePath);
+           
+            NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
+            StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);
+            PurchaseScreenAppearance psA = new PurchaseScreenAppearance(eventID, popDict);
+            MainHubAppearance mhA = new MainHubAppearance(eventID, popDict);
+            Tier tiers = new Tier();
+            LastChanceBoxPrize lastChancePrize = new LastChanceBoxPrize();
+            
+            Appearance appearance = new Appearance(sba, psA, mhA);
+            newRoot.appearance = appearance;
 
-            GachaParser gachaPar = new GachaParser();
-            var parsedGacha = gachaPar.ParseEventSheet(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0032_FunkoBlitz_EventRewards_TheOffice3_Clear - Event Gacha.csv");
-            appearance.purchaseScreenAppearance = new PurchaseScreenAppearance(eventID, popDict);
-            root.appearance = appearance;
-            root.prizes = gachaPar.RetPopPrizeLine(parsedGacha);
+            List<Gacha> gachaList = converters.GachaPopulator(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0034_FunkoBlitz_EventRewards_BackToTheFutureSet3_Clear - Event Gacha.csv");
+            newRoot.prizes = gacha.PrizeList(gachaList);
+            newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
+            newRoot.lastChanceBoxPrizes = lastChancePrize.AssignBoxValues(popDict);
 
-            string rootOutput = JsonConvert.SerializeObject(root, Formatting.Indented);
+            var serializerSettings = new JsonSerializerSettings();
+          
+            string rootOutput = JsonConvert.SerializeObject(newRoot, Formatting.Indented, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
 
             Console.WriteLine(rootOutput);
         }
 
+  
+
+
+        //Need to figure out how to assign a null value to LukcyPopPrize
+
     }
 
+        
+
 }
+
 
 
  

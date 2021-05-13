@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonPopulator", "JsonPopulator\JsonPopulator.csproj", "{E55B4C84-3B5C-4CCB-AE80-EB06268AED1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonPopulator", "JsonPopulator\JsonPopulator.csproj", "{E55B4C84-3B5C-4CCB-AE80-EB06268AED1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonValidator", "JsonValidator\JsonValidator.csproj", "{2398200C-5D34-4674-B0FA-4877CE17659E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopOwnership", "PopOwnership\PopOwnership.csproj", "{D0775812-29D4-44A0-9A66-7C377CB84B90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E55B4C84-3B5C-4CCB-AE80-EB06268AED1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E55B4C84-3B5C-4CCB-AE80-EB06268AED1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E55B4C84-3B5C-4CCB-AE80-EB06268AED1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2398200C-5D34-4674-B0FA-4877CE17659E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2398200C-5D34-4674-B0FA-4877CE17659E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2398200C-5D34-4674-B0FA-4877CE17659E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2398200C-5D34-4674-B0FA-4877CE17659E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0775812-29D4-44A0-9A66-7C377CB84B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0775812-29D4-44A0-9A66-7C377CB84B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0775812-29D4-44A0-9A66-7C377CB84B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0775812-29D4-44A0-9A66-7C377CB84B90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

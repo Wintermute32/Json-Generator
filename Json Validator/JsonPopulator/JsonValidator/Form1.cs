@@ -21,8 +21,18 @@ namespace JsonValidator
         List<string> boxIDs = new List<string>();
 
         Database database = new Database();
+        
         NewRoot eventObject;
+
+        Label rewardType = new Label();
+        Label rewardID = new Label();
+        Label amount = new Label();
+        Label instances = new Label();
+
         ComboBox comboB;
+        
+     
+
         List<ComboBox> comboList = new List<ComboBox>();
 
         public Form1()
@@ -81,10 +91,30 @@ namespace JsonValidator
                 foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
                     GeneratePopSelector(x, StorePopsPanel);
 
+                orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
+                discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
+
                 PSTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
 
                 foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
                     GeneratePopSelector(x, PurchasePopsPanel);
+
+                canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
+                style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
+                TitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+                mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
+
+                foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
+                    GeneratePopSelector(x, mainHubPanel);
+
+                behaviorCB.Text = eventObject.behaviourType;
+
+                foreach (var x in eventObject.featuredPopIdsList)
+                    GeneratePopSelector(x, featuredPopPanel);
+
+                foreach (var x in eventObject.prizes)
+                    GeneratePrizeRow(x, prizePanel);
+
             }
 
         }
@@ -97,17 +127,62 @@ namespace JsonValidator
 
             foreach (Control item in PurchasePopsPanel.Controls.OfType<ComboBox>())
                     PurchasePopsPanel.Controls.Clear();
+
+            foreach (Control item in mainHubPanel.Controls.OfType<ComboBox>())
+                mainHubPanel.Controls.Clear();
+
+            foreach (Control item in featuredPopPanel.Controls.OfType<ComboBox>())
+                featuredPopPanel.Controls.Clear();
         }
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {
             comboB = new ComboBox();
             comboB.DataSource = database.GetAllPopID(databasePath);
-            comboBList.Add(comboB);
             flowPanel.Controls.Add(comboB);
-            comboBList.Add(comboB);
 
             if (popName != "")
                 comboB.Text = popName;
+
+        }
+
+        public void GeneratePrizeRow(Prize prizeObj, FlowLayoutPanel flowPanel)
+        {
+               
+            Label rewardType = new Label();
+            rewardType.Text = "rewardType";
+
+            TextBox rewards = new TextBox();
+            rewards.Text = prizeObj.rewardType;
+
+
+            Label rewardID = new Label();
+            rewardID.Text = "rewardID";
+
+            ComboBox ID = new ComboBox();
+            ID.DataSource = database.GetAllPopID(databasePath);
+            ID.Text = prizeObj.rewardId;
+
+
+            Label amount = new Label();
+            amount.Text = "amount";
+
+            TextBox popAmount = new TextBox();
+            popAmount.Text = prizeObj.amount.ToString();
+
+            Label instances = new Label();
+            instances.Text = "instances";
+
+            TextBox instanceCount = new TextBox();
+            instanceCount.Text = prizeObj.instances.ToString();
+            
+            flowPanel.Controls.Add(rewardType);
+            flowPanel.Controls.Add(rewards);
+            flowPanel.Controls.Add(rewardID);
+            flowPanel.Controls.Add(ID);
+            flowPanel.Controls.Add(amount);
+            flowPanel.Controls.Add(popAmount);
+            flowPanel.Controls.Add(instances);
+            flowPanel.Controls.Add(instanceCount);
 
         }
 
@@ -253,6 +328,16 @@ namespace JsonValidator
         }
 
         private void PSTitleLocKey_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainHubLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
         {
 
         }

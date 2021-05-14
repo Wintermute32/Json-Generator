@@ -93,6 +93,7 @@
     <Compile Include="Json Classes\PurchaseScreenAppearance.cs" />
     <Compile Include="Json Classes\StoreButtonAppearance.cs" />
     <Compile Include="Json Classes\Tier.cs" />
+    <Compile Include="PrizeStructureBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

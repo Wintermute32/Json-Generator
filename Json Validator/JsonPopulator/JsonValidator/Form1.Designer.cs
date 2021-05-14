@@ -49,7 +49,7 @@ namespace JsonValidator
             this.TitleLocKeyCB = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.purchaseScreenTitleLocLbl = new System.Windows.Forms.Label();
             this.SubLocKeyCB = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,6 +62,25 @@ namespace JsonValidator
             this.label12 = new System.Windows.Forms.Label();
             this.MainHubLbl = new System.Windows.Forms.Label();
             this.canShowCarouselBox = new System.Windows.Forms.CheckBox();
+            this.orderCB = new System.Windows.Forms.ComboBox();
+            this.OrderLbl = new System.Windows.Forms.Label();
+            this.discountLbl = new System.Windows.Forms.Label();
+            this.discountCB = new System.Windows.Forms.ComboBox();
+            this.styleLbl = new System.Windows.Forms.Label();
+            this.style2CB = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mainhubSubLocKey = new System.Windows.Forms.ComboBox();
+            this.mainHubPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.behaviorCB = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.featuredPopPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.prizePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // GenerateJsonButton
@@ -240,7 +259,7 @@ namespace JsonValidator
             this.TitleLocKeyCB.FormattingEnabled = true;
             this.TitleLocKeyCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.TitleLocKeyCB.Location = new System.Drawing.Point(105, 420);
+            this.TitleLocKeyCB.Location = new System.Drawing.Point(457, 164);
             this.TitleLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.TitleLocKeyCB.Name = "TitleLocKeyCB";
             this.TitleLocKeyCB.Size = new System.Drawing.Size(137, 21);
@@ -267,14 +286,14 @@ namespace JsonValidator
             this.label8.Text = "Ribbon Loc Key";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // label9
+            // purchaseScreenTitleLocLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 428);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 13);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Title Loc Key";
+            this.purchaseScreenTitleLocLbl.AutoSize = true;
+            this.purchaseScreenTitleLocLbl.Location = new System.Drawing.Point(357, 172);
+            this.purchaseScreenTitleLocLbl.Name = "purchaseScreenTitleLocLbl";
+            this.purchaseScreenTitleLocLbl.Size = new System.Drawing.Size(69, 13);
+            this.purchaseScreenTitleLocLbl.TabIndex = 27;
+            this.purchaseScreenTitleLocLbl.Text = "Title Loc Key";
             // 
             // SubLocKeyCB
             // 
@@ -327,7 +346,7 @@ namespace JsonValidator
             // 
             this.PurchaseScrnLbl.AutoSize = true;
             this.PurchaseScrnLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PurchaseScrnLbl.Location = new System.Drawing.Point(12, 611);
+            this.PurchaseScrnLbl.Location = new System.Drawing.Point(9, 685);
             this.PurchaseScrnLbl.Name = "PurchaseScrnLbl";
             this.PurchaseScrnLbl.Size = new System.Drawing.Size(198, 17);
             this.PurchaseScrnLbl.TabIndex = 33;
@@ -336,7 +355,7 @@ namespace JsonValidator
             // 
             // PSTitleLocKey
             // 
-            this.PSTitleLocKey.Location = new System.Drawing.Point(108, 640);
+            this.PSTitleLocKey.Location = new System.Drawing.Point(91, 709);
             this.PSTitleLocKey.Name = "PSTitleLocKey";
             this.PSTitleLocKey.Size = new System.Drawing.Size(120, 20);
             this.PSTitleLocKey.TabIndex = 34;
@@ -344,14 +363,14 @@ namespace JsonValidator
             // 
             // PurchasePopsPanel
             // 
-            this.PurchasePopsPanel.Location = new System.Drawing.Point(108, 671);
+            this.PurchasePopsPanel.Location = new System.Drawing.Point(105, 737);
             this.PurchasePopsPanel.Name = "PurchasePopsPanel";
             this.PurchasePopsPanel.Size = new System.Drawing.Size(327, 117);
             this.PurchasePopsPanel.TabIndex = 37;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(65, 666);
+            this.button2.Location = new System.Drawing.Point(67, 737);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(29, 22);
             this.button2.TabIndex = 36;
@@ -361,7 +380,7 @@ namespace JsonValidator
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 671);
+            this.label12.Location = new System.Drawing.Point(18, 737);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 35;
@@ -371,27 +390,241 @@ namespace JsonValidator
             // 
             this.MainHubLbl.AutoSize = true;
             this.MainHubLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainHubLbl.Location = new System.Drawing.Point(9, 804);
+            this.MainHubLbl.Location = new System.Drawing.Point(319, 98);
             this.MainHubLbl.Name = "MainHubLbl";
             this.MainHubLbl.Size = new System.Drawing.Size(149, 17);
             this.MainHubLbl.TabIndex = 38;
             this.MainHubLbl.Text = "Main Hub Appearance";
+            this.MainHubLbl.Click += new System.EventHandler(this.MainHubLbl_Click);
             // 
             // canShowCarouselBox
             // 
             this.canShowCarouselBox.AutoSize = true;
-            this.canShowCarouselBox.Location = new System.Drawing.Point(16, 824);
+            this.canShowCarouselBox.Location = new System.Drawing.Point(352, 118);
             this.canShowCarouselBox.Name = "canShowCarouselBox";
             this.canShowCarouselBox.Size = new System.Drawing.Size(137, 17);
             this.canShowCarouselBox.TabIndex = 39;
             this.canShowCarouselBox.Text = "Can Show In Carousel?";
             this.canShowCarouselBox.UseVisualStyleBackColor = true;
             // 
+            // orderCB
+            // 
+            this.orderCB.FormattingEnabled = true;
+            this.orderCB.Items.AddRange(new object[] {
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.orderCB.Location = new System.Drawing.Point(71, 615);
+            this.orderCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.orderCB.Name = "orderCB";
+            this.orderCB.Size = new System.Drawing.Size(53, 21);
+            this.orderCB.TabIndex = 40;
+            // 
+            // OrderLbl
+            // 
+            this.OrderLbl.AutoSize = true;
+            this.OrderLbl.Location = new System.Drawing.Point(11, 618);
+            this.OrderLbl.Name = "OrderLbl";
+            this.OrderLbl.Size = new System.Drawing.Size(33, 13);
+            this.OrderLbl.TabIndex = 41;
+            this.OrderLbl.Text = "Order";
+            this.OrderLbl.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // discountLbl
+            // 
+            this.discountLbl.AutoSize = true;
+            this.discountLbl.Location = new System.Drawing.Point(9, 647);
+            this.discountLbl.Name = "discountLbl";
+            this.discountLbl.Size = new System.Drawing.Size(49, 13);
+            this.discountLbl.TabIndex = 42;
+            this.discountLbl.Text = "Discount";
+            // 
+            // discountCB
+            // 
+            this.discountCB.FormattingEnabled = true;
+            this.discountCB.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.discountCB.Location = new System.Drawing.Point(71, 644);
+            this.discountCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.discountCB.Name = "discountCB";
+            this.discountCB.Size = new System.Drawing.Size(53, 21);
+            this.discountCB.TabIndex = 43;
+            // 
+            // styleLbl
+            // 
+            this.styleLbl.AutoSize = true;
+            this.styleLbl.Location = new System.Drawing.Point(360, 145);
+            this.styleLbl.Name = "styleLbl";
+            this.styleLbl.Size = new System.Drawing.Size(30, 13);
+            this.styleLbl.TabIndex = 44;
+            this.styleLbl.Text = "Style";
+            // 
+            // style2CB
+            // 
+            this.style2CB.FormattingEnabled = true;
+            this.style2CB.Items.AddRange(new object[] {
+            "Pink",
+            "Blue",
+            "Green",
+            "Red",
+            "Orange"});
+            this.style2CB.Location = new System.Drawing.Point(457, 137);
+            this.style2CB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.style2CB.Name = "style2CB";
+            this.style2CB.Size = new System.Drawing.Size(53, 21);
+            this.style2CB.TabIndex = 45;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(359, 199);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 13);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "Subtitle Loc Key";
+            // 
+            // mainhubSubLocKey
+            // 
+            this.mainhubSubLocKey.FormattingEnabled = true;
+            this.mainhubSubLocKey.Items.AddRange(new object[] {
+            "LuckyMystery"});
+            this.mainhubSubLocKey.Location = new System.Drawing.Point(457, 191);
+            this.mainhubSubLocKey.MinimumSize = new System.Drawing.Size(4, 0);
+            this.mainhubSubLocKey.Name = "mainhubSubLocKey";
+            this.mainhubSubLocKey.Size = new System.Drawing.Size(137, 21);
+            this.mainhubSubLocKey.TabIndex = 46;
+            // 
+            // mainHubPanel
+            // 
+            this.mainHubPanel.Location = new System.Drawing.Point(457, 234);
+            this.mainHubPanel.Name = "mainHubPanel";
+            this.mainHubPanel.Size = new System.Drawing.Size(327, 117);
+            this.mainHubPanel.TabIndex = 38;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(417, 234);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(29, 22);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "+";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(361, 222);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(43, 13);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Pop Ids";
+            // 
+            // behaviorCB
+            // 
+            this.behaviorCB.FormattingEnabled = true;
+            this.behaviorCB.Items.AddRange(new object[] {
+            "PullBased"});
+            this.behaviorCB.Location = new System.Drawing.Point(489, 393);
+            this.behaviorCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.behaviorCB.Name = "behaviorCB";
+            this.behaviorCB.Size = new System.Drawing.Size(137, 21);
+            this.behaviorCB.TabIndex = 50;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(390, 396);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 13);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "Behavior Type";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(391, 430);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 13);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "Featured Pop IDs";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(489, 430);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(29, 22);
+            this.button4.TabIndex = 53;
+            this.button4.Text = "+";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // featuredPopPanel
+            // 
+            this.featuredPopPanel.Location = new System.Drawing.Point(524, 430);
+            this.featuredPopPanel.Name = "featuredPopPanel";
+            this.featuredPopPanel.Size = new System.Drawing.Size(352, 92);
+            this.featuredPopPanel.TabIndex = 39;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(475, 520);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(35, 13);
+            this.label16.TabIndex = 54;
+            this.label16.Text = "Prizes";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 713);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 13);
+            this.label17.TabIndex = 55;
+            this.label17.Text = "Title Loc Key";
+            // 
+            // prizePanel
+            // 
+            this.prizePanel.Location = new System.Drawing.Point(489, 568);
+            this.prizePanel.Name = "prizePanel";
+            this.prizePanel.Size = new System.Drawing.Size(605, 474);
+            this.prizePanel.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 927);
+            this.ClientSize = new System.Drawing.Size(1133, 1359);
+            this.Controls.Add(this.prizePanel);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.featuredPopPanel);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.behaviorCB);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.mainHubPanel);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.mainhubSubLocKey);
+            this.Controls.Add(this.style2CB);
+            this.Controls.Add(this.styleLbl);
+            this.Controls.Add(this.discountCB);
+            this.Controls.Add(this.discountLbl);
+            this.Controls.Add(this.OrderLbl);
+            this.Controls.Add(this.orderCB);
             this.Controls.Add(this.canShowCarouselBox);
             this.Controls.Add(this.MainHubLbl);
             this.Controls.Add(this.PurchasePopsPanel);
@@ -404,7 +637,7 @@ namespace JsonValidator
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.SubLocKeyCB);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.purchaseScreenTitleLocLbl);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TitleLocKeyCB);
@@ -456,7 +689,7 @@ namespace JsonValidator
         private System.Windows.Forms.ComboBox TitleLocKeyCB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label purchaseScreenTitleLocLbl;
         private System.Windows.Forms.ComboBox SubLocKeyCB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -469,6 +702,25 @@ namespace JsonValidator
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label MainHubLbl;
         private System.Windows.Forms.CheckBox canShowCarouselBox;
+        private System.Windows.Forms.ComboBox orderCB;
+        private System.Windows.Forms.Label OrderLbl;
+        private System.Windows.Forms.Label discountLbl;
+        private System.Windows.Forms.ComboBox discountCB;
+        private System.Windows.Forms.Label styleLbl;
+        private System.Windows.Forms.ComboBox style2CB;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox mainhubSubLocKey;
+        private System.Windows.Forms.FlowLayoutPanel mainHubPanel;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox behaviorCB;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.FlowLayoutPanel featuredPopPanel;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.FlowLayoutPanel prizePanel;
     }
 }
 

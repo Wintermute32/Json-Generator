@@ -94,6 +94,7 @@ namespace JsonValidator
 
         public List<Playbook> playbookHelper(string playbookPath)
         {
+
             var config = new CsvConfiguration(CultureInfo.InvariantCulture);
             config.HeaderValidated = null;
             config.MissingFieldFound = null;

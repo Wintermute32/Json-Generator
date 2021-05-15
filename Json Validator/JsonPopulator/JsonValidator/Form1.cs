@@ -147,27 +147,37 @@ namespace JsonValidator
 
         public void GeneratePrizeRow(Prize prizeObj, FlowLayoutPanel flowPanel)
         {
-               
             Label rewardType = new Label();
             rewardType.Text = "rewardType";
+            rewardType.Margin = new Padding(0);
+            rewardType.Size = new Size(30, 20);
 
             TextBox rewards = new TextBox();
             rewards.Text = prizeObj.rewardType;
+            rewards.Margin = new Padding(0);
+            rewards.Size = new Size(30, 20);
 
 
             Label rewardID = new Label();
             rewardID.Text = "rewardID";
+            rewardID.Margin = new Padding(0);
+            rewards.Size = new Size(30, 20);
 
             ComboBox ID = new ComboBox();
             ID.DataSource = database.GetAllPopID(databasePath);
             ID.Text = prizeObj.rewardId;
+            ID.Margin = new Padding(0);
+            ID.Size = new Size(30, 20);
 
 
             Label amount = new Label();
             amount.Text = "amount";
+            amount.Margin = new Padding(0);
+            amount.Size = new Size(30, 70);
 
             TextBox popAmount = new TextBox();
             popAmount.Text = prizeObj.amount.ToString();
+            popAmount.Margin = new Padding(0);
 
             Label instances = new Label();
             instances.Text = "instances";
@@ -338,6 +348,11 @@ namespace JsonValidator
         }
 
         private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

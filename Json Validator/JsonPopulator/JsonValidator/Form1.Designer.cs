@@ -81,11 +81,19 @@ namespace JsonValidator
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.prizePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.PrizeGroupBox = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.PrizeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // GenerateJsonButton
             // 
-            this.GenerateJsonButton.Location = new System.Drawing.Point(291, 34);
+            this.GenerateJsonButton.Location = new System.Drawing.Point(225, 20);
             this.GenerateJsonButton.Name = "GenerateJsonButton";
             this.GenerateJsonButton.Size = new System.Drawing.Size(144, 46);
             this.GenerateJsonButton.TabIndex = 0;
@@ -95,7 +103,7 @@ namespace JsonValidator
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 95);
+            this.textBox1.Location = new System.Drawing.Point(12, 83);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(199, 20);
             this.textBox1.TabIndex = 1;
@@ -148,7 +156,7 @@ namespace JsonValidator
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 79);
+            this.label3.Location = new System.Drawing.Point(9, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 11;
@@ -510,7 +518,7 @@ namespace JsonValidator
             // 
             this.mainHubPanel.Location = new System.Drawing.Point(457, 234);
             this.mainHubPanel.Name = "mainHubPanel";
-            this.mainHubPanel.Size = new System.Drawing.Size(327, 117);
+            this.mainHubPanel.Size = new System.Drawing.Size(327, 111);
             this.mainHubPanel.TabIndex = 38;
             // 
             // button3
@@ -536,7 +544,7 @@ namespace JsonValidator
             this.behaviorCB.FormattingEnabled = true;
             this.behaviorCB.Items.AddRange(new object[] {
             "PullBased"});
-            this.behaviorCB.Location = new System.Drawing.Point(489, 393);
+            this.behaviorCB.Location = new System.Drawing.Point(457, 363);
             this.behaviorCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.behaviorCB.Name = "behaviorCB";
             this.behaviorCB.Size = new System.Drawing.Size(137, 21);
@@ -545,7 +553,7 @@ namespace JsonValidator
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(390, 396);
+            this.label14.Location = new System.Drawing.Point(358, 366);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(76, 13);
             this.label14.TabIndex = 51;
@@ -554,7 +562,7 @@ namespace JsonValidator
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(391, 430);
+            this.label15.Location = new System.Drawing.Point(359, 400);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(90, 13);
             this.label15.TabIndex = 52;
@@ -562,7 +570,7 @@ namespace JsonValidator
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(489, 430);
+            this.button4.Location = new System.Drawing.Point(457, 400);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(29, 22);
             this.button4.TabIndex = 53;
@@ -571,7 +579,7 @@ namespace JsonValidator
             // 
             // featuredPopPanel
             // 
-            this.featuredPopPanel.Location = new System.Drawing.Point(524, 430);
+            this.featuredPopPanel.Location = new System.Drawing.Point(492, 400);
             this.featuredPopPanel.Name = "featuredPopPanel";
             this.featuredPopPanel.Size = new System.Drawing.Size(352, 92);
             this.featuredPopPanel.TabIndex = 39;
@@ -579,7 +587,7 @@ namespace JsonValidator
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(475, 520);
+            this.label16.Location = new System.Drawing.Point(8, 862);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 13);
             this.label16.TabIndex = 54;
@@ -596,16 +604,84 @@ namespace JsonValidator
             // 
             // prizePanel
             // 
-            this.prizePanel.Location = new System.Drawing.Point(489, 568);
+            this.prizePanel.Location = new System.Drawing.Point(12, 878);
             this.prizePanel.Name = "prizePanel";
-            this.prizePanel.Size = new System.Drawing.Size(605, 474);
+            this.prizePanel.Size = new System.Drawing.Size(820, 224);
             this.prizePanel.TabIndex = 40;
+            // 
+            // PrizeGroupBox
+            // 
+            this.PrizeGroupBox.Controls.Add(this.comboBox3);
+            this.PrizeGroupBox.Controls.Add(this.label20);
+            this.PrizeGroupBox.Controls.Add(this.comboBox2);
+            this.PrizeGroupBox.Controls.Add(this.label19);
+            this.PrizeGroupBox.Controls.Add(this.comboBox1);
+            this.PrizeGroupBox.Controls.Add(this.label18);
+            this.PrizeGroupBox.Location = new System.Drawing.Point(609, 647);
+            this.PrizeGroupBox.Name = "PrizeGroupBox";
+            this.PrizeGroupBox.Size = new System.Drawing.Size(418, 41);
+            this.PrizeGroupBox.TabIndex = 56;
+            this.PrizeGroupBox.TabStop = false;
+            this.PrizeGroupBox.Text = "Prizes";
+            this.PrizeGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "label18";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(53, 13);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(51, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(110, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "label19";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(157, 13);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(75, 21);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(238, 16);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "label20";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(285, 13);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(81, 21);
+            this.comboBox3.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 1359);
+            this.ClientSize = new System.Drawing.Size(1140, 1212);
+            this.Controls.Add(this.PrizeGroupBox);
             this.Controls.Add(this.prizePanel);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -662,6 +738,8 @@ namespace JsonValidator
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.PrizeGroupBox.ResumeLayout(false);
+            this.PrizeGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,6 +799,13 @@ namespace JsonValidator
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.FlowLayoutPanel prizePanel;
+        private System.Windows.Forms.GroupBox PrizeGroupBox;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label20;
     }
 }
 

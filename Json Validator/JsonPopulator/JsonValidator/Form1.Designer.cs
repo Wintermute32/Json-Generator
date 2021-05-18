@@ -81,13 +81,15 @@ namespace JsonValidator
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.prizePanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.PrizeGroupBox = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.PrizeGroupBox = new System.Windows.Forms.GroupBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.PrizeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -373,7 +375,7 @@ namespace JsonValidator
             // 
             this.PurchasePopsPanel.Location = new System.Drawing.Point(105, 737);
             this.PurchasePopsPanel.Name = "PurchasePopsPanel";
-            this.PurchasePopsPanel.Size = new System.Drawing.Size(327, 117);
+            this.PurchasePopsPanel.Size = new System.Drawing.Size(327, 251);
             this.PurchasePopsPanel.TabIndex = 37;
             // 
             // button2
@@ -592,6 +594,7 @@ namespace JsonValidator
             this.label16.Size = new System.Drawing.Size(35, 13);
             this.label16.TabIndex = 54;
             this.label16.Text = "Prizes";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label17
             // 
@@ -604,84 +607,110 @@ namespace JsonValidator
             // 
             // prizePanel
             // 
-            this.prizePanel.Location = new System.Drawing.Point(12, 878);
+            this.prizePanel.AutoScroll = true;
+            this.prizePanel.Location = new System.Drawing.Point(492, 536);
             this.prizePanel.Name = "prizePanel";
-            this.prizePanel.Size = new System.Drawing.Size(820, 224);
+            this.prizePanel.Size = new System.Drawing.Size(402, 603);
             this.prizePanel.TabIndex = 40;
+            this.prizePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prizePanel_Paint);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(9, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(70, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(85, 19);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(148, 21);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(239, 19);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(52, 21);
+            this.comboBox3.TabIndex = 5;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged_1);
             // 
             // PrizeGroupBox
             // 
+            this.PrizeGroupBox.Controls.Add(this.comboBox4);
             this.PrizeGroupBox.Controls.Add(this.comboBox3);
-            this.PrizeGroupBox.Controls.Add(this.label20);
             this.PrizeGroupBox.Controls.Add(this.comboBox2);
-            this.PrizeGroupBox.Controls.Add(this.label19);
             this.PrizeGroupBox.Controls.Add(this.comboBox1);
-            this.PrizeGroupBox.Controls.Add(this.label18);
-            this.PrizeGroupBox.Location = new System.Drawing.Point(609, 647);
+            this.PrizeGroupBox.Location = new System.Drawing.Point(757, 98);
             this.PrizeGroupBox.Name = "PrizeGroupBox";
-            this.PrizeGroupBox.Size = new System.Drawing.Size(418, 41);
+            this.PrizeGroupBox.Size = new System.Drawing.Size(369, 54);
             this.PrizeGroupBox.TabIndex = 56;
             this.PrizeGroupBox.TabStop = false;
             this.PrizeGroupBox.Text = "Prizes";
             this.PrizeGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(297, 19);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(51, 21);
+            this.comboBox4.TabIndex = 6;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 16);
+            this.label18.Location = new System.Drawing.Point(501, 520);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "label18";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(53, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(51, 21);
-            this.comboBox1.TabIndex = 1;
+            this.label18.Size = new System.Drawing.Size(68, 13);
+            this.label18.TabIndex = 57;
+            this.label18.Text = "RewardType";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(110, 16);
+            this.label19.Location = new System.Drawing.Point(591, 520);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "label19";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(157, 13);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(75, 21);
-            this.comboBox2.TabIndex = 3;
+            this.label19.Size = new System.Drawing.Size(37, 13);
+            this.label19.TabIndex = 58;
+            this.label19.Text = "PopID";
+            this.label19.Click += new System.EventHandler(this.label19_Click_1);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(238, 16);
+            this.label20.Location = new System.Drawing.Point(731, 520);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 13);
+            this.label20.TabIndex = 59;
+            this.label20.Text = "Amount";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
-            // comboBox3
+            // label21
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(285, 13);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(81, 21);
-            this.comboBox3.TabIndex = 5;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(789, 520);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 13);
+            this.label21.TabIndex = 60;
+            this.label21.Text = "Instances";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 1212);
+            this.ClientSize = new System.Drawing.Size(1253, 1193);
             this.Controls.Add(this.PrizeGroupBox);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.prizePanel);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -739,7 +768,6 @@ namespace JsonValidator
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PrizeGroupBox.ResumeLayout(false);
-            this.PrizeGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -799,13 +827,15 @@ namespace JsonValidator
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.FlowLayoutPanel prizePanel;
-        private System.Windows.Forms.GroupBox PrizeGroupBox;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.GroupBox PrizeGroupBox;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }
 

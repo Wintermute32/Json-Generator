@@ -17,21 +17,10 @@ namespace JsonValidator
         string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
         string playbookPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
 
-        List<ComboBox> comboBList = new List<ComboBox>();
         List<string> boxIDs = new List<string>();
-
         Database database = new Database();
-        
         NewRoot eventObject;
-
-        Label rewardType = new Label();
-        Label rewardID = new Label();
-        Label amount = new Label();
-        Label instances = new Label();
-
         ComboBox comboB;
-        
-     
 
         List<ComboBox> comboList = new List<ComboBox>();
 
@@ -113,8 +102,10 @@ namespace JsonValidator
                     GeneratePopSelector(x, featuredPopPanel);
 
                 foreach (var x in eventObject.prizes)
-                    GeneratePrizeRow(x, prizePanel);
-
+                {   
+                   PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
+                   Debug.WriteLine("reward ID should be: " + x.rewardId);
+                }
             }
 
         }
@@ -145,57 +136,6 @@ namespace JsonValidator
 
         }
 
-        public void GeneratePrizeRow(Prize prizeObj, FlowLayoutPanel flowPanel)
-        {
-            Label rewardType = new Label();
-            rewardType.Text = "rewardType";
-            rewardType.Margin = new Padding(0);
-            rewardType.Size = new Size(30, 20);
-
-            TextBox rewards = new TextBox();
-            rewards.Text = prizeObj.rewardType;
-            rewards.Margin = new Padding(0);
-            rewards.Size = new Size(30, 20);
-
-
-            Label rewardID = new Label();
-            rewardID.Text = "rewardID";
-            rewardID.Margin = new Padding(0);
-            rewards.Size = new Size(30, 20);
-
-            ComboBox ID = new ComboBox();
-            ID.DataSource = database.GetAllPopID(databasePath);
-            ID.Text = prizeObj.rewardId;
-            ID.Margin = new Padding(0);
-            ID.Size = new Size(30, 20);
-
-
-            Label amount = new Label();
-            amount.Text = "amount";
-            amount.Margin = new Padding(0);
-            amount.Size = new Size(30, 70);
-
-            TextBox popAmount = new TextBox();
-            popAmount.Text = prizeObj.amount.ToString();
-            popAmount.Margin = new Padding(0);
-
-            Label instances = new Label();
-            instances.Text = "instances";
-
-            TextBox instanceCount = new TextBox();
-            instanceCount.Text = prizeObj.instances.ToString();
-            
-            flowPanel.Controls.Add(rewardType);
-            flowPanel.Controls.Add(rewards);
-            flowPanel.Controls.Add(rewardID);
-            flowPanel.Controls.Add(ID);
-            flowPanel.Controls.Add(amount);
-            flowPanel.Controls.Add(popAmount);
-            flowPanel.Controls.Add(instances);
-            flowPanel.Controls.Add(instanceCount);
-
-        }
-
         public void ResetAllControls(Control form)
         {
             ComboBox ctrlInQ;
@@ -208,8 +148,6 @@ namespace JsonValidator
                 }
 
             }
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -356,5 +294,140 @@ namespace JsonValidator
         {
 
         }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+            private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+            {
+
+            }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prizePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class PrizeBox
+    {
+        Prize prize;
+        ComboBox comboB1;
+        ComboBox comboB2;
+        ComboBox comboB3;
+        ComboBox comboB4;
+        public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GeneratePrizeLine(flowPanel, databasePath, prize);
+            this.prize = prize;
+        }
+
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            Database database = new Database();
+
+            GroupBox newGroupB = new GroupBox()
+            {
+                Name = "PrizeGroupBox",
+                Size = new System.Drawing.Size(369, 54),
+                TabIndex = 56,
+                TabStop = false,
+                Margin = new Padding(0)
+            };
+
+            ComboBox combo1 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Location = new System.Drawing.Point(9, 19),
+                Name = "comboBox1",
+                Size = new System.Drawing.Size(70, 21),
+                TabIndex = 1,
+            };
+
+            this.comboB1 = combo1;
+
+            ComboBox combo2 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Location = new System.Drawing.Point(85, 19),
+                Name = "comboBox2",
+                Size = new System.Drawing.Size(148, 21),
+                TabIndex = 5,
+            };
+
+            this.comboB2 = combo2;
+
+
+            ComboBox combo3 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Location = new System.Drawing.Point(239, 19),
+                Name = "comboBox3",
+                Size = new System.Drawing.Size(52, 21),
+                TabIndex = 3,
+            };
+
+            this.comboB3 = combo3;
+
+            ComboBox combo4 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Location = new System.Drawing.Point(297, 19),
+                Name = "comboBox4",
+                Size = new System.Drawing.Size(51, 21),
+                TabIndex = 6,
+            };
+
+            this.comboB4 = combo4;
+
+            combo1.DataSource = new List<string>() { "pop", "" };
+            combo2.DataSource = database.GetAllPopID(databasePath);
+            combo3.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+            combo4.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+
+            newGroupB.Controls.Add(comboB1);
+            newGroupB.Controls.Add(comboB2);
+            newGroupB.Controls.Add(comboB3);
+            newGroupB.Controls.Add(comboB4);
+            flowPanel.Controls.Add(newGroupB);
+
+            comboB1.Text = prize.rewardType;
+            comboB2.Text = prize.rewardId;
+            comboB3.Text = prize.amount.ToString();
+            comboB4.Text = prize.instances.ToString();
+        }
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -43,6 +43,8 @@ namespace PopOwnership
 
         public List<PopCollections> PopCollectionsGenerator(string collectionsPath)
         {
+            List<PopCollections> finalCollections = new List<PopCollections>();
+            List<string> collectionPops = new List<string>();
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture);
             config.HeaderValidated = null;
@@ -53,13 +55,18 @@ namespace PopOwnership
             var collectionsList = csv.GetRecords<PopCollections>().ToList();
 
             foreach (var x in collectionsList)
-                x.allPops = x.CombineAllPops();
+                if (x.collectionType != "Other")
+                    finalCollections.Add(x);
 
-            return collectionsList;
+            foreach (var x in finalCollections)
+                x.CombineAllPops(x);
+
+            return finalCollections;
         }
 
         public List<PopOwnerForm> CombineObjects(List<Database> dataList, List<PopOwnerForm> ownersFormList, List<PopCollections> popCollectionsList)
         {
+
             foreach (var x in ownersFormList)
                 foreach (var y in dataList)
                     if (x.popName == y.popID)
@@ -83,7 +90,6 @@ namespace PopOwnership
                 csv.WriteRecords(ownersList);
             }
         }
-
     }
 
     public class PopOwnerForm
@@ -114,6 +120,9 @@ namespace PopOwnership
         [Name("CollectionId")]
         public string collection { get; set; }
 
+        [Name("CollectionType")]
+        public string collectionType { get; set; }
+
         [Name("Pop1")]
         public string pop1 { get; set; }
 
@@ -129,13 +138,18 @@ namespace PopOwnership
         [Name("Pop5")]
         public string pop5 { get; set; }
 
-        public string allPops { get; set; }
-
+        public List<string> allPops = new List<string>();
         
-        public string CombineAllPops()
+        public void CombineAllPops(PopCollections popCollection)
         {
-           return pop1 + pop2 + pop3 + pop4 + pop5;
+                allPops.Add(popCollection.pop1);
+                allPops.Add(popCollection.pop2);
+                allPops.Add(popCollection.pop3);
+                allPops.Add(popCollection.pop4);
+                allPops.Add(popCollection.pop5);
         }
 
-    }
+     }
+
 }
+

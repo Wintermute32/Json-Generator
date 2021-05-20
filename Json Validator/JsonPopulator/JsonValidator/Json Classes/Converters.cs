@@ -79,7 +79,6 @@ namespace JsonValidator
 
             return gachaData;
         }
-
         public List<string> GetBoxIds(string playbookPath)
         {
             List<string> boxIDs = new List<string>();
@@ -92,7 +91,6 @@ namespace JsonValidator
             }
             return boxIDs;
         }
-
         public List<Playbook> playbookHelper(string playbookPath)
         {
 

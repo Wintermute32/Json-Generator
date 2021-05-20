@@ -47,7 +47,7 @@ namespace JsonValidator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-       
+
 
         }
 
@@ -102,11 +102,21 @@ namespace JsonValidator
                     GeneratePopSelector(x, featuredPopPanel);
 
                 foreach (var x in eventObject.prizes)
-                {   
-                   PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
-                   Debug.WriteLine("reward ID should be: " + x.rewardId);
+                {
+                    PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
+                    Debug.WriteLine("reward ID should be: " + x.rewardId);
                 }
             }
+
+        }
+
+        public void PopulateTierBoxes(NewRoot eventObject, IList<ITierBox> boxes) //How to specify which tier box we wanna use?
+        {
+            foreach (var x in eventObject.tiers)
+            {
+                
+            }
+
 
         }
 
@@ -117,7 +127,7 @@ namespace JsonValidator
 
 
             foreach (Control item in PurchasePopsPanel.Controls.OfType<ComboBox>())
-                    PurchasePopsPanel.Controls.Clear();
+                PurchasePopsPanel.Controls.Clear();
 
             foreach (Control item in mainHubPanel.Controls.OfType<ComboBox>())
                 mainHubPanel.Controls.Clear();
@@ -300,11 +310,11 @@ namespace JsonValidator
 
         }
 
-       
-            private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-            {
 
-            }
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
 
         private void label16_Click(object sender, EventArgs e)
         {
@@ -335,11 +345,30 @@ namespace JsonValidator
         {
 
         }
+
+        private void tierslbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class PrizeBox
     {
-        Prize prize;
         ComboBox comboB1;
         ComboBox comboB2;
         ComboBox comboB3;
@@ -347,7 +376,6 @@ namespace JsonValidator
         public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
         {
             GeneratePrizeLine(flowPanel, databasePath, prize);
-            this.prize = prize;
         }
 
         public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
@@ -410,7 +438,7 @@ namespace JsonValidator
 
             combo1.DataSource = new List<string>() { "pop", "" };
             combo2.DataSource = database.GetAllPopID(databasePath);
-            combo3.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+            combo3.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
             combo4.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
             newGroupB.Controls.Add(comboB1);
@@ -424,9 +452,195 @@ namespace JsonValidator
             comboB3.Text = prize.amount.ToString();
             comboB4.Text = prize.instances.ToString();
         }
+
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+    }
+
+    public interface ITierBox
+    {
+        void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize);
+    }
+
+    public class TierBoxL : ITierBox
+    {
+        TextBox textBoxOne;
+        ComboBox comboB2;
+        ComboBox comboB3;
+        ComboBox comboB4;
+
+        TierBoxL(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GeneratePrizeLine(flowPanel, databasePath, prize);
+        }
+
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GroupBox newGroupB = new GroupBox()
+            {
+                Name = "TierGroupBox",
+                Size = new System.Drawing.Size(369, 54),
+                TabIndex = 56,
+                TabStop = false,
+                Margin = new Padding(0)
+            };
+
+            TextBox txtB1 = new TextBox()
+            {
+                Location = new System.Drawing.Point(9, 19),
+                Size = new System.Drawing.Size(51, 20),
+                TabIndex = 0
+            };
+
+            this.textBoxOne = txtB1;
+
+            ComboBox combo2 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Name = "amtBox",
+                Size = new System.Drawing.Size(38, 21),
+                TabIndex = 1
+            };
+
+            this.comboB2 = combo2;
+
+
+            ComboBox combo3 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Location = new System.Drawing.Point(239, 19),
+                Name = "popIdBox",
+                Size = new System.Drawing.Size(86, 21),
+                TabIndex = 2,
+            };
+
+            this.comboB3 = combo3;
+
+            ComboBox combo4 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Name = "comboBox4",
+                Size = new System.Drawing.Size(38, 21),
+                TabIndex = 3,
+           };
+
+            this.comboB4 = combo4;
+
+            newGroupB.Controls.Add(textBoxOne);
+            newGroupB.Controls.Add(comboB2);
+            newGroupB.Controls.Add(comboB3);
+            newGroupB.Controls.Add(comboB4);
+            flowPanel.Controls.Add(newGroupB);
+        }
+
+    }
+
+    public class TierBoxM : ITierBox
+    {
+        TextBox textBoxOne;
+        ComboBox comboB2;
+        ComboBox comboB3;
+
+        TierBoxM(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GeneratePrizeLine(flowPanel, databasePath, prize);
+        }
+
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GroupBox newGroupB = new GroupBox()
+            {
+                Name = "TierGroupBox",
+                Size = new System.Drawing.Size(369, 54),
+                TabIndex = 56,
+                TabStop = false,
+                Margin = new Padding(0)
+            };
+
+            TextBox txtB1 = new TextBox()
+            {
+                Location = new System.Drawing.Point(9, 19),
+                Size = new System.Drawing.Size(51, 20),
+                TabIndex = 0
+            };
+
+            this.textBoxOne = txtB1;
+
+            ComboBox combo2 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Name = "amtBox",
+                Size = new System.Drawing.Size(38, 21),
+                TabIndex = 1
+            };
+
+            this.comboB2 = combo2;
+
+
+            ComboBox combo3 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Location = new System.Drawing.Point(239, 19),
+                Name = "popIdBox",
+                Size = new System.Drawing.Size(86, 21),
+                TabIndex = 2,
+            };
+
+            this.comboB3 = combo3;
+
+            newGroupB.Controls.Add(textBoxOne);
+            newGroupB.Controls.Add(comboB2);
+            newGroupB.Controls.Add(comboB3);
+            flowPanel.Controls.Add(newGroupB);
+        }
+
+    }
+    public class TierBoxS : ITierBox
+    {
+        TextBox textBoxOne;
+        ComboBox comboB2;
+
+        TierBoxS(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GeneratePrizeLine(flowPanel, databasePath, prize);
+        }
+
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        {
+            GroupBox newGroupB = new GroupBox()
+            {
+                Name = "TierGroupBox",
+                Size = new System.Drawing.Size(369, 54),
+                TabIndex = 56,
+                TabStop = false,
+                Margin = new Padding(0)
+            };
+
+            TextBox txtB1 = new TextBox()
+            {
+                Location = new System.Drawing.Point(9, 19),
+                Size = new System.Drawing.Size(51, 20),
+                TabIndex = 0
+            };
+
+            this.textBoxOne = txtB1;
+
+            ComboBox combo2 = new ComboBox()
+            {
+                FormattingEnabled = true,
+                Name = "amtBox",
+                Size = new System.Drawing.Size(38, 21),
+                TabIndex = 1
+            };
+
+            this.comboB2 = combo2;
+
+            newGroupB.Controls.Add(textBoxOne);
+            newGroupB.Controls.Add(comboB2);
+            flowPanel.Controls.Add(newGroupB);
         }
 
     }

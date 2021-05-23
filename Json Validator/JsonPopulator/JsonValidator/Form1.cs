@@ -95,19 +95,46 @@ namespace JsonValidator
                     PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
                     Debug.WriteLine("reward ID should be: " + x.rewardId);
                 }
+
+                TierGenerator();
             }
         }
 
+        public void TierGenerator()
+        {
+            ITierBox tierBox;
+
+            foreach (var x in eventObject.tiers)
+            {
+                if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
+                    tierBox = new TierBoxL(flowLayoutPanel1, databasePath, x);  
+
+                if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
+                    tierBox = new TierBoxM(flowLayoutPanel1, databasePath, x);
+
+                if (x.isGuarantee != true)
+                    tierBox = new TierBoxS(flowLayoutPanel1, databasePath, x);
+            }
+        }
         public IEnumerable<ComboBox> CallControlPanel()
         {
             return StorePopsPanel.Controls.OfType<ComboBox>();
         }
-  
 
         private void button1_Click_1(object sender, EventArgs e)
         {
 
             testing.GeneratePopSelector("", StorePopsPanel);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
 
         }
     }

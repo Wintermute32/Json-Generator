@@ -8,25 +8,26 @@ namespace JsonValidator
         TextBox textBoxOne;
         ComboBox comboB2;
 
-        TierBoxS(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        public TierBoxS(FlowLayoutPanel flowPanel, string databasePath, Tier tier)
         {
-            GeneratePrizeLine(flowPanel, databasePath, prize);
+            GeneratePrizeLine(flowPanel, databasePath, tier);
         }
 
-        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Tier tier)
         {
             GroupBox newGroupB = new GroupBox()
             {
                 Name = "TierGroupBox",
-                Size = new System.Drawing.Size(369, 54),
-                TabIndex = 56,
+                Location = new System.Drawing.Point(122, 1015),
+                Size = new System.Drawing.Size(257, 46),
+                TabIndex = 57,
                 TabStop = false,
-                Margin = new Padding(0)
+                //Margin = new Padding(0)
             };
 
             TextBox txtB1 = new TextBox()
             {
-                Location = new System.Drawing.Point(9, 19),
+                Location = new System.Drawing.Point(7, 20),
                 Size = new System.Drawing.Size(51, 20),
                 TabIndex = 0
             };
@@ -37,6 +38,7 @@ namespace JsonValidator
             {
                 FormattingEnabled = true,
                 Name = "amtBox",
+                Location = new System.Drawing.Point(64, 19),
                 Size = new System.Drawing.Size(38, 21),
                 TabIndex = 1
             };

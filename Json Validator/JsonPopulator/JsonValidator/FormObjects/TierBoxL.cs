@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using JsonValidator.CSV;
+
 
 namespace JsonValidator
 {
@@ -10,25 +13,28 @@ namespace JsonValidator
         ComboBox comboB3;
         ComboBox comboB4;
 
-        TierBoxL(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        public TierBoxL(FlowLayoutPanel flowPanel, string databasePath, Tier tier)
         {
-            GeneratePrizeLine(flowPanel, databasePath, prize);
+            GeneratePrizeLine(flowPanel, databasePath, tier);
         }
 
-        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Tier tier)
         {
+            Database database = new Database();
+
             GroupBox newGroupB = new GroupBox()
             {
                 Name = "TierGroupBox",
-                Size = new System.Drawing.Size(369, 54),
-                TabIndex = 56,
+                Location = new System.Drawing.Point(122, 1015),
+                Size = new System.Drawing.Size(257, 46),
+                TabIndex = 57,
                 TabStop = false,
-                Margin = new Padding(0)
+                //Margin = new Padding(0)
             };
 
             TextBox txtB1 = new TextBox()
             {
-                Location = new System.Drawing.Point(9, 19),
+                Location = new System.Drawing.Point(7, 20),
                 Size = new System.Drawing.Size(51, 20),
                 TabIndex = 0
             };
@@ -40,6 +46,7 @@ namespace JsonValidator
                 FormattingEnabled = true,
                 Name = "amtBox",
                 Size = new System.Drawing.Size(38, 21),
+                Location = new System.Drawing.Point(64, 19),
                 TabIndex = 1
             };
 
@@ -49,7 +56,7 @@ namespace JsonValidator
             ComboBox combo3 = new ComboBox()
             {
                 FormattingEnabled = true,
-                Location = new System.Drawing.Point(239, 19),
+                Location = new System.Drawing.Point(122, 19),
                 Name = "popIdBox",
                 Size = new System.Drawing.Size(86, 21),
                 TabIndex = 2,
@@ -60,6 +67,7 @@ namespace JsonValidator
             ComboBox combo4 = new ComboBox()
             {
                 FormattingEnabled = true,
+                Location = new System.Drawing.Point(214, 19),
                 Name = "comboBox4",
                 Size = new System.Drawing.Size(38, 21),
                 TabIndex = 3,
@@ -67,27 +75,16 @@ namespace JsonValidator
 
             this.comboB4 = combo4;
 
+            combo2.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            combo3.DataSource = database.GetAllPopID(databasePath);
+            combo4.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+
             newGroupB.Controls.Add(textBoxOne);
             newGroupB.Controls.Add(comboB2);
             newGroupB.Controls.Add(comboB3);
             newGroupB.Controls.Add(comboB4);
             flowPanel.Controls.Add(newGroupB);
         }
-
     }
 
-    public class TierBoxGenerator
-    {
-        private ITierBox tierBox;
-        public TierBoxGenerator(ITierBox tierBox)
-        {
-            this.tierBox = tierBox;
-        }
-
-        public void populatetierboxes( ) //how to specify which tier box we wanna use?
-        {
-
-        }
-
-    }
 }

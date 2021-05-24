@@ -83,6 +83,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormObjects\ITierBox.cs" />
     <Compile Include="Json Classes\Appearance.cs" />
     <Compile Include="Json Classes\Converters.cs" />
     <Compile Include="Json Classes\Guarantee.cs" />
@@ -93,9 +94,12 @@
     <Compile Include="Json Classes\PurchaseScreenAppearance.cs" />
     <Compile Include="Json Classes\StoreButtonAppearance.cs" />
     <Compile Include="Json Classes\Tier.cs" />
-    <Compile Include="PrizeStructureBase.cs" />
+    <Compile Include="FormObjects\PrizeBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormObjects\TierBoxL.cs" />
+    <Compile Include="FormObjects\TierBoxM.cs" />
+    <Compile Include="FormObjects\TierBoxS.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,5 +126,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -103,13 +103,18 @@ namespace JsonValidator
             this.PrizeGroupBox = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lastChanceBoxPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.LastChangeGB = new System.Windows.Forms.GroupBox();
             this.label28 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.comboBox10 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
             this.LastChangeGB.SuspendLayout();
@@ -352,9 +357,11 @@ namespace JsonValidator
             // 
             // StorePopsPanel
             // 
+            this.StorePopsPanel.AutoScroll = true;
+            this.StorePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.StorePopsPanel.Location = new System.Drawing.Point(105, 463);
             this.StorePopsPanel.Name = "StorePopsPanel";
-            this.StorePopsPanel.Size = new System.Drawing.Size(327, 99);
+            this.StorePopsPanel.Size = new System.Drawing.Size(304, 99);
             this.StorePopsPanel.TabIndex = 32;
             // 
             // PurchaseScrnLbl
@@ -376,9 +383,11 @@ namespace JsonValidator
             // 
             // PurchasePopsPanel
             // 
+            this.PurchasePopsPanel.AutoScroll = true;
+            this.PurchasePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.PurchasePopsPanel.Location = new System.Drawing.Point(104, 681);
             this.PurchasePopsPanel.Name = "PurchasePopsPanel";
-            this.PurchasePopsPanel.Size = new System.Drawing.Size(327, 90);
+            this.PurchasePopsPanel.Size = new System.Drawing.Size(305, 90);
             this.PurchasePopsPanel.TabIndex = 37;
             // 
             // button2
@@ -389,6 +398,7 @@ namespace JsonValidator
             this.button2.TabIndex = 36;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label12
             // 
@@ -519,9 +529,11 @@ namespace JsonValidator
             // 
             // mainHubPanel
             // 
+            this.mainHubPanel.AutoScroll = true;
+            this.mainHubPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.mainHubPanel.Location = new System.Drawing.Point(107, 912);
             this.mainHubPanel.Name = "mainHubPanel";
-            this.mainHubPanel.Size = new System.Drawing.Size(327, 107);
+            this.mainHubPanel.Size = new System.Drawing.Size(279, 107);
             this.mainHubPanel.TabIndex = 38;
             // 
             // button3
@@ -532,6 +544,7 @@ namespace JsonValidator
             this.button3.TabIndex = 48;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label13
             // 
@@ -565,7 +578,7 @@ namespace JsonValidator
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 1077);
+            this.label15.Location = new System.Drawing.Point(6, 1065);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(90, 13);
             this.label15.TabIndex = 52;
@@ -573,18 +586,21 @@ namespace JsonValidator
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(107, 1077);
+            this.button4.Location = new System.Drawing.Point(65, 1081);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(29, 22);
             this.button4.TabIndex = 53;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // featuredPopPanel
             // 
-            this.featuredPopPanel.Location = new System.Drawing.Point(142, 1077);
+            this.featuredPopPanel.AutoScroll = true;
+            this.featuredPopPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.featuredPopPanel.Location = new System.Drawing.Point(105, 1081);
             this.featuredPopPanel.Name = "featuredPopPanel";
-            this.featuredPopPanel.Size = new System.Drawing.Size(327, 92);
+            this.featuredPopPanel.Size = new System.Drawing.Size(282, 92);
             this.featuredPopPanel.TabIndex = 39;
             // 
             // label17
@@ -599,6 +615,7 @@ namespace JsonValidator
             // prizePanel
             // 
             this.prizePanel.AutoScroll = true;
+            this.prizePanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.prizePanel.Location = new System.Drawing.Point(453, 113);
             this.prizePanel.Name = "prizePanel";
             this.prizePanel.Size = new System.Drawing.Size(402, 262);
@@ -648,7 +665,7 @@ namespace JsonValidator
             this.groupBox1.Controls.Add(this.comboBox6);
             this.groupBox1.Controls.Add(this.comboBox5);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(711, 1186);
+            this.groupBox1.Location = new System.Drawing.Point(95, 1324);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(257, 46);
             this.groupBox1.TabIndex = 57;
@@ -744,6 +761,7 @@ namespace JsonValidator
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(453, 416);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(402, 262);
@@ -787,7 +805,7 @@ namespace JsonValidator
             this.PrizeGroupBox.Controls.Add(this.comboBox3);
             this.PrizeGroupBox.Controls.Add(this.comboBox2);
             this.PrizeGroupBox.Controls.Add(this.comboBox1);
-            this.PrizeGroupBox.Location = new System.Drawing.Point(711, 1252);
+            this.PrizeGroupBox.Location = new System.Drawing.Point(95, 1390);
             this.PrizeGroupBox.Name = "PrizeGroupBox";
             this.PrizeGroupBox.Size = new System.Drawing.Size(369, 54);
             this.PrizeGroupBox.TabIndex = 56;
@@ -814,13 +832,14 @@ namespace JsonValidator
             this.label16.TabIndex = 67;
             this.label16.Text = "LastChanceBox";
             // 
-            // flowLayoutPanel2
+            // lastChanceBoxPanel
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(456, 727);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(402, 262);
-            this.flowLayoutPanel2.TabIndex = 42;
+            this.lastChanceBoxPanel.AutoScroll = true;
+            this.lastChanceBoxPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lastChanceBoxPanel.Location = new System.Drawing.Point(456, 727);
+            this.lastChanceBoxPanel.Name = "lastChanceBoxPanel";
+            this.lastChanceBoxPanel.Size = new System.Drawing.Size(402, 262);
+            this.lastChanceBoxPanel.TabIndex = 42;
             // 
             // LastChangeGB
             // 
@@ -829,7 +848,7 @@ namespace JsonValidator
             this.LastChangeGB.Controls.Add(this.comboBox9);
             this.LastChangeGB.Controls.Add(this.comboBox10);
             this.LastChangeGB.Controls.Add(this.textBox3);
-            this.LastChangeGB.Location = new System.Drawing.Point(706, 1091);
+            this.LastChangeGB.Location = new System.Drawing.Point(90, 1229);
             this.LastChangeGB.Name = "LastChangeGB";
             this.LastChangeGB.Size = new System.Drawing.Size(257, 46);
             this.LastChangeGB.TabIndex = 63;
@@ -877,13 +896,68 @@ namespace JsonValidator
             this.textBox3.Size = new System.Drawing.Size(51, 20);
             this.textBox3.TabIndex = 0;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(861, 113);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(29, 22);
+            this.button5.TabIndex = 68;
+            this.button5.Text = "+";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(861, 416);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(29, 22);
+            this.button6.TabIndex = 69;
+            this.button6.Text = "+";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(864, 727);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(29, 22);
+            this.button7.TabIndex = 70;
+            this.button7.Text = "+";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(861, 444);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(29, 22);
+            this.button8.TabIndex = 71;
+            this.button8.Text = "+";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(861, 472);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(29, 22);
+            this.button9.TabIndex = 72;
+            this.button9.Text = "+";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 1316);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.LastChangeGB);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.lastChanceBoxPanel);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label23);
@@ -1039,13 +1113,18 @@ namespace JsonValidator
         private System.Windows.Forms.GroupBox PrizeGroupBox;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel lastChanceBoxPanel;
         private System.Windows.Forms.GroupBox LastChangeGB;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.ComboBox comboBox9;
         private System.Windows.Forms.ComboBox comboBox10;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 

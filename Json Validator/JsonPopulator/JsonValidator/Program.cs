@@ -45,7 +45,6 @@ namespace JsonValidator
             PurchaseScreenAppearance psA = new PurchaseScreenAppearance(eventID, popDict);
             MainHubAppearance mhA = new MainHubAppearance(eventID, popDict);
             Tier tiers = new Tier();
-            LastChanceBoxPrize lastChancePrize = new LastChanceBoxPrize();
 
             Appearance appearance = new Appearance(sba, psA, mhA);
             newRoot.appearance = appearance;
@@ -53,7 +52,7 @@ namespace JsonValidator
             List<Gacha> gachaList = converters.GachaPopulator(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0034_FunkoBlitz_EventRewards_BackToTheFutureSet3_Clear - Event Gacha.csv");
             newRoot.prizes = gacha.PrizeList(gachaList);
             newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
-            newRoot.lastChanceBoxPrizes = lastChancePrize.AssignBoxValues(popDict);
+            newRoot.lastChanceBoxPrizes = converters.AssignBoxValues(popDict);
 
             return newRoot;
 

@@ -8,7 +8,7 @@ using JsonValidator.CSV;
 
 namespace JsonValidator
 {
-    public class Prize
+    public class Prize : IPrizeBox
     {
         public string rewardType { get; set; }
         public string rewardId { get; set; }

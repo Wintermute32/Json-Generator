@@ -46,57 +46,65 @@ namespace JsonValidator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            testing.RemoveRuntimeComboBoxes(StorePopsPanel, mainHubPanel, PurchasePopsPanel, featuredPopPanel);
+            testing.RemoveRuntimeComboBoxes(this);
 
             var eventID = boxIDcomboBox.SelectedItem.ToString(); //fix this
             eventID = eventID.Substring(eventID.IndexOf('_') + 1);
 
             if (eventID != null)
             {
-                eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
-                textBox1.Text = eventObject.fandomId;
+                InitializeFormComponents(eventID);
+            }
+        }
 
-                dateTimePicker1.Value = DateTime.Parse(eventObject.startDate);
-                dateTimePicker2.Value = DateTime.Parse(eventObject.endDate);
-                checkBox1.Checked = eventObject.appearance.isEventBox;
-                MysteryBoxTypeCB.Text = eventObject.appearance.mysteryBoxType;
-                ThemeCB.Text = eventObject.appearance.theme;
-                StyleCB.Text = eventObject.appearance.storeButtonAppearance.style;
-                RibbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
-                TitleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
-                SubLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
+        private void InitializeFormComponents(string eventID)
+        {
+            eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
+            textBox1.Text = eventObject.fandomId;
+            dateTimePicker1.Value = DateTime.Parse(eventObject.startDate);
+            dateTimePicker2.Value = DateTime.Parse(eventObject.endDate);
+            checkBox1.Checked = eventObject.appearance.isEventBox;
+            MysteryBoxTypeCB.Text = eventObject.appearance.mysteryBoxType;
+            ThemeCB.Text = eventObject.appearance.theme;
+            StyleCB.Text = eventObject.appearance.storeButtonAppearance.style;
+            RibbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
+            TitleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
+            SubLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
+            orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
+            discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
+            PSTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
+            canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
+            style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
+            TitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+            mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
 
-                foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
-                    testing.GeneratePopSelector(x, StorePopsPanel);
+            TierGenerator();
 
-                orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
-                discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
+            GenerateRuntimePopPanels();
+        }
 
-                PSTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
+        private void GenerateRuntimePopPanels()
+        {
+            foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
+                testing.GeneratePopSelector(x, StorePopsPanel);
 
-                foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
-                    testing.GeneratePopSelector(x, PurchasePopsPanel);
+            foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
+                testing.GeneratePopSelector(x, PurchasePopsPanel);
 
-                canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
-                style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
-                TitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
-                mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
+            foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
+                testing.GeneratePopSelector(x, mainHubPanel);
 
-                foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
-                    testing.GeneratePopSelector(x, mainHubPanel);
+            foreach (var x in eventObject.featuredPopIdsList)
+                testing.GeneratePopSelector(x, featuredPopPanel);
 
-                behaviorCB.Text = eventObject.behaviourType;
+            foreach (var x in eventObject.prizes)
+            {
+                PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
+            }
 
-                foreach (var x in eventObject.featuredPopIdsList)
-                    testing.GeneratePopSelector(x, featuredPopPanel);
-
-                foreach (var x in eventObject.prizes)
-                {
-                    PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
-                    Debug.WriteLine("reward ID should be: " + x.rewardId);
-                }
-
-                TierGenerator();
+            foreach (var x in eventObject.lastChanceBoxPrizes)
+            {
+                PrizeBox lastChanceBox = new PrizeBox(lastChanceBoxPanel, databasePath, x);
             }
         }
 
@@ -137,11 +145,50 @@ namespace JsonValidator
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            testing.GeneratePopSelector("", PurchasePopsPanel);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            testing.GeneratePopSelector("", mainHubPanel);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            testing.GeneratePopSelector("", featuredPopPanel);
+
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            PrizeBox newPrizeLine = new PrizeBox(prizePanel, databasePath, new Prize());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+           TierBoxL tierBox = new TierBoxL(flowLayoutPanel1, databasePath, new Tier());
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            TierBoxM tierBox = new TierBoxM(flowLayoutPanel1, databasePath, new Tier());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            TierBoxS tierBox = new TierBoxS(flowLayoutPanel1, databasePath, new Tier());
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PrizeBox newPrizeLine = new PrizeBox(lastChanceBoxPanel, databasePath, new Prize());
+        }
     }
 
     public class Testing
     {
-
         Database database = new Database();
         ComboBox comboB;
         string dataBPath;
@@ -155,19 +202,10 @@ namespace JsonValidator
             this.playBPath = playbookPath;
         }
           
-        public void RemoveRuntimeComboBoxes(FlowLayoutPanel storePopsPanel, FlowLayoutPanel purchasePopsPanel, FlowLayoutPanel mainHubPanel, FlowLayoutPanel featuredPopsPanel)
+        public void RemoveRuntimeComboBoxes(Form1 form1)
         {
-            foreach (Control item in storePopsPanel.Controls.OfType<ComboBox>())
-                storePopsPanel.Controls.Clear();
-
-            foreach (Control item in purchasePopsPanel.Controls.OfType<ComboBox>())
-                purchasePopsPanel.Controls.Clear();
-
-            foreach (Control item in mainHubPanel.Controls.OfType<ComboBox>())
-                mainHubPanel.Controls.Clear();
-
-            foreach (Control item in featuredPopsPanel.Controls.OfType<ComboBox>())
-                featuredPopsPanel.Controls.Clear();
+                foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
+                    item.Controls.Clear();
         }
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {

@@ -11,12 +11,12 @@ namespace JsonValidator
         ComboBox comboB2;
         ComboBox comboB3;
         ComboBox comboB4;
-        public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
             GeneratePrizeLine(flowPanel, databasePath, prize);
         }
 
-        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Prize prize)
+        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
             Database database = new Database();
 

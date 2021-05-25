@@ -115,13 +115,13 @@ namespace JsonValidator
             foreach (var x in eventObject.tiers)
             {
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
-                    tierBox = new TierBoxL(flowLayoutPanel1, databasePath, x);  
+                    tierBox = new TierBoxL(tierPanel, databasePath, x);  
 
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
-                    tierBox = new TierBoxM(flowLayoutPanel1, databasePath, x);
+                    tierBox = new TierBoxM(tierPanel, databasePath, x);
 
                 if (x.isGuarantee != true)
-                    tierBox = new TierBoxS(flowLayoutPanel1, databasePath, x);
+                    tierBox = new TierBoxS(tierPanel, databasePath, x);
             }
         }
         public IEnumerable<ComboBox> CallControlPanel()
@@ -168,22 +168,57 @@ namespace JsonValidator
 
         private void button6_Click(object sender, EventArgs e)
         {
-           TierBoxL tierBox = new TierBoxL(flowLayoutPanel1, databasePath, new Tier());
+           TierBoxL tierBox = new TierBoxL(tierPanel, databasePath, new Tier());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            TierBoxM tierBox = new TierBoxM(flowLayoutPanel1, databasePath, new Tier());
+            TierBoxM tierBox = new TierBoxM(tierPanel, databasePath, new Tier());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            TierBoxS tierBox = new TierBoxS(flowLayoutPanel1, databasePath, new Tier());
+            TierBoxS tierBox = new TierBoxS(tierPanel, databasePath, new Tier());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             PrizeBox newPrizeLine = new PrizeBox(lastChanceBoxPanel, databasePath, new Prize());
+        }
+
+        private void storeSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(StorePopsPanel);
+        }
+
+        private void purSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(PurchasePopsPanel);
+        }
+
+        private void mainSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(mainHubPanel);
+        }
+
+        private void featuredSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(featuredPopPanel);
+        }
+
+        private void prizeSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(prizePanel);
+        }
+
+        private void tierSub1_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(tierPanel);
+        }
+
+        private void lastCSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(lastChanceBoxPanel);
         }
     }
 
@@ -207,6 +242,7 @@ namespace JsonValidator
                 foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
                     item.Controls.Clear();
         }
+
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {
             comboB = new ComboBox();
@@ -216,6 +252,13 @@ namespace JsonValidator
             if (popName != "")
                 comboB.Text = popName;
 
+        }
+
+        public void RemoveCustomControls(FlowLayoutPanel panel)
+        {
+           var controlList = panel.Controls.OfType<Control>().ToList();
+                if (controlList.Count > 0)
+                    panel.Controls.Remove(controlList[controlList.Count - 1]);
         }
 
         public void ResetAllControls(Control form)

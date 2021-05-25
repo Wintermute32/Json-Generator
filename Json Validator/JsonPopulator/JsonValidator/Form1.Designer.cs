@@ -95,7 +95,7 @@ namespace JsonValidator
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tierPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -115,6 +115,13 @@ namespace JsonValidator
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.storeSubB = new System.Windows.Forms.Button();
+            this.purSubB = new System.Windows.Forms.Button();
+            this.prizeSubB = new System.Windows.Forms.Button();
+            this.tierSub1 = new System.Windows.Forms.Button();
+            this.lastCSubB = new System.Windows.Forms.Button();
+            this.mainSubB = new System.Windows.Forms.Button();
+            this.featuredSubB = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
             this.LastChangeGB.SuspendLayout();
@@ -758,14 +765,14 @@ namespace JsonValidator
             this.label26.TabIndex = 65;
             this.label26.Text = "Amount";
             // 
-            // flowLayoutPanel1
+            // tierPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(453, 416);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(402, 262);
-            this.flowLayoutPanel1.TabIndex = 41;
+            this.tierPanel.AutoScroll = true;
+            this.tierPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tierPanel.Location = new System.Drawing.Point(453, 416);
+            this.tierPanel.Name = "tierPanel";
+            this.tierPanel.Size = new System.Drawing.Size(402, 262);
+            this.tierPanel.TabIndex = 41;
             // 
             // comboBox1
             // 
@@ -946,11 +953,88 @@ namespace JsonValidator
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // storeSubB
+            // 
+            this.storeSubB.Location = new System.Drawing.Point(62, 491);
+            this.storeSubB.Name = "storeSubB";
+            this.storeSubB.Size = new System.Drawing.Size(29, 22);
+            this.storeSubB.TabIndex = 73;
+            this.storeSubB.Text = "-";
+            this.storeSubB.UseVisualStyleBackColor = true;
+            this.storeSubB.Click += new System.EventHandler(this.storeSubB_Click);
+            // 
+            // purSubB
+            // 
+            this.purSubB.Location = new System.Drawing.Point(67, 709);
+            this.purSubB.Name = "purSubB";
+            this.purSubB.Size = new System.Drawing.Size(29, 22);
+            this.purSubB.TabIndex = 74;
+            this.purSubB.Text = "-";
+            this.purSubB.UseVisualStyleBackColor = true;
+            this.purSubB.Click += new System.EventHandler(this.purSubB_Click);
+            // 
+            // prizeSubB
+            // 
+            this.prizeSubB.Location = new System.Drawing.Point(861, 141);
+            this.prizeSubB.Name = "prizeSubB";
+            this.prizeSubB.Size = new System.Drawing.Size(29, 22);
+            this.prizeSubB.TabIndex = 75;
+            this.prizeSubB.Text = "-";
+            this.prizeSubB.UseVisualStyleBackColor = true;
+            this.prizeSubB.Click += new System.EventHandler(this.prizeSubB_Click);
+            // 
+            // tierSub1
+            // 
+            this.tierSub1.Location = new System.Drawing.Point(896, 416);
+            this.tierSub1.Name = "tierSub1";
+            this.tierSub1.Size = new System.Drawing.Size(29, 22);
+            this.tierSub1.TabIndex = 76;
+            this.tierSub1.Text = "-";
+            this.tierSub1.UseVisualStyleBackColor = true;
+            this.tierSub1.Click += new System.EventHandler(this.tierSub1_Click);
+            // 
+            // lastCSubB
+            // 
+            this.lastCSubB.Location = new System.Drawing.Point(896, 727);
+            this.lastCSubB.Name = "lastCSubB";
+            this.lastCSubB.Size = new System.Drawing.Size(29, 22);
+            this.lastCSubB.TabIndex = 79;
+            this.lastCSubB.Text = "-";
+            this.lastCSubB.UseVisualStyleBackColor = true;
+            this.lastCSubB.Click += new System.EventHandler(this.lastCSubB_Click);
+            // 
+            // mainSubB
+            // 
+            this.mainSubB.Location = new System.Drawing.Point(67, 940);
+            this.mainSubB.Name = "mainSubB";
+            this.mainSubB.Size = new System.Drawing.Size(29, 22);
+            this.mainSubB.TabIndex = 80;
+            this.mainSubB.Text = "-";
+            this.mainSubB.UseVisualStyleBackColor = true;
+            this.mainSubB.Click += new System.EventHandler(this.mainSubB_Click);
+            // 
+            // featuredSubB
+            // 
+            this.featuredSubB.Location = new System.Drawing.Point(66, 1109);
+            this.featuredSubB.Name = "featuredSubB";
+            this.featuredSubB.Size = new System.Drawing.Size(29, 22);
+            this.featuredSubB.TabIndex = 81;
+            this.featuredSubB.Text = "-";
+            this.featuredSubB.UseVisualStyleBackColor = true;
+            this.featuredSubB.Click += new System.EventHandler(this.featuredSubB_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 1316);
+            this.Controls.Add(this.featuredSubB);
+            this.Controls.Add(this.mainSubB);
+            this.Controls.Add(this.lastCSubB);
+            this.Controls.Add(this.tierSub1);
+            this.Controls.Add(this.prizeSubB);
+            this.Controls.Add(this.purSubB);
+            this.Controls.Add(this.storeSubB);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -1022,7 +1106,7 @@ namespace JsonValidator
             this.Controls.Add(this.boxIDcomboBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.GenerateJsonButton);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tierPanel);
             this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1105,7 +1189,7 @@ namespace JsonValidator
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel tierPanel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -1125,6 +1209,13 @@ namespace JsonValidator
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button storeSubB;
+        private System.Windows.Forms.Button purSubB;
+        private System.Windows.Forms.Button prizeSubB;
+        private System.Windows.Forms.Button tierSub1;
+        private System.Windows.Forms.Button lastCSubB;
+        private System.Windows.Forms.Button mainSubB;
+        private System.Windows.Forms.Button featuredSubB;
     }
 }
 

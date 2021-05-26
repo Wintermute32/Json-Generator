@@ -104,12 +104,6 @@ namespace JsonValidator
             this.label27 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lastChanceBoxPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.LastChangeGB = new System.Windows.Forms.GroupBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -122,9 +116,9 @@ namespace JsonValidator
             this.lastCSubB = new System.Windows.Forms.Button();
             this.mainSubB = new System.Windows.Forms.Button();
             this.featuredSubB = new System.Windows.Forms.Button();
+            this.genJsonBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
-            this.LastChangeGB.SuspendLayout();
             this.SuspendLayout();
             // 
             // GenerateJsonButton
@@ -133,7 +127,7 @@ namespace JsonValidator
             this.GenerateJsonButton.Name = "GenerateJsonButton";
             this.GenerateJsonButton.Size = new System.Drawing.Size(144, 46);
             this.GenerateJsonButton.TabIndex = 0;
-            this.GenerateJsonButton.Text = "Generate Json";
+            this.GenerateJsonButton.Text = "Populate Form";
             this.GenerateJsonButton.UseVisualStyleBackColor = true;
             this.GenerateJsonButton.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -143,6 +137,7 @@ namespace JsonValidator
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(199, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // boxIDcomboBox
             // 
@@ -151,6 +146,7 @@ namespace JsonValidator
             this.boxIDcomboBox.Name = "boxIDcomboBox";
             this.boxIDcomboBox.Size = new System.Drawing.Size(211, 21);
             this.boxIDcomboBox.TabIndex = 2;
+            this.boxIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.boxIDcomboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -848,61 +844,6 @@ namespace JsonValidator
             this.lastChanceBoxPanel.Size = new System.Drawing.Size(402, 262);
             this.lastChanceBoxPanel.TabIndex = 42;
             // 
-            // LastChangeGB
-            // 
-            this.LastChangeGB.Controls.Add(this.label28);
-            this.LastChangeGB.Controls.Add(this.comboBox8);
-            this.LastChangeGB.Controls.Add(this.comboBox9);
-            this.LastChangeGB.Controls.Add(this.comboBox10);
-            this.LastChangeGB.Controls.Add(this.textBox3);
-            this.LastChangeGB.Location = new System.Drawing.Point(90, 1229);
-            this.LastChangeGB.Name = "LastChangeGB";
-            this.LastChangeGB.Size = new System.Drawing.Size(257, 46);
-            this.LastChangeGB.TabIndex = 63;
-            this.LastChangeGB.TabStop = false;
-            this.LastChangeGB.Text = "Last Change Box";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(4, -20);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(40, 17);
-            this.label28.TabIndex = 62;
-            this.label28.Text = "Tiers";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(214, 19);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(38, 21);
-            this.comboBox8.TabIndex = 3;
-            // 
-            // comboBox9
-            // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(122, 19);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(86, 21);
-            this.comboBox9.TabIndex = 2;
-            // 
-            // comboBox10
-            // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(64, 19);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(38, 21);
-            this.comboBox10.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(7, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 20);
-            this.textBox3.TabIndex = 0;
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(861, 113);
@@ -1023,11 +964,22 @@ namespace JsonValidator
             this.featuredSubB.UseVisualStyleBackColor = true;
             this.featuredSubB.Click += new System.EventHandler(this.featuredSubB_Click);
             // 
+            // genJsonBtn
+            // 
+            this.genJsonBtn.Location = new System.Drawing.Point(432, 1065);
+            this.genJsonBtn.Name = "genJsonBtn";
+            this.genJsonBtn.Size = new System.Drawing.Size(476, 106);
+            this.genJsonBtn.TabIndex = 82;
+            this.genJsonBtn.Text = "Generate Json";
+            this.genJsonBtn.UseVisualStyleBackColor = true;
+            this.genJsonBtn.Click += new System.EventHandler(this.genJsonBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 1316);
+            this.Controls.Add(this.genJsonBtn);
             this.Controls.Add(this.featuredSubB);
             this.Controls.Add(this.mainSubB);
             this.Controls.Add(this.lastCSubB);
@@ -1040,7 +992,6 @@ namespace JsonValidator
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.LastChangeGB);
             this.Controls.Add(this.lastChanceBoxPanel);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label27);
@@ -1114,8 +1065,6 @@ namespace JsonValidator
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.PrizeGroupBox.ResumeLayout(false);
-            this.LastChangeGB.ResumeLayout(false);
-            this.LastChangeGB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1198,12 +1147,6 @@ namespace JsonValidator
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.FlowLayoutPanel lastChanceBoxPanel;
-        private System.Windows.Forms.GroupBox LastChangeGB;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox10;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -1216,6 +1159,7 @@ namespace JsonValidator
         private System.Windows.Forms.Button lastCSubB;
         private System.Windows.Forms.Button mainSubB;
         private System.Windows.Forms.Button featuredSubB;
+        private System.Windows.Forms.Button genJsonBtn;
     }
 }
 

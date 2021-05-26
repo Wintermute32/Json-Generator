@@ -20,6 +20,7 @@ namespace JsonValidator
 
         List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };
 
+        public NewRoot(){}
 
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {

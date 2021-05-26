@@ -17,6 +17,13 @@ namespace JsonValidator
         string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
         string playbookPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
 
+        public Control boxId 
+        {
+            get { return boxId; }
+            set { boxId = this.boxIDcomboBox; }
+   
+        }
+
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
         Testing testing;
@@ -24,7 +31,6 @@ namespace JsonValidator
         public Form1()
         {
             InitializeComponent();
-
             testing = new Testing(databasePath, playbookPath);
             Converters converter = new Converters();
             boxIDs = converter.GetBoxIds(playbookPath);
@@ -59,6 +65,8 @@ namespace JsonValidator
 
         private void InitializeFormComponents(string eventID)
         {
+
+
             eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
             textBox1.Text = eventObject.fandomId;
             dateTimePicker1.Value = DateTime.Parse(eventObject.startDate);
@@ -115,7 +123,7 @@ namespace JsonValidator
             foreach (var x in eventObject.tiers)
             {
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
-                    tierBox = new TierBoxL(tierPanel, databasePath, x);  
+                    tierBox = new TierBoxL(tierPanel, databasePath, x);
 
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
                     tierBox = new TierBoxM(tierPanel, databasePath, x);
@@ -124,9 +132,12 @@ namespace JsonValidator
                     tierBox = new TierBoxS(tierPanel, databasePath, x);
             }
         }
-        public IEnumerable<ComboBox> CallControlPanel()
+
+        public Form1 GetFormControlList()
         {
-            return StorePopsPanel.Controls.OfType<ComboBox>();
+            Form1 form1 = new Form1();
+            form1.boxIDcomboBox.Name = this.boxIDcomboBox.Name;
+            return form1;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -168,7 +179,7 @@ namespace JsonValidator
 
         private void button6_Click(object sender, EventArgs e)
         {
-           TierBoxL tierBox = new TierBoxL(tierPanel, databasePath, new Tier());
+            TierBoxL tierBox = new TierBoxL(tierPanel, databasePath, new Tier());
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -220,7 +231,24 @@ namespace JsonValidator
         {
             testing.RemoveCustomControls(lastChanceBoxPanel);
         }
+
+        private void genJsonBtn_Click(object sender, EventArgs e)
+        {
+            JsonGeneration jGen = new JsonGeneration();
+            jGen.GenerateMyJson(this);
+        }
+
+        private void boxIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
 
     public class Testing
     {
@@ -236,11 +264,11 @@ namespace JsonValidator
             this.dataBPath = databasePath;
             this.playBPath = playbookPath;
         }
-          
+
         public void RemoveRuntimeComboBoxes(Form1 form1)
         {
-                foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
-                    item.Controls.Clear();
+            foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
+                item.Controls.Clear();
         }
 
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
@@ -256,9 +284,9 @@ namespace JsonValidator
 
         public void RemoveCustomControls(FlowLayoutPanel panel)
         {
-           var controlList = panel.Controls.OfType<Control>().ToList();
-                if (controlList.Count > 0)
-                    panel.Controls.Remove(controlList[controlList.Count - 1]);
+            var controlList = panel.Controls.OfType<Control>().ToList();
+            if (controlList.Count > 0)
+                panel.Controls.Remove(controlList[controlList.Count - 1]);
         }
 
         public void ResetAllControls(Control form)
@@ -275,4 +303,21 @@ namespace JsonValidator
             }
         }
     }
-}
+
+    public class JsonGeneration : Form1
+    {
+        //contains methods to create a new JsonObject from our form.
+      public void GenerateMyJson(Form1 form)
+      {
+            var controlsList = form.GetFormControlList();
+            NewRoot finalRoot = new NewRoot()
+            {
+                boxId = this.boxId.Text
+                
+            };
+
+            Debug.WriteLine("Testing whether getter setter works. Should be :"  + finalRoot.boxId);
+      
+      }
+    }
+} 

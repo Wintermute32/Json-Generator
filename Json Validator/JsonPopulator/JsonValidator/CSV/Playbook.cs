@@ -11,7 +11,7 @@ using CsvHelper.Configuration.Attributes;
 
 namespace JsonValidator.CSV
 {
-    class Playbook
+    public class Playbook
     {
         [Name("Event IP")]
         public string boxID { get; set; }

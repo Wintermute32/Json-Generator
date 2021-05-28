@@ -14,6 +14,9 @@ namespace JsonValidator
         public int order { get; set; }
         public int discount { get; set; }
 
+        public StoreButtonAppearance ()
+        { }
+
         public StoreButtonAppearance(string ipTitle, Dictionary<string, string> popDict)
         {
             style = "LargePink";

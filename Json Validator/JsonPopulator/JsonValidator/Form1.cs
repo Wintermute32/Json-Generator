@@ -17,13 +17,6 @@ namespace JsonValidator
         string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
         string playbookPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
 
-        public Control boxId 
-        {
-            get { return boxId; }
-            set { boxId = this.boxIDcomboBox; }
-   
-        }
-
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
         Testing testing;
@@ -35,7 +28,7 @@ namespace JsonValidator
             Converters converter = new Converters();
             boxIDs = converter.GetBoxIds(playbookPath);
             Debug.WriteLine("box ID count is :" + boxIDs.Count);
-            boxIDcomboBox.DataSource = boxIDs;
+            boxIdCB.DataSource = boxIDs;
             this.AutoScroll = true;
         }
 
@@ -54,7 +47,7 @@ namespace JsonValidator
         {
             testing.RemoveRuntimeComboBoxes(this);
 
-            var eventID = boxIDcomboBox.SelectedItem.ToString(); //fix this
+            var eventID = boxIdCB.SelectedItem.ToString(); //fix this
             eventID = eventID.Substring(eventID.IndexOf('_') + 1);
 
             if (eventID != null)
@@ -68,22 +61,22 @@ namespace JsonValidator
 
 
             eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
-            textBox1.Text = eventObject.fandomId;
-            dateTimePicker1.Value = DateTime.Parse(eventObject.startDate);
-            dateTimePicker2.Value = DateTime.Parse(eventObject.endDate);
-            checkBox1.Checked = eventObject.appearance.isEventBox;
-            MysteryBoxTypeCB.Text = eventObject.appearance.mysteryBoxType;
-            ThemeCB.Text = eventObject.appearance.theme;
-            StyleCB.Text = eventObject.appearance.storeButtonAppearance.style;
-            RibbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
-            TitleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
-            SubLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
+            fandomIdCB.Text = eventObject.fandomId;
+            startDatePicker.Value = DateTime.Parse(eventObject.startDate);
+            endDatePicker.Value = DateTime.Parse(eventObject.endDate);
+            isEventCheck.Checked = eventObject.appearance.isEventBox;
+            MysteryBoxCB.Text = eventObject.appearance.mysteryBoxType;
+            themeCB.Text = eventObject.appearance.theme;
+            styleCB.Text = eventObject.appearance.storeButtonAppearance.style;
+            ribbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
+            titleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
+            subLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
             orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
             discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
-            PSTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
+            purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
-            TitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+            titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
 
             TierGenerator();
@@ -94,10 +87,10 @@ namespace JsonValidator
         private void GenerateRuntimePopPanels()
         {
             foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
-                testing.GeneratePopSelector(x, StorePopsPanel);
+                testing.GeneratePopSelector(x, storePopsPanel);
 
             foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
-                testing.GeneratePopSelector(x, PurchasePopsPanel);
+                testing.GeneratePopSelector(x, purchasePopsPanel);
 
             foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
                 testing.GeneratePopSelector(x, mainHubPanel);
@@ -136,14 +129,14 @@ namespace JsonValidator
         public Form1 GetFormControlList()
         {
             Form1 form1 = new Form1();
-            form1.boxIDcomboBox.Name = this.boxIDcomboBox.Name;
+            form1.boxIdCB.Name = this.boxIdCB.Name;
             return form1;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
 
-            testing.GeneratePopSelector("", StorePopsPanel);
+            testing.GeneratePopSelector("", storePopsPanel);
 
         }
 
@@ -159,7 +152,7 @@ namespace JsonValidator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            testing.GeneratePopSelector("", PurchasePopsPanel);
+            testing.GeneratePopSelector("", purchasePopsPanel);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -199,12 +192,12 @@ namespace JsonValidator
 
         private void storeSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(StorePopsPanel);
+            testing.RemoveCustomControls(storePopsPanel);
         }
 
         private void purSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(PurchasePopsPanel);
+            testing.RemoveCustomControls(purchasePopsPanel);
         }
 
         private void mainSubB_Click(object sender, EventArgs e)
@@ -248,8 +241,6 @@ namespace JsonValidator
 
         }
     }
-
-
     public class Testing
     {
         Database database = new Database();
@@ -299,25 +290,7 @@ namespace JsonValidator
                     ctrlInQ = (ComboBox)control;
                     ctrlInQ.SelectedIndex = 0;
                 }
-
             }
         }
-    }
-
-    public class JsonGeneration : Form1
-    {
-        //contains methods to create a new JsonObject from our form.
-      public void GenerateMyJson(Form1 form)
-      {
-            var controlsList = form.GetFormControlList();
-            NewRoot finalRoot = new NewRoot()
-            {
-                boxId = this.boxId.Text
-                
-            };
-
-            Debug.WriteLine("Testing whether getter setter works. Should be :"  + finalRoot.boxId);
-      
-      }
     }
 } 

@@ -5,7 +5,7 @@ using JsonValidator.CSV;
 
 namespace JsonValidator
 {
-    class NewRoot
+     public class NewRoot
     {
         public string boxId { get; set; }
         public string fandomId { get; set; }

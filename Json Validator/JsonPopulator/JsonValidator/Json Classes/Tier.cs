@@ -14,7 +14,7 @@ namespace JsonValidator
 {
     public class Tier
     {
-        public int cost { get; set; } //needs to go back to int
+        public int cost { get; set; }
         public int numPulls { get; set; }
 
         [JsonIgnore]

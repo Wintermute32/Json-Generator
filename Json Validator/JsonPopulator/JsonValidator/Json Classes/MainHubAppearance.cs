@@ -10,6 +10,7 @@ namespace JsonValidator
         public string subtitleLocalizationKey { get; set; }
         public List<string> popIds { get; set; }
 
+        public MainHubAppearance() { }
         public MainHubAppearance(string fandomName, Dictionary<string, string> popDict)
         {
             List<string> mainHubRarities = new List<string>() { "legendary", "epic", "rare" };

@@ -7,6 +7,7 @@ namespace JsonValidator
         public string titleLocalizationKey { get; set; }
         public List<string> popIds { get; set; }
 
+        public PurchaseScreenAppearance() { }
         public PurchaseScreenAppearance(string fandomName, Dictionary<string, string> popS)
         {
             List<string> purchaseRarities = new List<string>() {"common", "rare", "epic", "legendary"};

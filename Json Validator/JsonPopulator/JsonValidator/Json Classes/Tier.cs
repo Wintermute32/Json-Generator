@@ -30,7 +30,6 @@ namespace JsonValidator
         public string amount { get; set; }
         public Guarantee guarantee { get; set; }
 
-
         public List<Tier> GenerateTierList(List<Gacha> gachaList)
         {
             List<Tier> tierList = new List<Tier>();

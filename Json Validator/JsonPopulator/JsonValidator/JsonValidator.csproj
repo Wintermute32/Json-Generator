@@ -101,6 +101,7 @@
     <Compile Include="JsonConverters\PrizesConverter.cs" />
     <Compile Include="JsonConverters\PurchaseScreenConverter.cs" />
     <Compile Include="JsonConverters\StoreButtonConverter.cs" />
+    <Compile Include="JsonConverters\TierConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FormObjects\TierBoxL.cs" />

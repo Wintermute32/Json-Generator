@@ -769,6 +769,7 @@ namespace JsonValidator
             this.tierPanel.Name = "tierPanel";
             this.tierPanel.Size = new System.Drawing.Size(402, 262);
             this.tierPanel.TabIndex = 41;
+            this.tierPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tierPanel_Paint);
             // 
             // comboBox1
             // 

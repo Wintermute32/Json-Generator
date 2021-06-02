@@ -22,6 +22,7 @@ namespace JsonValidator
 
             AppearanceConverter appearance = new AppearanceConverter(form);
             PrizesConverter prizesConverter = new PrizesConverter();
+            TierConverter tierConverter = new TierConverter();
 
             NewRoot finalRoot = new NewRoot()
             {
@@ -33,44 +34,31 @@ namespace JsonValidator
                 behaviourType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
                 featuredPopIdsList = GetFeaturedPops(flowBoxes),
                 prizes = prizesConverter.GeneratePrizeList(flowBoxes),
-            };
-            GenerateTierList(flowBoxes);
+                tiers = tierConverter.GenerateTierList(flowBoxes),
+                lastChanceBoxPrizes = GetLastChanceList(flowBoxes),
+        };
 
             Debug.WriteLine(SerializeJson(finalRoot));
         }
 
-        public void GenerateTierList(List<FlowLayoutPanel> flowlist)
+        public List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
         {
-
-            // all have text box, cost
-            // combo box, numpulls
-            // either popid(l), or bool value(m)
-            //l has combo box, amount
-
-            var popLists = flowlist.Find(x => x.Name == "tierPanel").Controls.OfType<GroupBox>().ToList();
-            Debug.WriteLine("poplist count: " + popLists.Count);
-            List<ITierBox> tierpoplist = new List<ITierBox>();
-
+            var popLists = flowlist.Find(x => x.Name == "lastChanceBoxPanel").Controls.OfType<GroupBox>().ToList();
+            List<LastChanceBoxPrize> lastChanceList = new List<LastChanceBoxPrize>();
+            
             foreach (var x in popLists)
             {
-                // logic for picking how to assign the various TierBox values
-                // Get the type of box (L M or S)
-                // Then assign proper values to the Tier object.
-                // Return list of Tiers.
-                Tier tier = new Tier();
-                var comboB = x.Controls.OfType<ComboBox>().ToList();
-                if (comboB.Count > 2)
-                    for (int i )
-               
-
-
-
-
-
+                var combos = x.Controls.OfType<ComboBox>().ToList();
+                LastChanceBoxPrize lastCBox = new LastChanceBoxPrize();
+                lastCBox.rewardType = combos[0].Text;
+                lastCBox.rewardId = combos[1].Text;
+                lastCBox.amount = Convert.ToInt32(combos[2].Text);
+                lastCBox.instances = Convert.ToInt32(combos[3].Text);
+                lastChanceList.Add(lastCBox);
             }
 
+            return lastChanceList;
         }
-
         public List<string> GetFeaturedPops(List<FlowLayoutPanel> flowList)
         {
              var popLists = flowList.Find(x => x.Name == "storePopsPanel").Controls.OfType<ComboBox>().ToList();

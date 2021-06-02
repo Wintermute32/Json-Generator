@@ -240,6 +240,11 @@ namespace JsonValidator
         {
 
         }
+
+        private void tierPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
     public class Testing
     {

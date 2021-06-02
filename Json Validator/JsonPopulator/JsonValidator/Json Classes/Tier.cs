@@ -14,7 +14,7 @@ namespace JsonValidator
 {
     public class Tier
     {
-        public int cost { get; set; } //needs to go back to int
+        public int cost { get; set; }
         public int numPulls { get; set; }
 
         [JsonIgnore]
@@ -29,7 +29,6 @@ namespace JsonValidator
         [JsonIgnore]
         public string amount { get; set; }
         public Guarantee guarantee { get; set; }
-
 
         public List<Tier> GenerateTierList(List<Gacha> gachaList)
         {

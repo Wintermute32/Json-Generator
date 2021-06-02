@@ -5,7 +5,7 @@ using JsonValidator.CSV;
 
 namespace JsonValidator
 {
-    class NewRoot
+     public class NewRoot
     {
         public string boxId { get; set; }
         public string fandomId { get; set; }
@@ -20,6 +20,7 @@ namespace JsonValidator
 
         List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };
 
+        public NewRoot(){}
 
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {

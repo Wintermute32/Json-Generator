@@ -19,6 +19,9 @@
             purchaseScreenAppearance = psA;
             mainHubAppearance = mhA;
         }
+
+        public Appearance()
+        { }
     }
 
 }

@@ -57,7 +57,6 @@ namespace JsonValidator.CSV
 
                 }
             }
-
             return popDict;
         }
 

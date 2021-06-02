@@ -85,7 +85,8 @@
     </Compile>
     <Compile Include="FormObjects\ITierBox.cs" />
     <Compile Include="Json Classes\Appearance.cs" />
-    <Compile Include="Json Classes\Converters.cs" />
+    <Compile Include="JsonConverters\AppearanceConverter.cs" />
+    <Compile Include="JsonConverters\Converters.cs" />
     <Compile Include="Json Classes\Guarantee.cs" />
     <Compile Include="Json Classes\LastChanceBoxPrize.cs" />
     <Compile Include="Json Classes\MainHubAppearance.cs" />
@@ -95,6 +96,12 @@
     <Compile Include="Json Classes\StoreButtonAppearance.cs" />
     <Compile Include="Json Classes\Tier.cs" />
     <Compile Include="FormObjects\PrizeBox.cs" />
+    <Compile Include="JsonConverters\JsonGeneration.cs" />
+    <Compile Include="JsonConverters\MainHubConverter.cs" />
+    <Compile Include="JsonConverters\PrizesConverter.cs" />
+    <Compile Include="JsonConverters\PurchaseScreenConverter.cs" />
+    <Compile Include="JsonConverters\StoreButtonConverter.cs" />
+    <Compile Include="JsonConverters\TierConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FormObjects\TierBoxL.cs" />

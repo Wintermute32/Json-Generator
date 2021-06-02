@@ -24,12 +24,11 @@ namespace JsonValidator
         public Form1()
         {
             InitializeComponent();
-
             testing = new Testing(databasePath, playbookPath);
             Converters converter = new Converters();
             boxIDs = converter.GetBoxIds(playbookPath);
             Debug.WriteLine("box ID count is :" + boxIDs.Count);
-            boxIDcomboBox.DataSource = boxIDs;
+            boxIdCB.DataSource = boxIDs;
             this.AutoScroll = true;
         }
 
@@ -48,7 +47,7 @@ namespace JsonValidator
         {
             testing.RemoveRuntimeComboBoxes(this);
 
-            var eventID = boxIDcomboBox.SelectedItem.ToString(); //fix this
+            var eventID = boxIdCB.SelectedItem.ToString(); //fix this
             eventID = eventID.Substring(eventID.IndexOf('_') + 1);
 
             if (eventID != null)
@@ -59,23 +58,25 @@ namespace JsonValidator
 
         private void InitializeFormComponents(string eventID)
         {
+
+
             eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
-            textBox1.Text = eventObject.fandomId;
-            dateTimePicker1.Value = DateTime.Parse(eventObject.startDate);
-            dateTimePicker2.Value = DateTime.Parse(eventObject.endDate);
-            checkBox1.Checked = eventObject.appearance.isEventBox;
-            MysteryBoxTypeCB.Text = eventObject.appearance.mysteryBoxType;
-            ThemeCB.Text = eventObject.appearance.theme;
-            StyleCB.Text = eventObject.appearance.storeButtonAppearance.style;
-            RibbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
-            TitleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
-            SubLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
+            fandomIdCB.Text = eventObject.fandomId;
+            startDatePicker.Value = DateTime.Parse(eventObject.startDate);
+            endDatePicker.Value = DateTime.Parse(eventObject.endDate);
+            isEventCheck.Checked = eventObject.appearance.isEventBox;
+            MysteryBoxCB.Text = eventObject.appearance.mysteryBoxType;
+            themeCB.Text = eventObject.appearance.theme;
+            styleCB.Text = eventObject.appearance.storeButtonAppearance.style;
+            ribbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
+            titleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
+            subLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
             orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
             discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
-            PSTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
+            purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
-            TitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+            titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
 
             TierGenerator();
@@ -86,10 +87,10 @@ namespace JsonValidator
         private void GenerateRuntimePopPanels()
         {
             foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
-                testing.GeneratePopSelector(x, StorePopsPanel);
+                testing.GeneratePopSelector(x, storePopsPanel);
 
             foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
-                testing.GeneratePopSelector(x, PurchasePopsPanel);
+                testing.GeneratePopSelector(x, purchasePopsPanel);
 
             foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
                 testing.GeneratePopSelector(x, mainHubPanel);
@@ -115,24 +116,27 @@ namespace JsonValidator
             foreach (var x in eventObject.tiers)
             {
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
-                    tierBox = new TierBoxL(flowLayoutPanel1, databasePath, x);  
+                    tierBox = new TierBoxL(tierPanel, databasePath, x);
 
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
-                    tierBox = new TierBoxM(flowLayoutPanel1, databasePath, x);
+                    tierBox = new TierBoxM(tierPanel, databasePath, x);
 
                 if (x.isGuarantee != true)
-                    tierBox = new TierBoxS(flowLayoutPanel1, databasePath, x);
+                    tierBox = new TierBoxS(tierPanel, databasePath, x);
             }
         }
-        public IEnumerable<ComboBox> CallControlPanel()
+
+        public Form1 GetFormControlList()
         {
-            return StorePopsPanel.Controls.OfType<ComboBox>();
+            Form1 form1 = new Form1();
+            form1.boxIdCB.Name = this.boxIdCB.Name;
+            return form1;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
 
-            testing.GeneratePopSelector("", StorePopsPanel);
+            testing.GeneratePopSelector("", storePopsPanel);
 
         }
 
@@ -148,7 +152,7 @@ namespace JsonValidator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            testing.GeneratePopSelector("", PurchasePopsPanel);
+            testing.GeneratePopSelector("", purchasePopsPanel);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -168,25 +172,80 @@ namespace JsonValidator
 
         private void button6_Click(object sender, EventArgs e)
         {
-           TierBoxL tierBox = new TierBoxL(flowLayoutPanel1, databasePath, new Tier());
+            TierBoxL tierBox = new TierBoxL(tierPanel, databasePath, new Tier());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            TierBoxM tierBox = new TierBoxM(flowLayoutPanel1, databasePath, new Tier());
+            TierBoxM tierBox = new TierBoxM(tierPanel, databasePath, new Tier());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            TierBoxS tierBox = new TierBoxS(flowLayoutPanel1, databasePath, new Tier());
+            TierBoxS tierBox = new TierBoxS(tierPanel, databasePath, new Tier());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             PrizeBox newPrizeLine = new PrizeBox(lastChanceBoxPanel, databasePath, new Prize());
         }
-    }
 
+        private void storeSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(storePopsPanel);
+        }
+
+        private void purSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(purchasePopsPanel);
+        }
+
+        private void mainSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(mainHubPanel);
+        }
+
+        private void featuredSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(featuredPopPanel);
+        }
+
+        private void prizeSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(prizePanel);
+        }
+
+        private void tierSub1_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(tierPanel);
+        }
+
+        private void lastCSubB_Click(object sender, EventArgs e)
+        {
+            testing.RemoveCustomControls(lastChanceBoxPanel);
+        }
+
+        private void genJsonBtn_Click(object sender, EventArgs e)
+        {
+            JsonGeneration jGen = new JsonGeneration();
+            jGen.GenerateMyJson(this);
+        }
+
+        private void boxIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tierPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
     public class Testing
     {
         Database database = new Database();
@@ -201,12 +260,13 @@ namespace JsonValidator
             this.dataBPath = databasePath;
             this.playBPath = playbookPath;
         }
-          
+
         public void RemoveRuntimeComboBoxes(Form1 form1)
         {
-                foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
-                    item.Controls.Clear();
+            foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
+                item.Controls.Clear();
         }
+
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {
             comboB = new ComboBox();
@@ -216,6 +276,13 @@ namespace JsonValidator
             if (popName != "")
                 comboB.Text = popName;
 
+        }
+
+        public void RemoveCustomControls(FlowLayoutPanel panel)
+        {
+            var controlList = panel.Controls.OfType<Control>().ToList();
+            if (controlList.Count > 0)
+                panel.Controls.Remove(controlList[controlList.Count - 1]);
         }
 
         public void ResetAllControls(Control form)
@@ -228,8 +295,7 @@ namespace JsonValidator
                     ctrlInQ = (ComboBox)control;
                     ctrlInQ.SelectedIndex = 0;
                 }
-
             }
         }
     }
-}
+} 

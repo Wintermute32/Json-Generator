@@ -7,10 +7,10 @@ namespace JsonValidator
 {
     public class PrizeBox
     {
-        ComboBox comboB1;
-        ComboBox comboB2;
-        ComboBox comboB3;
-        ComboBox comboB4;
+        public ComboBox comboB1;
+        public ComboBox comboB2;
+        public ComboBox comboB3;
+        public ComboBox comboB4;
         public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
             GeneratePrizeLine(flowPanel, databasePath, prize);

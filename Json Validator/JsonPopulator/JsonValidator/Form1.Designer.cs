@@ -29,35 +29,35 @@ namespace JsonValidator
         /// </summary>
         public void InitializeComponent()
         {
-            this.GenerateJsonButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.boxIDcomboBox = new System.Windows.Forms.ComboBox();
+            this.populateFormBtn = new System.Windows.Forms.Button();
+            this.fandomIdCB = new System.Windows.Forms.TextBox();
+            this.boxIdCB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.startDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.endDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.appearanceLabel = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.MysteryBoxTypeCB = new System.Windows.Forms.ComboBox();
-            this.ThemeCB = new System.Windows.Forms.ComboBox();
+            this.isEventCheck = new System.Windows.Forms.CheckBox();
+            this.MysteryBoxCB = new System.Windows.Forms.ComboBox();
+            this.themeCB = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.StyleCB = new System.Windows.Forms.ComboBox();
-            this.RibbonLocKeyCB = new System.Windows.Forms.ComboBox();
-            this.TitleLocKeyCB = new System.Windows.Forms.ComboBox();
+            this.styleCB = new System.Windows.Forms.ComboBox();
+            this.ribbonLocKeyCB = new System.Windows.Forms.ComboBox();
+            this.titleLocKeyCB = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.purchaseScreenTitleLocLbl = new System.Windows.Forms.Label();
-            this.SubLocKeyCB = new System.Windows.Forms.ComboBox();
+            this.subLocKeyCB = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.StorePopsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.storePopsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.PurchaseScrnLbl = new System.Windows.Forms.Label();
-            this.PSTitleLocKey = new System.Windows.Forms.TextBox();
-            this.PurchasePopsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.purTitleLocKey = new System.Windows.Forms.TextBox();
+            this.purchasePopsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.MainHubLbl = new System.Windows.Forms.Label();
@@ -95,7 +95,7 @@ namespace JsonValidator
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tierPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -104,46 +104,49 @@ namespace JsonValidator
             this.label27 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lastChanceBoxPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.LastChangeGB = new System.Windows.Forms.GroupBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.storeSubB = new System.Windows.Forms.Button();
+            this.purSubB = new System.Windows.Forms.Button();
+            this.prizeSubB = new System.Windows.Forms.Button();
+            this.tierSub1 = new System.Windows.Forms.Button();
+            this.lastCSubB = new System.Windows.Forms.Button();
+            this.mainSubB = new System.Windows.Forms.Button();
+            this.featuredSubB = new System.Windows.Forms.Button();
+            this.genJsonBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
-            this.LastChangeGB.SuspendLayout();
             this.SuspendLayout();
             // 
-            // GenerateJsonButton
+            // populateFormBtn
             // 
-            this.GenerateJsonButton.Location = new System.Drawing.Point(225, 20);
-            this.GenerateJsonButton.Name = "GenerateJsonButton";
-            this.GenerateJsonButton.Size = new System.Drawing.Size(144, 46);
-            this.GenerateJsonButton.TabIndex = 0;
-            this.GenerateJsonButton.Text = "Generate Json";
-            this.GenerateJsonButton.UseVisualStyleBackColor = true;
-            this.GenerateJsonButton.Click += new System.EventHandler(this.button1_Click);
+            this.populateFormBtn.Location = new System.Drawing.Point(225, 20);
+            this.populateFormBtn.Name = "populateFormBtn";
+            this.populateFormBtn.Size = new System.Drawing.Size(144, 46);
+            this.populateFormBtn.TabIndex = 0;
+            this.populateFormBtn.Text = "Populate Form";
+            this.populateFormBtn.UseVisualStyleBackColor = true;
+            this.populateFormBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // fandomIdCB
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 20);
-            this.textBox1.TabIndex = 1;
+            this.fandomIdCB.Location = new System.Drawing.Point(12, 83);
+            this.fandomIdCB.Name = "fandomIdCB";
+            this.fandomIdCB.Size = new System.Drawing.Size(199, 20);
+            this.fandomIdCB.TabIndex = 1;
+            this.fandomIdCB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // boxIDcomboBox
+            // boxIdCB
             // 
-            this.boxIDcomboBox.FormattingEnabled = true;
-            this.boxIDcomboBox.Location = new System.Drawing.Point(8, 34);
-            this.boxIDcomboBox.Name = "boxIDcomboBox";
-            this.boxIDcomboBox.Size = new System.Drawing.Size(211, 21);
-            this.boxIDcomboBox.TabIndex = 2;
+            this.boxIdCB.FormattingEnabled = true;
+            this.boxIdCB.Location = new System.Drawing.Point(8, 34);
+            this.boxIdCB.Name = "boxIdCB";
+            this.boxIdCB.Size = new System.Drawing.Size(211, 21);
+            this.boxIdCB.TabIndex = 2;
+            this.boxIdCB.SelectedIndexChanged += new System.EventHandler(this.boxIDcomboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -163,19 +166,19 @@ namespace JsonValidator
             this.label2.TabIndex = 8;
             this.label2.Text = "End Date and Time";
             // 
-            // dateTimePicker1
+            // startDatePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 129);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(199, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.startDatePicker.Location = new System.Drawing.Point(12, 129);
+            this.startDatePicker.Name = "startDatePicker";
+            this.startDatePicker.Size = new System.Drawing.Size(199, 20);
+            this.startDatePicker.TabIndex = 9;
             // 
-            // dateTimePicker2
+            // endDatePicker
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 181);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(199, 20);
-            this.dateTimePicker2.TabIndex = 10;
+            this.endDatePicker.Location = new System.Drawing.Point(12, 181);
+            this.endDatePicker.Name = "endDatePicker";
+            this.endDatePicker.Size = new System.Drawing.Size(199, 20);
+            this.endDatePicker.TabIndex = 10;
             // 
             // label3
             // 
@@ -196,37 +199,37 @@ namespace JsonValidator
             this.appearanceLabel.TabIndex = 12;
             this.appearanceLabel.Text = "Appearance";
             // 
-            // checkBox1
+            // isEventCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 238);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(92, 17);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Is Event Box?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.isEventCheck.AutoSize = true;
+            this.isEventCheck.Location = new System.Drawing.Point(12, 238);
+            this.isEventCheck.Name = "isEventCheck";
+            this.isEventCheck.Size = new System.Drawing.Size(92, 17);
+            this.isEventCheck.TabIndex = 13;
+            this.isEventCheck.Text = "Is Event Box?";
+            this.isEventCheck.UseVisualStyleBackColor = true;
             // 
-            // MysteryBoxTypeCB
+            // MysteryBoxCB
             // 
-            this.MysteryBoxTypeCB.FormattingEnabled = true;
-            this.MysteryBoxTypeCB.Items.AddRange(new object[] {
+            this.MysteryBoxCB.FormattingEnabled = true;
+            this.MysteryBoxCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.MysteryBoxTypeCB.Location = new System.Drawing.Point(122, 258);
-            this.MysteryBoxTypeCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.MysteryBoxTypeCB.Name = "MysteryBoxTypeCB";
-            this.MysteryBoxTypeCB.Size = new System.Drawing.Size(137, 21);
-            this.MysteryBoxTypeCB.TabIndex = 14;
+            this.MysteryBoxCB.Location = new System.Drawing.Point(122, 258);
+            this.MysteryBoxCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.MysteryBoxCB.Name = "MysteryBoxCB";
+            this.MysteryBoxCB.Size = new System.Drawing.Size(137, 21);
+            this.MysteryBoxCB.TabIndex = 14;
             // 
-            // ThemeCB
+            // themeCB
             // 
-            this.ThemeCB.FormattingEnabled = true;
-            this.ThemeCB.Items.AddRange(new object[] {
+            this.themeCB.FormattingEnabled = true;
+            this.themeCB.Items.AddRange(new object[] {
             "\"\""});
-            this.ThemeCB.Location = new System.Drawing.Point(122, 284);
-            this.ThemeCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.ThemeCB.Name = "ThemeCB";
-            this.ThemeCB.Size = new System.Drawing.Size(137, 21);
-            this.ThemeCB.TabIndex = 15;
+            this.themeCB.Location = new System.Drawing.Point(122, 284);
+            this.themeCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.themeCB.Name = "themeCB";
+            this.themeCB.Size = new System.Drawing.Size(137, 21);
+            this.themeCB.TabIndex = 15;
             // 
             // label4
             // 
@@ -256,38 +259,38 @@ namespace JsonValidator
             this.label6.TabIndex = 18;
             this.label6.Text = "Store Button";
             // 
-            // StyleCB
+            // styleCB
             // 
-            this.StyleCB.FormattingEnabled = true;
-            this.StyleCB.Items.AddRange(new object[] {
+            this.styleCB.FormattingEnabled = true;
+            this.styleCB.Items.AddRange(new object[] {
             "MediumPurple"});
-            this.StyleCB.Location = new System.Drawing.Point(105, 346);
-            this.StyleCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.StyleCB.Name = "StyleCB";
-            this.StyleCB.Size = new System.Drawing.Size(137, 21);
-            this.StyleCB.TabIndex = 19;
+            this.styleCB.Location = new System.Drawing.Point(105, 346);
+            this.styleCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.styleCB.Name = "styleCB";
+            this.styleCB.Size = new System.Drawing.Size(137, 21);
+            this.styleCB.TabIndex = 19;
             // 
-            // RibbonLocKeyCB
+            // ribbonLocKeyCB
             // 
-            this.RibbonLocKeyCB.FormattingEnabled = true;
-            this.RibbonLocKeyCB.Items.AddRange(new object[] {
+            this.ribbonLocKeyCB.FormattingEnabled = true;
+            this.ribbonLocKeyCB.Items.AddRange(new object[] {
             "GeneralBoxRibbon"});
-            this.RibbonLocKeyCB.Location = new System.Drawing.Point(105, 373);
-            this.RibbonLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.RibbonLocKeyCB.Name = "RibbonLocKeyCB";
-            this.RibbonLocKeyCB.Size = new System.Drawing.Size(137, 21);
-            this.RibbonLocKeyCB.TabIndex = 20;
+            this.ribbonLocKeyCB.Location = new System.Drawing.Point(105, 373);
+            this.ribbonLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.ribbonLocKeyCB.Name = "ribbonLocKeyCB";
+            this.ribbonLocKeyCB.Size = new System.Drawing.Size(137, 21);
+            this.ribbonLocKeyCB.TabIndex = 20;
             // 
-            // TitleLocKeyCB
+            // titleLocKeyCB
             // 
-            this.TitleLocKeyCB.FormattingEnabled = true;
-            this.TitleLocKeyCB.Items.AddRange(new object[] {
+            this.titleLocKeyCB.FormattingEnabled = true;
+            this.titleLocKeyCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.TitleLocKeyCB.Location = new System.Drawing.Point(142, 843);
-            this.TitleLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.TitleLocKeyCB.Name = "TitleLocKeyCB";
-            this.TitleLocKeyCB.Size = new System.Drawing.Size(137, 21);
-            this.TitleLocKeyCB.TabIndex = 21;
+            this.titleLocKeyCB.Location = new System.Drawing.Point(142, 843);
+            this.titleLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.titleLocKeyCB.Name = "titleLocKeyCB";
+            this.titleLocKeyCB.Size = new System.Drawing.Size(137, 21);
+            this.titleLocKeyCB.TabIndex = 21;
             // 
             // label7
             // 
@@ -316,16 +319,16 @@ namespace JsonValidator
             this.purchaseScreenTitleLocLbl.TabIndex = 27;
             this.purchaseScreenTitleLocLbl.Text = "Title Loc Key";
             // 
-            // SubLocKeyCB
+            // subLocKeyCB
             // 
-            this.SubLocKeyCB.FormattingEnabled = true;
-            this.SubLocKeyCB.Items.AddRange(new object[] {
+            this.subLocKeyCB.FormattingEnabled = true;
+            this.subLocKeyCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.SubLocKeyCB.Location = new System.Drawing.Point(105, 427);
-            this.SubLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.SubLocKeyCB.Name = "SubLocKeyCB";
-            this.SubLocKeyCB.Size = new System.Drawing.Size(137, 21);
-            this.SubLocKeyCB.TabIndex = 28;
+            this.subLocKeyCB.Location = new System.Drawing.Point(105, 427);
+            this.subLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.subLocKeyCB.Name = "subLocKeyCB";
+            this.subLocKeyCB.Size = new System.Drawing.Size(137, 21);
+            this.subLocKeyCB.TabIndex = 28;
             // 
             // label10
             // 
@@ -355,14 +358,14 @@ namespace JsonValidator
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // StorePopsPanel
+            // storePopsPanel
             // 
-            this.StorePopsPanel.AutoScroll = true;
-            this.StorePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.StorePopsPanel.Location = new System.Drawing.Point(105, 463);
-            this.StorePopsPanel.Name = "StorePopsPanel";
-            this.StorePopsPanel.Size = new System.Drawing.Size(304, 99);
-            this.StorePopsPanel.TabIndex = 32;
+            this.storePopsPanel.AutoScroll = true;
+            this.storePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.storePopsPanel.Location = new System.Drawing.Point(105, 463);
+            this.storePopsPanel.Name = "storePopsPanel";
+            this.storePopsPanel.Size = new System.Drawing.Size(304, 99);
+            this.storePopsPanel.TabIndex = 32;
             // 
             // PurchaseScrnLbl
             // 
@@ -374,21 +377,21 @@ namespace JsonValidator
             this.PurchaseScrnLbl.TabIndex = 33;
             this.PurchaseScrnLbl.Text = "Purchase Screen Appearance";
             // 
-            // PSTitleLocKey
+            // purTitleLocKey
             // 
-            this.PSTitleLocKey.Location = new System.Drawing.Point(90, 653);
-            this.PSTitleLocKey.Name = "PSTitleLocKey";
-            this.PSTitleLocKey.Size = new System.Drawing.Size(120, 20);
-            this.PSTitleLocKey.TabIndex = 34;
+            this.purTitleLocKey.Location = new System.Drawing.Point(90, 653);
+            this.purTitleLocKey.Name = "purTitleLocKey";
+            this.purTitleLocKey.Size = new System.Drawing.Size(120, 20);
+            this.purTitleLocKey.TabIndex = 34;
             // 
-            // PurchasePopsPanel
+            // purchasePopsPanel
             // 
-            this.PurchasePopsPanel.AutoScroll = true;
-            this.PurchasePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.PurchasePopsPanel.Location = new System.Drawing.Point(104, 681);
-            this.PurchasePopsPanel.Name = "PurchasePopsPanel";
-            this.PurchasePopsPanel.Size = new System.Drawing.Size(305, 90);
-            this.PurchasePopsPanel.TabIndex = 37;
+            this.purchasePopsPanel.AutoScroll = true;
+            this.purchasePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.purchasePopsPanel.Location = new System.Drawing.Point(104, 681);
+            this.purchasePopsPanel.Name = "purchasePopsPanel";
+            this.purchasePopsPanel.Size = new System.Drawing.Size(305, 90);
+            this.purchasePopsPanel.TabIndex = 37;
             // 
             // button2
             // 
@@ -758,14 +761,15 @@ namespace JsonValidator
             this.label26.TabIndex = 65;
             this.label26.Text = "Amount";
             // 
-            // flowLayoutPanel1
+            // tierPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(453, 416);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(402, 262);
-            this.flowLayoutPanel1.TabIndex = 41;
+            this.tierPanel.AutoScroll = true;
+            this.tierPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tierPanel.Location = new System.Drawing.Point(453, 416);
+            this.tierPanel.Name = "tierPanel";
+            this.tierPanel.Size = new System.Drawing.Size(402, 262);
+            this.tierPanel.TabIndex = 41;
+            this.tierPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tierPanel_Paint);
             // 
             // comboBox1
             // 
@@ -841,61 +845,6 @@ namespace JsonValidator
             this.lastChanceBoxPanel.Size = new System.Drawing.Size(402, 262);
             this.lastChanceBoxPanel.TabIndex = 42;
             // 
-            // LastChangeGB
-            // 
-            this.LastChangeGB.Controls.Add(this.label28);
-            this.LastChangeGB.Controls.Add(this.comboBox8);
-            this.LastChangeGB.Controls.Add(this.comboBox9);
-            this.LastChangeGB.Controls.Add(this.comboBox10);
-            this.LastChangeGB.Controls.Add(this.textBox3);
-            this.LastChangeGB.Location = new System.Drawing.Point(90, 1229);
-            this.LastChangeGB.Name = "LastChangeGB";
-            this.LastChangeGB.Size = new System.Drawing.Size(257, 46);
-            this.LastChangeGB.TabIndex = 63;
-            this.LastChangeGB.TabStop = false;
-            this.LastChangeGB.Text = "Last Change Box";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(4, -20);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(40, 17);
-            this.label28.TabIndex = 62;
-            this.label28.Text = "Tiers";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(214, 19);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(38, 21);
-            this.comboBox8.TabIndex = 3;
-            // 
-            // comboBox9
-            // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(122, 19);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(86, 21);
-            this.comboBox9.TabIndex = 2;
-            // 
-            // comboBox10
-            // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(64, 19);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(38, 21);
-            this.comboBox10.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(7, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 20);
-            this.textBox3.TabIndex = 0;
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(861, 113);
@@ -946,17 +895,104 @@ namespace JsonValidator
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // storeSubB
+            // 
+            this.storeSubB.Location = new System.Drawing.Point(62, 491);
+            this.storeSubB.Name = "storeSubB";
+            this.storeSubB.Size = new System.Drawing.Size(29, 22);
+            this.storeSubB.TabIndex = 73;
+            this.storeSubB.Text = "-";
+            this.storeSubB.UseVisualStyleBackColor = true;
+            this.storeSubB.Click += new System.EventHandler(this.storeSubB_Click);
+            // 
+            // purSubB
+            // 
+            this.purSubB.Location = new System.Drawing.Point(67, 709);
+            this.purSubB.Name = "purSubB";
+            this.purSubB.Size = new System.Drawing.Size(29, 22);
+            this.purSubB.TabIndex = 74;
+            this.purSubB.Text = "-";
+            this.purSubB.UseVisualStyleBackColor = true;
+            this.purSubB.Click += new System.EventHandler(this.purSubB_Click);
+            // 
+            // prizeSubB
+            // 
+            this.prizeSubB.Location = new System.Drawing.Point(861, 141);
+            this.prizeSubB.Name = "prizeSubB";
+            this.prizeSubB.Size = new System.Drawing.Size(29, 22);
+            this.prizeSubB.TabIndex = 75;
+            this.prizeSubB.Text = "-";
+            this.prizeSubB.UseVisualStyleBackColor = true;
+            this.prizeSubB.Click += new System.EventHandler(this.prizeSubB_Click);
+            // 
+            // tierSub1
+            // 
+            this.tierSub1.Location = new System.Drawing.Point(896, 416);
+            this.tierSub1.Name = "tierSub1";
+            this.tierSub1.Size = new System.Drawing.Size(29, 22);
+            this.tierSub1.TabIndex = 76;
+            this.tierSub1.Text = "-";
+            this.tierSub1.UseVisualStyleBackColor = true;
+            this.tierSub1.Click += new System.EventHandler(this.tierSub1_Click);
+            // 
+            // lastCSubB
+            // 
+            this.lastCSubB.Location = new System.Drawing.Point(896, 727);
+            this.lastCSubB.Name = "lastCSubB";
+            this.lastCSubB.Size = new System.Drawing.Size(29, 22);
+            this.lastCSubB.TabIndex = 79;
+            this.lastCSubB.Text = "-";
+            this.lastCSubB.UseVisualStyleBackColor = true;
+            this.lastCSubB.Click += new System.EventHandler(this.lastCSubB_Click);
+            // 
+            // mainSubB
+            // 
+            this.mainSubB.Location = new System.Drawing.Point(67, 940);
+            this.mainSubB.Name = "mainSubB";
+            this.mainSubB.Size = new System.Drawing.Size(29, 22);
+            this.mainSubB.TabIndex = 80;
+            this.mainSubB.Text = "-";
+            this.mainSubB.UseVisualStyleBackColor = true;
+            this.mainSubB.Click += new System.EventHandler(this.mainSubB_Click);
+            // 
+            // featuredSubB
+            // 
+            this.featuredSubB.Location = new System.Drawing.Point(66, 1109);
+            this.featuredSubB.Name = "featuredSubB";
+            this.featuredSubB.Size = new System.Drawing.Size(29, 22);
+            this.featuredSubB.TabIndex = 81;
+            this.featuredSubB.Text = "-";
+            this.featuredSubB.UseVisualStyleBackColor = true;
+            this.featuredSubB.Click += new System.EventHandler(this.featuredSubB_Click);
+            // 
+            // genJsonBtn
+            // 
+            this.genJsonBtn.Location = new System.Drawing.Point(432, 1065);
+            this.genJsonBtn.Name = "genJsonBtn";
+            this.genJsonBtn.Size = new System.Drawing.Size(476, 106);
+            this.genJsonBtn.TabIndex = 82;
+            this.genJsonBtn.Text = "Generate Json";
+            this.genJsonBtn.UseVisualStyleBackColor = true;
+            this.genJsonBtn.Click += new System.EventHandler(this.genJsonBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 1316);
+            this.Controls.Add(this.genJsonBtn);
+            this.Controls.Add(this.featuredSubB);
+            this.Controls.Add(this.mainSubB);
+            this.Controls.Add(this.lastCSubB);
+            this.Controls.Add(this.tierSub1);
+            this.Controls.Add(this.prizeSubB);
+            this.Controls.Add(this.purSubB);
+            this.Controls.Add(this.storeSubB);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.LastChangeGB);
             this.Controls.Add(this.lastChanceBoxPanel);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label27);
@@ -991,38 +1027,38 @@ namespace JsonValidator
             this.Controls.Add(this.orderCB);
             this.Controls.Add(this.canShowCarouselBox);
             this.Controls.Add(this.MainHubLbl);
-            this.Controls.Add(this.PurchasePopsPanel);
+            this.Controls.Add(this.purchasePopsPanel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.PSTitleLocKey);
+            this.Controls.Add(this.purTitleLocKey);
             this.Controls.Add(this.PurchaseScrnLbl);
-            this.Controls.Add(this.StorePopsPanel);
+            this.Controls.Add(this.storePopsPanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.SubLocKeyCB);
+            this.Controls.Add(this.subLocKeyCB);
             this.Controls.Add(this.purchaseScreenTitleLocLbl);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.TitleLocKeyCB);
-            this.Controls.Add(this.RibbonLocKeyCB);
-            this.Controls.Add(this.StyleCB);
+            this.Controls.Add(this.titleLocKeyCB);
+            this.Controls.Add(this.ribbonLocKeyCB);
+            this.Controls.Add(this.styleCB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.ThemeCB);
-            this.Controls.Add(this.MysteryBoxTypeCB);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.themeCB);
+            this.Controls.Add(this.MysteryBoxCB);
+            this.Controls.Add(this.isEventCheck);
             this.Controls.Add(this.appearanceLabel);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.endDatePicker);
+            this.Controls.Add(this.startDatePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.boxIDcomboBox);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.GenerateJsonButton);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.boxIdCB);
+            this.Controls.Add(this.fandomIdCB);
+            this.Controls.Add(this.populateFormBtn);
+            this.Controls.Add(this.tierPanel);
             this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1030,8 +1066,6 @@ namespace JsonValidator
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.PrizeGroupBox.ResumeLayout(false);
-            this.LastChangeGB.ResumeLayout(false);
-            this.LastChangeGB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1039,35 +1073,35 @@ namespace JsonValidator
 
         #endregion
 
-        private System.Windows.Forms.Button GenerateJsonButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox boxIDcomboBox;
+        private System.Windows.Forms.Button populateFormBtn;
+        private System.Windows.Forms.TextBox fandomIdCB;
+        private System.Windows.Forms.ComboBox boxIdCB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker startDatePicker;
+        private System.Windows.Forms.DateTimePicker endDatePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label appearanceLabel;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox MysteryBoxTypeCB;
-        private System.Windows.Forms.ComboBox ThemeCB;
+        private System.Windows.Forms.CheckBox isEventCheck;
+        private System.Windows.Forms.ComboBox MysteryBoxCB;
+        private System.Windows.Forms.ComboBox themeCB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox StyleCB;
-        private System.Windows.Forms.ComboBox RibbonLocKeyCB;
-        private System.Windows.Forms.ComboBox TitleLocKeyCB;
+        private System.Windows.Forms.ComboBox styleCB;
+        private System.Windows.Forms.ComboBox ribbonLocKeyCB;
+        private System.Windows.Forms.ComboBox titleLocKeyCB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label purchaseScreenTitleLocLbl;
-        private System.Windows.Forms.ComboBox SubLocKeyCB;
+        private System.Windows.Forms.ComboBox subLocKeyCB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.FlowLayoutPanel StorePopsPanel;
+        private System.Windows.Forms.FlowLayoutPanel storePopsPanel;
         private System.Windows.Forms.Label PurchaseScrnLbl;
-        private System.Windows.Forms.TextBox PSTitleLocKey;
-        private System.Windows.Forms.FlowLayoutPanel PurchasePopsPanel;
+        private System.Windows.Forms.TextBox purTitleLocKey;
+        private System.Windows.Forms.FlowLayoutPanel purchasePopsPanel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label MainHubLbl;
@@ -1105,7 +1139,7 @@ namespace JsonValidator
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel tierPanel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -1114,17 +1148,19 @@ namespace JsonValidator
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.FlowLayoutPanel lastChanceBoxPanel;
-        private System.Windows.Forms.GroupBox LastChangeGB;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox10;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button storeSubB;
+        private System.Windows.Forms.Button purSubB;
+        private System.Windows.Forms.Button prizeSubB;
+        private System.Windows.Forms.Button tierSub1;
+        private System.Windows.Forms.Button lastCSubB;
+        private System.Windows.Forms.Button mainSubB;
+        private System.Windows.Forms.Button featuredSubB;
+        private System.Windows.Forms.Button genJsonBtn;
     }
 }
 

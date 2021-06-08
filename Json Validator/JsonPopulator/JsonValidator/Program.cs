@@ -53,8 +53,6 @@ namespace JsonValidator
             newRoot.lastChanceBoxPrizes = converters.AssignBoxValues(popDict);
 
             return newRoot;
-
-            //SerializeJson(newRoot);
         }
 
         public static string SerializeJson(NewRoot newRoot)

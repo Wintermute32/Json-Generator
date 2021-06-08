@@ -12,7 +12,6 @@ namespace JsonValidator
 {
     public class JsonGeneration
     {
-        //should probably go back and name these objects to reference and assign to New Root properties
         public void GenerateMyJson(Form1 form)
         {
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
@@ -42,7 +41,6 @@ namespace JsonValidator
             Debug.WriteLine(FormatJson(finalRoot));
             File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", FormatJson(finalRoot));
             System.Diagnostics.Process.Start(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
-
         }
 
         public List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
@@ -117,8 +115,10 @@ namespace JsonValidator
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue(JsonConvert.SerializeObject(value, Formatting.None));
+            
+            writer.WriteRawValue(JsonConvert.SerializeObject(value, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
         }
+
     }
 
 } 

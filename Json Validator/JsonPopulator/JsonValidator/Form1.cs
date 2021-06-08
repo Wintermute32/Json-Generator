@@ -11,11 +11,16 @@ using System.Diagnostics;
 using JsonValidator.CSV;
 
 namespace JsonValidator
+
+    //We're currently trying to hook up the drag and drop text from teh boxes to actually finding the database path.
 {
     public partial class Form1 : Form
     {
-        string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
-        string playbookPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
+        //string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
+        //string playbookPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
+
+        string databasePath;
+        string playbookPath;
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
@@ -24,11 +29,10 @@ namespace JsonValidator
         public Form1()
         {
             InitializeComponent();
-            testing = new Testing(databasePath, playbookPath);
-            Converters converter = new Converters();
-            boxIDs = converter.GetBoxIds(playbookPath);
-            Debug.WriteLine("box ID count is :" + boxIDs.Count);
-            boxIdCB.DataSource = boxIDs;
+            //testing = new Testing(databasePath, playbookPath);
+            //Converters converter = new Converters();
+            //boxIDs = converter.GetBoxIds(playbookPath);
+            //boxIdCB.DataSource = boxIDs;
             this.AutoScroll = true;
         }
 
@@ -58,8 +62,6 @@ namespace JsonValidator
 
         private void InitializeFormComponents(string eventID)
         {
-
-
             eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
             fandomIdCB.Text = eventObject.fandomId;
             startDatePicker.Value = DateTime.Parse(eventObject.startDate);
@@ -231,19 +233,55 @@ namespace JsonValidator
             jGen.GenerateMyJson(this);
         }
 
-        private void boxIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void DragDropBox1_DragOver(object sender, DragEventArgs e)
         {
-            
+            DragOverBehavior(e);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void DragDropBox1_DragDrop(object sender, DragEventArgs e)
         {
+
+            DragDropBehavior(dragDropBoxData, e);
+            databasePath = @dragDropBoxData.Text;
 
         }
-
-        private void tierPanel_Paint(object sender, PaintEventArgs e)
+        private void dragDropBoxPlaybook_DragOver(object sender, DragEventArgs e)
         {
+            DragOverBehavior(e);
+        }
+        private void dragDropBoxPlaybook_DragDrop(object sender, DragEventArgs e)
+        {
+            DragDropBehavior(dragDropBoxPlaybook, e);
+            playbookPath = dragDropBoxPlaybook.Text;
+            Debug.WriteLine(playbookPath);
+            testing = new Testing(dragDropBoxData.Text, @playbookPath);
+            Converters converter = new Converters();
+            boxIDs = converter.GetBoxIds(playbookPath);
+            boxIdCB.DataSource = boxIDs;
+        }
+        private void dragDropBoxGacha_DragDrop(object sender, DragEventArgs e)
+        {
+            DragDropBehavior(dragDropBoxGacha, e);
+        }
 
+        private void dragDropBoxGacha_DragOver(object sender, DragEventArgs e)
+        {
+            DragOverBehavior(e);
+        }
+
+        public void DragOverBehavior(DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        public void DragDropBehavior(TextBox textBox, DragEventArgs e)
+        {
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];   
+            if (files != null && files.Any())
+                textBox.Text = files.First(); 
         }
     }
     public class Testing

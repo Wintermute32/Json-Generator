@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
 using System.Collections.Generic;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -75,9 +76,11 @@ namespace PopOwnership
 
             foreach (var x in ownersFormList)
                 foreach (var y in popCollectionsList)
+                {
                     if (y.allPops.Contains(x.popName))
                         x.collection = y.collection;
-
+                }    
+                   
             return ownersFormList;
                 
         }
@@ -113,7 +116,6 @@ namespace PopOwnership
         public string collection { get; set; }
 
     }
-
     public class PopCollections
     {
 
@@ -123,7 +125,7 @@ namespace PopOwnership
         [Name("CollectionType")]
         public string collectionType { get; set; }
 
-        [Name("Pop1")]
+        [Name("Pop List")]
         public string pop1 { get; set; }
 
         [Name("Pop2")]
@@ -148,8 +150,6 @@ namespace PopOwnership
                 allPops.Add(popCollection.pop4);
                 allPops.Add(popCollection.pop5);
         }
-
      }
-
 }
 

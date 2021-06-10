@@ -15,7 +15,6 @@ namespace JsonValidator
         {
             GeneratePrizeLine(flowPanel, databasePath, prize);
         }
-
         public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
             Database database = new Database();
@@ -36,6 +35,8 @@ namespace JsonValidator
                 Name = "comboBox1",
                 Size = new System.Drawing.Size(70, 21),
                 TabIndex = 1,
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems
             };
 
             this.comboB1 = combo1;
@@ -47,6 +48,8 @@ namespace JsonValidator
                 Name = "comboBox2",
                 Size = new System.Drawing.Size(148, 21),
                 TabIndex = 5,
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems,
             };
 
             this.comboB2 = combo2;

@@ -117,13 +117,20 @@ namespace JsonValidator
             this.mainSubB = new System.Windows.Forms.Button();
             this.featuredSubB = new System.Windows.Forms.Button();
             this.genJsonBtn = new System.Windows.Forms.Button();
+            this.dragDropBoxData = new System.Windows.Forms.TextBox();
+            this.dragDropBoxPlaybook = new System.Windows.Forms.TextBox();
+            this.dragDropBoxGacha = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // populateFormBtn
             // 
-            this.populateFormBtn.Location = new System.Drawing.Point(225, 20);
+            this.populateFormBtn.Location = new System.Drawing.Point(242, 125);
             this.populateFormBtn.Name = "populateFormBtn";
             this.populateFormBtn.Size = new System.Drawing.Size(144, 46);
             this.populateFormBtn.TabIndex = 0;
@@ -133,25 +140,25 @@ namespace JsonValidator
             // 
             // fandomIdCB
             // 
-            this.fandomIdCB.Location = new System.Drawing.Point(12, 83);
+            this.fandomIdCB.Location = new System.Drawing.Point(15, 173);
             this.fandomIdCB.Name = "fandomIdCB";
             this.fandomIdCB.Size = new System.Drawing.Size(199, 20);
             this.fandomIdCB.TabIndex = 1;
-            this.fandomIdCB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // boxIdCB
             // 
+            this.boxIdCB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.boxIdCB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.boxIdCB.FormattingEnabled = true;
-            this.boxIdCB.Location = new System.Drawing.Point(8, 34);
+            this.boxIdCB.Location = new System.Drawing.Point(12, 125);
             this.boxIdCB.Name = "boxIdCB";
             this.boxIdCB.Size = new System.Drawing.Size(211, 21);
             this.boxIdCB.TabIndex = 2;
-            this.boxIdCB.SelectedIndexChanged += new System.EventHandler(this.boxIDcomboBox_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 113);
+            this.label1.Location = new System.Drawing.Point(15, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 13);
             this.label1.TabIndex = 7;
@@ -160,7 +167,7 @@ namespace JsonValidator
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 165);
+            this.label2.Location = new System.Drawing.Point(16, 255);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 8;
@@ -168,14 +175,14 @@ namespace JsonValidator
             // 
             // startDatePicker
             // 
-            this.startDatePicker.Location = new System.Drawing.Point(12, 129);
+            this.startDatePicker.Location = new System.Drawing.Point(15, 219);
             this.startDatePicker.Name = "startDatePicker";
             this.startDatePicker.Size = new System.Drawing.Size(199, 20);
             this.startDatePicker.TabIndex = 9;
             // 
             // endDatePicker
             // 
-            this.endDatePicker.Location = new System.Drawing.Point(12, 181);
+            this.endDatePicker.Location = new System.Drawing.Point(15, 271);
             this.endDatePicker.Name = "endDatePicker";
             this.endDatePicker.Size = new System.Drawing.Size(199, 20);
             this.endDatePicker.TabIndex = 10;
@@ -183,7 +190,7 @@ namespace JsonValidator
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 67);
+            this.label3.Location = new System.Drawing.Point(12, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 11;
@@ -193,7 +200,7 @@ namespace JsonValidator
             // 
             this.appearanceLabel.AutoSize = true;
             this.appearanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appearanceLabel.Location = new System.Drawing.Point(9, 204);
+            this.appearanceLabel.Location = new System.Drawing.Point(12, 294);
             this.appearanceLabel.Name = "appearanceLabel";
             this.appearanceLabel.Size = new System.Drawing.Size(85, 17);
             this.appearanceLabel.TabIndex = 12;
@@ -202,7 +209,7 @@ namespace JsonValidator
             // isEventCheck
             // 
             this.isEventCheck.AutoSize = true;
-            this.isEventCheck.Location = new System.Drawing.Point(12, 238);
+            this.isEventCheck.Location = new System.Drawing.Point(15, 328);
             this.isEventCheck.Name = "isEventCheck";
             this.isEventCheck.Size = new System.Drawing.Size(92, 17);
             this.isEventCheck.TabIndex = 13;
@@ -214,7 +221,7 @@ namespace JsonValidator
             this.MysteryBoxCB.FormattingEnabled = true;
             this.MysteryBoxCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.MysteryBoxCB.Location = new System.Drawing.Point(122, 258);
+            this.MysteryBoxCB.Location = new System.Drawing.Point(125, 348);
             this.MysteryBoxCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.MysteryBoxCB.Name = "MysteryBoxCB";
             this.MysteryBoxCB.Size = new System.Drawing.Size(137, 21);
@@ -225,7 +232,7 @@ namespace JsonValidator
             this.themeCB.FormattingEnabled = true;
             this.themeCB.Items.AddRange(new object[] {
             "\"\""});
-            this.themeCB.Location = new System.Drawing.Point(122, 284);
+            this.themeCB.Location = new System.Drawing.Point(125, 374);
             this.themeCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.themeCB.Name = "themeCB";
             this.themeCB.Size = new System.Drawing.Size(137, 21);
@@ -234,7 +241,7 @@ namespace JsonValidator
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 266);
+            this.label4.Location = new System.Drawing.Point(12, 356);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 16;
@@ -243,7 +250,7 @@ namespace JsonValidator
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 292);
+            this.label5.Location = new System.Drawing.Point(12, 382);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 17;
@@ -253,7 +260,7 @@ namespace JsonValidator
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 323);
+            this.label6.Location = new System.Drawing.Point(12, 413);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 17);
             this.label6.TabIndex = 18;
@@ -264,7 +271,7 @@ namespace JsonValidator
             this.styleCB.FormattingEnabled = true;
             this.styleCB.Items.AddRange(new object[] {
             "MediumPurple"});
-            this.styleCB.Location = new System.Drawing.Point(105, 346);
+            this.styleCB.Location = new System.Drawing.Point(108, 436);
             this.styleCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.styleCB.Name = "styleCB";
             this.styleCB.Size = new System.Drawing.Size(137, 21);
@@ -275,7 +282,7 @@ namespace JsonValidator
             this.ribbonLocKeyCB.FormattingEnabled = true;
             this.ribbonLocKeyCB.Items.AddRange(new object[] {
             "GeneralBoxRibbon"});
-            this.ribbonLocKeyCB.Location = new System.Drawing.Point(105, 373);
+            this.ribbonLocKeyCB.Location = new System.Drawing.Point(108, 463);
             this.ribbonLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.ribbonLocKeyCB.Name = "ribbonLocKeyCB";
             this.ribbonLocKeyCB.Size = new System.Drawing.Size(137, 21);
@@ -286,7 +293,7 @@ namespace JsonValidator
             this.titleLocKeyCB.FormattingEnabled = true;
             this.titleLocKeyCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.titleLocKeyCB.Location = new System.Drawing.Point(142, 843);
+            this.titleLocKeyCB.Location = new System.Drawing.Point(145, 933);
             this.titleLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.titleLocKeyCB.Name = "titleLocKeyCB";
             this.titleLocKeyCB.Size = new System.Drawing.Size(137, 21);
@@ -295,7 +302,7 @@ namespace JsonValidator
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 354);
+            this.label7.Location = new System.Drawing.Point(16, 444);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 25;
@@ -304,7 +311,7 @@ namespace JsonValidator
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 380);
+            this.label8.Location = new System.Drawing.Point(16, 470);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 26;
@@ -313,7 +320,7 @@ namespace JsonValidator
             // purchaseScreenTitleLocLbl
             // 
             this.purchaseScreenTitleLocLbl.AutoSize = true;
-            this.purchaseScreenTitleLocLbl.Location = new System.Drawing.Point(42, 851);
+            this.purchaseScreenTitleLocLbl.Location = new System.Drawing.Point(45, 941);
             this.purchaseScreenTitleLocLbl.Name = "purchaseScreenTitleLocLbl";
             this.purchaseScreenTitleLocLbl.Size = new System.Drawing.Size(69, 13);
             this.purchaseScreenTitleLocLbl.TabIndex = 27;
@@ -324,7 +331,7 @@ namespace JsonValidator
             this.subLocKeyCB.FormattingEnabled = true;
             this.subLocKeyCB.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.subLocKeyCB.Location = new System.Drawing.Point(105, 427);
+            this.subLocKeyCB.Location = new System.Drawing.Point(108, 517);
             this.subLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.subLocKeyCB.Name = "subLocKeyCB";
             this.subLocKeyCB.Size = new System.Drawing.Size(137, 21);
@@ -333,7 +340,7 @@ namespace JsonValidator
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 435);
+            this.label10.Location = new System.Drawing.Point(16, 525);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 13);
             this.label10.TabIndex = 29;
@@ -342,7 +349,7 @@ namespace JsonValidator
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 468);
+            this.label11.Location = new System.Drawing.Point(16, 558);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 30;
@@ -350,7 +357,7 @@ namespace JsonValidator
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(62, 463);
+            this.button1.Location = new System.Drawing.Point(65, 553);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(29, 22);
             this.button1.TabIndex = 31;
@@ -362,7 +369,7 @@ namespace JsonValidator
             // 
             this.storePopsPanel.AutoScroll = true;
             this.storePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.storePopsPanel.Location = new System.Drawing.Point(105, 463);
+            this.storePopsPanel.Location = new System.Drawing.Point(108, 553);
             this.storePopsPanel.Name = "storePopsPanel";
             this.storePopsPanel.Size = new System.Drawing.Size(304, 99);
             this.storePopsPanel.TabIndex = 32;
@@ -371,7 +378,7 @@ namespace JsonValidator
             // 
             this.PurchaseScrnLbl.AutoSize = true;
             this.PurchaseScrnLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PurchaseScrnLbl.Location = new System.Drawing.Point(8, 629);
+            this.PurchaseScrnLbl.Location = new System.Drawing.Point(11, 719);
             this.PurchaseScrnLbl.Name = "PurchaseScrnLbl";
             this.PurchaseScrnLbl.Size = new System.Drawing.Size(198, 17);
             this.PurchaseScrnLbl.TabIndex = 33;
@@ -379,7 +386,7 @@ namespace JsonValidator
             // 
             // purTitleLocKey
             // 
-            this.purTitleLocKey.Location = new System.Drawing.Point(90, 653);
+            this.purTitleLocKey.Location = new System.Drawing.Point(93, 743);
             this.purTitleLocKey.Name = "purTitleLocKey";
             this.purTitleLocKey.Size = new System.Drawing.Size(120, 20);
             this.purTitleLocKey.TabIndex = 34;
@@ -388,14 +395,14 @@ namespace JsonValidator
             // 
             this.purchasePopsPanel.AutoScroll = true;
             this.purchasePopsPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.purchasePopsPanel.Location = new System.Drawing.Point(104, 681);
+            this.purchasePopsPanel.Location = new System.Drawing.Point(107, 771);
             this.purchasePopsPanel.Name = "purchasePopsPanel";
             this.purchasePopsPanel.Size = new System.Drawing.Size(305, 90);
             this.purchasePopsPanel.TabIndex = 37;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(66, 681);
+            this.button2.Location = new System.Drawing.Point(69, 771);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(29, 22);
             this.button2.TabIndex = 36;
@@ -406,7 +413,7 @@ namespace JsonValidator
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 681);
+            this.label12.Location = new System.Drawing.Point(20, 771);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 35;
@@ -416,7 +423,7 @@ namespace JsonValidator
             // 
             this.MainHubLbl.AutoSize = true;
             this.MainHubLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainHubLbl.Location = new System.Drawing.Point(4, 777);
+            this.MainHubLbl.Location = new System.Drawing.Point(7, 867);
             this.MainHubLbl.Name = "MainHubLbl";
             this.MainHubLbl.Size = new System.Drawing.Size(149, 17);
             this.MainHubLbl.TabIndex = 38;
@@ -425,7 +432,7 @@ namespace JsonValidator
             // canShowCarouselBox
             // 
             this.canShowCarouselBox.AutoSize = true;
-            this.canShowCarouselBox.Location = new System.Drawing.Point(37, 797);
+            this.canShowCarouselBox.Location = new System.Drawing.Point(40, 887);
             this.canShowCarouselBox.Name = "canShowCarouselBox";
             this.canShowCarouselBox.Size = new System.Drawing.Size(137, 17);
             this.canShowCarouselBox.TabIndex = 39;
@@ -444,7 +451,7 @@ namespace JsonValidator
             "5",
             "6",
             "7"});
-            this.orderCB.Location = new System.Drawing.Point(73, 566);
+            this.orderCB.Location = new System.Drawing.Point(76, 656);
             this.orderCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.orderCB.Name = "orderCB";
             this.orderCB.Size = new System.Drawing.Size(53, 21);
@@ -453,7 +460,7 @@ namespace JsonValidator
             // OrderLbl
             // 
             this.OrderLbl.AutoSize = true;
-            this.OrderLbl.Location = new System.Drawing.Point(13, 569);
+            this.OrderLbl.Location = new System.Drawing.Point(16, 659);
             this.OrderLbl.Name = "OrderLbl";
             this.OrderLbl.Size = new System.Drawing.Size(33, 13);
             this.OrderLbl.TabIndex = 41;
@@ -462,7 +469,7 @@ namespace JsonValidator
             // discountLbl
             // 
             this.discountLbl.AutoSize = true;
-            this.discountLbl.Location = new System.Drawing.Point(11, 598);
+            this.discountLbl.Location = new System.Drawing.Point(14, 688);
             this.discountLbl.Name = "discountLbl";
             this.discountLbl.Size = new System.Drawing.Size(49, 13);
             this.discountLbl.TabIndex = 42;
@@ -480,7 +487,7 @@ namespace JsonValidator
             "5",
             "6",
             "7"});
-            this.discountCB.Location = new System.Drawing.Point(73, 595);
+            this.discountCB.Location = new System.Drawing.Point(76, 685);
             this.discountCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.discountCB.Name = "discountCB";
             this.discountCB.Size = new System.Drawing.Size(53, 21);
@@ -489,7 +496,7 @@ namespace JsonValidator
             // styleLbl
             // 
             this.styleLbl.AutoSize = true;
-            this.styleLbl.Location = new System.Drawing.Point(45, 824);
+            this.styleLbl.Location = new System.Drawing.Point(48, 914);
             this.styleLbl.Name = "styleLbl";
             this.styleLbl.Size = new System.Drawing.Size(30, 13);
             this.styleLbl.TabIndex = 44;
@@ -504,7 +511,7 @@ namespace JsonValidator
             "Green",
             "Red",
             "Orange"});
-            this.style2CB.Location = new System.Drawing.Point(142, 816);
+            this.style2CB.Location = new System.Drawing.Point(145, 906);
             this.style2CB.MinimumSize = new System.Drawing.Size(4, 0);
             this.style2CB.Name = "style2CB";
             this.style2CB.Size = new System.Drawing.Size(53, 21);
@@ -513,7 +520,7 @@ namespace JsonValidator
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 878);
+            this.label9.Location = new System.Drawing.Point(47, 968);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 47;
@@ -524,7 +531,7 @@ namespace JsonValidator
             this.mainhubSubLocKey.FormattingEnabled = true;
             this.mainhubSubLocKey.Items.AddRange(new object[] {
             "LuckyMystery"});
-            this.mainhubSubLocKey.Location = new System.Drawing.Point(142, 870);
+            this.mainhubSubLocKey.Location = new System.Drawing.Point(145, 960);
             this.mainhubSubLocKey.MinimumSize = new System.Drawing.Size(4, 0);
             this.mainhubSubLocKey.Name = "mainhubSubLocKey";
             this.mainhubSubLocKey.Size = new System.Drawing.Size(137, 21);
@@ -534,14 +541,14 @@ namespace JsonValidator
             // 
             this.mainHubPanel.AutoScroll = true;
             this.mainHubPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.mainHubPanel.Location = new System.Drawing.Point(107, 912);
+            this.mainHubPanel.Location = new System.Drawing.Point(110, 1002);
             this.mainHubPanel.Name = "mainHubPanel";
             this.mainHubPanel.Size = new System.Drawing.Size(279, 107);
             this.mainHubPanel.TabIndex = 38;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(67, 912);
+            this.button3.Location = new System.Drawing.Point(70, 1002);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(29, 22);
             this.button3.TabIndex = 48;
@@ -552,7 +559,7 @@ namespace JsonValidator
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 900);
+            this.label13.Location = new System.Drawing.Point(14, 990);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 13);
             this.label13.TabIndex = 49;
@@ -563,7 +570,7 @@ namespace JsonValidator
             this.behaviorCB.FormattingEnabled = true;
             this.behaviorCB.Items.AddRange(new object[] {
             "PullBased"});
-            this.behaviorCB.Location = new System.Drawing.Point(142, 1040);
+            this.behaviorCB.Location = new System.Drawing.Point(145, 1130);
             this.behaviorCB.MinimumSize = new System.Drawing.Size(4, 0);
             this.behaviorCB.Name = "behaviorCB";
             this.behaviorCB.Size = new System.Drawing.Size(137, 21);
@@ -572,7 +579,7 @@ namespace JsonValidator
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(43, 1043);
+            this.label14.Location = new System.Drawing.Point(46, 1133);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(76, 13);
             this.label14.TabIndex = 51;
@@ -581,7 +588,7 @@ namespace JsonValidator
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 1065);
+            this.label15.Location = new System.Drawing.Point(9, 1155);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(90, 13);
             this.label15.TabIndex = 52;
@@ -589,7 +596,7 @@ namespace JsonValidator
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(65, 1081);
+            this.button4.Location = new System.Drawing.Point(68, 1171);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(29, 22);
             this.button4.TabIndex = 53;
@@ -601,7 +608,7 @@ namespace JsonValidator
             // 
             this.featuredPopPanel.AutoScroll = true;
             this.featuredPopPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.featuredPopPanel.Location = new System.Drawing.Point(105, 1081);
+            this.featuredPopPanel.Location = new System.Drawing.Point(108, 1171);
             this.featuredPopPanel.Name = "featuredPopPanel";
             this.featuredPopPanel.Size = new System.Drawing.Size(282, 92);
             this.featuredPopPanel.TabIndex = 39;
@@ -609,7 +616,7 @@ namespace JsonValidator
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 657);
+            this.label17.Location = new System.Drawing.Point(15, 747);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(69, 13);
             this.label17.TabIndex = 55;
@@ -619,7 +626,7 @@ namespace JsonValidator
             // 
             this.prizePanel.AutoScroll = true;
             this.prizePanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.prizePanel.Location = new System.Drawing.Point(453, 113);
+            this.prizePanel.Location = new System.Drawing.Point(434, 146);
             this.prizePanel.Name = "prizePanel";
             this.prizePanel.Size = new System.Drawing.Size(402, 262);
             this.prizePanel.TabIndex = 40;
@@ -627,7 +634,7 @@ namespace JsonValidator
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(447, 97);
+            this.label18.Location = new System.Drawing.Point(428, 130);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 13);
             this.label18.TabIndex = 57;
@@ -636,7 +643,7 @@ namespace JsonValidator
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(531, 97);
+            this.label19.Location = new System.Drawing.Point(512, 130);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(37, 13);
             this.label19.TabIndex = 58;
@@ -646,7 +653,7 @@ namespace JsonValidator
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(592, 97);
+            this.label20.Location = new System.Drawing.Point(573, 130);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(43, 13);
             this.label20.TabIndex = 59;
@@ -655,7 +662,7 @@ namespace JsonValidator
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(641, 97);
+            this.label21.Location = new System.Drawing.Point(622, 130);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(53, 13);
             this.label21.TabIndex = 60;
@@ -719,7 +726,7 @@ namespace JsonValidator
             // 
             this.tierslbl.AutoSize = true;
             this.tierslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tierslbl.Location = new System.Drawing.Point(415, 379);
+            this.tierslbl.Location = new System.Drawing.Point(396, 412);
             this.tierslbl.Name = "tierslbl";
             this.tierslbl.Size = new System.Drawing.Size(40, 17);
             this.tierslbl.TabIndex = 61;
@@ -728,7 +735,7 @@ namespace JsonValidator
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(453, 400);
+            this.label23.Location = new System.Drawing.Point(434, 433);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(28, 13);
             this.label23.TabIndex = 62;
@@ -737,7 +744,7 @@ namespace JsonValidator
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(506, 400);
+            this.label24.Location = new System.Drawing.Point(487, 433);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(49, 13);
             this.label24.TabIndex = 63;
@@ -746,7 +753,7 @@ namespace JsonValidator
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(572, 400);
+            this.label25.Location = new System.Drawing.Point(553, 433);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(84, 13);
             this.label25.TabIndex = 64;
@@ -755,7 +762,7 @@ namespace JsonValidator
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(674, 400);
+            this.label26.Location = new System.Drawing.Point(655, 433);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(43, 13);
             this.label26.TabIndex = 65;
@@ -765,11 +772,10 @@ namespace JsonValidator
             // 
             this.tierPanel.AutoScroll = true;
             this.tierPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tierPanel.Location = new System.Drawing.Point(453, 416);
+            this.tierPanel.Location = new System.Drawing.Point(434, 449);
             this.tierPanel.Name = "tierPanel";
             this.tierPanel.Size = new System.Drawing.Size(402, 262);
             this.tierPanel.TabIndex = 41;
-            this.tierPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tierPanel_Paint);
             // 
             // comboBox1
             // 
@@ -820,7 +826,7 @@ namespace JsonValidator
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(415, 77);
+            this.label27.Location = new System.Drawing.Point(396, 110);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(47, 17);
             this.label27.TabIndex = 66;
@@ -830,7 +836,7 @@ namespace JsonValidator
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(447, 698);
+            this.label16.Location = new System.Drawing.Point(428, 731);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(106, 17);
             this.label16.TabIndex = 67;
@@ -840,14 +846,14 @@ namespace JsonValidator
             // 
             this.lastChanceBoxPanel.AutoScroll = true;
             this.lastChanceBoxPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.lastChanceBoxPanel.Location = new System.Drawing.Point(456, 727);
+            this.lastChanceBoxPanel.Location = new System.Drawing.Point(437, 760);
             this.lastChanceBoxPanel.Name = "lastChanceBoxPanel";
             this.lastChanceBoxPanel.Size = new System.Drawing.Size(402, 262);
             this.lastChanceBoxPanel.TabIndex = 42;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(861, 113);
+            this.button5.Location = new System.Drawing.Point(842, 146);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(29, 22);
             this.button5.TabIndex = 68;
@@ -857,7 +863,7 @@ namespace JsonValidator
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(861, 416);
+            this.button6.Location = new System.Drawing.Point(842, 449);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(29, 22);
             this.button6.TabIndex = 69;
@@ -867,7 +873,7 @@ namespace JsonValidator
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(864, 727);
+            this.button7.Location = new System.Drawing.Point(845, 760);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(29, 22);
             this.button7.TabIndex = 70;
@@ -877,7 +883,7 @@ namespace JsonValidator
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(861, 444);
+            this.button8.Location = new System.Drawing.Point(842, 477);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(29, 22);
             this.button8.TabIndex = 71;
@@ -887,7 +893,7 @@ namespace JsonValidator
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(861, 472);
+            this.button9.Location = new System.Drawing.Point(842, 505);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(29, 22);
             this.button9.TabIndex = 72;
@@ -897,7 +903,7 @@ namespace JsonValidator
             // 
             // storeSubB
             // 
-            this.storeSubB.Location = new System.Drawing.Point(62, 491);
+            this.storeSubB.Location = new System.Drawing.Point(65, 581);
             this.storeSubB.Name = "storeSubB";
             this.storeSubB.Size = new System.Drawing.Size(29, 22);
             this.storeSubB.TabIndex = 73;
@@ -907,7 +913,7 @@ namespace JsonValidator
             // 
             // purSubB
             // 
-            this.purSubB.Location = new System.Drawing.Point(67, 709);
+            this.purSubB.Location = new System.Drawing.Point(70, 799);
             this.purSubB.Name = "purSubB";
             this.purSubB.Size = new System.Drawing.Size(29, 22);
             this.purSubB.TabIndex = 74;
@@ -917,7 +923,7 @@ namespace JsonValidator
             // 
             // prizeSubB
             // 
-            this.prizeSubB.Location = new System.Drawing.Point(861, 141);
+            this.prizeSubB.Location = new System.Drawing.Point(842, 174);
             this.prizeSubB.Name = "prizeSubB";
             this.prizeSubB.Size = new System.Drawing.Size(29, 22);
             this.prizeSubB.TabIndex = 75;
@@ -927,7 +933,7 @@ namespace JsonValidator
             // 
             // tierSub1
             // 
-            this.tierSub1.Location = new System.Drawing.Point(896, 416);
+            this.tierSub1.Location = new System.Drawing.Point(877, 449);
             this.tierSub1.Name = "tierSub1";
             this.tierSub1.Size = new System.Drawing.Size(29, 22);
             this.tierSub1.TabIndex = 76;
@@ -937,7 +943,7 @@ namespace JsonValidator
             // 
             // lastCSubB
             // 
-            this.lastCSubB.Location = new System.Drawing.Point(896, 727);
+            this.lastCSubB.Location = new System.Drawing.Point(877, 760);
             this.lastCSubB.Name = "lastCSubB";
             this.lastCSubB.Size = new System.Drawing.Size(29, 22);
             this.lastCSubB.TabIndex = 79;
@@ -947,7 +953,7 @@ namespace JsonValidator
             // 
             // mainSubB
             // 
-            this.mainSubB.Location = new System.Drawing.Point(67, 940);
+            this.mainSubB.Location = new System.Drawing.Point(70, 1030);
             this.mainSubB.Name = "mainSubB";
             this.mainSubB.Size = new System.Drawing.Size(29, 22);
             this.mainSubB.TabIndex = 80;
@@ -957,7 +963,7 @@ namespace JsonValidator
             // 
             // featuredSubB
             // 
-            this.featuredSubB.Location = new System.Drawing.Point(66, 1109);
+            this.featuredSubB.Location = new System.Drawing.Point(69, 1199);
             this.featuredSubB.Name = "featuredSubB";
             this.featuredSubB.Size = new System.Drawing.Size(29, 22);
             this.featuredSubB.TabIndex = 81;
@@ -967,19 +973,92 @@ namespace JsonValidator
             // 
             // genJsonBtn
             // 
-            this.genJsonBtn.Location = new System.Drawing.Point(432, 1065);
+            this.genJsonBtn.Location = new System.Drawing.Point(431, 1064);
             this.genJsonBtn.Name = "genJsonBtn";
-            this.genJsonBtn.Size = new System.Drawing.Size(476, 106);
+            this.genJsonBtn.Size = new System.Drawing.Size(406, 157);
             this.genJsonBtn.TabIndex = 82;
             this.genJsonBtn.Text = "Generate Json";
             this.genJsonBtn.UseVisualStyleBackColor = true;
             this.genJsonBtn.Click += new System.EventHandler(this.genJsonBtn_Click);
+            // 
+            // dragDropBoxData
+            // 
+            this.dragDropBoxData.AllowDrop = true;
+            this.dragDropBoxData.Location = new System.Drawing.Point(70, 34);
+            this.dragDropBoxData.Name = "dragDropBoxData";
+            this.dragDropBoxData.Size = new System.Drawing.Size(120, 20);
+            this.dragDropBoxData.TabIndex = 83;
+            this.dragDropBoxData.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragDrop);
+            this.dragDropBoxData.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragOver);
+            // 
+            // dragDropBoxPlaybook
+            // 
+            this.dragDropBoxPlaybook.AllowDrop = true;
+            this.dragDropBoxPlaybook.Location = new System.Drawing.Point(70, 60);
+            this.dragDropBoxPlaybook.Name = "dragDropBoxPlaybook";
+            this.dragDropBoxPlaybook.Size = new System.Drawing.Size(120, 20);
+            this.dragDropBoxPlaybook.TabIndex = 84;
+            this.dragDropBoxPlaybook.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxPlaybook_DragDrop);
+            this.dragDropBoxPlaybook.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxPlaybook_DragOver);
+            // 
+            // dragDropBoxGacha
+            // 
+            this.dragDropBoxGacha.AllowDrop = true;
+            this.dragDropBoxGacha.Location = new System.Drawing.Point(70, 90);
+            this.dragDropBoxGacha.Name = "dragDropBoxGacha";
+            this.dragDropBoxGacha.Size = new System.Drawing.Size(120, 20);
+            this.dragDropBoxGacha.TabIndex = 85;
+            this.dragDropBoxGacha.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxGacha_DragDrop);
+            this.dragDropBoxGacha.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxGacha_DragOver);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(67, 18);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(77, 13);
+            this.label28.TabIndex = 86;
+            this.label28.Text = "Drag and Drop";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(13, 41);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(53, 13);
+            this.label29.TabIndex = 87;
+            this.label29.Text = "Database";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(13, 67);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(51, 13);
+            this.label30.TabIndex = 88;
+            this.label30.Text = "Playbook";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(13, 93);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(39, 13);
+            this.label31.TabIndex = 89;
+            this.label31.Text = "Gacha";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 1316);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.dragDropBoxGacha);
+            this.Controls.Add(this.dragDropBoxPlaybook);
+            this.Controls.Add(this.dragDropBoxData);
             this.Controls.Add(this.genJsonBtn);
             this.Controls.Add(this.featuredSubB);
             this.Controls.Add(this.mainSubB);
@@ -1161,6 +1240,13 @@ namespace JsonValidator
         private System.Windows.Forms.Button mainSubB;
         private System.Windows.Forms.Button featuredSubB;
         private System.Windows.Forms.Button genJsonBtn;
+        private System.Windows.Forms.TextBox dragDropBoxData;
+        private System.Windows.Forms.TextBox dragDropBoxPlaybook;
+        private System.Windows.Forms.TextBox dragDropBoxGacha;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
     }
 }
 

@@ -21,6 +21,7 @@ namespace JsonValidator
 
         string databasePath;
         string playbookPath;
+        string gachaPath;
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
@@ -62,7 +63,7 @@ namespace JsonValidator
 
         private void InitializeFormComponents(string eventID)
         {
-            eventObject = Program.GetJsonObject(databasePath, playbookPath, eventID);
+            eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
             fandomIdCB.Text = eventObject.fandomId;
             startDatePicker.Value = DateTime.Parse(eventObject.startDate);
             endDatePicker.Value = DateTime.Parse(eventObject.endDate);
@@ -118,7 +119,9 @@ namespace JsonValidator
             foreach (var x in eventObject.tiers)
             {
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
+                {
                     tierBox = new TierBoxL(tierPanel, databasePath, x);
+                }
 
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
                     tierBox = new TierBoxM(tierPanel, databasePath, x);
@@ -232,19 +235,6 @@ namespace JsonValidator
             JsonGeneration jGen = new JsonGeneration();
             jGen.GenerateMyJson(this);
         }
-
-        private void DragDropBox1_DragOver(object sender, DragEventArgs e)
-        {
-            DragOverBehavior(e);
-        }
-
-        private void DragDropBox1_DragDrop(object sender, DragEventArgs e)
-        {
-
-            DragDropBehavior(dragDropBoxData, e);
-            databasePath = @dragDropBoxData.Text;
-
-        }
         private void dragDropBoxPlaybook_DragOver(object sender, DragEventArgs e)
         {
             DragOverBehavior(e);
@@ -254,7 +244,7 @@ namespace JsonValidator
             DragDropBehavior(dragDropBoxPlaybook, e);
             playbookPath = dragDropBoxPlaybook.Text;
             Debug.WriteLine(playbookPath);
-            testing = new Testing(dragDropBoxData.Text, @playbookPath);
+            testing = new Testing(dragDropBoxData.Text, playbookPath);
             Converters converter = new Converters();
             boxIDs = converter.GetBoxIds(playbookPath);
             boxIdCB.DataSource = boxIDs;
@@ -262,6 +252,7 @@ namespace JsonValidator
         private void dragDropBoxGacha_DragDrop(object sender, DragEventArgs e)
         {
             DragDropBehavior(dragDropBoxGacha, e);
+            gachaPath = dragDropBoxGacha.Text;
         }
 
         private void dragDropBoxGacha_DragOver(object sender, DragEventArgs e)
@@ -276,12 +267,23 @@ namespace JsonValidator
             else
                 e.Effect = DragDropEffects.None;
         }
-
         public void DragDropBehavior(TextBox textBox, DragEventArgs e)
         {
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];   
             if (files != null && files.Any())
                 textBox.Text = files.First(); 
+        }
+
+
+        private void dragDropBoxData_DragDrop(object sender, DragEventArgs e)
+        {
+            DragDropBehavior(dragDropBoxData, e);
+            databasePath = dragDropBoxData.Text;
+        }
+
+        private void dragDropBoxData_DragOver(object sender, DragEventArgs e)
+        {
+            DragOverBehavior(e);
         }
     }
     public class Testing
@@ -307,15 +309,18 @@ namespace JsonValidator
 
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {
-            comboB = new ComboBox();
+            comboB = new ComboBox() 
+            {
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems
+            };
+
             comboB.DataSource = database.GetAllPopID(dataBPath);
             flowPanel.Controls.Add(comboB);
 
             if (popName != "")
                 comboB.Text = popName;
-
         }
-
         public void RemoveCustomControls(FlowLayoutPanel panel)
         {
             var controlList = panel.Controls.OfType<Control>().ToList();

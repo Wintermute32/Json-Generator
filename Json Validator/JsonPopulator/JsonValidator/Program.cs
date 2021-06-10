@@ -25,13 +25,14 @@ namespace JsonValidator
             Application.Run(new Form1());
         }
 
-       public static NewRoot GetJsonObject(string databasePath, string playbookPath, string eventID)
+       public static NewRoot GetJsonObject(string databasePath, string playbookPath, string gachaPath, string eventID)
         {
             Converters converters = new Converters();
             Database database = new Database();
             Gacha gacha = new Gacha();
 
             var eventPlaybook = converters.PlaybookPopulator(playbookPath, eventID);
+
             eventPlaybook.FixStartDate(eventPlaybook.startDate);
             List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
 
@@ -47,7 +48,7 @@ namespace JsonValidator
             Appearance appearance = new Appearance(sba, psA, mhA);
             newRoot.appearance = appearance;
 
-            List<Gacha> gachaList = converters.GachaPopulator(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\0034_FunkoBlitz_EventRewards_BackToTheFutureSet3_Clear - Event Gacha.csv");
+            List<Gacha> gachaList = converters.GachaPopulator(gachaPath);
             newRoot.prizes = gacha.PrizeList(gachaList);
             newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
             newRoot.lastChanceBoxPrizes = converters.AssignBoxValues(popDict);

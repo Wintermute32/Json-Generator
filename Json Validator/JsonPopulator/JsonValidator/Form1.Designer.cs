@@ -130,7 +130,7 @@ namespace JsonValidator
             // 
             // populateFormBtn
             // 
-            this.populateFormBtn.Location = new System.Drawing.Point(228, 110);
+            this.populateFormBtn.Location = new System.Drawing.Point(242, 125);
             this.populateFormBtn.Name = "populateFormBtn";
             this.populateFormBtn.Size = new System.Drawing.Size(144, 46);
             this.populateFormBtn.TabIndex = 0;
@@ -147,8 +147,10 @@ namespace JsonValidator
             // 
             // boxIdCB
             // 
+            this.boxIdCB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.boxIdCB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.boxIdCB.FormattingEnabled = true;
-            this.boxIdCB.Location = new System.Drawing.Point(11, 124);
+            this.boxIdCB.Location = new System.Drawing.Point(12, 125);
             this.boxIdCB.Name = "boxIdCB";
             this.boxIdCB.Size = new System.Drawing.Size(211, 21);
             this.boxIdCB.TabIndex = 2;
@@ -986,8 +988,8 @@ namespace JsonValidator
             this.dragDropBoxData.Name = "dragDropBoxData";
             this.dragDropBoxData.Size = new System.Drawing.Size(120, 20);
             this.dragDropBoxData.TabIndex = 83;
-            this.dragDropBoxData.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragDropBox1_DragDrop);
-            this.dragDropBoxData.DragOver += new System.Windows.Forms.DragEventHandler(this.DragDropBox1_DragOver);
+            this.dragDropBoxData.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragDrop);
+            this.dragDropBoxData.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragOver);
             // 
             // dragDropBoxPlaybook
             // 

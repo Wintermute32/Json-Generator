@@ -38,8 +38,7 @@ namespace JsonValidator.CSV
         public string instances { get; set; }
 
         public string rewardType = "pop";
-
-  
+         
         public List<Prize> PrizeList(List<Gacha> gachaList)
         {
             List<Prize> prizeList = new List<Prize>();

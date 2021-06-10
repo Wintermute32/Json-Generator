@@ -55,6 +55,8 @@ namespace JsonValidator
                 Name = "popIdBox",
                 Size = new System.Drawing.Size(86, 21),
                 TabIndex = 2,
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems
             };
 
             this.comboB3 = combo3;
@@ -65,6 +67,10 @@ namespace JsonValidator
             newGroupB.Controls.Add(comboB2);
             newGroupB.Controls.Add(comboB3);
             flowPanel.Controls.Add(newGroupB);
+
+            textBoxOne.Text = tier.cost.ToString(); //need to fix in Json Classes Tier
+            comboB2.Text = tier.numPulls.ToString();
+            comboB3.Text = tier.guarantee.LuckyPopPrize.ToString();
         }
 
     }

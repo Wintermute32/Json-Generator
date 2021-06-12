@@ -67,10 +67,14 @@ namespace JsonValidator
             newGroupB.Controls.Add(comboB2);
             newGroupB.Controls.Add(comboB3);
             flowPanel.Controls.Add(newGroupB);
+            
+            if(tier.guarantee != null)
+            {
+                textBoxOne.Text = tier.cost.ToString(); //need to fix in Json Classes Tier
+                comboB2.Text = tier.numPulls.ToString();
+                comboB3.Text = tier.guarantee.LuckyPopPrize.ToString();
+            }
 
-            textBoxOne.Text = tier.cost.ToString(); //need to fix in Json Classes Tier
-            comboB2.Text = tier.numPulls.ToString();
-            comboB3.Text = tier.guarantee.LuckyPopPrize.ToString();
         }
 
     }

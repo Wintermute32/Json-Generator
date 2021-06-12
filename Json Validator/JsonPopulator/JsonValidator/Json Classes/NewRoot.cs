@@ -5,7 +5,7 @@ using JsonValidator.CSV;
 
 namespace JsonValidator
 {
-     public class NewRoot
+    public class NewRoot
     {
         public string boxId { get; set; }
         public string fandomId { get; set; }
@@ -20,16 +20,17 @@ namespace JsonValidator
 
         List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };
 
-        public NewRoot(){}
+        public NewRoot() { }
 
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {
             behaviourType = "";
-            boxId = "e" + playbook.eventNumber + "_" + playbook.boxID.Trim();
+            boxId = "e" + playbook.eventNumber + "_bxtFE_VIP0_" + playbook.boxID.Trim();
             fandomId = playbook.fandomName;
             FixDates(playbook.startDate, playbook.endDate);
             SetFeaturedPopIds(popDict);
         }
+  
         public void FixDates(string startDate, string endDate)
         {
 
@@ -49,7 +50,5 @@ namespace JsonValidator
 
             featuredPopIdsList = rarityList;
         }
-
-
     }
 }

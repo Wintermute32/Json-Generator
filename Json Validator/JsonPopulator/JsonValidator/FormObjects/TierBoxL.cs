@@ -87,10 +87,13 @@ namespace JsonValidator
             newGroupB.Controls.Add(comboB4);
             flowPanel.Controls.Add(newGroupB);
 
-            textBoxOne.Text = tier.cost.ToString(); //need to fix in Json Classes Tier
-            comboB2.Text = tier.numPulls.ToString();
-            comboB3.Text = tier.guarantee.SpecificPopId;
-            comboB4.Text = tier.guarantee.specificPopAmount;
+            if (tier.guarantee != null) //ensuring we dont crash when using + UI button
+            {
+                textBoxOne.Text = tier.cost.ToString(); //need to fix in Json Classes Tier
+                comboB2.Text = tier.numPulls.ToString();
+                comboB3.Text = tier.guarantee.SpecificPopId;
+                comboB4.Text = tier.guarantee.specificPopAmount;
+            }
         }
     }
 

@@ -15,7 +15,7 @@ namespace JsonValidator
 {
     class Converters
     {
-
+        //converter class to xfer data in CSV objects to Json Class Objects
         public Playbook PlaybookPopulator(string playbookPath, string eventID)
         {
   
@@ -87,13 +87,15 @@ namespace JsonValidator
             foreach (var x in playbookList)
             {
                 if (x.eventID != null && x.eventID != "")
+                {
                     boxIDs.Add(x.eventID);
+
+                }
             }
             return boxIDs;
         }
         public List<Playbook> playbookHelper(string playbookPath)
         {
-
             var config = new CsvConfiguration(CultureInfo.InvariantCulture);
             config.HeaderValidated = null;
             config.MissingFieldFound = null;
@@ -107,7 +109,6 @@ namespace JsonValidator
             var playbookRecords = csv.GetRecords<Playbook>().ToList();
             return playbookRecords;
         }
-
         public List<LastChanceBoxPrize> AssignBoxValues(Dictionary<string, string> popDict)
         {
             List<LastChanceBoxPrize> lcbpList = new List<LastChanceBoxPrize>();

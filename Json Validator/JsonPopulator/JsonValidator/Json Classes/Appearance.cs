@@ -1,9 +1,18 @@
-﻿namespace JsonValidator
+﻿using System;
+using Newtonsoft.Json;
+namespace JsonValidator
 {
     public class Appearance
     {
+        [JsonIgnore]
+        public bool isOEDBox { get; set; }
+        
+        [JsonIgnore]
+        public bool isHolidayBox { get; set; }
 
-        public bool isEventBox { get; set; }
+        [JsonIgnore]
+        public bool isVIPBox { get; set; }
+        public bool isEventBox { get; set; } //not ignoring since this is a field on the Json
         public string mysteryBoxType { get; set; }
         public string theme { get; set; }
         public StoreButtonAppearance storeButtonAppearance { get; set; }

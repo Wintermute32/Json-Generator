@@ -8,61 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using JsonValidator.CSV;
 
 namespace JsonValidator
 
-    //We're currently trying to hook up the drag and drop text from teh boxes to actually finding the database path.
+//We're currently trying to hook up the drag and drop text from teh boxes to actually finding the database path.
 {
     public partial class Form1 : Form
     {
-        //string databasePath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.6.0] Pop_Database - pop_database.csv";
-        //string playbookPath = @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\Live Playbook.csv";
-
         string databasePath;
         string playbookPath;
         string gachaPath;
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
-        Testing testing;
+        FormControls formControls;
 
         public Form1()
         {
             InitializeComponent();
-            //testing = new Testing(databasePath, playbookPath);
-            //Converters converter = new Converters();
-            //boxIDs = converter.GetBoxIds(playbookPath);
-            //boxIdCB.DataSource = boxIDs;
             this.AutoScroll = true;
-        }
-
-        public List<string> ParsePopDictionary(Dictionary<string, string> popDict)
-        {
-            List<string> popIDs = new List<string>();
-            foreach (var x in popDict)
-            {
-                if (x.Key != null)
-                    popIDs.Add(x.Key);
-            }
-            return popIDs;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            testing.RemoveRuntimeComboBoxes(this);
-
-            var eventID = boxIdCB.SelectedItem.ToString(); //fix this
-            eventID = eventID.Substring(eventID.IndexOf('_') + 1);
-
-            if (eventID != null)
-            {
-                InitializeFormComponents(eventID);
-            }
         }
 
         private void InitializeFormComponents(string eventID)
         {
+            //takes completed NewRoot Object and populates forum UI values
             eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
             fandomIdCB.Text = eventObject.fandomId;
             startDatePicker.Value = DateTime.Parse(eventObject.startDate);
@@ -82,92 +51,38 @@ namespace JsonValidator
             titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
 
-            TierGenerator();
-
-            GenerateRuntimePopPanels();
+            formControls.GenerateRuntimePopPanels(eventObject, databasePath);
         }
-
-        private void GenerateRuntimePopPanels()
+        private void button1_Click(object sender, EventArgs e)
         {
-            foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
-                testing.GeneratePopSelector(x, storePopsPanel);
+            formControls.RemoveRuntimeComboBoxes(this);
 
-            foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
-                testing.GeneratePopSelector(x, purchasePopsPanel);
+            var eventID = boxIdCB.SelectedItem.ToString(); //fix this
+            eventID = eventID.Substring(eventID.IndexOf('_') + 1);
 
-            foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
-                testing.GeneratePopSelector(x, mainHubPanel);
-
-            foreach (var x in eventObject.featuredPopIdsList)
-                testing.GeneratePopSelector(x, featuredPopPanel);
-
-            foreach (var x in eventObject.prizes)
+            if (eventID != null)
             {
-                PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
-            }
-
-            foreach (var x in eventObject.lastChanceBoxPrizes)
-            {
-                PrizeBox lastChanceBox = new PrizeBox(lastChanceBoxPanel, databasePath, x);
+                InitializeFormComponents(eventID);
             }
         }
-
-        public void TierGenerator()
-        {
-            ITierBox tierBox;
-
-            foreach (var x in eventObject.tiers)
-            {
-                if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
-                {
-                    tierBox = new TierBoxL(tierPanel, databasePath, x);
-                }
-
-                if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
-                    tierBox = new TierBoxM(tierPanel, databasePath, x);
-
-                if (x.isGuarantee != true)
-                    tierBox = new TierBoxS(tierPanel, databasePath, x);
-            }
-        }
-
-        public Form1 GetFormControlList()
-        {
-            Form1 form1 = new Form1();
-            form1.boxIdCB.Name = this.boxIdCB.Name;
-            return form1;
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
-
-            testing.GeneratePopSelector("", storePopsPanel);
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
+            formControls.GeneratePopSelector("", storePopsPanel);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            testing.GeneratePopSelector("", purchasePopsPanel);
+            formControls.GeneratePopSelector("", purchasePopsPanel);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            testing.GeneratePopSelector("", mainHubPanel);
+            formControls.GeneratePopSelector("", mainHubPanel);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            testing.GeneratePopSelector("", featuredPopPanel);
+            formControls.GeneratePopSelector("", featuredPopPanel);
 
         }
         private void button5_Click(object sender, EventArgs e)
@@ -197,37 +112,37 @@ namespace JsonValidator
 
         private void storeSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(storePopsPanel);
+            formControls.RemoveCustomControls(storePopsPanel);
         }
 
         private void purSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(purchasePopsPanel);
+            formControls.RemoveCustomControls(purchasePopsPanel);
         }
 
         private void mainSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(mainHubPanel);
+            formControls.RemoveCustomControls(mainHubPanel);
         }
 
         private void featuredSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(featuredPopPanel);
+            formControls.RemoveCustomControls(featuredPopPanel);
         }
 
         private void prizeSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(prizePanel);
+            formControls.RemoveCustomControls(prizePanel);
         }
 
         private void tierSub1_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(tierPanel);
+            formControls.RemoveCustomControls(tierPanel);
         }
 
         private void lastCSubB_Click(object sender, EventArgs e)
         {
-            testing.RemoveCustomControls(lastChanceBoxPanel);
+            formControls.RemoveCustomControls(lastChanceBoxPanel);
         }
 
         private void genJsonBtn_Click(object sender, EventArgs e)
@@ -244,7 +159,7 @@ namespace JsonValidator
             DragDropBehavior(dragDropBoxPlaybook, e);
             playbookPath = dragDropBoxPlaybook.Text;
             Debug.WriteLine(playbookPath);
-            testing = new Testing(dragDropBoxData.Text, playbookPath);
+            formControls = new FormControls(dragDropBoxData.Text, playbookPath);
             Converters converter = new Converters();
             boxIDs = converter.GetBoxIds(playbookPath);
             boxIdCB.DataSource = boxIDs;
@@ -274,7 +189,6 @@ namespace JsonValidator
                 textBox.Text = files.First(); 
         }
 
-
         private void dragDropBoxData_DragDrop(object sender, DragEventArgs e)
         {
             DragDropBehavior(dragDropBoxData, e);
@@ -285,60 +199,10 @@ namespace JsonValidator
         {
             DragOverBehavior(e);
         }
-    }
-    public class Testing
-    {
-        Database database = new Database();
-        ComboBox comboB;
-        string dataBPath;
-        string playBPath;
 
-        List<ComboBox> comboList = new List<ComboBox>();
-
-        public Testing(string databasePath, string playbookPath)
+        private void tierslbl_Click(object sender, EventArgs e)
         {
-            this.dataBPath = databasePath;
-            this.playBPath = playbookPath;
-        }
 
-        public void RemoveRuntimeComboBoxes(Form1 form1)
-        {
-            foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
-                item.Controls.Clear();
-        }
-
-        public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
-        {
-            comboB = new ComboBox() 
-            {
-                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
-                AutoCompleteSource = AutoCompleteSource.ListItems
-            };
-
-            comboB.DataSource = database.GetAllPopID(dataBPath);
-            flowPanel.Controls.Add(comboB);
-
-            if (popName != "")
-                comboB.Text = popName;
-        }
-        public void RemoveCustomControls(FlowLayoutPanel panel)
-        {
-            var controlList = panel.Controls.OfType<Control>().ToList();
-            if (controlList.Count > 0)
-                panel.Controls.Remove(controlList[controlList.Count - 1]);
-        }
-
-        public void ResetAllControls(Control form)
-        {
-            ComboBox ctrlInQ;
-            foreach (Control control in form.Controls)
-            {
-                if (control is ComboBox)
-                {
-                    ctrlInQ = (ComboBox)control;
-                    ctrlInQ.SelectedIndex = 0;
-                }
-            }
         }
     }
 } 

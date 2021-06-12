@@ -16,7 +16,6 @@ namespace JsonValidator
 {
     static class Program
     {
-
         [STAThread]
         static void Main()
         {
@@ -27,6 +26,8 @@ namespace JsonValidator
 
        public static NewRoot GetJsonObject(string databasePath, string playbookPath, string gachaPath, string eventID)
         {
+            //returns completed NewRoot Object
+
             Converters converters = new Converters();
             Database database = new Database();
             Gacha gacha = new Gacha();
@@ -54,19 +55,6 @@ namespace JsonValidator
             newRoot.lastChanceBoxPrizes = converters.AssignBoxValues(popDict);
 
             return newRoot;
-        }
-
-        public static string SerializeJson(NewRoot newRoot)
-        {
-            //Accepts Completed NewRoot Object
-            var serializerSettings = new JsonSerializerSettings();
-
-            string rootOutput = JsonConvert.SerializeObject(newRoot, Formatting.Indented, new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            });
-
-            return rootOutput;
         }
     }
 }

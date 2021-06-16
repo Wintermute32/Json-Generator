@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace JsonValidator
         [JsonIgnore]
         public string amount { get; set; }
         public Guarantee guarantee { get; set; }
-
         public List<Tier> GenerateTierList(List<Gacha> gachaList)
         {
             List<Tier> tierList = new List<Tier>();
@@ -37,10 +37,13 @@ namespace JsonValidator
             for (int i = 0; i < gachaList.Count; i++)
             {
                 Tier tier = new Tier();
-                StringBuilder sb = new StringBuilder(gachaList[i].cost);
-                sb.Replace("\"", "12");
-     
-                //tier.cost = Convert.ToInt32(sb.Replace('\"', '2')); Why Wont this convert!?
+                Debug.WriteLine("Cost value is " + gachaList[i].cost.Replace(",",""));
+                tier.cost = Convert.ToInt32(gachaList[i].cost.Replace(",", "")); 
+
+                //StringBuilder sb = new StringBuilder(gachaList[i].cost);
+                //sb.Replace("\"", "12");
+
+                //tier.cost = Convert.ToInt32(sb.Replace('\"', '2')); 
 
                 tier.boxGuarantee = gachaList[i].guarantee;
                

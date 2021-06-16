@@ -22,7 +22,7 @@ namespace JsonValidator
           var playbookRecords = playbookHelper(playbookPath);
 
            foreach (var x in playbookRecords)
-                if (x.fandomName.ToLower().Contains(eventID.ToLower()))
+                if (x.eventID.ToLower().Contains(eventID.Replace(" ", "").ToLower()))
                 {
                     Console.WriteLine("Playbook found!");
                     return x;

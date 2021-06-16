@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace JsonValidator
@@ -29,7 +30,8 @@ namespace JsonValidator
             {
                 Location = new System.Drawing.Point(7, 20),
                 Size = new System.Drawing.Size(51, 20),
-                TabIndex = 0
+                TabIndex = 0,
+                Text = tier.cost.ToString(),
             };
 
             this.textBoxOne = txtB1;
@@ -40,7 +42,8 @@ namespace JsonValidator
                 Name = "amtBox",
                 Location = new System.Drawing.Point(64, 19),
                 Size = new System.Drawing.Size(38, 21),
-                TabIndex = 1
+                TabIndex = 1,
+                Text = tier.numPulls.ToString(),
             };
 
             this.comboB2 = combo2;
@@ -48,12 +51,6 @@ namespace JsonValidator
             newGroupB.Controls.Add(textBoxOne);
             newGroupB.Controls.Add(comboB2);
             flowPanel.Controls.Add(newGroupB);
-
-            if (tier.guarantee != null)
-            {
-                textBoxOne.Text = tier.cost.ToString(); //need to fix in Json Classes Tier
-                comboB2.Text = tier.numPulls.ToString();
-            }    
         }
     }
 }

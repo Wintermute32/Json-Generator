@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using CsvHelper;
@@ -31,11 +32,22 @@ namespace JsonValidator
             Converters converters = new Converters();
             Database database = new Database();
             Gacha gacha = new Gacha();
+            Playbook eventPlaybook;
 
-            var eventPlaybook = converters.PlaybookPopulator(playbookPath, eventID);
+            try
+            {
+                eventPlaybook = converters.PlaybookPopulator(playbookPath, eventID);
+                eventPlaybook.FixStartDate(eventPlaybook.startDate);
+            }
+            catch (Exception)
+            {
+                string message = "This ID wasn't found in the playbook. Check playbook ID and upate";
+                string title = "Playbbok Error";
+                MessageBox.Show(message, title);
+                eventPlaybook = new Playbook { eventID = "not found", startDateAlternate = "0/0/0000"};
+            }
 
-            eventPlaybook.FixStartDate(eventPlaybook.startDate);
-            List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
+            //List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
 
             Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.startDateAlternate, databasePath);
 

@@ -33,6 +33,7 @@ namespace JsonValidator
         {
             //takes completed NewRoot Object and populates forum UI values
             eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
+            eventNumBox.Text = eventObject.evetnNumber;
             fandomIdCB.Text = eventObject.fandomId;
             startDatePicker.Value = DateTime.Parse(eventObject.startDate);
             endDatePicker.Value = DateTime.Parse(eventObject.endDate);
@@ -59,6 +60,8 @@ namespace JsonValidator
 
             var eventID = boxIdCB.SelectedItem.ToString(); //fix this
             eventID = eventID.Substring(eventID.IndexOf('_') + 1);
+
+            Debug.WriteLine("Event ID for this before initialize is " + eventID);
 
             if (eventID != null)
             {

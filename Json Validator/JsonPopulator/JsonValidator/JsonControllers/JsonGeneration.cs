@@ -7,12 +7,15 @@ using System.IO;
 using System;
 using System.Collections.Generic;
 using JsonValidator.JsonConverters;
+using JsonValidator.StoreConfigUpdate;
 
 namespace JsonValidator
 {
     public class JsonGeneration
     { 
         //all members for generating the Json File
+        //Add functionality for popup: look at the test file. Edit test file as necessary,
+        //then click final UI button to add to existing MysteryBoxFiles. 
         public void GenerateMyJson(Form1 form)
         {
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
@@ -25,6 +28,7 @@ namespace JsonValidator
             AppearanceConverter appearance = new AppearanceConverter(form); 
             PrizesConverter prizesConverter = new PrizesConverter();
             TierConverter tierConverter = new TierConverter();
+
 
             bool isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
             bool isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;
@@ -53,7 +57,9 @@ namespace JsonValidator
             {
                 finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
                 jsonOutput += SerializeJson(finalRoot);
-            }    
+            } 
+
+            //this will be updated to write to each file found in StoreConfigUpdate.Testing()
             File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", jsonOutput);
             System.Diagnostics.Process.Start(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using JsonValidator.StoreConfigUpdate;
 
 namespace JsonValidator
 
@@ -18,10 +19,12 @@ namespace JsonValidator
         string databasePath;
         string playbookPath;
         string gachaPath;
+        string directoryPath;
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
         FormControls formControls;
+        StoreConfig sCU = new StoreConfig();
 
         public Form1()
         {
@@ -203,9 +206,29 @@ namespace JsonValidator
             DragOverBehavior(e);
         }
 
-        private void tierslbl_Click(object sender, EventArgs e)
+        private void fileDirectoryTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void fileDirectoryTextBox_DragDrop_1(object sender, DragEventArgs e)
+        {
+            DragDropBehavior(fileDirectoryTextBox, e);
+            directoryPath = fileDirectoryTextBox.Text;
+        }
+
+        private void fileDirectoryTextBox_DragOver_1(object sender, DragEventArgs e)
+        {
+            DragOverBehavior(e);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            sCU.AddToMysteryBoxConfig();
         }
     }
 } 

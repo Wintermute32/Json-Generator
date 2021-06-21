@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using JsonValidator.CSV;
+using Newtonsoft.Json;
 
 namespace JsonValidator
 {
     public class NewRoot
     {
         public string boxId { get; set; }
+        [JsonIgnore]
+        public string evetnNumber { get; set; }
+        public string boxReplacesID { get; set; }
         public string fandomId { get; set; }
         public string startDate { get; set; }
         public string endDate { get; set; }
@@ -26,6 +30,7 @@ namespace JsonValidator
         {
             behaviourType = "";
             boxId = "e" + playbook.eventNumber + "_bxtFE_VIP0_" + playbook.boxID.Trim();
+            evetnNumber = playbook.eventNumber;
             fandomId = playbook.fandomName;
             FixDates(playbook.startDate, playbook.endDate);
             SetFeaturedPopIds(popDict);

@@ -7,12 +7,15 @@ using System.IO;
 using System;
 using System.Collections.Generic;
 using JsonValidator.JsonConverters;
+using JsonValidator.StoreConfigUpdate;
 
 namespace JsonValidator
 {
     public class JsonGeneration
     { 
         //all members for generating the Json File
+        //Add functionality for popup: look at the test file. Edit test file as necessary,
+        //then click final UI button to add to existing MysteryBoxFiles. 
         public void GenerateMyJson(Form1 form)
         {
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
@@ -27,9 +30,14 @@ namespace JsonValidator
             TierConverter tierConverter = new TierConverter();
 
 
+            bool isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
+            bool isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;
+
+
             NewRoot finalRoot = new NewRoot()
             {
-                boxId = comboBoxes.Find(x => x.Name == "boxIdCB").Text,
+                boxId = AmmendBoxID(comboBoxes, textBoxes, checkBoxes.Find(x => x.Name == "isEventCheck").Checked),
+                evetnNumber = textBoxes.Find(x => x.Name == "eventNumBox").Text,
                 fandomId = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
                 startDate =  dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
                 endDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
@@ -38,12 +46,21 @@ namespace JsonValidator
                 featuredPopIdsList = GetFeaturedPops(flowBoxes),
                 prizes = prizesConverter.GeneratePrizeList(flowBoxes),
                 tiers = tierConverter.GenerateTierList(flowBoxes),
-                lastChanceBoxPrizes = GetLastChanceList(flowBoxes),
+                lastChanceBoxPrizes = GetLastChanceList(flowBoxes),               
             };
-
+            
             finalRoot.FixDates(finalRoot.startDate, finalRoot.endDate);
 
-            File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", SerializeJson(finalRoot));
+            var jsonOutput = SerializeJson(finalRoot);
+           
+            if (isEventBox)
+            {
+                finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
+                jsonOutput += SerializeJson(finalRoot);
+            } 
+
+            //this will be updated to write to each file found in StoreConfigUpdate.Testing()
+            File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", jsonOutput);
             System.Diagnostics.Process.Start(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
         }
         public List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
@@ -79,12 +96,24 @@ namespace JsonValidator
             var settings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
+                NullValueHandling = NullValueHandling.Ignore,
             };
 
             settings.Converters.Add(new MyConverter());
 
             string json = JsonConvert.SerializeObject(newRoot, settings);
             return json;
+        }
+        public string AmmendBoxID(List<ComboBox> comboBoxes, List<TextBox> textBoxes, bool isEventBox)
+        {
+            var formBoxId = comboBoxes.Find(x => x.Name == "boxIdCB").Text; ;
+            var formBoxNum = textBoxes.Find(x => x.Name == "eventNumBox").Text;
+            string boxId;
+
+            if (isEventBox)
+              return boxId = "e" + formBoxNum + "_bxtFE_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+
+            return formBoxId;
         }
     }
 } 

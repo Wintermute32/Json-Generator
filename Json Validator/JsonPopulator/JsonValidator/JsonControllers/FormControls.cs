@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -63,7 +64,9 @@ namespace JsonValidator
                     tierBox = new TierBoxM(tierPanel, databasePath, x);
 
                 if (x.isGuarantee != true)
+                {
                     tierBox = new TierBoxS(tierPanel, databasePath, x);
+                }
             }
         }
         public void RemoveRuntimeComboBoxes(Form1 form1)

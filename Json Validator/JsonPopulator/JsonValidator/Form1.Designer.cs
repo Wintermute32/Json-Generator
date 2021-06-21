@@ -126,13 +126,17 @@ namespace JsonValidator
             this.label31 = new System.Windows.Forms.Label();
             this.oedBoxCheck = new System.Windows.Forms.CheckBox();
             this.isVIPBoxCheck = new System.Windows.Forms.CheckBox();
+            this.eventNumBox = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.fileDirectoryTextBox = new System.Windows.Forms.TextBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // populateFormBtn
             // 
-            this.populateFormBtn.Location = new System.Drawing.Point(268, 125);
+            this.populateFormBtn.Location = new System.Drawing.Point(268, 149);
             this.populateFormBtn.Name = "populateFormBtn";
             this.populateFormBtn.Size = new System.Drawing.Size(144, 74);
             this.populateFormBtn.TabIndex = 0;
@@ -152,7 +156,7 @@ namespace JsonValidator
             this.boxIdCB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.boxIdCB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.boxIdCB.FormattingEnabled = true;
-            this.boxIdCB.Location = new System.Drawing.Point(12, 125);
+            this.boxIdCB.Location = new System.Drawing.Point(104, 122);
             this.boxIdCB.Name = "boxIdCB";
             this.boxIdCB.Size = new System.Drawing.Size(211, 21);
             this.boxIdCB.TabIndex = 2;
@@ -732,7 +736,6 @@ namespace JsonValidator
             this.tierslbl.Size = new System.Drawing.Size(40, 17);
             this.tierslbl.TabIndex = 61;
             this.tierslbl.Text = "Tiers";
-            this.tierslbl.Click += new System.EventHandler(this.tierslbl_Click);
             // 
             // label23
             // 
@@ -975,9 +978,9 @@ namespace JsonValidator
             // 
             // genJsonBtn
             // 
-            this.genJsonBtn.Location = new System.Drawing.Point(437, 1083);
+            this.genJsonBtn.Location = new System.Drawing.Point(491, 1067);
             this.genJsonBtn.Name = "genJsonBtn";
-            this.genJsonBtn.Size = new System.Drawing.Size(406, 157);
+            this.genJsonBtn.Size = new System.Drawing.Size(408, 79);
             this.genJsonBtn.TabIndex = 82;
             this.genJsonBtn.Text = "Generate Json";
             this.genJsonBtn.UseVisualStyleBackColor = true;
@@ -990,6 +993,7 @@ namespace JsonValidator
             this.dragDropBoxData.Name = "dragDropBoxData";
             this.dragDropBoxData.Size = new System.Drawing.Size(120, 20);
             this.dragDropBoxData.TabIndex = 83;
+            this.dragDropBoxData.Text = global::JsonValidator.Properties.Settings.Default.PathPreserve;
             this.dragDropBoxData.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragDrop);
             this.dragDropBoxData.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragOver);
             // 
@@ -1069,11 +1073,54 @@ namespace JsonValidator
             this.isVIPBoxCheck.Text = "VIP Box";
             this.isVIPBoxCheck.UseVisualStyleBackColor = true;
             // 
+            // eventNumBox
+            // 
+            this.eventNumBox.AllowDrop = true;
+            this.eventNumBox.Location = new System.Drawing.Point(18, 122);
+            this.eventNumBox.Name = "eventNumBox";
+            this.eventNumBox.Size = new System.Drawing.Size(79, 20);
+            this.eventNumBox.TabIndex = 92;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(210, 18);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(118, 13);
+            this.label32.TabIndex = 94;
+            this.label32.Text = "Top Store File Directory";
+            // 
+            // fileDirectoryTextBox
+            // 
+            this.fileDirectoryTextBox.AllowDrop = true;
+            this.fileDirectoryTextBox.Location = new System.Drawing.Point(217, 34);
+            this.fileDirectoryTextBox.Name = "fileDirectoryTextBox";
+            this.fileDirectoryTextBox.Size = new System.Drawing.Size(243, 20);
+            this.fileDirectoryTextBox.TabIndex = 95;
+            this.fileDirectoryTextBox.Text = global::JsonValidator.Properties.Settings.Default.PathPreserve;
+            this.fileDirectoryTextBox.TextChanged += new System.EventHandler(this.fileDirectoryTextBox_TextChanged);
+            this.fileDirectoryTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.fileDirectoryTextBox_DragDrop_1);
+            this.fileDirectoryTextBox.DragOver += new System.Windows.Forms.DragEventHandler(this.fileDirectoryTextBox_DragOver_1);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(494, 1177);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(405, 86);
+            this.button10.TabIndex = 96;
+            this.button10.Text = "Update Mystery Box Files";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 1316);
+            this.ClientSize = new System.Drawing.Size(998, 1316);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.fileDirectoryTextBox);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.eventNumBox);
             this.Controls.Add(this.isVIPBoxCheck);
             this.Controls.Add(this.oedBoxCheck);
             this.Controls.Add(this.label31);
@@ -1165,6 +1212,7 @@ namespace JsonValidator
             this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.PrizeGroupBox.ResumeLayout(false);
@@ -1272,6 +1320,10 @@ namespace JsonValidator
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.CheckBox oedBoxCheck;
         private System.Windows.Forms.CheckBox isVIPBoxCheck;
+        private System.Windows.Forms.TextBox eventNumBox;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox fileDirectoryTextBox;
+        private System.Windows.Forms.Button button10;
     }
 }
 

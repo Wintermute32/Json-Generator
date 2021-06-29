@@ -110,6 +110,7 @@
     <Compile Include="FormObjects\TierBoxL.cs" />
     <Compile Include="FormObjects\TierBoxM.cs" />
     <Compile Include="FormObjects\TierBoxS.cs" />
+    <Compile Include="StoreConfigUpdate\FormatBoxString.cs" />
     <Compile Include="StoreConfigUpdate\StoreConfigUpdate.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

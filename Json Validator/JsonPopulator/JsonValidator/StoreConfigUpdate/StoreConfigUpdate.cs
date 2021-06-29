@@ -64,7 +64,7 @@ namespace JsonValidator.StoreConfigUpdate
             {
                 boxIDsPerVariant.Add(GetBoxID(storeConfigFilePaths[i])); //For each Variant Box File, Add List of Box Id's
                 boxIDsPerVariant[i].Add(newBoxIds);//add our NewBox ID
-                boxIDsPerVariant[i].Sort();
+                boxIDsPerVariant[i].Sort(); 
             }
 
             for (int i = 0; i < boxIDsPerVariant.Count; i++)

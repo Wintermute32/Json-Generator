@@ -51,15 +51,14 @@ namespace JsonValidator
             
             finalRoot.FixDates(finalRoot.startDate, finalRoot.endDate);
 
-            var jsonOutput = SerializeJson(finalRoot);
+            var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));
            
             if (isEventBox)
             {
-                finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
-                jsonOutput += SerializeJson(finalRoot);
+               finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
+               jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
+               jsonOutput +='\n' + fbs.TestFormatString(SerializeJson(finalRoot)).TrimEnd() + ',';
             }
-
-            //var finalOutput = fbs.TestFormatString(jsonOutput);
 
             File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", jsonOutput);
             System.Diagnostics.Process.Start(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");

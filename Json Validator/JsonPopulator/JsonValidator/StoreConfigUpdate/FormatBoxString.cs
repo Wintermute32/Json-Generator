@@ -40,35 +40,27 @@ namespace JsonValidator.StoreConfigUpdate
             return output;
         }
 
-        public string TestFormatStringRegex(string Json)
-        {
-           // this fucking regex should work but i cant figure out how ot use it \s(?!\w |{| "|\[)
- 
-
-
-         string regexPattern = new Regex.Escape("\s(?!\w |{|"|\[)");
-        }
-
         public string TestFormatString(string Json)
-        {
+        { 
             string[] lines = Json.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             List<string> outputString = new List<string>();
             string output = "";
 
-            int indentAmt = 4;
+            int indentAmt = 8;
             
-            foreach (var x in lines)
+            for (int i = 0; i < lines.Length; i++)
             {
-              var trimmed = x.Trim();
+              var trimmed = lines[i].Trim();
                 
               if (trimmed.Contains("}"))
                  indentAmt -= 4;
 
-              if (trimmed.Contains("}") && trimmed.Contains("{"))
+              if ((trimmed.Contains("}") && trimmed.Contains("{")))
+                    indentAmt = 16;
+
+              if ( trimmed == "]," || trimmed.Contains("lastChanceBox") 
+                || trimmed.Contains("tiers") || trimmed == "]")
                     indentAmt = 12;
-              
-                if (trimmed.Contains("],") || trimmed == "]")
-                    indentAmt = 8;
 
                 outputString.Add(Indent(indentAmt, trimmed));
 

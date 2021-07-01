@@ -39,7 +39,7 @@ namespace JsonValidator.StoreConfigUpdate
                 {
                     if (x.Contains(insertAboveID[i]))
                     {
-                        boxFile.Insert(boxFile.IndexOf(x), newBox);
+                        boxFile.Insert(boxFile.IndexOf(x) - 1, newBox); // - 1 to account for existing box spacing.
                         break;
                     }
                 }

@@ -39,14 +39,16 @@ namespace JsonValidator.StoreConfigUpdate
                 {
                     if (x.Contains(insertAboveID[i]))
                     {
-                        boxFile.Insert(boxFile.IndexOf(x) - 1, newBox); // - 1 to account for existing box spacing.
+                        //would like to find a way to dynamically get index of the above {
+                        //to protect against extra spaces from improperly formatted code in the box file
+                        var index = boxFile.IndexOf(x);
+                        boxFile.Insert(boxFile.IndexOf(x) - 1, newBox); // - 1 to account for existing box spacing. This will break if theres an extra space or mis-tab present;
                         break;
                     }
                 }
                 File.WriteAllLines(storeConfigPaths[i], boxFile);
                 System.Diagnostics.Process.Start(storeConfigPaths[i]);
             }
-             
         }
         private List<string> GetInsertPosition(string[] storeConfigFilePaths, string newBoxFilePath)
         {

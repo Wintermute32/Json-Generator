@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using System.IO;
@@ -28,11 +29,10 @@ namespace JsonValidator
             AppearanceConverter appearance = new AppearanceConverter(form); 
             PrizesConverter prizesConverter = new PrizesConverter();
             TierConverter tierConverter = new TierConverter();
-
+            FormatBoxString fbs = new FormatBoxString();
 
             bool isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
             bool isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;
-
 
             NewRoot finalRoot = new NewRoot()
             {
@@ -51,17 +51,18 @@ namespace JsonValidator
             
             finalRoot.FixDates(finalRoot.startDate, finalRoot.endDate);
 
-            var jsonOutput = SerializeJson(finalRoot);
+            var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));
            
             if (isEventBox)
             {
-                finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
-                jsonOutput += SerializeJson(finalRoot);
-            } 
+               finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
+               jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
+               jsonOutput +='\n' + fbs.TestFormatString(SerializeJson(finalRoot)).TrimEnd() + ',';
+            }
 
-            //this will be updated to write to each file found in StoreConfigUpdate.Testing()
             File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", jsonOutput);
             System.Diagnostics.Process.Start(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
+
         }
         public List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
         {
@@ -91,6 +92,7 @@ namespace JsonValidator
             }
             return _popIds;
         }
+        
         public string SerializeJson(NewRoot newRoot)
         {
             var settings = new JsonSerializerSettings
@@ -100,7 +102,7 @@ namespace JsonValidator
             };
 
             settings.Converters.Add(new MyConverter());
-
+           
             string json = JsonConvert.SerializeObject(newRoot, settings);
             return json;
         }

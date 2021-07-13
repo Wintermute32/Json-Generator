@@ -23,10 +23,10 @@ namespace JsonValidator.StoreConfigUpdate
         {
             List<string> boxFile;
             string directoryPath = Application.OpenForms["Form1"].Controls["fileDirectoryTextBox"].Text; //way to access desigern controls w/o changing access modifier
-            string[] storeConfigPaths = Directory.GetFiles(directoryPath, "*" + "MysteryBoxesConfig" + "*.*", SearchOption.AllDirectories);
+            string[] storeConfigPaths = Directory.GetFiles(directoryPath,  "*" + "MysteryBoxesConfig" + "*.*", SearchOption.AllDirectories);
             
             //Below path is for testing purposes. used to generate list of Index positions for new box file per-variant file.       
-            List<string> insertAboveID = GetInsertPosition(storeConfigPaths, @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");          
+            List<string> insertAboveID = GetInsertID(storeConfigPaths, @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");          
             
             string newBox = File.ReadAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
 
@@ -41,16 +41,40 @@ namespace JsonValidator.StoreConfigUpdate
                     {
                         //would like to find a way to dynamically get index of the above {
                         //to protect against extra spaces from improperly formatted code in the box file
-                        var index = boxFile.IndexOf(x);
-                        boxFile.Insert(boxFile.IndexOf(x) - 1, newBox); // - 1 to account for existing box spacing. This will break if theres an extra space or mis-tab present;
-                        break;
+                        
+                        //var index = boxFile.IndexOf(x);
+                       int insertPos = GetInsertPos(x, boxFile);
+                       boxFile.Insert(insertPos, newBox); 
+                       break;
                     }
                 }
                 File.WriteAllLines(storeConfigPaths[i], boxFile);
                 System.Diagnostics.Process.Start(storeConfigPaths[i]);
             }
         }
-        private List<string> GetInsertPosition(string[] storeConfigFilePaths, string newBoxFilePath)
+
+        public int GetInsertPos(string boxLine, List<string> boxFile)
+        {
+            //ensuring formatting mistakes btwn existing boxes 
+            //don't throw off insert pos
+            var index = boxFile.IndexOf(boxLine) - 1; //-1 to bump index to { line
+
+            if (!boxFile[index].Contains('{'))
+            {
+                int i = 0;
+                while (!boxFile[index - i].Contains('{') && !boxFile[index - i].Contains("},"))
+                {
+                    i++;
+                }
+
+                return index - i; //aligning 
+            }
+            else
+                return index;         
+        }
+
+
+        private List<string> GetInsertID(string[] storeConfigFilePaths, string newBoxFilePath)
         {
             //returns a list of existing box Id's for each MysteryBoxConfig.Json
             //directly beneath our new Box Ids

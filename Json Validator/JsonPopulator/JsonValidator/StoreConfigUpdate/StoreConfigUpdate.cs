@@ -52,7 +52,6 @@ namespace JsonValidator.StoreConfigUpdate
                 System.Diagnostics.Process.Start(storeConfigPaths[i]);
             }
         }
-
         public int GetInsertPos(string boxLine, List<string> boxFile)
         {
             //ensuring formatting mistakes btwn existing boxes 

@@ -19,6 +19,7 @@ namespace JsonValidator.StoreConfigUpdate
     //get index of that line, and insert newbox string there for each boxconfig file.
     public class StoreConfig
     {
+        JsonGeneration jGenObj = new JsonGeneration();
         public void AddToMysteryBoxConfig()
         {
             List<string> boxFile;
@@ -28,11 +29,15 @@ namespace JsonValidator.StoreConfigUpdate
             
             if (Directory.Exists(directoryPath))
                 storeConfigPaths = Directory.GetFiles(directoryPath,  "*" + "MysteryBoxesConfig" + "*.*", SearchOption.AllDirectories);
-            
-            //Below path is for testing purposes. used to generate list of Index positions for new box file per-variant file.       
-            List<string> insertAboveID = GetInsertID(storeConfigPaths, @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");          
-            
-            string newBox = File.ReadAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
+
+            //Below path is for testing purposes. used to generate list of Index positions for new box file per-variant file.
+
+            var testFilePath = jGenObj.GetTestFilePath();
+
+            List<string> insertAboveID = GetInsertID(storeConfigPaths, testFilePath);
+
+
+           string newBox = File.ReadAllText(testFilePath);
 
             for (int i = 0; i < storeConfigPaths.Length; i++) 
             {

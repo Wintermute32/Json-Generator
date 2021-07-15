@@ -33,7 +33,7 @@ namespace JsonValidator.StoreConfigUpdate
                 Debug.WriteLine("White space matches" + whiteSpaceMatches);
                 spitMeout.Add(Indent(whiteSpaceMatches.Count, x) + '\n');
             }
-
+           
             foreach (var x in spitMeout)
                 output += x;
 

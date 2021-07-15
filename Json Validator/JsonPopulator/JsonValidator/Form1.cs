@@ -29,7 +29,7 @@ namespace JsonValidator
             InitializeComponent();
             this.AutoScroll = true;
         }
-
+        
         private void InitializeFormComponents(string eventID)
         {
             //takes completed NewRoot Object and populates forum UI values
@@ -71,8 +71,7 @@ namespace JsonValidator
                 {
                     InitializeFormComponents(eventID);
                 }
-            }
-           
+            } 
         }
         private void button1_Click_1(object sender, EventArgs e)
         {

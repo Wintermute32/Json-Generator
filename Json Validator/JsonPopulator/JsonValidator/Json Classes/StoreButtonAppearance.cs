@@ -19,6 +19,7 @@ namespace JsonValidator
 
         public StoreButtonAppearance(string ipTitle, Dictionary<string, string> popDict)
         {
+            //these are hardcoded values. Need to make them dynamic
             style = "LargePink";
             ribbonLocalizationKey = "EventBoxRibbon";
             titleLocalizationKey = ipTitle + "BoxTitle";
@@ -30,7 +31,7 @@ namespace JsonValidator
 
         public List<string> getPopIds(Dictionary<string, string> popDict)
         {
-            List<string> rarities = new List<string>() { "rare", "epic", "legendary", "common" };
+            List<string> rarities = new List<string>() { "rare", "legendary", "epic", "common" };
             List<string> whatever = new List<string>();
 
             for (int i = 0; i < rarities.Count; i++)

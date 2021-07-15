@@ -13,12 +13,13 @@ namespace JsonValidator
         public MainHubAppearance() { }
         public MainHubAppearance(string fandomName, Dictionary<string, string> popDict)
         {
-            List<string> mainHubRarities = new List<string>() { "legendary", "epic", "rare" };
+            List<string> mainHubRarities = new List<string>() { "epic", "legendary", "rare" };
             List<string> addToMePopId = new List<string>();
 
             canShowInCarousel = true;
             titleLocalizationKey = fandomName + "BoxTitle";
-
+            style = "Pink";
+            
             foreach (var x in mainHubRarities)
                 foreach (KeyValuePair<string, string> entry in popDict)
                     if (x == entry.Value)

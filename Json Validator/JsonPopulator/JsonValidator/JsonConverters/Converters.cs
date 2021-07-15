@@ -65,19 +65,27 @@ namespace JsonValidator
             config.MissingFieldFound = null;
             config.IgnoreBlankLines = true;
 
-            var reader = new StreamReader(gachaPath);
-            reader.ReadLine();
-
-            var csv = new CsvReader(reader, config);
-            var gachaData = csv.GetRecords<Gacha>().ToList();
-            gachaData.RemoveRange(21, gachaData.Count - 21);
-
-            if (gachaData.Count == 0)
+            try
             {
-                Console.WriteLine("Gacha's Not Found");
-            }
 
-            return gachaData;
+                var reader = new StreamReader(gachaPath);
+                reader.ReadLine();
+
+                var csv = new CsvReader(reader, config);
+                var gachaData = csv.GetRecords<Gacha>().ToList();
+                gachaData.RemoveRange(21, gachaData.Count - 21);
+
+                if (gachaData.Count == 0)
+                {
+                    Console.WriteLine("Gacha's Not Found");
+                }
+
+                return gachaData;
+            }
+            catch
+            {
+                return new List<Gacha>();
+            }
         }
         public List<string> GetBoxIds(string playbookPath)
         {

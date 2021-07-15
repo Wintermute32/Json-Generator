@@ -33,7 +33,8 @@ namespace JsonValidator.JsonConverters
             {
                 style = comboBoxes.Find(x => x.Name == "styleCB").Text,
                 ribbonLocalizationKey = comboBoxes.Find(x => x.Name == "ribbonLocKeyCB").Text,
-                titleLocalizationKey = comboBoxes.Find(x => x.Name == "subLocKeyCB").Text,
+                titleLocalizationKey = comboBoxes.Find(x => x.Name == "titleLocCB").Text,
+                subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "subLocCB").Text,
                 popIds = _popIds,
                 order = Convert.ToInt32(comboBoxes.Find(x => x.Name == "orderCB").Text),
                 discount = Convert.ToInt32(comboBoxes.Find(x => x.Name == "discountCB").Text)

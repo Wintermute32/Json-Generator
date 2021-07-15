@@ -33,10 +33,14 @@ namespace JsonValidator
 
             bool isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
             bool isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;
+            bool isOtherBox = checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked;
+
+            Dictionary<string, bool> boxTypeDict = new Dictionary<string, bool>()
+            { {"isEventBox", isEventBox },{"isOEDBox", isOEDBox },{"isOtherBox", isOtherBox } };
 
             NewRoot finalRoot = new NewRoot()
             {
-                boxId = AmmendBoxID(comboBoxes, textBoxes, checkBoxes.Find(x => x.Name == "isEventCheck").Checked),
+                boxId = AmmendBoxID(comboBoxes, textBoxes, boxTypeDict),
                 evetnNumber = textBoxes.Find(x => x.Name == "eventNumBox").Text,
                 fandomId = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
                 startDate =  dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
@@ -55,10 +59,14 @@ namespace JsonValidator
            
             if (isEventBox)
             {
-               finalRoot.boxReplacesID = finalRoot.boxId.Replace("VIP0", "VIP1");
+               finalRoot.boxReplacesID = finalRoot.boxId;
+               finalRoot.boxId = finalRoot.boxId.Replace("VIP0", "VIP1");
                jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
-               jsonOutput +='\n' + fbs.TestFormatString(SerializeJson(finalRoot)).TrimEnd() + ',';
+               finalRoot.lastChanceBoxPrizes = null;
+               jsonOutput +='\n' + fbs.TestFormatString(SerializeJson(finalRoot));
             }
+
+            jsonOutput = jsonOutput.TrimEnd() + ',';
 
             File.WriteAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json", jsonOutput);
             System.Diagnostics.Process.Start(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
@@ -106,14 +114,21 @@ namespace JsonValidator
             string json = JsonConvert.SerializeObject(newRoot, settings);
             return json;
         }
-        public string AmmendBoxID(List<ComboBox> comboBoxes, List<TextBox> textBoxes, bool isEventBox)
+        public string AmmendBoxID(List<ComboBox> comboBoxes, List<TextBox> textBoxes, Dictionary<string, bool> boxTypeDict)
         {
             var formBoxId = comboBoxes.Find(x => x.Name == "boxIdCB").Text; ;
             var formBoxNum = textBoxes.Find(x => x.Name == "eventNumBox").Text;
+     
             string boxId;
 
-            if (isEventBox)
+            if (boxTypeDict["isEventBox"])
               return boxId = "e" + formBoxNum + "_bxtFE_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+
+            if (boxTypeDict["isOEDBox"])
+                return boxId = "e" + formBoxNum + "_bxtOED_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+
+            if (boxTypeDict["isOtherBox"])
+                return boxId = "e" + formBoxNum + "_bxtOther_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
             return formBoxId;
         }

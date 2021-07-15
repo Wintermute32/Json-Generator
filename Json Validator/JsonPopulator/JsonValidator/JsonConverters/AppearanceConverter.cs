@@ -30,8 +30,7 @@ namespace JsonValidator.JsonConverters
             {
                 isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
                 mysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
-                isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked,
-                isVIPBox = checkBoxes.Find(x => x.Name == "isVIPBoxCheck").Checked,
+                isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked, //do i need this?
 
                 theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
                 storeButtonAppearance = sBA.GenerateStoreBA(),

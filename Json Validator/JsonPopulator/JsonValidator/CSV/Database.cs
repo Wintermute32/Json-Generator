@@ -39,7 +39,11 @@ namespace JsonValidator.CSV
 
         public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
         {
-            string[] allLines = File.ReadAllLines(databasePath);
+            string[] allLines = null;
+            
+            if (File.Exists(databasePath))
+                allLines = File.ReadAllLines(databasePath);
+            
             Dictionary<string, string> popDict = new Dictionary<string, string>();
 
             for (int i = 0; i < allLines.Length; i++)

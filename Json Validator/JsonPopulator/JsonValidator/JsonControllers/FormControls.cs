@@ -73,6 +73,8 @@ namespace JsonValidator
         {
             foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
                 item.Controls.Clear();
+            foreach (Control item in form1.Controls.OfType<CheckBox>())
+                item.Controls.Clear();
         }
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {

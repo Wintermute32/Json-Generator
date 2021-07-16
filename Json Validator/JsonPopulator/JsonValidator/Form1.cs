@@ -62,7 +62,9 @@ namespace JsonValidator
             {
                 formControls.RemoveRuntimeComboBoxes(this);
 
-                var eventID = boxIdCB.SelectedItem.ToString(); //fix this
+                var eventID = boxIdCB.SelectedItem.ToString(); //This needs to simply give back ONLY the event ID
+                // we need a method here to parse out just the EventName without the MARD/VIP/. 
+                // eventID = GetJustEventName.
                 eventID = eventID.Substring(eventID.IndexOf('_') + 1);
 
                 Debug.WriteLine("Event ID for this before initialize is " + eventID);

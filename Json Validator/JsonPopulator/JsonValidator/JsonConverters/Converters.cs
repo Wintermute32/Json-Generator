@@ -28,7 +28,7 @@ namespace JsonValidator
                     return x;
                 }
 
-            Console.WriteLine("Event Name Not Found");
+            Debug.WriteLine("Event Name Not Found");
             return null;
         }
 

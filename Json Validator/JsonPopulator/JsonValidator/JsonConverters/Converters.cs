@@ -97,7 +97,6 @@ namespace JsonValidator
                 if (x.eventID != null && x.eventID != "")
                 {
                     boxIDs.Add(x.eventID);
-
                 }
             }
             return boxIDs;

@@ -134,18 +134,24 @@ namespace JsonValidator
             var formBoxId = comboBoxes.Find(x => x.Name == "boxIdCB").Text; ;
             var formBoxNum = textBoxes.Find(x => x.Name == "eventNumBox").Text;
      
-            string boxId;
+            string boxId = formBoxId;
 
             if (boxTypeDict["isEventBox"])
-              return boxId = "e" + formBoxNum + "_bxtFE_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+                 boxId = "e" + formBoxNum + "_bxtFE_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
             if (boxTypeDict["isOEDBox"])
-                return boxId = "e" + formBoxNum + "_bxtOED_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+                 boxId = "e" + formBoxNum + "_bxtOED_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
             if (boxTypeDict["isOtherBox"])
-                return boxId = "e" + formBoxNum + "_bxtOther_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+                boxId = "e" + formBoxNum + "_bxtOther_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
-            return formBoxId;
+            if (boxId.Contains("mard"))
+                boxId = boxId.Replace("_mardFE", "");
+
+            if (boxId.Contains("marc"))
+                boxId = boxId.Replace("_marcFE", "");
+
+            return boxId;
         }
     }
 } 

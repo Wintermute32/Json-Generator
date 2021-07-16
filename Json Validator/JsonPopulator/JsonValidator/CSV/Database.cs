@@ -24,7 +24,6 @@ namespace JsonValidator.CSV
         [Name("ExclusivityType")]
         public string eventExclusive { get; set; }
 
-
         public List<string> GetAllPopID(string databasePath)
         {
             string[] allLines = File.ReadAllLines(databasePath);
@@ -34,7 +33,6 @@ namespace JsonValidator.CSV
                 popIDs.Add(allLines[i].Split(',')[0]);
 
             return popIDs;
-
         }
 
         public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
@@ -45,8 +43,8 @@ namespace JsonValidator.CSV
                 allLines = File.ReadAllLines(databasePath);
             
             Dictionary<string, string> popDict = new Dictionary<string, string>();
-
-            for (int i = 0; i < allLines.Length; i++)
+            
+            for (int i = 0;  i < allLines.Length; i++)
             {
                 bool isEvent = false;
                 if (allLines[i].Contains(startDate))

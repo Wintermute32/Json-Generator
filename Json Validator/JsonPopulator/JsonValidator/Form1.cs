@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using JsonValidator.StoreConfigUpdate;
+using JsonValidator.CSV;
 
 namespace JsonValidator
 {
@@ -21,7 +22,7 @@ namespace JsonValidator
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
-        FormControls formControls;
+        FormControls formControls = new FormControls();
         StoreConfig sCU = new StoreConfig();
 
         public Form1()
@@ -60,22 +61,17 @@ namespace JsonValidator
             //program halts instead of crashes if custom ID is used
             if (boxIdCB.SelectedItem != null)
             {
-                formControls.RemoveRuntimeComboBoxes(this);
-
-                var eventID = boxIdCB.SelectedItem.ToString(); //fix this
-                eventID = eventID.Substring(eventID.IndexOf('_') + 1);
+               formControls.RemoveRuntimeComboBoxes(this);
+               string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
 
                 Debug.WriteLine("Event ID for this before initialize is " + eventID);
 
-                if (eventID != null)
-                {
-                    InitializeFormComponents(eventID);
-                }
+                InitializeFormComponents(eventID);
             } 
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            formControls.GeneratePopSelector("", storePopsPanel);
+             formControls.GeneratePopSelector("", storePopsPanel);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -208,6 +204,9 @@ namespace JsonValidator
         {
             DragDropBehavior(dragDropBoxData, e);
             databasePath = dragDropBoxData.Text;
+
+            if (formControls == null)
+                formControls = new FormControls(dragDropBoxData.Text, playbookPath);
         }
 
         private void dragDropBoxData_DragOver(object sender, DragEventArgs e)

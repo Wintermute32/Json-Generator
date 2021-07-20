@@ -1,13 +1,6 @@
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\JsonValidator.exe.config
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\JsonValidator.exe
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\JsonValidator.pdb
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csprojAssemblyReference.cache
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.Form1.resources
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.Properties.Resources.resources
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csproj.GenerateResource.cache
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csproj.CoreCompileInputs.cache
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.exe
-C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.pdb
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\CsvHelper.dll
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\Microsoft.Bcl.HashCode.dll
@@ -26,4 +19,11 @@ C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopula
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csprojAssemblyReference.cache
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.Form1.resources
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.Properties.Resources.resources
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csproj.GenerateResource.cache
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csproj.CoreCompileInputs.cache
 C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.csproj.CopyComplete
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.exe
+C:\Users\pdnud\OneDrive\Documents\Repos\Json Generator\Json Validator\JsonPopulator\JsonValidator\obj\Debug\JsonValidator.pdb

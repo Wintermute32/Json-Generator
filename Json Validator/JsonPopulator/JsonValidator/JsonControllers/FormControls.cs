@@ -15,7 +15,7 @@ namespace JsonValidator
         string playBPath;
 
         List<ComboBox> comboList = new List<ComboBox>();
-
+        public FormControls() { }
         public FormControls(string databasePath, string playbookPath)
         {
             this.dataBPath = databasePath;
@@ -83,8 +83,10 @@ namespace JsonValidator
                 AutoCompleteMode = AutoCompleteMode.SuggestAppend,
                 AutoCompleteSource = AutoCompleteSource.ListItems
             };
-
-            comboB.DataSource = database.GetAllPopID(dataBPath);
+            
+            if (dataBPath != null)
+                comboB.DataSource = database.GetAllPopID(dataBPath);
+            
             flowPanel.Controls.Add(comboB);
 
             if (popName != "")
@@ -107,6 +109,12 @@ namespace JsonValidator
                     ctrlInQ.SelectedIndex = 0;
                 }
             }
+        }
+
+        public string AmendBoxId(string eventID)
+        {
+            eventID = eventID.Substring(eventID.LastIndexOf('_') + 1); //this is where we ammend the st
+            return eventID;
         }
     }
 } 

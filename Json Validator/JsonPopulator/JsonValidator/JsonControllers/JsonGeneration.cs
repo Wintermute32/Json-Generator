@@ -86,7 +86,6 @@ namespace JsonValidator
 
             return complete;
         }
-
         public List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
         {
             var popLists = flowlist.Find(x => x.Name == "lastChanceBoxPanel").Controls.OfType<GroupBox>().ToList();

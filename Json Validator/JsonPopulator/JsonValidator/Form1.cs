@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using JsonValidator.StoreConfigUpdate;
+using JsonValidator.CSV;
 
 namespace JsonValidator
-
-//We're currently trying to hook up the drag and drop text from teh boxes to actually finding the database path.
 {
     public partial class Form1 : Form
     {
@@ -23,7 +22,7 @@ namespace JsonValidator
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
-        FormControls formControls;
+        FormControls formControls = new FormControls();
         StoreConfig sCU = new StoreConfig();
 
         public Form1()
@@ -31,7 +30,7 @@ namespace JsonValidator
             InitializeComponent();
             this.AutoScroll = true;
         }
-
+        
         private void InitializeFormComponents(string eventID)
         {
             //takes completed NewRoot Object and populates forum UI values
@@ -45,12 +44,13 @@ namespace JsonValidator
             themeCB.Text = eventObject.appearance.theme;
             styleCB.Text = eventObject.appearance.storeButtonAppearance.style;
             ribbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
-            titleLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
-            subLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
+            titleLocCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
+            subLocCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
             orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
             discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
             purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
+            behaviorCB.Text = eventObject.behaviourType;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
             titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
@@ -59,21 +59,20 @@ namespace JsonValidator
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            formControls.RemoveRuntimeComboBoxes(this);
-
-            var eventID = boxIdCB.SelectedItem.ToString(); //fix this
-            eventID = eventID.Substring(eventID.IndexOf('_') + 1);
-
-            Debug.WriteLine("Event ID for this before initialize is " + eventID);
-
-            if (eventID != null)
+            //program halts instead of crashes if custom ID is used
+            if (boxIdCB.SelectedItem != null)
             {
+               formControls.RemoveRuntimeComboBoxes(this);
+               string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
+
+                Debug.WriteLine("Event ID for this before initialize is " + eventID);
+
                 InitializeFormComponents(eventID);
-            }
+            } 
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            formControls.GeneratePopSelector("", storePopsPanel);
+             formControls.GeneratePopSelector("", storePopsPanel);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -153,8 +152,15 @@ namespace JsonValidator
 
         private void genJsonBtn_Click(object sender, EventArgs e)
         {
-            JsonGeneration jGen = new JsonGeneration();
-            jGen.GenerateMyJson(this);
+            try
+            {
+                JsonGeneration jGen = new JsonGeneration();
+                jGen.GenerateMyJson(this);
+            }
+            catch
+            {
+                return;
+            }
         }
         private void dragDropBoxPlaybook_DragOver(object sender, DragEventArgs e)
         {
@@ -199,6 +205,9 @@ namespace JsonValidator
         {
             DragDropBehavior(dragDropBoxData, e);
             databasePath = dragDropBoxData.Text;
+
+            if (formControls == null)
+                formControls = new FormControls(dragDropBoxData.Text, playbookPath);
         }
 
         private void dragDropBoxData_DragOver(object sender, DragEventArgs e)
@@ -230,5 +239,34 @@ namespace JsonValidator
         {
             sCU.AddToMysteryBoxConfig();
         }
+
+        private void isEventCheck_Click(object sender, EventArgs e)
+        {
+            if (oedBoxCheck.Checked == true)
+                oedBoxCheck.Checked = false;
+
+            if (OtherBoxCheck.Checked == true)
+                OtherBoxCheck.Checked = false;
+        }
+
+        private void oedBoxCheck_Click(object sender, EventArgs e)
+        {
+            if (isEventCheck.Checked == true)
+                isEventCheck.Checked = false;
+
+            if (OtherBoxCheck.Checked == true)
+                OtherBoxCheck.Checked = false;
+        }
+
+        private void OtherBoxCheck_Click(object sender, EventArgs e)
+        {
+            if (isEventCheck.Checked == true)
+                isEventCheck.Checked = false;
+
+            if (oedBoxCheck.Checked == true)
+                oedBoxCheck.Checked = false;
+        }
     }
-} 
+}
+    
+

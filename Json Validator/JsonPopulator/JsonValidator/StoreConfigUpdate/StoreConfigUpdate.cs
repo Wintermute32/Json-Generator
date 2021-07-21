@@ -19,16 +19,25 @@ namespace JsonValidator.StoreConfigUpdate
     //get index of that line, and insert newbox string there for each boxconfig file.
     public class StoreConfig
     {
+        JsonGeneration jGenObj = new JsonGeneration();
         public void AddToMysteryBoxConfig()
         {
             List<string> boxFile;
             string directoryPath = Application.OpenForms["Form1"].Controls["fileDirectoryTextBox"].Text; //way to access desigern controls w/o changing access modifier
-            string[] storeConfigPaths = Directory.GetFiles(directoryPath,  "*" + "MysteryBoxesConfig" + "*.*", SearchOption.AllDirectories);
             
-            //Below path is for testing purposes. used to generate list of Index positions for new box file per-variant file.       
-            List<string> insertAboveID = GetInsertID(storeConfigPaths, @"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");          
+            string[] storeConfigPaths = new string[0];
             
-            string newBox = File.ReadAllText(@"C:\Users\pdnud\OneDrive\Desktop\Json Validator\[1.5.0] mystery_boxes_config - Default.json");
+            if (Directory.Exists(directoryPath))
+                storeConfigPaths = Directory.GetFiles(directoryPath,  "*" + "MysteryBoxesConfig" + "*.*", SearchOption.AllDirectories);
+
+            //Below path is for testing purposes. used to generate list of Index positions for new box file per-variant file.
+
+            var testFilePath = jGenObj.GetTestFilePath();
+
+            List<string> insertAboveID = GetInsertID(storeConfigPaths, testFilePath);
+
+
+           string newBox = File.ReadAllText(testFilePath);
 
             for (int i = 0; i < storeConfigPaths.Length; i++) 
             {
@@ -52,7 +61,6 @@ namespace JsonValidator.StoreConfigUpdate
                 System.Diagnostics.Process.Start(storeConfigPaths[i]);
             }
         }
-
         public int GetInsertPos(string boxLine, List<string> boxFile)
         {
             //ensuring formatting mistakes btwn existing boxes 
@@ -72,8 +80,6 @@ namespace JsonValidator.StoreConfigUpdate
             else
                 return index;         
         }
-
-
         private List<string> GetInsertID(string[] storeConfigFilePaths, string newBoxFilePath)
         {
             //returns a list of existing box Id's for each MysteryBoxConfig.Json

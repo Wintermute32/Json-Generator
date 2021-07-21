@@ -36,6 +36,4 @@ namespace JsonValidator.CSV
             this.startDateAlternate = DateTime.Parse(startDate).ToString("M/d/yyyy");
         }
     }
-
-
 }

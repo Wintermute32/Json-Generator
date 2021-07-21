@@ -28,7 +28,7 @@ namespace JsonValidator
 
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {
-            behaviourType = "";
+            behaviourType = "PullBased";
             boxId = "e" + playbook.eventNumber + "_bxtFE_VIP0_" + playbook.boxID.Trim();
             evetnNumber = playbook.eventNumber;
             fandomId = playbook.fandomName;

@@ -55,7 +55,7 @@ namespace JsonValidator
                 tiers = tierConverter.GenerateTierList(flowBoxes),
                 lastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
-
+            
             finalRoot.FixDates(finalRoot.startDate, finalRoot.endDate);
 
             var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));

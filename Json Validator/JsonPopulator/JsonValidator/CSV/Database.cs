@@ -16,13 +16,13 @@ namespace JsonValidator.CSV
     class Database
     {
         [Name("PopId")]
-        public string PopID { get; private set; }
+        public string PopID { get; set; }
         [Name("Rarity")]
-        public string Rarity { get; private set; }
+        public string Rarity { get; set; }
         [Name("ReleaseDate")]
-        public string ReleaseDate { get; private set; }
+        public string ReleaseDate { get; set; }
         [Name("ExclusivityType")]
-        public string EventExclusive { get; private set; }
+        public string EventExclusive { get; set; }
 
         public List<string> GetAllPopID(string databasePath)
         {
@@ -60,7 +60,7 @@ namespace JsonValidator.CSV
             return popDict;
         }
 
-        private bool CheckPopIds(List<string> popIdList, string popName)
+        public bool CheckPopIds(List<string> popIdList, string popName)
         {
             if (popIdList.Contains(popName))
                 return true;

@@ -14,30 +14,30 @@ namespace JsonValidator.CSV
     public class Gacha
     {
      [Name("Tier")]
-    public string Tier { get; private set; }
+    public string Tier { get; set; }
 
     [Name("Cost (Coins)")]
-        public string Cost { get; private set; }
+        public string Cost { get; set; }
 
     [Name("Box Pulls")]
-        public string BoxPulls { get; private set; }
+        public string BoxPulls { get; set; }
 
     [Name("Box Guarantee")]
-        public string Guarantee { get; private set; }
+        public string Guarantee { get; set; }
 
     [Name("Rarity")]
-        public string Rarity { get; private set; }
+        public string Rarity { get; set; }
 
     [Name("Item Label")]
-        public string PopID { get; private set; }
+        public string PopID { get; set; }
 
     [Name("Shard Count")]
-        public string Amount { get; private set; }
+        public string Amount { get; set; }
 
     [Name("Item Quantity")]
-        public string Instances { get; private set; }
+        public string Instances { get; set; }
 
-        public string rewardType = "pop";
+        public string RewardType = "pop";
          
         public List<Prize> PrizeList(List<Gacha> gachaList)
         {
@@ -50,11 +50,10 @@ namespace JsonValidator.CSV
                 if (gachaList[i].Amount != "" && gachaList[i].Instances != "")
                 {
                     addMePrize.rewardId = gachaList[i].PopID;
-                    addMePrize.rewardType = gachaList[i].rewardType;
+                    addMePrize.rewardType = gachaList[i].RewardType;
                     addMePrize.amount = Convert.ToInt32(gachaList[i].Amount);
                     addMePrize.instances = Convert.ToInt32(gachaList[i].Instances);
                 }
-
                 if (addMePrize.rewardType != null)
                     prizeList.Add(addMePrize);
             }

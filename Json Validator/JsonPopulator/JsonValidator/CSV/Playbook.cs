@@ -19,18 +19,15 @@ namespace JsonValidator.CSV
         public string EventNumber { get; set; }
         [Name("Collection ID **")]
         public string FandomName { get; set; }
-
         [Name("Start Time (UTC)")]
         public string StartDate { get; set; }
         [Name("End Time \n(UTC)")]
-        public string EndDate { get; set; }
-        
+        public string EndDate { get; set; }    
         [Name("Event ID **")]
         public string EventID { get; set; }
-
         public string StartDateAlternative { get; set; }
 
-        public List<string> boxIDList = new List<string>();
+        public List<string> BoxIDList = new List<string>();
         public void FixStartDate(string startDate)
         {
             this.StartDateAlternative = DateTime.Parse(startDate).ToString("M/d/yyyy");

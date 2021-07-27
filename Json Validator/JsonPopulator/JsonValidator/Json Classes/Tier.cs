@@ -37,30 +37,30 @@ namespace JsonValidator
             for (int i = 0; i < gachaList.Count; i++)
             {
                 Tier tier = new Tier();
-                Debug.WriteLine("Cost value is " + gachaList[i].cost.Replace(",",""));
-                tier.cost = Convert.ToInt32(gachaList[i].cost.Replace(",", "")); 
+                Debug.WriteLine("Cost value is " + gachaList[i].Cost.Replace(",",""));
+                tier.cost = Convert.ToInt32(gachaList[i].Cost.Replace(",", "")); 
 
                 //StringBuilder sb = new StringBuilder(gachaList[i].cost);
                 //sb.Replace("\"", "12");
 
                 //tier.cost = Convert.ToInt32(sb.Replace('\"', '2')); 
 
-                tier.boxGuarantee = gachaList[i].guarantee;
+                tier.boxGuarantee = gachaList[i].Guarantee;
                
-                foreach (var x in gachaList[i].guarantee)
+                foreach (var x in gachaList[i].Guarantee)
                     if (Char.IsNumber(x))
                         tier.amount = x.ToString();
 
 
 
-                tier.numPulls = Convert.ToInt32(gachaList[i].boxPulls);
+                tier.numPulls = Convert.ToInt32(gachaList[i].BoxPulls);
 
-                Console.WriteLine("The tier obejct guarantee field should be: " + gachaList[i].guarantee);
+                Console.WriteLine("The tier obejct guarantee field should be: " + gachaList[i].Guarantee);
 
-                if (gachaList[i].guarantee != "") //added to control for Json serialization not skipping null values
+                if (gachaList[i].Guarantee != "") //added to control for Json serialization not skipping null values
                     tier.isGuarantee = true;
 
-                if (Convert.ToInt32(gachaList[i].tier) < 12)
+                if (Convert.ToInt32(gachaList[i].Tier) < 12)
                     tierList.Add(tier);
             }
             return tierList;

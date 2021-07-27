@@ -1,8 +1,5 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
-using System.Diagnostics;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using System.IO;
 using System;
@@ -15,24 +12,21 @@ namespace JsonValidator
     public class JsonGeneration
     {
         //all members for generating the Json File
-        //Add functionality for popup: look at the test file. Edit test file as necessary,
-        //then click final UI button to add to existing MysteryBoxFiles. 
-        public string JsonTestPath {get;set;}
         public void GenerateMyJson(Form1 form)
         {
+            //classes for assigning form values to NewRoot object properties
 
+            AppearanceConverter appearance = new AppearanceConverter(form);
+            PrizesConverter prizesConverter = new PrizesConverter();
+            TierConverter tierConverter = new TierConverter();
+            FormatBoxString fbs = new FormatBoxString();
+            
             //refactor this
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
             var dateTimePicker = form.Controls.OfType<DateTimePicker>().ToList();
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
             var textBoxes = form.Controls.OfType<TextBox>().ToList();
-
-            //classes for assigning form values to NewRoot object properties
-            AppearanceConverter appearance = new AppearanceConverter(form);
-            PrizesConverter prizesConverter = new PrizesConverter();
-            TierConverter tierConverter = new TierConverter();
-            FormatBoxString fbs = new FormatBoxString();
 
             bool isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
             bool isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;

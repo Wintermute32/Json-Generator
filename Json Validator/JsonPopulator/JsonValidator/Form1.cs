@@ -15,6 +15,7 @@ namespace JsonValidator
 {
     public partial class Form1 : Form
     {
+        //path values assign by drag-drop events below
         string databasePath;
         string playbookPath;
         string gachaPath;
@@ -22,13 +23,14 @@ namespace JsonValidator
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
-        FormControls formControls = new FormControls();
+        FormControls formControls;
         StoreConfig sCU = new StoreConfig();
 
         public Form1()
         {
             InitializeComponent();
             this.AutoScroll = true;
+            FormControls formControls = new FormControls(databasePath, playbookPath);
         }
         
         private void InitializeFormComponents(string eventID)
@@ -64,10 +66,7 @@ namespace JsonValidator
             {
                formControls.RemoveRuntimeComboBoxes(this);
                string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
-
-                Debug.WriteLine("Event ID for this before initialize is " + eventID);
-
-                InitializeFormComponents(eventID);
+               InitializeFormComponents(eventID);
             } 
         }
         private void button1_Click_1(object sender, EventArgs e)

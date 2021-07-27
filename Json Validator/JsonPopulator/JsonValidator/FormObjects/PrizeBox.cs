@@ -17,6 +17,10 @@ namespace JsonValidator
         }
         public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
+            //Both the Last Chance and Prize panel use the same format of form controls.
+            //This method takes the forms specifid panel (last chance or prize) and fills
+            //out the panel accordingly. The form population is started by the constructor
+
             Database database = new Database();
 
             GroupBox newGroupB = new GroupBox()
@@ -53,7 +57,6 @@ namespace JsonValidator
             };
 
             this.comboB2 = combo2;
-
 
             ComboBox combo3 = new ComboBox()
             {
@@ -93,6 +96,5 @@ namespace JsonValidator
             comboB3.Text = prize.amount.ToString();
             comboB4.Text = prize.instances.ToString();
         }
-
     }
 }

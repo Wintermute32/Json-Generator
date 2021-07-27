@@ -14,28 +14,28 @@ namespace JsonValidator.CSV
     public class Gacha
     {
      [Name("Tier")]
-    public string tier { get; set; }
+    public string Tier { get; private set; }
 
     [Name("Cost (Coins)")]
-        public string cost { get; set; }
+        public string Cost { get; private set; }
 
     [Name("Box Pulls")]
-        public string boxPulls { get; set; }
+        public string BoxPulls { get; private set; }
 
     [Name("Box Guarantee")]
-        public string guarantee { get; set; }
+        public string Guarantee { get; private set; }
 
     [Name("Rarity")]
-        public string rarity { get; set; }
+        public string Rarity { get; private set; }
 
     [Name("Item Label")]
-        public string popID { get; set; }
+        public string PopID { get; private set; }
 
     [Name("Shard Count")]
-        public string amount { get; set; }
+        public string Amount { get; private set; }
 
     [Name("Item Quantity")]
-        public string instances { get; set; }
+        public string Instances { get; private set; }
 
         public string rewardType = "pop";
          
@@ -47,18 +47,17 @@ namespace JsonValidator.CSV
             {
                 Prize addMePrize = new Prize();
 
-                if (gachaList[i].amount != "" && gachaList[i].instances != "")
+                if (gachaList[i].Amount != "" && gachaList[i].Instances != "")
                 {
-                    addMePrize.rewardId = gachaList[i].popID;
+                    addMePrize.rewardId = gachaList[i].PopID;
                     addMePrize.rewardType = gachaList[i].rewardType;
-                    addMePrize.amount = Convert.ToInt32(gachaList[i].amount);
-                    addMePrize.instances = Convert.ToInt32(gachaList[i].instances);
+                    addMePrize.amount = Convert.ToInt32(gachaList[i].Amount);
+                    addMePrize.instances = Convert.ToInt32(gachaList[i].Instances);
                 }
 
                 if (addMePrize.rewardType != null)
                     prizeList.Add(addMePrize);
             }
-
             return prizeList;
         }
     }

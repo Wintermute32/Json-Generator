@@ -22,7 +22,7 @@ namespace JsonValidator
           var playbookRecords = playbookHelper(playbookPath);
 
            foreach (var x in playbookRecords)
-                if (x.eventID.ToLower().Contains(eventID.Replace(" ", "").ToLower()))
+                if (x.EventID.ToLower().Contains(eventID.Replace(" ", "").ToLower()))
                 {
                     Console.WriteLine("Playbook found!");
                     return x;
@@ -45,7 +45,7 @@ namespace JsonValidator
             var dataBase = csv.GetRecords<Database>().ToList();
 
             foreach (var x in dataBase)
-                if (x.releaseDate.Contains(startDate))
+                if (x.ReleaseDate.Contains(startDate))
                 {
                     Console.WriteLine("database found!");
                     popData.Add(x);
@@ -94,9 +94,9 @@ namespace JsonValidator
 
             foreach (var x in playbookList)
             {
-                if (x.eventID != null && x.eventID != "")
+                if (x.EventID != null && x.EventID != "")
                 {
-                    boxIDs.Add(x.eventID);
+                    boxIDs.Add(x.EventID);
                 }
             }
             return boxIDs;

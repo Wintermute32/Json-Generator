@@ -15,7 +15,6 @@ namespace JsonValidator
         string playBPath;
 
         List<ComboBox> comboList = new List<ComboBox>();
-        public FormControls() { }
         public FormControls(string databasePath, string playbookPath)
         {
             this.dataBPath = databasePath;
@@ -33,40 +32,48 @@ namespace JsonValidator
             FlowLayoutPanel prizePanel = Application.OpenForms["Form1"].Controls["prizePanel"] as FlowLayoutPanel;
             FlowLayoutPanel lastChanceBoxPanel = Application.OpenForms["Form1"].Controls["lastChanceBoxPanel"] as FlowLayoutPanel;
 
+            //Get popIDs once then pass to GeneratePopSelector Methods
+            //to avoid calling on each function call
+            List<string> popIds = database.GetAllPopID(databasePath);
+
             foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
-                GeneratePopSelector(x, storePopsPanel);
+                GeneratePopSelector(x, storePopsPanel, popIds);
 
             foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
-                GeneratePopSelector(x, purchasePopsPanel);
+                GeneratePopSelector(x, purchasePopsPanel, popIds);
 
             foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
-                GeneratePopSelector(x, mainHubPanel);
+                GeneratePopSelector(x, mainHubPanel, popIds);
 
             foreach (var x in eventObject.featuredPopIdsList)
-                GeneratePopSelector(x, featuredPopPanel);
+                GeneratePopSelector(x, featuredPopPanel, popIds);
 
             foreach (var x in eventObject.prizes)
             {
-                PrizeBox prizeBox = new PrizeBox(prizePanel, databasePath, x);
+                //Both prizeBox generates the form's last chance
+                //and prize fields by way of its constructors. These instances
+                //don't need to be used elsewhere
+                new PrizeBox(prizePanel, databasePath, x);
             }
 
             foreach (var x in eventObject.lastChanceBoxPrizes)
             {
-                PrizeBox lastChanceBox = new PrizeBox(lastChanceBoxPanel, databasePath, x);
+                new PrizeBox(lastChanceBoxPanel, databasePath, x);
             }
 
             foreach (var x in eventObject.tiers)
             {
+                //same as above. TierBoxL/M/S contructors will add appropriate boxes to Tier Panels
+                //on the form object instantiation. -- I believe I wrote it this way because
+                //popID list wasn't updating correctly (and this was a weird workaround)
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
-                    tierBox = new TierBoxL(tierPanel, databasePath, x);
+                    new TierBoxL(tierPanel, databasePath, x);
 
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
-                    tierBox = new TierBoxM(tierPanel, databasePath, x);
+                    new TierBoxM(tierPanel, databasePath, x);
 
                 if (x.isGuarantee != true)
-                {
-                    tierBox = new TierBoxS(tierPanel, databasePath, x);
-                }
+                    new TierBoxS(tierPanel, databasePath, x);
             }
         }
         public void RemoveRuntimeComboBoxes(Form1 form1)
@@ -76,7 +83,7 @@ namespace JsonValidator
             foreach (Control item in form1.Controls.OfType<CheckBox>())
                 item.Controls.Clear();
         }
-        public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
+        public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel, List<string> popIds)
         {
             comboB = new ComboBox() 
             {
@@ -85,8 +92,24 @@ namespace JsonValidator
             };
             
             if (dataBPath != null)
-                comboB.DataSource = database.GetAllPopID(dataBPath);
+                comboB.DataSource = popIds;
             
+            flowPanel.Controls.Add(comboB);
+
+            if (popName != "")
+                comboB.Text = popName;
+        }
+        public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
+        {
+            comboB = new ComboBox()
+            {
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems
+            };
+
+            if (dataBPath != null)
+                comboB.DataSource = database.GetAllPopID(dataBPath);
+
             flowPanel.Controls.Add(comboB);
 
             if (popName != "")
@@ -110,7 +133,6 @@ namespace JsonValidator
                 }
             }
         }
-
         public string AmendBoxId(string eventID)
         {
             eventID = eventID.Substring(eventID.LastIndexOf('_') + 1); //this is where we ammend the st

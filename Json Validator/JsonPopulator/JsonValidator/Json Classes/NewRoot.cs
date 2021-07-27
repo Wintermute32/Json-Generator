@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 
 namespace JsonValidator
 {
+    //The Top Class for all Json classes
     public class NewRoot
     {
         public string boxId { get; set; }
@@ -29,10 +30,10 @@ namespace JsonValidator
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {
             behaviourType = "PullBased";
-            boxId = "e" + playbook.eventNumber + "_bxtFE_VIP0_" + playbook.boxID.Trim();
-            evetnNumber = playbook.eventNumber;
-            fandomId = playbook.fandomName;
-            FixDates(playbook.startDate, playbook.endDate);
+            boxId = "e" + playbook.EventNumber + "_bxtFE_VIP0_" + playbook.BoxID.Trim();
+            evetnNumber = playbook.EventNumber;
+            fandomId = playbook.FandomName;
+            FixDates(playbook.StartDate, playbook.EndDate);
             SetFeaturedPopIds(popDict);
         }
   

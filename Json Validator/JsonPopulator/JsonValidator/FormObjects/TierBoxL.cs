@@ -7,7 +7,6 @@ using JsonValidator.CSV;
 
 namespace JsonValidator
 {
-
     //You might not need 3 tier classes sicne Newtonsoft Json will automatically exclude null values
     public class TierBoxL : ITierBox
     {

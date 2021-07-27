@@ -1,15 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
-using System.Text;
-using System.Diagnostics;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
 using System.Windows.Forms;
 using JsonValidator.CSV;
 
@@ -37,19 +27,19 @@ namespace JsonValidator
             try
             {
                 eventPlaybook = converters.PlaybookPopulator(playbookPath, eventID);
-                eventPlaybook.FixStartDate(eventPlaybook.startDate);
+                eventPlaybook.FixStartDate(eventPlaybook.StartDate);
             }
             catch (Exception)
             {
                 string message = "This ID wasn't found in the playbook. Check playbook ID and upate";
                 string title = "Playbbok Error";
                 MessageBox.Show(message, title);
-                eventPlaybook = new Playbook { eventID = "not found", startDateAlternate = "0/0/0000"};
+                eventPlaybook = new Playbook { EventID = "not found", StartDateAlternative = "0/0/0000"};
             }
 
             //List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
 
-            Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.startDateAlternate, databasePath);
+            Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.StartDateAlternative, databasePath);
 
             NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
             StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);

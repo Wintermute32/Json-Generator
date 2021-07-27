@@ -14,26 +14,26 @@ namespace JsonValidator.CSV
     public class Playbook
     {
         [Name("Event IP")]
-        public string boxID { get; set; }
+        public string BoxID { get; set; }
         [Name("Event Num")]
-        public string eventNumber { get; set; }
+        public string EventNumber { get; set; }
         [Name("Collection ID **")]
-        public string fandomName { get; set; }
+        public string FandomName { get; set; }
 
         [Name("Start Time (UTC)")]
-        public string startDate { get; set; }
+        public string StartDate { get; set; }
         [Name("End Time \n(UTC)")]
-        public string endDate { get; set; }
+        public string EndDate { get; set; }
         
         [Name("Event ID **")]
-        public string eventID { get; set; }
+        public string EventID { get; set; }
 
-        public string startDateAlternate { get; set; }
+        public string StartDateAlternative { get; set; }
 
         public List<string> boxIDList = new List<string>();
         public void FixStartDate(string startDate)
         {
-            this.startDateAlternate = DateTime.Parse(startDate).ToString("M/d/yyyy");
+            this.StartDateAlternative = DateTime.Parse(startDate).ToString("M/d/yyyy");
         }
     }
 }

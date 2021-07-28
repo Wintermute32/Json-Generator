@@ -20,10 +20,10 @@ namespace JsonValidator
             {
                 Prize prize = new Prize();
                 var comboB = x.Controls.OfType<ComboBox>().ToList();
-                prize.rewardType = comboB[0].Text;
-                prize.rewardId = comboB[1].Text;
-                prize.amount = Convert.ToInt32(comboB[2].Text);
-                prize.instances = Convert.ToInt32(comboB[3].Text);
+                prize.RewardType = comboB[0].Text;
+                prize.RewardID = comboB[1].Text;
+                prize.Amount = Convert.ToInt32(comboB[2].Text);
+                prize.Instances = Convert.ToInt32(comboB[3].Text);
                 prizePopList.Add(prize);
             }
 

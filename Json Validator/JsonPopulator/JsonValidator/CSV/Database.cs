@@ -1,14 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
-using System.Linq;
 using CsvHelper.Configuration.Attributes;
 
 namespace JsonValidator.CSV
@@ -24,7 +15,7 @@ namespace JsonValidator.CSV
         [Name("ExclusivityType")]
         public string EventExclusive { get; set; }
 
-        public List<string> GetAllPopID(string databasePath)
+        public static List<string> GetAllPopID(string databasePath)
         {
             string[] allLines = File.ReadAllLines(databasePath);
             List<string> popIDs = new List<string>();

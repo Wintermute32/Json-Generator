@@ -9,21 +9,17 @@ namespace JsonValidator
 {
     public class FormControls
     {
-        Database database = new Database();
         ComboBox comboB;
         string dataBPath;
         string playBPath;
-
         List<ComboBox> comboList = new List<ComboBox>();
         public FormControls(string databasePath, string playbookPath)
         {
             this.dataBPath = databasePath;
             this.playBPath = playbookPath;
         }
-
         public void GenerateRuntimePopPanels(NewRoot eventObject, string databasePath)
         {
-            ITierBox tierBox;
             FlowLayoutPanel tierPanel = Application.OpenForms["Form1"].Controls["tierPanel"] as FlowLayoutPanel; //way to access desigern controls w/o changing access modifier
             FlowLayoutPanel mainHubPanel = Application.OpenForms["Form1"].Controls["mainHubPanel"] as FlowLayoutPanel;
             FlowLayoutPanel purchasePopsPanel = Application.OpenForms["Form1"].Controls["purchasePopsPanel"] as FlowLayoutPanel;
@@ -34,7 +30,7 @@ namespace JsonValidator
 
             //Get popIDs once then pass to GeneratePopSelector Methods
             //to avoid calling on each function call
-            List<string> popIds = database.GetAllPopID(databasePath);
+            List<string> popIds = Database.GetAllPopID(databasePath);
 
             foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
                 GeneratePopSelector(x, storePopsPanel, popIds);
@@ -108,7 +104,7 @@ namespace JsonValidator
             };
 
             if (dataBPath != null)
-                comboB.DataSource = database.GetAllPopID(dataBPath);
+                comboB.DataSource = Database.GetAllPopID(dataBPath);
 
             flowPanel.Controls.Add(comboB);
 

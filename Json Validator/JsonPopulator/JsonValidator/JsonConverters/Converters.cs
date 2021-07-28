@@ -123,7 +123,7 @@ namespace JsonValidator
             foreach (var x in popDict)
             {
                 LastChanceBoxPrize lastChanceP = new LastChanceBoxPrize();
-                lastChanceP.rewardId = x.Key;
+                lastChanceP.RewardID = x.Key;
                 lcbpList.Add(lastChanceP);
             }
 
@@ -134,16 +134,16 @@ namespace JsonValidator
                 switch (i)
                 {
                     case 0:
-                        lcbpList[i].amount = 1; lcbpList[i].instances = 3; break;
+                        lcbpList[i].Amount = 1; lcbpList[i].Instances = 3; break;
                     case 1:
-                        lcbpList[i].amount = 2; lcbpList[i].instances = 2; break;
+                        lcbpList[i].Amount = 2; lcbpList[i].Instances = 2; break;
                     case 2:
-                        lcbpList[i].amount = 3; lcbpList[i].instances = 2; break;
+                        lcbpList[i].Amount = 3; lcbpList[i].Instances = 2; break;
                     case 3:
-                        lcbpList[i].amount = 6; lcbpList[i].instances = 1; break;
+                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
 
                     case 4:
-                        lcbpList[i].amount = 6; lcbpList[i].instances = 1; break;
+                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
                 }
 
             }

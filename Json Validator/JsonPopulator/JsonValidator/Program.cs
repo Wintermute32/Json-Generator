@@ -17,8 +17,6 @@ namespace JsonValidator
 
        public static NewRoot GetJsonObject(string databasePath, string playbookPath, string gachaPath, string eventID)
         {
-            //returns completed NewRoot Object
-
             Converters converters = new Converters();
             Database database = new Database();
             Gacha gacha = new Gacha();
@@ -37,7 +35,7 @@ namespace JsonValidator
                 eventPlaybook = new Playbook { EventID = "not found", StartDateAlternative = "0/0/0000"};
             }
 
-            //List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
+            //List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.StartDate); //this isn't working
 
             Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.StartDateAlternative, databasePath);
 

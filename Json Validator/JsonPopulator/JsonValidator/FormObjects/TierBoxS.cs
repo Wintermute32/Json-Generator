@@ -23,7 +23,6 @@ namespace JsonValidator
                 Size = new System.Drawing.Size(257, 46),
                 TabIndex = 57,
                 TabStop = false,
-                //Margin = new Padding(0)
             };
 
             TextBox txtB1 = new TextBox()

@@ -89,10 +89,10 @@ namespace JsonValidator
             {
                 var combos = x.Controls.OfType<ComboBox>().ToList();
                 LastChanceBoxPrize lastCBox = new LastChanceBoxPrize();
-                lastCBox.rewardType = combos[0].Text;
-                lastCBox.rewardId = combos[1].Text;
-                lastCBox.amount = Convert.ToInt32(combos[2].Text);
-                lastCBox.instances = Convert.ToInt32(combos[3].Text);
+                lastCBox.RewardType = combos[0].Text;
+                lastCBox.RewardID = combos[1].Text;
+                lastCBox.Amount = Convert.ToInt32(combos[2].Text);
+                lastCBox.Instances = Convert.ToInt32(combos[3].Text);
                 lastChanceList.Add(lastCBox);
             }
             return lastChanceList;

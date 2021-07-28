@@ -10,10 +10,10 @@ namespace JsonValidator
 {
     public class Prize : IPrizeBox
     {
-        public string rewardType { get; set; }
-        public string rewardId { get; set; }
-        public int amount { get; set; }
-        public int instances { get; set; }
+        public string RewardType { get; set; }
+        public string RewardID { get; set; }
+        public int Amount { get; set; }
+        public int Instances { get; set; }
 
      
     }

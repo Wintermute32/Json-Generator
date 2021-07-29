@@ -31,11 +31,11 @@ namespace JsonValidator.JsonConverters
 
             MainHubAppearance mainHubApp = new MainHubAppearance()
             {
-                canShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked,
-                style = comboBoxes.Find(x => x.Name == "style2CB").Text,
-                titleLocalizationKey = comboBoxes.Find(x => x.Name == "titleLocKeyCB").Text,
-                subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text,
-                popIds = _popIds,
+                CanShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked,
+                Style = comboBoxes.Find(x => x.Name == "style2CB").Text,
+                TitleLocKey = comboBoxes.Find(x => x.Name == "titleLocKeyCB").Text,
+                SubtitleLocKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text,
+                PopIds = _popIds,
                 
             };
             return mainHubApp;

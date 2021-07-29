@@ -9,52 +9,47 @@ namespace JsonValidator
     //The Top Class for all Json classes
     public class NewRoot
     {
-        public string boxId { get; set; }
+        public string BoxID { get; set; }
         [JsonIgnore]
-        public string evetnNumber { get; set; }
-        public string boxReplacesID { get; set; }
-        public string fandomId { get; set; }
-        public string startDate { get; set; }
-        public string endDate { get; set; }
-        public Appearance appearance { get; set; }
-        public string behaviourType { get; set; }
-        public List<string> featuredPopIdsList { get; set; }
-        public List<Prize> prizes { get; set; }
-        public List<Tier> tiers { get; set; }
-        public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }
-
-        List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };
-
-        public NewRoot() { }
-
+        public string EventNumber { get; set; }
+        public string BoxReplacesID { get; set; }
+        public string FandomID { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public Appearance Appearance { get; set; }
+        public string BehaviorType { get; set; }
+        public List<string> FeaturedPopIdList { get; set; }
+        public List<Prize> Prizes { get; set; }
+        public List<Tier> Tiers { get; set; }
+        public List<LastChanceBoxPrize> LastChanceBoxPrizes { get; set; }    
+        public NewRoot(){}
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
         {
-            behaviourType = "PullBased";
-            boxId = "e" + playbook.EventNumber + "_bxtFE_VIP0_" + playbook.BoxID.Trim();
-            evetnNumber = playbook.EventNumber;
-            fandomId = playbook.FandomName;
-            FixDates(playbook.StartDate, playbook.EndDate);
+            BehaviorType = "PullBased";
+            BoxID = "e" + playbook.EventNumber + "_bxtFE_VIP0_" + playbook.BoxID.Trim();
+            EventNumber = playbook.EventNumber;
+            FandomID = playbook.FandomName;
+            FixDates(playbook.StartDate);
             SetFeaturedPopIds(popDict);
-        }
-  
-        public void FixDates(string startDate, string endDate)
+        } 
+        public void FixDates(string startDate)
         {
-
            var revisedStart = DateTime.Parse(startDate).ToString("MM/dd/yyyy HH:mm");
-           var revisedEnd = DateTime.Parse(endDate).AddDays(-1).ToString("MM/dd/yyyy HH:mm");
+           var revisedEnd = DateTime.Parse(startDate).AddDays(6).ToString("MM/dd/yyyy HH:mm");
 
-            this.startDate = revisedStart;
-            this.endDate = revisedEnd;
+            this.StartDate = revisedStart;
+            this.EndDate = revisedEnd;
         }
-
-        public void SetFeaturedPopIds(Dictionary<string, string> popIdDict)
+        private void SetFeaturedPopIds(Dictionary<string, string> popIdDict)
         {
+            List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };
+            
             foreach (KeyValuePair<string, string> entry in popIdDict)
                 for (int i = 0; i < rarityList.Count; i++)
                     if (entry.Value == rarityList[i])
                         rarityList[i] = entry.Key;
 
-            featuredPopIdsList = rarityList;
+            FeaturedPopIdList = rarityList;
         }
     }
 }

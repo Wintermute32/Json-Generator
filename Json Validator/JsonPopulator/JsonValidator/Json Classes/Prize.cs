@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Globalization;
-using System.IO;
-using JsonValidator.CSV;
 
 namespace JsonValidator
 {

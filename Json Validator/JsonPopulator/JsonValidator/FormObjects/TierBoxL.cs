@@ -4,17 +4,14 @@ using JsonValidator.CSV;
 
 namespace JsonValidator
 {
-    //You might not need 3 tier classes sicne Newtonsoft Json will automatically exclude null values
     public class TierBoxL : PrizeBox
     {
-        TextBox textBoxOne;
         public TierBoxL(FlowLayoutPanel flowPanel, string databasePath, Tier tier)
         {
-            var newGroupB = GeneratePrizeLine(flowPanel, databasePath, tier);
-            flowPanel.Controls.Add(newGroupB);
+            var newGroupB = GeneratePrizeLine(flowPanel, databasePath);
             AssignComboBoxText(tier, newGroupB);
         }
-        public GroupBox GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Tier tier)
+        public GroupBox GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath)
         {
             GroupBox newGroupB = new GroupBox()
             {
@@ -25,7 +22,7 @@ namespace JsonValidator
                 TabStop = false,
             };
 
-            textBoxOne = new TextBox()
+            TextBox = new TextBox()
             {
                 Location = new System.Drawing.Point(7, 20),
                 Size = new System.Drawing.Size(51, 20),
@@ -65,14 +62,15 @@ namespace JsonValidator
 
             };
 
-            List<Control> controlsList = new List<Control>() { textBoxOne, _comboB2, _comboB3, _comboB4 };
+            List<Control> controlsList = new List<Control>() { TextBox, _comboB2, _comboB3, _comboB4 };
 
             foreach (var x in controlsList)
                 newGroupB.Controls.Add(x);
 
+            flowPanel.Controls.Add(newGroupB);
+
             return newGroupB;
-        }
-         
+        }   
         private void AssignComboBoxText(Tier tier, GroupBox newGroup)
         {
             if (tier.guarantee != null) //ensuring we dont crash when using + UI button
@@ -86,5 +84,4 @@ namespace JsonValidator
         }
         
     }
-
 }

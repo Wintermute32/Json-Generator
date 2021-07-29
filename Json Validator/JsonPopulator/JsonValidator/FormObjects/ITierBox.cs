@@ -2,10 +2,6 @@
 
 namespace JsonValidator
 {
-    public interface ITierBox
-    {
-        void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, Tier tier);
-    }
     public interface IPrizeBox
     {
         string RewardType { get; set; }

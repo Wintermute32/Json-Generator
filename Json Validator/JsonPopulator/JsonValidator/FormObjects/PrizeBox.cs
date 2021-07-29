@@ -1,23 +1,21 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
 using JsonValidator.CSV;
-//Both the Last Chance and Prize panel use the same format of form controls.
-//This method takes the forms specifid panel (last chance or prize) and fills
-//out the panel accordingly. The form population is started by the constructor
-
+//Last Chance and Prize panel use same format of form controls.
+//The form population is started by the constructor
 namespace JsonValidator
 {
-   public class PrizeBox
+  public class PrizeBox
     {
         public ComboBox _comboB1, _comboB2, _comboB3, _comboB4;
+        public TextBox TextBox;
         public PrizeBox() { }
         public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
-            GroupBox newGroupB = GeneratePrizePops(databasePath, prize);
-            flowPanel.Controls.Add(newGroupB);
+            GroupBox newGroupB = GeneratePrizePops(flowPanel, databasePath);
             AssignComboBoxText(prize, newGroupB);
         }
-        private GroupBox GeneratePrizePops(string databasePath, IPrizeBox prize)
+        private GroupBox GeneratePrizePops(FlowLayoutPanel flowPanel, string databasePath)
         {           
             GroupBox newGroupB = new GroupBox()
             {
@@ -76,7 +74,9 @@ namespace JsonValidator
             
             foreach (var x in comboBList)
                 newGroupB.Controls.Add(x);
-            
+
+            flowPanel.Controls.Add(newGroupB);
+
             return newGroupB;
         }
         private void AssignComboBoxText(IPrizeBox prize, GroupBox newGroup)

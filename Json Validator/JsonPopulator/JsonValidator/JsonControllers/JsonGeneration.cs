@@ -37,29 +37,29 @@ namespace JsonValidator
 
             NewRoot finalRoot = new NewRoot()
             {
-                boxId = AmmendBoxID(comboBoxes, textBoxes, boxTypeDict),
-                evetnNumber = textBoxes.Find(x => x.Name == "eventNumBox").Text,
-                fandomId = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
-                startDate = dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
-                endDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
-                appearance = appearance.GenerateAppearance(),
-                behaviourType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
-                featuredPopIdsList = GetFeaturedPops(flowBoxes),
-                prizes = prizesConverter.GeneratePrizeList(flowBoxes),
-                tiers = tierConverter.GenerateTierList(flowBoxes),
-                lastChanceBoxPrizes = GetLastChanceList(flowBoxes),
+                BoxID = AmmendBoxID(comboBoxes, textBoxes, boxTypeDict),
+                EventNumber = textBoxes.Find(x => x.Name == "eventNumBox").Text,
+                FandomID = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
+                StartDate = dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
+                EndDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
+                Appearance = appearance.GenerateAppearance(),
+                BehaviorType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
+                FeaturedPopIdList = GetFeaturedPops(flowBoxes),
+                Prizes = prizesConverter.GeneratePrizeList(flowBoxes),
+                Tiers = tierConverter.GenerateTierList(flowBoxes),
+                LastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
             
-            finalRoot.FixDates(finalRoot.startDate, finalRoot.endDate);
+           finalRoot.FixDates(finalRoot.StartDate);
 
             var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));
 
             if (isEventBox)
             {
-                finalRoot.boxReplacesID = finalRoot.boxId;
-                finalRoot.boxId = finalRoot.boxId.Replace("VIP0", "VIP1");
+                finalRoot.BoxReplacesID = finalRoot.BoxID;
+                finalRoot.BoxID = finalRoot.BoxID.Replace("VIP0", "VIP1");
                 jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
-                finalRoot.lastChanceBoxPrizes = null;
+                finalRoot.LastChanceBoxPrizes = null;
                 jsonOutput += '\n' + fbs.TestFormatString(SerializeJson(finalRoot));
             }
 

@@ -37,25 +37,25 @@ namespace JsonValidator
         {
             //takes completed NewRoot Object and populates forum UI values
             eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
-            eventNumBox.Text = eventObject.evetnNumber;
-            fandomIdCB.Text = eventObject.fandomId;
-            startDatePicker.Value = DateTime.Parse(eventObject.startDate);
-            endDatePicker.Value = DateTime.Parse(eventObject.endDate);
-            isEventCheck.Checked = eventObject.appearance.isEventBox;
-            MysteryBoxCB.Text = eventObject.appearance.mysteryBoxType;
-            themeCB.Text = eventObject.appearance.theme;
-            styleCB.Text = eventObject.appearance.storeButtonAppearance.style;
-            ribbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
-            titleLocCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
-            subLocCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
-            orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
-            discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
-            purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
-            canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
-            behaviorCB.Text = eventObject.behaviourType;
-            style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
-            titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
-            mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
+            eventNumBox.Text = eventObject.EventNumber;
+            fandomIdCB.Text = eventObject.FandomID;
+            startDatePicker.Value = DateTime.Parse(eventObject.StartDate);
+            endDatePicker.Value = DateTime.Parse(eventObject.EndDate);
+            isEventCheck.Checked = eventObject.Appearance.IsEventBox;
+            MysteryBoxCB.Text = eventObject.Appearance.MysteryBoxType;
+            themeCB.Text = eventObject.Appearance.Theme;
+            styleCB.Text = eventObject.Appearance.StoreButtonAppearance.style;
+            ribbonLocKeyCB.Text = eventObject.Appearance.StoreButtonAppearance.ribbonLocalizationKey;
+            titleLocCB.Text = eventObject.Appearance.StoreButtonAppearance.titleLocalizationKey;
+            subLocCB.Text = eventObject.Appearance.StoreButtonAppearance.subtitleLocalizationKey;
+            orderCB.Text = eventObject.Appearance.StoreButtonAppearance.order.ToString();
+            discountCB.Text = eventObject.Appearance.StoreButtonAppearance.discount.ToString();
+            purTitleLocKey.Text = eventObject.Appearance.PurchaseScreenAppearance.titleLocalizationKey;
+            canShowCarouselBox.Checked = eventObject.Appearance.MainHubAppearance.CanShowInCarousel;
+            behaviorCB.Text = eventObject.BehaviorType;
+            style2CB.Text = eventObject.Appearance.MainHubAppearance.Style; //might not be populating Right
+            titleLocKeyCB.Text = eventObject.Appearance.MainHubAppearance.TitleLocKey;
+            mainhubSubLocKey.Text = eventObject.Appearance.MainHubAppearance.SubtitleLocKey;
 
             formControls.GenerateRuntimePopPanels(eventObject, databasePath);
         }
@@ -101,12 +101,12 @@ namespace JsonValidator
 
         private void button8_Click(object sender, EventArgs e)
         {
-            TierBoxM tierBox = new TierBoxM(tierPanel, databasePath, new Tier());
+            TierBoxM tierBox = new TierBoxM(tierPanel, new Tier());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            TierBoxS tierBox = new TierBoxS(tierPanel, databasePath, new Tier());
+            TierBoxS tierBox = new TierBoxS(tierPanel, new Tier());
         }
 
         private void button7_Click(object sender, EventArgs e)

@@ -28,14 +28,14 @@ namespace JsonValidator.JsonConverters
 
             Appearance appearance = new Appearance()
             {
-                isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
-                mysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
-                isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked, //do i need this?
+                IsEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
+                MysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
+                IsOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked, //do i need this?
 
-                theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
-                storeButtonAppearance = sBA.GenerateStoreBA(),
-                purchaseScreenAppearance = pSA.GeneratePurchaseScreenApeparance(),
-                mainHubAppearance = mHA.GenerateHubApp(),
+                Theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
+                StoreButtonAppearance = sBA.GenerateStoreBA(),
+                PurchaseScreenAppearance = pSA.GeneratePurchaseScreenApeparance(),
+                MainHubAppearance = mHA.GenerateHubApp(),
             };
 
             return appearance;

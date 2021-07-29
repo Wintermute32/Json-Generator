@@ -32,19 +32,19 @@ namespace JsonValidator
             //to avoid calling on each function call
             List<string> popIds = Database.GetAllPopID(databasePath);
 
-            foreach (var x in eventObject.appearance.storeButtonAppearance.popIds)
+            foreach (var x in eventObject.Appearance.StoreButtonAppearance.popIds)
                 GeneratePopSelector(x, storePopsPanel, popIds);
 
-            foreach (var x in eventObject.appearance.purchaseScreenAppearance.popIds)
+            foreach (var x in eventObject.Appearance.PurchaseScreenAppearance.popIds)
                 GeneratePopSelector(x, purchasePopsPanel, popIds);
 
-            foreach (var x in eventObject.appearance.mainHubAppearance.popIds)
+            foreach (var x in eventObject.Appearance.MainHubAppearance.PopIds)
                 GeneratePopSelector(x, mainHubPanel, popIds);
 
-            foreach (var x in eventObject.featuredPopIdsList)
+            foreach (var x in eventObject.FeaturedPopIdList)
                 GeneratePopSelector(x, featuredPopPanel, popIds);
 
-            foreach (var x in eventObject.prizes)
+            foreach (var x in eventObject.Prizes)
             {
                 //Both prizeBox generates the form's last chance
                 //and prize fields by way of its constructors. These instances
@@ -52,12 +52,12 @@ namespace JsonValidator
                 new PrizeBox(prizePanel, databasePath, x);
             }
 
-            foreach (var x in eventObject.lastChanceBoxPrizes)
+            foreach (var x in eventObject.LastChanceBoxPrizes)
             {
                 new PrizeBox(lastChanceBoxPanel, databasePath, x);
             }
 
-            foreach (var x in eventObject.tiers)
+            foreach (var x in eventObject.Tiers)
             {
                 //same as above. TierBoxL/M/S contructors will add appropriate boxes to Tier Panels
                 //on the form object instantiation. -- I believe I wrote it this way because
@@ -66,10 +66,10 @@ namespace JsonValidator
                     new TierBoxL(tierPanel, databasePath, x);
 
                 if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
-                    new TierBoxM(tierPanel, databasePath, x);
+                    new TierBoxM(tierPanel, x);
 
                 if (x.isGuarantee != true)
-                    new TierBoxS(tierPanel, databasePath, x);
+                    new TierBoxS(tierPanel, x);
             }
         }
         public void RemoveRuntimeComboBoxes(Form1 form1)

@@ -1,15 +1,4 @@
-﻿using JsonValidator.CSV;
-using System;
-using System.IO;
-using System.Text;
-using System.Collections.Generic;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
-using CsvHelper;
-using System.Globalization;
-using System.Linq;
-using CsvHelper.Configuration.Attributes;
-
+﻿using System;
 
 namespace JsonValidator
 {

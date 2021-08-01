@@ -9,107 +9,101 @@ namespace JsonValidator
 {
     public class FormControls
     {
-        ComboBox comboB;
-        string dataBPath;
-        string playBPath;
+        ComboBox ComboB;
+        string DataBPath;
+        string PlayBPath;
         List<ComboBox> comboList = new List<ComboBox>();
         public FormControls(string databasePath, string playbookPath)
         {
-            this.dataBPath = databasePath;
-            this.playBPath = playbookPath;
+            this.DataBPath = databasePath;
+            this.PlayBPath = playbookPath;
         }
         public void GenerateRuntimePopPanels(NewRoot eventObject, string databasePath)
         {
-            FlowLayoutPanel tierPanel = Application.OpenForms["Form1"].Controls["tierPanel"] as FlowLayoutPanel; //way to access desigern controls w/o changing access modifier
-            FlowLayoutPanel mainHubPanel = Application.OpenForms["Form1"].Controls["mainHubPanel"] as FlowLayoutPanel;
-            FlowLayoutPanel purchasePopsPanel = Application.OpenForms["Form1"].Controls["purchasePopsPanel"] as FlowLayoutPanel;
-            FlowLayoutPanel storePopsPanel = Application.OpenForms["Form1"].Controls["storePopsPanel"] as FlowLayoutPanel;
-            FlowLayoutPanel featuredPopPanel = Application.OpenForms["Form1"].Controls["featuredPopPanel"] as FlowLayoutPanel;
-            FlowLayoutPanel prizePanel = Application.OpenForms["Form1"].Controls["prizePanel"] as FlowLayoutPanel;
-            FlowLayoutPanel lastChanceBoxPanel = Application.OpenForms["Form1"].Controls["lastChanceBoxPanel"] as FlowLayoutPanel;
+            var layoutPanelDict = GetLayoutPanelDict();
+            AssignToPopPanels(eventObject, layoutPanelDict);
+            AssignToPopPanels(eventObject, layoutPanelDict, databasePath);
+        }
+        private Dictionary<string, FlowLayoutPanel> GetLayoutPanelDict()
+        {
+            string[] panelNames = new[] { "tierPanel", "mainHubPanel", "purchasePopsPanel", 
+                "storePopsPanel", "featuredPopPanel", "prizePanel", "lastChanceBoxPanel" };
+            
+            Dictionary<string, FlowLayoutPanel> flowPanelDict = new Dictionary<string, FlowLayoutPanel>();
+            
+            var formControls = Application.OpenForms["Form1"].Controls;
+           
+            foreach (var x in panelNames)
+                flowPanelDict.Add(x, formControls[x] as FlowLayoutPanel);
+  
+            return flowPanelDict;  
+        }
+        private void AssignToPopPanels(NewRoot newRoot, Dictionary<string, FlowLayoutPanel> layoutPanels)
+        {
+            var appearance = newRoot.Appearance;
 
-            //Get popIDs once then pass to GeneratePopSelector Methods
-            //to avoid calling on each function call
-            List<string> popIds = Database.GetAllPopID(databasePath);
+            foreach (var popId in appearance.StoreButtonAppearance.PopIds)
+                GeneratePopSelector(popId, layoutPanels["storePopsPanel"]);
 
-            foreach (var x in eventObject.Appearance.StoreButtonAppearance.popIds)
-                GeneratePopSelector(x, storePopsPanel, popIds);
+            foreach (var popId in appearance.PurchaseScreenAppearance.PopIds)
+                GeneratePopSelector(popId, layoutPanels["purchasePopsPanel"]);
 
-            foreach (var x in eventObject.Appearance.PurchaseScreenAppearance.popIds)
-                GeneratePopSelector(x, purchasePopsPanel, popIds);
+            foreach (var popId in appearance.MainHubAppearance.PopIds)
+                GeneratePopSelector(popId, layoutPanels["mainHubPanel"]);
 
-            foreach (var x in eventObject.Appearance.MainHubAppearance.PopIds)
-                GeneratePopSelector(x, mainHubPanel, popIds);
+            foreach (var popId in newRoot.FeaturedPopIdList)
+                GeneratePopSelector(popId, layoutPanels["featuredPopPanel"]);
+        }
+        private void AssignToPopPanels(NewRoot newRoot, Dictionary<string, FlowLayoutPanel> layoutPanels, string databasePath)
+        {
+            //prizeBox obj generates by way of its constructors.
+            //TierBoxL/M/S contructors add boxes to Tier Panels
+            //Maybe not best way to do this.
 
-            foreach (var x in eventObject.FeaturedPopIdList)
-                GeneratePopSelector(x, featuredPopPanel, popIds);
+            foreach (var x in newRoot.Prizes)
+                new PrizeBox(layoutPanels["prizePanel"], databasePath, x);
 
-            foreach (var x in eventObject.Prizes)
+            foreach (var x in newRoot.LastChanceBoxPrizes)
+                new PrizeBox(layoutPanels["lastChanceBoxPanel"], databasePath, x);
+
+            foreach (var x in newRoot.Tiers)
             {
-                //Both prizeBox generates the form's last chance
-                //and prize fields by way of its constructors. These instances
-                //don't need to be used elsewhere
-                new PrizeBox(prizePanel, databasePath, x);
-            }
+                if (x.IsGuarantee == true && x.Guarantee.LuckyPopPrize == null)
+                    new TierBoxL(layoutPanels["tierPanel"], databasePath, x);
 
-            foreach (var x in eventObject.LastChanceBoxPrizes)
-            {
-                new PrizeBox(lastChanceBoxPanel, databasePath, x);
-            }
+                else if (x.IsGuarantee == true && x.Guarantee.LuckyPopPrize != null)
+                    new TierBoxM(layoutPanels["tierPanel"], x);
 
-            foreach (var x in eventObject.Tiers)
-            {
-                //same as above. TierBoxL/M/S contructors will add appropriate boxes to Tier Panels
-                //on the form object instantiation. -- I believe I wrote it this way because
-                //popID list wasn't updating correctly (and this was a weird workaround)
-                if (x.isGuarantee == true && x.guarantee.LuckyPopPrize == null)
-                    new TierBoxL(tierPanel, databasePath, x);
-
-                if (x.isGuarantee == true && x.guarantee.LuckyPopPrize != null)
-                    new TierBoxM(tierPanel, x);
-
-                if (x.isGuarantee != true)
-                    new TierBoxS(tierPanel, x);
+                else if (x.IsGuarantee != true)
+                    new TierBoxS(layoutPanels["tierPanel"], x);
             }
         }
         public void RemoveRuntimeComboBoxes(Form1 form1)
         {
             foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
                 item.Controls.Clear();
+
             foreach (Control item in form1.Controls.OfType<CheckBox>())
                 item.Controls.Clear();
         }
-        public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel, List<string> popIds)
-        {
-            comboB = new ComboBox() 
-            {
-                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
-                AutoCompleteSource = AutoCompleteSource.ListItems
-            };
-            
-            if (dataBPath != null)
-                comboB.DataSource = popIds;
-            
-            flowPanel.Controls.Add(comboB);
-
-            if (popName != "")
-                comboB.Text = popName;
-        }
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {
-            comboB = new ComboBox()
+            //unsure why, but combobox datasource must be called on each
+            //call to GenPopSelector(), else all ref's point to same obj
+
+            ComboB = new ComboBox()
             {
                 AutoCompleteMode = AutoCompleteMode.SuggestAppend,
-                AutoCompleteSource = AutoCompleteSource.ListItems
+                AutoCompleteSource = AutoCompleteSource.ListItems,
+                DataSource = Database.GetAllPopID(DataBPath)
             };
 
-            if (dataBPath != null)
-                comboB.DataSource = Database.GetAllPopID(dataBPath);
-
-            flowPanel.Controls.Add(comboB);
-
+            flowPanel.Controls.Add(ComboB);
+            
+            //if (DataBPath != null)
+            //    ComboB.DataSource = popIds;         
             if (popName != "")
-                comboB.Text = popName;
+                ComboB.Text = popName;
         }
         public void RemoveCustomControls(FlowLayoutPanel panel)
         {

@@ -19,7 +19,7 @@ namespace JsonValidator.StoreConfigUpdate
     //get index of that line, and insert newbox string there for each boxconfig file.
     public class StoreConfig
     {
-        JsonGeneration jGenObj = new JsonGeneration();
+        NewRootGeneration jGenObj = new NewRootGeneration();
         public void AddToMysteryBoxConfig()
         {
             List<string> boxFile;

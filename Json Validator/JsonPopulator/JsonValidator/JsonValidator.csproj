@@ -97,7 +97,7 @@
     <Compile Include="Json Classes\StoreButtonAppearance.cs" />
     <Compile Include="Json Classes\Tier.cs" />
     <Compile Include="FormObjects\PrizeBox.cs" />
-    <Compile Include="JsonControllers\JsonGeneration.cs" />
+    <Compile Include="JsonControllers\NewRootGeneration.cs" />
     <Compile Include="JsonConverters\MainHubConverter.cs" />
     <Compile Include="JsonConverters\MyConverter.cs" />
     <Compile Include="JsonConverters\PrizesConverter.cs" />

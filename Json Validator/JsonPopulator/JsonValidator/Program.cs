@@ -28,8 +28,8 @@ namespace JsonValidator
             }
             catch (Exception)
             {
-                string message = "This ID wasn't found in the playbook. Check playbook ID and upate";
-                string title = "Playbbok Error";
+                string message = "This ID wasn't found in the playbook. Check playbook ID and update";
+                string title = "Playbook Error";
                 MessageBox.Show(message, title);
                 eventPlaybook = new Playbook { EventID = "not found", StartDateAlternative = "0/0/0000"};
             }
@@ -40,7 +40,6 @@ namespace JsonValidator
 
             NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
             StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);
-
             PurchaseScreenAppearance psA = new PurchaseScreenAppearance(eventID, popDict);
             MainHubAppearance mhA = new MainHubAppearance(eventID, popDict);
             Tier tiers = new Tier();

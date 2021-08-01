@@ -2,6 +2,7 @@
 
 namespace JsonValidator
 {
+
     public interface IPrizeBox
     {
         string RewardType { get; set; }

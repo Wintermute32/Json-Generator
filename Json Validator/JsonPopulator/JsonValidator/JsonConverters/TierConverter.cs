@@ -30,9 +30,9 @@ namespace JsonValidator.JsonConverters
                         {
                             try
                             {
-                                tier.cost = Convert.ToInt32(texts[0].Text);
-                                tier.numPulls = Convert.ToInt32(combos[0].Text);
-                                tier.guarantee = new Guarantee()
+                                tier.Cost = Convert.ToInt32(texts[0].Text);
+                                tier.NumPulls = Convert.ToInt32(combos[0].Text);
+                                tier.Guarantee = new Guarantee()
                                 {
                                     SpecificPopId = combos[1].Text,
                                     specificPopAmount = combos[2].Text
@@ -40,9 +40,9 @@ namespace JsonValidator.JsonConverters
                             }
                             catch
                             {
-                                tier.cost = 0;
-                                tier.numPulls = 0;
-                                tier.guarantee = new Guarantee()
+                                tier.Cost = 0;
+                                tier.NumPulls = 0;
+                                tier.Guarantee = new Guarantee()
                                 {
                                     SpecificPopId = "You didn't fill",
                                     specificPopAmount = "this out right",
@@ -55,16 +55,16 @@ namespace JsonValidator.JsonConverters
                         {
                             try
                             {
-                                tier.cost = Convert.ToInt32(texts[0].Text);
-                                tier.numPulls = Convert.ToInt32(combos[0].Text);
-                                tier.guarantee = new Guarantee() { LuckyPopPrize = Convert.ToBoolean(combos[1].Text) };
+                                tier.Cost = Convert.ToInt32(texts[0].Text);
+                                tier.NumPulls = Convert.ToInt32(combos[0].Text);
+                                tier.Guarantee = new Guarantee() { LuckyPopPrize = Convert.ToBoolean(combos[1].Text) };
                             }
 
                             catch
                             {
-                                tier.cost = 0;
-                                tier.numPulls = 0;
-                                tier.guarantee = new Guarantee() { LuckyPopPrize = false };
+                                tier.Cost = 0;
+                                tier.NumPulls = 0;
+                                tier.Guarantee = new Guarantee() { LuckyPopPrize = false };
                             }
                             break;
                         }
@@ -73,13 +73,13 @@ namespace JsonValidator.JsonConverters
                         {
                             try
                             {
-                                tier.cost = Convert.ToInt32(texts[0].Text);
-                                tier.numPulls = Convert.ToInt32(combos[0].Text);
+                                tier.Cost = Convert.ToInt32(texts[0].Text);
+                                tier.NumPulls = Convert.ToInt32(combos[0].Text);
                             }
                             catch (Exception)
                             {
-                                tier.numPulls = 0;
-                                tier.cost = 0;
+                                tier.NumPulls = 0;
+                                tier.Cost = 0;
                             }
                             break;
                         }

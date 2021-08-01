@@ -30,8 +30,8 @@ namespace JsonValidator.JsonConverters
 
             PurchaseScreenAppearance purchaseScreenAppearance = new PurchaseScreenAppearance()
             {
-                titleLocalizationKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
-                popIds = _popIds
+                TitleLocKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
+                PopIds = _popIds
             };
 
             return purchaseScreenAppearance;

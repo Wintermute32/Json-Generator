@@ -14,7 +14,6 @@ namespace JsonValidator.CSV
         public string ReleaseDate { get; set; }
         [Name("ExclusivityType")]
         public string EventExclusive { get; set; }
-
         public static List<string> GetAllPopID(string databasePath)
         {
             string[] allLines = File.ReadAllLines(databasePath);
@@ -50,7 +49,6 @@ namespace JsonValidator.CSV
             }
             return popDict;
         }
-
         public bool CheckPopIds(List<string> popIdList, string popName)
         {
             if (popIdList.Contains(popName))

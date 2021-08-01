@@ -44,13 +44,13 @@ namespace JsonValidator
             isEventCheck.Checked = eventObject.Appearance.IsEventBox;
             MysteryBoxCB.Text = eventObject.Appearance.MysteryBoxType;
             themeCB.Text = eventObject.Appearance.Theme;
-            styleCB.Text = eventObject.Appearance.StoreButtonAppearance.style;
-            ribbonLocKeyCB.Text = eventObject.Appearance.StoreButtonAppearance.ribbonLocalizationKey;
-            titleLocCB.Text = eventObject.Appearance.StoreButtonAppearance.titleLocalizationKey;
-            subLocCB.Text = eventObject.Appearance.StoreButtonAppearance.subtitleLocalizationKey;
-            orderCB.Text = eventObject.Appearance.StoreButtonAppearance.order.ToString();
-            discountCB.Text = eventObject.Appearance.StoreButtonAppearance.discount.ToString();
-            purTitleLocKey.Text = eventObject.Appearance.PurchaseScreenAppearance.titleLocalizationKey;
+            styleCB.Text = eventObject.Appearance.StoreButtonAppearance.Style;
+            ribbonLocKeyCB.Text = eventObject.Appearance.StoreButtonAppearance.RibbonLocKey;
+            titleLocCB.Text = eventObject.Appearance.StoreButtonAppearance.TitleLocKey;
+            subLocCB.Text = eventObject.Appearance.StoreButtonAppearance.SubtitleLocKey;
+            orderCB.Text = eventObject.Appearance.StoreButtonAppearance.Order.ToString();
+            discountCB.Text = eventObject.Appearance.StoreButtonAppearance.Discount.ToString();
+            purTitleLocKey.Text = eventObject.Appearance.PurchaseScreenAppearance.TitleLocKey;
             canShowCarouselBox.Checked = eventObject.Appearance.MainHubAppearance.CanShowInCarousel;
             behaviorCB.Text = eventObject.BehaviorType;
             style2CB.Text = eventObject.Appearance.MainHubAppearance.Style; //might not be populating Right
@@ -153,7 +153,7 @@ namespace JsonValidator
         {
             try
             {
-                JsonGeneration jGen = new JsonGeneration();
+                NewRootGeneration jGen = new NewRootGeneration();
                 jGen.GenerateMyJson(this);
             }
             catch

@@ -31,13 +31,13 @@ namespace JsonValidator.JsonConverters
 
             StoreButtonAppearance storeButtonAppearance = new StoreButtonAppearance()
             {
-                style = comboBoxes.Find(x => x.Name == "styleCB").Text,
-                ribbonLocalizationKey = comboBoxes.Find(x => x.Name == "ribbonLocKeyCB").Text,
-                titleLocalizationKey = comboBoxes.Find(x => x.Name == "titleLocCB").Text,
-                subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "subLocCB").Text,
-                popIds = _popIds,
-                order = Convert.ToInt32(comboBoxes.Find(x => x.Name == "orderCB").Text),
-                discount = Convert.ToInt32(comboBoxes.Find(x => x.Name == "discountCB").Text)
+                Style = comboBoxes.Find(x => x.Name == "styleCB").Text,
+                RibbonLocKey = comboBoxes.Find(x => x.Name == "ribbonLocKeyCB").Text,
+                TitleLocKey = comboBoxes.Find(x => x.Name == "titleLocCB").Text,
+                SubtitleLocKey = comboBoxes.Find(x => x.Name == "subLocCB").Text,
+                PopIds = _popIds,
+                Order = Convert.ToInt32(comboBoxes.Find(x => x.Name == "orderCB").Text),
+                Discount = Convert.ToInt32(comboBoxes.Find(x => x.Name == "discountCB").Text)
             };
 
             return storeButtonAppearance;

@@ -9,31 +9,45 @@ using JsonValidator.StoreConfigUpdate;
 
 namespace JsonValidator
 {
-    public class JsonGeneration
+    public class NewRootGeneration
     {
-        //all members for generating the Json File
+        private FormatBoxString fbs = new FormatBoxString();
         public void GenerateMyJson(Form1 form)
         {
-            //classes for assigning form values to NewRoot object properties
+            var finalRoot = GenerateNewRoot(form);
+            var isEventBox = UpdateBoxType(finalRoot);
+            var jsonOutput = FormatNewJson(finalRoot, isEventBox);
+            var complete = GetTestFilePath();
 
+            File.WriteAllText(complete, jsonOutput);
+            System.Diagnostics.Process.Start(complete);
+        }
+        private string FormatNewJson(NewRoot finalRoot, bool isEventBox)
+        {
+            var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));
+           
+            if (isEventBox)
+            {
+                jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
+                finalRoot.LastChanceBoxPrizes = null;
+                jsonOutput += '\n' + fbs.TestFormatString(SerializeJson(finalRoot));
+                return jsonOutput;
+            }
+            jsonOutput = jsonOutput.TrimEnd() + ',';         
+            return jsonOutput;
+        }
+        public NewRoot GenerateNewRoot(Form1 form)
+        {
             AppearanceConverter appearance = new AppearanceConverter(form);
             PrizesConverter prizesConverter = new PrizesConverter();
             TierConverter tierConverter = new TierConverter();
-            FormatBoxString fbs = new FormatBoxString();
-            
-            //refactor this
+
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
             var dateTimePicker = form.Controls.OfType<DateTimePicker>().ToList();
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
             var textBoxes = form.Controls.OfType<TextBox>().ToList();
-
-            bool isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
-            bool isOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;
-            bool isOtherBox = checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked;
-
-            Dictionary<string, bool> boxTypeDict = new Dictionary<string, bool>()
-            { {"isEventBox", isEventBox },{"isOEDBox", isOEDBox },{"isOtherBox", isOtherBox } };
+            var boxTypeDict = GetBoxTypeDict(form);
 
             NewRoot finalRoot = new NewRoot()
             {
@@ -49,26 +63,32 @@ namespace JsonValidator
                 Tiers = tierConverter.GenerateTierList(flowBoxes),
                 LastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
-            
-           finalRoot.FixDates(finalRoot.StartDate);
 
-            var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));
+            finalRoot.FixDates(finalRoot.StartDate);
 
-            if (isEventBox)
+            return finalRoot;
+        }
+        private Dictionary<string, bool> GetBoxTypeDict(Form form)
+        {
+            var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
+            Dictionary<string, bool> boxTypeDict = new Dictionary<string, bool>()
+            {
+                {"isEventBox", checkBoxes.Find(x => x.Name == "isEventCheck").Checked},
+                {"isOEDBox", checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked},
+                {"isOtherBox", checkBoxes.Find(x => x.Name == "IsOtherCheck").Checked}
+            };
+            return boxTypeDict;
+        }
+        private bool UpdateBoxType(NewRoot finalRoot)
+        {
+            if (finalRoot.Appearance.IsEventBox)
             {
                 finalRoot.BoxReplacesID = finalRoot.BoxID;
                 finalRoot.BoxID = finalRoot.BoxID.Replace("VIP0", "VIP1");
-                jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
                 finalRoot.LastChanceBoxPrizes = null;
-                jsonOutput += '\n' + fbs.TestFormatString(SerializeJson(finalRoot));
+                return true;
             }
-
-            jsonOutput = jsonOutput.TrimEnd() + ',';
-
-            var complete = GetTestFilePath();
-
-            File.WriteAllText(complete, jsonOutput);
-            System.Diagnostics.Process.Start(complete);
+            return false;
         }
         public string GetTestFilePath()
         {
@@ -76,6 +96,7 @@ namespace JsonValidator
                              GetFolderPath(
                                  Environment.SpecialFolder.CommonApplicationData
                              );
+            
             var complete = Path.Combine(systemPath, "TestJson.Json");
 
             return complete;
@@ -107,8 +128,7 @@ namespace JsonValidator
                 _popIds.Add(x.Text);
             }
             return _popIds;
-        }
-        
+        }     
         public string SerializeJson(NewRoot newRoot)
         {
             var settings = new JsonSerializerSettings

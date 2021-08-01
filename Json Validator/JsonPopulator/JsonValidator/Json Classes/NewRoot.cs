@@ -6,9 +6,8 @@ using Newtonsoft.Json;
 
 namespace JsonValidator
 {
-    //The Top Class for all Json classes
-    public class NewRoot
-    {
+    public class NewRoot //The Top Class for all Json classes
+    { 
         public string BoxID { get; set; }
         [JsonIgnore]
         public string EventNumber { get; set; }
@@ -21,9 +20,9 @@ namespace JsonValidator
         public List<string> FeaturedPopIdList { get; set; }
         public List<Prize> Prizes { get; set; }
         public List<Tier> Tiers { get; set; }
-        public List<LastChanceBoxPrize> LastChanceBoxPrizes { get; set; }    
-        public NewRoot(){}
-        public NewRoot(Playbook playbook, Dictionary<string, string> popDict)
+        public List<LastChanceBoxPrize> LastChanceBoxPrizes { get; set; }         
+        public NewRoot(){} //Used when generating TestJson
+        public NewRoot(Playbook playbook, Dictionary<string, string> popDict) //used to populate Winforms UI
         {
             BehaviorType = "PullBased";
             BoxID = "e" + playbook.EventNumber + "_bxtFE_VIP0_" + playbook.BoxID.Trim();
@@ -37,8 +36,8 @@ namespace JsonValidator
            var revisedStart = DateTime.Parse(startDate).ToString("MM/dd/yyyy HH:mm");
            var revisedEnd = DateTime.Parse(startDate).AddDays(6).ToString("MM/dd/yyyy HH:mm");
 
-            this.StartDate = revisedStart;
-            this.EndDate = revisedEnd;
+           this.StartDate = revisedStart;
+           this.EndDate = revisedEnd;
         }
         private void SetFeaturedPopIds(Dictionary<string, string> popIdDict)
         {

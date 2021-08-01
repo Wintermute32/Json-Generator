@@ -6,46 +6,41 @@ namespace JsonValidator
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class StoreButtonAppearance
     {
-        public string style { get; set; }
-        public string ribbonLocalizationKey { get; set; }
-        public string titleLocalizationKey { get; set; }
-        public string subtitleLocalizationKey { get; set; }
-        public List<string> popIds { get; set; }
-        public int order { get; set; }
-        public int discount { get; set; }
-
+        public string Style { get; set; }
+        public string RibbonLocKey { get; set; }
+        public string TitleLocKey { get; set; }
+        public string SubtitleLocKey { get; set; }
+        public List<string> PopIds { get; set; }
+        public int Order { get; set; }
+        public int Discount { get; set; }
         public StoreButtonAppearance ()
         { }
-
         public StoreButtonAppearance(string ipTitle, Dictionary<string, string> popDict)
         {
-            //these are hardcoded values. Need to make them dynamic
-            style = "LargePink";
-            ribbonLocalizationKey = "EventBoxRibbon";
-            titleLocalizationKey = ipTitle + "BoxTitle";
-            subtitleLocalizationKey = "";
-            popIds = getPopIds(popDict);
-            order = 2;
-            discount = 0;
+            //these are hardcoded values. Need to make them dynamic if trying to add non event box
+            Style = "LargePink";
+            RibbonLocKey = "EventBoxRibbon";
+            TitleLocKey = ipTitle + "BoxTitle";
+            SubtitleLocKey = "";
+            PopIds = getPopIds(popDict);
+            Order = 2;
+            Discount = 0;
         }
-
-        public List<string> getPopIds(Dictionary<string, string> popDict)
+        private List<string> getPopIds(Dictionary<string, string> popDict)
         {
             List<string> rarities = new List<string>() { "rare", "legendary", "epic", "common" };
-            List<string> whatever = new List<string>();
+            List<string> orderedRarityList = new List<string>();
 
             for (int i = 0; i < rarities.Count; i++)
             {
                 foreach (KeyValuePair<string, string> entry in popDict)
                     if (entry.Value == rarities[i])
                     {
-                        whatever.Add(entry.Key);
+                        orderedRarityList.Add(entry.Key);
                         Debug.WriteLine("store button entries are:" + entry.Key);
                     }
             }
-
-            return whatever;
+            return orderedRarityList;
         }
     }
-
 }

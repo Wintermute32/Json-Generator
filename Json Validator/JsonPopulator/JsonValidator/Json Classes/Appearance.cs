@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 namespace JsonValidator
 {
-    public class Appearance
+    public class Appearance : NewRoot
     {
         [JsonIgnore]
         public bool IsOEDBox { get; set; } 

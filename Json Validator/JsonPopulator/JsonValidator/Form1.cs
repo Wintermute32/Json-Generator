@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JsonValidator.JsonControllers;
 using System.Diagnostics;
 using JsonValidator.StoreConfigUpdate;
 using JsonValidator.CSV;
@@ -153,7 +154,7 @@ namespace JsonValidator
         {
             try
             {
-                NewRootGeneration jGen = new NewRootGeneration();
+                GenerateNewJson jGen = new GenerateNewJson();
                 jGen.GenerateMyJson(this);
             }
             catch
@@ -171,8 +172,10 @@ namespace JsonValidator
             playbookPath = dragDropBoxPlaybook.Text;
             Debug.WriteLine(playbookPath);
             formControls = new FormControls(dragDropBoxData.Text, playbookPath);
-            Converters converter = new Converters();
-            boxIDs = converter.GetBoxIds(playbookPath);
+            
+            //Converters converter = new Converters();
+            
+            boxIDs = Converters.GetBoxIds(playbookPath);
             boxIdCB.DataSource = boxIDs;
         }
         private void dragDropBoxGacha_DragDrop(object sender, DragEventArgs e)

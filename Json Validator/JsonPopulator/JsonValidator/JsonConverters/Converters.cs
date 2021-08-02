@@ -18,8 +18,7 @@ namespace JsonValidator
         //converter class to xfer data in CSV objects to Json Class Objects
         public Playbook PlaybookPopulator(string playbookPath, string eventID)
         {
-  
-          var playbookRecords = playbookHelper(playbookPath);
+          var playbookRecords = GetPlayBookList(playbookPath);
 
            foreach (var x in playbookRecords)
                 if (x.EventID.ToLower().Contains(eventID.Replace(" ", "").ToLower()))
@@ -27,35 +26,34 @@ namespace JsonValidator
                     Console.WriteLine("Playbook found!");
                     return x;
                 }
-
             Console.WriteLine("Event Name Not Found");
             return null;
         }
 
-        public List<Database> DatabasePopulator(string databasePath, string startDate)
-        {
-            List<Database> popData = new List<Database>();
+        //public List<Database> DatabasePopulator(string databasePath, string startDate)
+        //{
+        //    List<Database> popData = new List<Database>();
 
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-            config.HeaderValidated = null;
-            config.MissingFieldFound = null;
-            var reader = new StreamReader(databasePath);
+        //    var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+        //    config.HeaderValidated = null;
+        //    config.MissingFieldFound = null;
+        //    var reader = new StreamReader(databasePath);
 
-            var csv = new CsvReader(reader, config);
-            var dataBase = csv.GetRecords<Database>().ToList();
+        //    var csv = new CsvReader(reader, config);
+        //    var dataBase = csv.GetRecords<Database>().ToList();
 
-            foreach (var x in dataBase)
-                if (x.ReleaseDate.Contains(startDate))
-                {
-                    Console.WriteLine("database found!");
-                    popData.Add(x);
-                }
+        //    foreach (var x in dataBase)
+        //        if (x.ReleaseDate.Contains(startDate))
+        //        {
+        //            Console.WriteLine("database found!");
+        //            popData.Add(x);
+        //        }
 
-            if (popData.Count == 0)
-                Console.WriteLine("Event Name Not Found");
+        //    if (popData.Count == 0)
+        //        Console.WriteLine("Event Name Not Found");
 
-            return popData;
-        }
+        //    return popData;
+        //}
 
         public List<Gacha> GachaPopulator(string gachaPath)
         {
@@ -87,10 +85,11 @@ namespace JsonValidator
                 return new List<Gacha>();
             }
         }
-        public List<string> GetBoxIds(string playbookPath)
+        public static List<string> GetBoxIds(string playbookPath)
         {
             List<string> boxIDs = new List<string>();
-            var playbookList = playbookHelper(playbookPath);
+            
+            var playbookList = GetPlayBookList(playbookPath);
 
             foreach (var x in playbookList)
             {
@@ -101,9 +100,10 @@ namespace JsonValidator
             }
             return boxIDs;
         }
-        public List<Playbook> playbookHelper(string playbookPath)
+        public static List<Playbook> GetPlayBookList(string playbookPath)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+
             config.HeaderValidated = null;
             config.MissingFieldFound = null;
             var reader = new StreamReader(playbookPath);

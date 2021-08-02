@@ -86,6 +86,7 @@
     <Compile Include="JsonControllers\FormControls.cs" />
     <Compile Include="FormObjects\ITierBox.cs" />
     <Compile Include="Json Classes\Appearance.cs" />
+    <Compile Include="JsonControllers\GenerateNewJson.cs" />
     <Compile Include="JsonConverters\AppearanceConverter.cs" />
     <Compile Include="JsonConverters\Converters.cs" />
     <Compile Include="Json Classes\Guarantee.cs" />

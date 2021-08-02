@@ -39,7 +39,6 @@ namespace JsonValidator.StoreConfigUpdate
 
             return output;
         }
-
         public string TestFormatString(string Json)
         { 
             string[] lines = Json.Split(new[] { Environment.NewLine }, StringSplitOptions.None);

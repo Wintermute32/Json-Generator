@@ -15,7 +15,6 @@ namespace JsonValidator.JsonConverters
         {
             this.form = form;
         }
-
         public Appearance GenerateAppearance()
         {
             StoreButtonConverter sBA = new StoreButtonConverter(form);
@@ -24,7 +23,6 @@ namespace JsonValidator.JsonConverters
 
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
-
 
             Appearance appearance = new Appearance()
             {

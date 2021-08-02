@@ -11,31 +11,7 @@ namespace JsonValidator
 {
     public class NewRootGeneration
     {
-        private FormatBoxString fbs = new FormatBoxString();
-        public void GenerateMyJson(Form1 form)
-        {
-            var finalRoot = GenerateNewRoot(form);
-            var isEventBox = UpdateBoxType(finalRoot);
-            var jsonOutput = FormatNewJson(finalRoot, isEventBox);
-            var complete = GetTestFilePath();
-
-            File.WriteAllText(complete, jsonOutput);
-            System.Diagnostics.Process.Start(complete);
-        }
-        private string FormatNewJson(NewRoot finalRoot, bool isEventBox)
-        {
-            var jsonOutput = fbs.TestFormatString(SerializeJson(finalRoot));
-           
-            if (isEventBox)
-            {
-                jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
-                finalRoot.LastChanceBoxPrizes = null;
-                jsonOutput += '\n' + fbs.TestFormatString(SerializeJson(finalRoot));
-                return jsonOutput;
-            }
-            jsonOutput = jsonOutput.TrimEnd() + ',';         
-            return jsonOutput;
-        }
+        private FormatBoxString fbs = new FormatBoxString();    
         public NewRoot GenerateNewRoot(Form1 form)
         {
             AppearanceConverter appearance = new AppearanceConverter(form);
@@ -71,15 +47,17 @@ namespace JsonValidator
         private Dictionary<string, bool> GetBoxTypeDict(Form form)
         {
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
+            
             Dictionary<string, bool> boxTypeDict = new Dictionary<string, bool>()
             {
                 {"isEventBox", checkBoxes.Find(x => x.Name == "isEventCheck").Checked},
                 {"isOEDBox", checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked},
-                {"isOtherBox", checkBoxes.Find(x => x.Name == "IsOtherCheck").Checked}
+                {"isOtherBox", checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked}
             };
+
             return boxTypeDict;
         }
-        private bool UpdateBoxType(NewRoot finalRoot)
+        public bool UpdateBoxType(NewRoot finalRoot)
         {
             if (finalRoot.Appearance.IsEventBox)
             {
@@ -90,18 +68,7 @@ namespace JsonValidator
             }
             return false;
         }
-        public string GetTestFilePath()
-        {
-            var systemPath = System.Environment.
-                             GetFolderPath(
-                                 Environment.SpecialFolder.CommonApplicationData
-                             );
-            
-            var complete = Path.Combine(systemPath, "TestJson.Json");
-
-            return complete;
-        }
-        public List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
+        private List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
         {
             var popLists = flowlist.Find(x => x.Name == "lastChanceBoxPanel").Controls.OfType<GroupBox>().ToList();
             List<LastChanceBoxPrize> lastChanceList = new List<LastChanceBoxPrize>();
@@ -118,7 +85,7 @@ namespace JsonValidator
             }
             return lastChanceList;
         }
-        public List<string> GetFeaturedPops(List<FlowLayoutPanel> flowList)
+        private List<string> GetFeaturedPops(List<FlowLayoutPanel> flowList)
         {
             var popLists = flowList.Find(x => x.Name == "storePopsPanel").Controls.OfType<ComboBox>().ToList();
             List<string> _popIds = new List<string>();
@@ -129,20 +96,7 @@ namespace JsonValidator
             }
             return _popIds;
         }     
-        public string SerializeJson(NewRoot newRoot)
-        {
-            var settings = new JsonSerializerSettings
-            {
-                Formatting = Formatting.Indented,
-                NullValueHandling = NullValueHandling.Ignore,
-            };
-
-            settings.Converters.Add(new MyConverter());
-           
-            string json = JsonConvert.SerializeObject(newRoot, settings);
-            return json;
-        }
-        public string AmmendBoxID(List<ComboBox> comboBoxes, List<TextBox> textBoxes, Dictionary<string, bool> boxTypeDict)
+        private string AmmendBoxID(List<ComboBox> comboBoxes, List<TextBox> textBoxes, Dictionary<string, bool> boxTypeDict)
         {
             var formBoxId = comboBoxes.Find(x => x.Name == "boxIdCB").Text; ;
             var formBoxNum = textBoxes.Find(x => x.Name == "eventNumBox").Text;

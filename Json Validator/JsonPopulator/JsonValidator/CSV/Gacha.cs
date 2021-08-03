@@ -1,10 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
 using CsvHelper;
+using CsvHelper.Configuration;
 using System.Globalization;
 using System.Linq;
 using CsvHelper.Configuration.Attributes;
@@ -13,32 +11,32 @@ namespace JsonValidator.CSV
 {
     public class Gacha
     {
-     [Name("Tier")]
-    public string Tier { get; set; }
+        [Name("Tier")]
+        public string Tier { get; set; }
 
-    [Name("Cost (Coins)")]
+        [Name("Cost (Coins)")]
         public string Cost { get; set; }
 
-    [Name("Box Pulls")]
+        [Name("Box Pulls")]
         public string BoxPulls { get; set; }
 
-    [Name("Box Guarantee")]
+        [Name("Box Guarantee")]
         public string Guarantee { get; set; }
 
-    [Name("Rarity")]
+        [Name("Rarity")]
         public string Rarity { get; set; }
 
-    [Name("Item Label")]
+        [Name("Item Label")]
         public string PopID { get; set; }
 
-    [Name("Shard Count")]
+        [Name("Shard Count")]
         public string Amount { get; set; }
 
-    [Name("Item Quantity")]
+        [Name("Item Quantity")]
         public string Instances { get; set; }
 
         public string RewardType = "pop";
-         
+
         public List<Prize> PrizeList(List<Gacha> gachaList)
         {
             List<Prize> prizeList = new List<Prize>();
@@ -59,7 +57,34 @@ namespace JsonValidator.CSV
             }
             return prizeList;
         }
-    }
+        public List<Gacha> GachaPopulator(string gachaPath)
+        {
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+            config.HeaderValidated = null;
+            config.MissingFieldFound = null;
+            config.IgnoreBlankLines = true;
 
-   
+            try
+            {
+                var reader = new StreamReader(gachaPath);
+                reader.ReadLine();
+
+                var csv = new CsvReader(reader, config);
+                var gachaData = csv.GetRecords<Gacha>().ToList();
+                gachaData.RemoveRange(21, gachaData.Count - 21);
+
+                if (gachaData.Count == 0)
+                {
+                    Console.WriteLine("Gacha's Not Found");
+                }
+
+                return gachaData;
+            }
+            catch
+            {
+                return new List<Gacha>();
+            }
+
+        }
+    }
 }

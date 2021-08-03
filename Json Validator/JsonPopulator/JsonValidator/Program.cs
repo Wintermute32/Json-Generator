@@ -16,14 +16,13 @@ namespace JsonValidator
         }
        public static NewRoot GetJsonObject(string databasePath, string playbookPath, string gachaPath, string eventID)
         {
-            Converters converters = new Converters();
+            //Converters converters = new Converters();
             Database database = new Database();
             Gacha gacha = new Gacha();
-            Playbook eventPlaybook;
-
+            Playbook eventPlaybook = new Playbook();
             try
             {
-                eventPlaybook = converters.PlaybookPopulator(playbookPath, eventID);
+                eventPlaybook = eventPlaybook.PlaybookPopulator(playbookPath, eventID);
                 eventPlaybook.FixStartDate(eventPlaybook.StartDate);
             }
             catch (Exception)
@@ -47,10 +46,10 @@ namespace JsonValidator
             Appearance appearance = new Appearance(sba, psA, mhA);
             newRoot.Appearance = appearance;
 
-            List<Gacha> gachaList = converters.GachaPopulator(gachaPath);
+            List<Gacha> gachaList = gacha.GachaPopulator(gachaPath);
             newRoot.Prizes = gacha.PrizeList(gachaList);
             newRoot.Tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
-            newRoot.LastChanceBoxPrizes = converters.AssignBoxValues(popDict);
+            newRoot.LastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
 
             return newRoot;
         }

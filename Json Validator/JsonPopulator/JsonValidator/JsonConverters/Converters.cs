@@ -11,143 +11,143 @@ using System.Globalization;
 using System.Linq;
 using JsonValidator.CSV;
 
-namespace JsonValidator
-{
-    class Converters
-    {
-        //converter class to xfer data in CSV objects to Json Class Objects
-        public Playbook PlaybookPopulator(string playbookPath, string eventID)
-        {
-          var playbookRecords = GetPlayBookList(playbookPath);
+//namespace jsonvalidator
+//{
+//    class converters
+//    {
+//        converter class to xfer data in csv objects to json class objects
+//        public playbook playbookpopulator(string playbookpath, string eventid)
+//        {
+//            var playbookrecords = getplaybooklist(playbookpath);
 
-           foreach (var x in playbookRecords)
-                if (x.EventID.ToLower().Contains(eventID.Replace(" ", "").ToLower()))
-                {
-                    Console.WriteLine("Playbook found!");
-                    return x;
-                }
-            Console.WriteLine("Event Name Not Found");
-            return null;
-        }
+//            foreach (var x in playbookrecords)
+//                if (x.eventid.tolower().contains(eventid.replace(" ", "").tolower()))
+//                {
+//                    console.writeline("playbook found!");
+//                    return x;
+//                }
+//            console.writeline("event name not found");
+//            return null;
+//        }
 
-        //public List<Database> DatabasePopulator(string databasePath, string startDate)
-        //{
-        //    List<Database> popData = new List<Database>();
+//        public list<database> databasepopulator(string databasepath, string startdate)
+//        {
+//            list<database> popdata = new list<database>();
 
-        //    var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-        //    config.HeaderValidated = null;
-        //    config.MissingFieldFound = null;
-        //    var reader = new StreamReader(databasePath);
+//            var config = new csvconfiguration(cultureinfo.invariantculture);
+//            config.headervalidated = null;
+//            config.missingfieldfound = null;
+//            var reader = new streamreader(databasepath);
 
-        //    var csv = new CsvReader(reader, config);
-        //    var dataBase = csv.GetRecords<Database>().ToList();
+//            var csv = new csvreader(reader, config);
+//            var database = csv.getrecords<database>().tolist();
 
-        //    foreach (var x in dataBase)
-        //        if (x.ReleaseDate.Contains(startDate))
-        //        {
-        //            Console.WriteLine("database found!");
-        //            popData.Add(x);
-        //        }
+//            foreach (var x in database)
+//                if (x.releasedate.contains(startdate))
+//                {
+//                    console.writeline("database found!");
+//                    popdata.add(x);
+//                }
 
-        //    if (popData.Count == 0)
-        //        Console.WriteLine("Event Name Not Found");
+//            if (popdata.count == 0)
+//                console.writeline("event name not found");
 
-        //    return popData;
-        //}
+//            return popdata;
+//        }
 
-        public List<Gacha> GachaPopulator(string gachaPath)
-        {
+//        public list<gacha> gachapopulator(string gachapath)
+//        {
 
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-            config.HeaderValidated = null;
-            config.MissingFieldFound = null;
-            config.IgnoreBlankLines = true;
+//            var config = new csvconfiguration(cultureinfo.invariantculture);
+//            config.headervalidated = null;
+//            config.missingfieldfound = null;
+//            config.ignoreblanklines = true;
 
-            try
-            {
+//            try
+//            {
 
-                var reader = new StreamReader(gachaPath);
-                reader.ReadLine();
+//                var reader = new streamreader(gachapath);
+//                reader.readline();
 
-                var csv = new CsvReader(reader, config);
-                var gachaData = csv.GetRecords<Gacha>().ToList();
-                gachaData.RemoveRange(21, gachaData.Count - 21);
+//                var csv = new csvreader(reader, config);
+//                var gachadata = csv.getrecords<gacha>().tolist();
+//                gachadata.removerange(21, gachadata.count - 21);
 
-                if (gachaData.Count == 0)
-                {
-                    Console.WriteLine("Gacha's Not Found");
-                }
+//                if (gachadata.count == 0)
+//                {
+//                    console.writeline("gacha's not found");
+//                }
 
-                return gachaData;
-            }
-            catch
-            {
-                return new List<Gacha>();
-            }
-        }
-        public static List<string> GetBoxIds(string playbookPath)
-        {
-            List<string> boxIDs = new List<string>();
-            
-            var playbookList = GetPlayBookList(playbookPath);
+//                return gachadata;
+//            }
+//            catch
+//            {
+//                return new list<gacha>();
+//            }
+//        }
+//        public static list<string> getboxids(string playbookpath)
+//        {
+//            list<string> boxids = new list<string>();
 
-            foreach (var x in playbookList)
-            {
-                if (x.EventID != null && x.EventID != "")
-                {
-                    boxIDs.Add(x.EventID);
-                }
-            }
-            return boxIDs;
-        }
-        public static List<Playbook> GetPlayBookList(string playbookPath)
-        {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+//            var playbooklist = getplaybooklist(playbookpath);
 
-            config.HeaderValidated = null;
-            config.MissingFieldFound = null;
-            var reader = new StreamReader(playbookPath);
-            reader.ReadLine();
-            reader.ReadLine(); //reassigns header as third line from top of CSV
+//            foreach (var x in playbooklist)
+//            {
+//                if (x.eventid != null && x.eventid != "")
+//                {
+//                    boxids.add(x.eventid);
+//                }
+//            }
+//            return boxids;
+//        }
+//        public static list<playbook> getplaybooklist(string playbookpath)
+//        {
+//            var config = new csvconfiguration(cultureinfo.invariantculture);
 
-            Debug.WriteLine("Playbook being read");
+//            config.headervalidated = null;
+//            config.missingfieldfound = null;
+//            var reader = new streamreader(playbookpath);
+//            reader.readline();
+//            reader.readline(); //reassigns header as third line from top of csv
 
-            var csv = new CsvReader(reader, config);
-            var playbookRecords = csv.GetRecords<Playbook>().ToList();
-            return playbookRecords;
-        }
-        public List<LastChanceBoxPrize> AssignBoxValues(Dictionary<string, string> popDict)
-        {
-            List<LastChanceBoxPrize> lcbpList = new List<LastChanceBoxPrize>();
+//            debug.writeline("playbook being read");
 
-            foreach (var x in popDict)
-            {
-                LastChanceBoxPrize lastChanceP = new LastChanceBoxPrize();
-                lastChanceP.RewardID = x.Key;
-                lcbpList.Add(lastChanceP);
-            }
+//            var csv = new csvreader(reader, config);
+//            var playbookrecords = csv.getrecords<playbook>().tolist();
+//            return playbookrecords;
+//        }
+//        public list<lastchanceboxprize> assignboxvalues(dictionary<string, string> popdict)
+//        {
+//            list<lastchanceboxprize> lcbplist = new list<lastchanceboxprize>();
 
-            lcbpList.Reverse();
+//            foreach (var x in popdict)
+//            {
+//                lastchanceboxprize lastchancep = new lastchanceboxprize();
+//                lastchancep.rewardid = x.key;
+//                lcbplist.add(lastchancep);
+//            }
 
-            for (int i = 0; i < lcbpList.Count; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        lcbpList[i].Amount = 1; lcbpList[i].Instances = 3; break;
-                    case 1:
-                        lcbpList[i].Amount = 2; lcbpList[i].Instances = 2; break;
-                    case 2:
-                        lcbpList[i].Amount = 3; lcbpList[i].Instances = 2; break;
-                    case 3:
-                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
+//            lcbplist.reverse();
 
-                    case 4:
-                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
-                }
+//            for (int i = 0; i < lcbplist.count; i++)
+//            {
+//                switch (i)
+//                {
+//                    case 0:
+//                        lcbplist[i].amount = 1; lcbplist[i].instances = 3; break;
+//                    case 1:
+//                        lcbplist[i].amount = 2; lcbplist[i].instances = 2; break;
+//                    case 2:
+//                        lcbplist[i].amount = 3; lcbplist[i].instances = 2; break;
+//                    case 3:
+//                        lcbplist[i].amount = 6; lcbplist[i].instances = 1; break;
 
-            }
-            return lcbpList;
-        }
-    }
-}
+//                    case 4:
+//                        lcbplist[i].amount = 6; lcbplist[i].instances = 1; break;
+//                }
+
+//            }
+//            return lcbplist;
+//        }
+//    }
+//}

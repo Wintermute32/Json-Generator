@@ -172,10 +172,8 @@ namespace JsonValidator
             playbookPath = dragDropBoxPlaybook.Text;
             Debug.WriteLine(playbookPath);
             formControls = new FormControls(dragDropBoxData.Text, playbookPath);
-            
-            //Converters converter = new Converters();
-            
-            boxIDs = Converters.GetBoxIds(playbookPath);
+
+            boxIDs = Playbook.GetBoxIds(playbookPath);
             boxIdCB.DataSource = boxIDs;
         }
         private void dragDropBoxGacha_DragDrop(object sender, DragEventArgs e)

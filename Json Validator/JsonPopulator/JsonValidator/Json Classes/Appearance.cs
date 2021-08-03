@@ -1,5 +1,8 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Linq;
+using System.Windows.Forms;
+
+
 namespace JsonValidator
 {
     public class Appearance : NewRoot
@@ -25,6 +28,29 @@ namespace JsonValidator
             StoreButtonAppearance = sbA;
             PurchaseScreenAppearance = psA;
             MainHubAppearance = mhA;
+        }
+        public static Appearance GenerateAppearance(Form1 form)
+        {
+           //StoreButtonConverter sBA = new StoreButtonConverter(form);
+            //PurchaseScreenConverter pSA = new PurchaseScreenConverter(form);
+            //MainHubConverter mHA = new MainHubConverter(form);
+
+            var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
+            var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
+
+            Appearance appearance = new Appearance()
+            {
+                IsEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
+                MysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
+                IsOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked, //do i need this?
+
+                Theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
+                StoreButtonAppearance = StoreButtonAppearance.GenerateStoreBA(form),
+                PurchaseScreenAppearance = PurchaseScreenAppearance.GeneratePurchaseScreenApeparance(form),
+                MainHubAppearance = MainHubAppearance.GenerateHubAppearance(form),
+            };
+
+            return appearance;
         }
     }
 }

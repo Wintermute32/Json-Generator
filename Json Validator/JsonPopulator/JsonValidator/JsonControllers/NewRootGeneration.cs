@@ -14,9 +14,9 @@ namespace JsonValidator
         private FormatBoxString fbs = new FormatBoxString();    
         public NewRoot GenerateNewRoot(Form1 form)
         {
-            AppearanceConverter appearance = new AppearanceConverter(form);
-            PrizesConverter prizesConverter = new PrizesConverter();
-            TierConverter tierConverter = new TierConverter();
+            //AppearanceConverter appearance = new AppearanceConverter(form);
+            //PrizesConverter prizesConverter = new PrizesConverter();
+            //TierConverter tierConverter = new TierConverter();
 
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
@@ -32,11 +32,11 @@ namespace JsonValidator
                 FandomID = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
                 StartDate = dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
                 EndDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
-                Appearance = appearance.GenerateAppearance(),
+                Appearance = Appearance.GenerateAppearance(form),
                 BehaviorType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
                 FeaturedPopIdList = GetFeaturedPops(flowBoxes),
-                Prizes = prizesConverter.GeneratePrizeList(flowBoxes),
-                Tiers = tierConverter.GenerateTierList(flowBoxes),
+                Prizes = Prize.GeneratePrizeList(flowBoxes),
+                Tiers = Tier.GenerateTierListConverter(flowBoxes),
                 LastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
 
@@ -120,5 +120,38 @@ namespace JsonValidator
 
             return boxId;
         }
+        public static List<LastChanceBoxPrize> AssignBoxValues(Dictionary<string, string> popDict)
+        {
+            List<LastChanceBoxPrize> lcbpList = new List<LastChanceBoxPrize>();
+
+            foreach (var x in popDict)
+            {
+                LastChanceBoxPrize lastChanceP = new LastChanceBoxPrize();
+                lastChanceP.RewardID = x.Key;
+                lcbpList.Add(lastChanceP);
+            }
+
+            lcbpList.Reverse();
+
+            for (int i = 0; i < lcbpList.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        lcbpList[i].Amount = 1; lcbpList[i].Instances = 3; break;
+                    case 1:
+                        lcbpList[i].Amount = 2; lcbpList[i].Instances = 2; break;
+                    case 2:
+                        lcbpList[i].Amount = 3; lcbpList[i].Instances = 2; break;
+                    case 3:
+                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
+
+                    case 4:
+                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
+                }
+
+            }
+            return lcbpList;
+        }
     }
-} 
+}

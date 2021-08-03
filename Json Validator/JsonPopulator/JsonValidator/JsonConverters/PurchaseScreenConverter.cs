@@ -15,26 +15,26 @@ namespace JsonValidator.JsonConverters
         {
             this.form = form;
         }
-        public PurchaseScreenAppearance GeneratePurchaseScreenApeparance()
-        {
-            var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
-            var textBoxes = form.Controls.OfType<TextBox>().ToList();
+        //public PurchaseScreenAppearance GeneratePurchaseScreenApeparance()
+        //{
+        //    var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
+        //    var textBoxes = form.Controls.OfType<TextBox>().ToList();
 
-            var popLists = flowBoxes.Find(x => x.Name == "purchasePopsPanel").Controls.OfType<ComboBox>().ToList();
-            List<string> _popIds = new List<string>();
+        //    var popLists = flowBoxes.Find(x => x.Name == "purchasePopsPanel").Controls.OfType<ComboBox>().ToList();
+        //    List<string> _popIds = new List<string>();
 
-            foreach (var x in popLists) //break me into a new class with store appearance
-            {
-                _popIds.Add(x.Text);
-            }
+        //    foreach (var x in popLists) //break me into a new class with store appearance
+        //    {
+        //        _popIds.Add(x.Text);
+        //    }
 
-            PurchaseScreenAppearance purchaseScreenAppearance = new PurchaseScreenAppearance()
-            {
-                TitleLocKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
-                PopIds = _popIds
-            };
+        //    PurchaseScreenAppearance purchaseScreenAppearance = new PurchaseScreenAppearance()
+        //    {
+        //        TitleLocKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
+        //        PopIds = _popIds
+        //    };
 
-            return purchaseScreenAppearance;
-        }
+        //    return purchaseScreenAppearance;
+        //}
     }
 }

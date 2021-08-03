@@ -16,31 +16,31 @@ namespace JsonValidator.JsonConverters
             this.form = form;
         }
 
-        public StoreButtonAppearance GenerateStoreBA()
-        {
-            var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
-            var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
+        //public StoreButtonAppearance GenerateStoreBA()
+        //{
+        //    var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
+        //    var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
 
-            var popLists = flowBoxes.Find(x => x.Name == "storePopsPanel").Controls.OfType<ComboBox>().ToList();
-            List<string> _popIds = new List<string>();
+        //    var popLists = flowBoxes.Find(x => x.Name == "storePopsPanel").Controls.OfType<ComboBox>().ToList();
+        //    List<string> _popIds = new List<string>();
 
-            foreach (var x in popLists) //break me into a new class with store appearance
-            {
-                _popIds.Add(x.Text);
-            }
+        //    foreach (var x in popLists) //break me into a new class with store appearance
+        //    {
+        //        _popIds.Add(x.Text);
+        //    }
 
-            StoreButtonAppearance storeButtonAppearance = new StoreButtonAppearance()
-            {
-                Style = comboBoxes.Find(x => x.Name == "styleCB").Text,
-                RibbonLocKey = comboBoxes.Find(x => x.Name == "ribbonLocKeyCB").Text,
-                TitleLocKey = comboBoxes.Find(x => x.Name == "titleLocCB").Text,
-                SubtitleLocKey = comboBoxes.Find(x => x.Name == "subLocCB").Text,
-                PopIds = _popIds,
-                Order = Convert.ToInt32(comboBoxes.Find(x => x.Name == "orderCB").Text),
-                Discount = Convert.ToInt32(comboBoxes.Find(x => x.Name == "discountCB").Text)
-            };
+        //    StoreButtonAppearance storeButtonAppearance = new StoreButtonAppearance()
+        //    {
+        //        Style = comboBoxes.Find(x => x.Name == "styleCB").Text,
+        //        RibbonLocKey = comboBoxes.Find(x => x.Name == "ribbonLocKeyCB").Text,
+        //        TitleLocKey = comboBoxes.Find(x => x.Name == "titleLocCB").Text,
+        //        SubtitleLocKey = comboBoxes.Find(x => x.Name == "subLocCB").Text,
+        //        PopIds = _popIds,
+        //        Order = Convert.ToInt32(comboBoxes.Find(x => x.Name == "orderCB").Text),
+        //        Discount = Convert.ToInt32(comboBoxes.Find(x => x.Name == "discountCB").Text)
+        //    };
 
-            return storeButtonAppearance;
-        }
+        //    return storeButtonAppearance;
+        //}
     }
 }

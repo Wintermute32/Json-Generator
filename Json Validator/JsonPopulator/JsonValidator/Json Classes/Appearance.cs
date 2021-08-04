@@ -10,44 +10,42 @@ namespace JsonValidator
         [JsonIgnore]
         public bool IsOEDBox { get; set; } 
         [JsonIgnore]
-        public bool IsHolidayBox { get; set; }
+        public bool IsOtherBox { get; set; }
         [JsonIgnore]
         public bool IsVIPBox { get; set; }
-        public bool IsEventBox { get; set; } //not ignoring since this is a field on the Json
-        public string MysteryBoxType { get; set; }
-        public string Theme { get; set; }
-        public StoreButtonAppearance StoreButtonAppearance { get; set; }
-        public PurchaseScreenAppearance PurchaseScreenAppearance { get; set; }
-        public MainHubAppearance MainHubAppearance { get; set; }
+        public bool isEventBox { get; set; } //not ignoring since 
+        public string mysteryBoxType { get; set; }
+        public string theme { get; set; }
+        public StoreButtonAppearance storeButtonAppearance { get; set; }
+        public PurchaseScreenAppearance purchaseScreenAppearance { get; set; }
+        public MainHubAppearance mainHubAppearance { get; set; }
         public Appearance(){ }
         public Appearance(StoreButtonAppearance sbA, PurchaseScreenAppearance psA, MainHubAppearance mhA)
         {
-            IsEventBox = true;
-            MysteryBoxType = "LuckyMystery";
-            Theme = "";
-            StoreButtonAppearance = sbA;
-            PurchaseScreenAppearance = psA;
-            MainHubAppearance = mhA;
+            isEventBox = true;
+            mysteryBoxType = "LuckyMystery";
+            theme = "";
+            storeButtonAppearance = sbA;
+            purchaseScreenAppearance = psA;
+            mainHubAppearance = mhA;
         }
         public static Appearance GenerateAppearance(Form1 form)
         {
-           //StoreButtonConverter sBA = new StoreButtonConverter(form);
-            //PurchaseScreenConverter pSA = new PurchaseScreenConverter(form);
-            //MainHubConverter mHA = new MainHubConverter(form);
-
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
 
             Appearance appearance = new Appearance()
             {
-                IsEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
-                MysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
-                IsOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked, //do i need this?
+                isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
+                IsVIPBox = checkBoxes.Find(x => x.Name == "isVipBox").Checked,
+                IsOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked,
+                IsOtherBox = checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked,
+                mysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
 
-                Theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
-                StoreButtonAppearance = StoreButtonAppearance.GenerateStoreBA(form),
-                PurchaseScreenAppearance = PurchaseScreenAppearance.GeneratePurchaseScreenApeparance(form),
-                MainHubAppearance = MainHubAppearance.GenerateHubAppearance(form),
+                theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
+                storeButtonAppearance = StoreButtonAppearance.GenerateStoreBA(form),
+                purchaseScreenAppearance = PurchaseScreenAppearance.GeneratePurchaseScreenApeparance(form),
+                mainHubAppearance = MainHubAppearance.GenerateHubAppearance(form),
             };
 
             return appearance;

@@ -40,18 +40,18 @@ namespace JsonValidator
         }
         private void AssignToPopPanels(NewRoot newRoot, Dictionary<string, FlowLayoutPanel> layoutPanels)
         {
-            var appearance = newRoot.Appearance;
+            var appearance = newRoot.appearance;
 
-            foreach (var popId in appearance.StoreButtonAppearance.PopIds)
+            foreach (var popId in appearance.storeButtonAppearance.popIds)
                 GeneratePopSelector(popId, layoutPanels["storePopsPanel"]);
 
-            foreach (var popId in appearance.PurchaseScreenAppearance.PopIds)
+            foreach (var popId in appearance.purchaseScreenAppearance.popIds)
                 GeneratePopSelector(popId, layoutPanels["purchasePopsPanel"]);
 
-            foreach (var popId in appearance.MainHubAppearance.PopIds)
+            foreach (var popId in appearance.mainHubAppearance.popIds)
                 GeneratePopSelector(popId, layoutPanels["mainHubPanel"]);
 
-            foreach (var popId in newRoot.FeaturedPopIdList)
+            foreach (var popId in newRoot.featuredPopIds)
                 GeneratePopSelector(popId, layoutPanels["featuredPopPanel"]);
         }
         private void AssignToPopPanels(NewRoot newRoot, Dictionary<string, FlowLayoutPanel> layoutPanels, string databasePath)
@@ -60,13 +60,13 @@ namespace JsonValidator
             //TierBoxL/M/S contructors add boxes to Tier Panels
             //Maybe not best way to do this.
 
-            foreach (var x in newRoot.Prizes)
+            foreach (var x in newRoot.prizes)
                 new PrizeBox(layoutPanels["prizePanel"], databasePath, x);
 
             foreach (var x in newRoot.LastChanceBoxPrizes)
                 new PrizeBox(layoutPanels["lastChanceBoxPanel"], databasePath, x);
 
-            foreach (var x in newRoot.Tiers)
+            foreach (var x in newRoot.tiers)
             {
                 if (x.IsGuarantee == true && x.Guarantee.LuckyPopPrize == null)
                     new TierBoxL(layoutPanels["tierPanel"], databasePath, x);

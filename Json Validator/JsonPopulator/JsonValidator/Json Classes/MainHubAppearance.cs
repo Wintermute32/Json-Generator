@@ -6,27 +6,27 @@ namespace JsonValidator
 {
     public class MainHubAppearance
     {
-        public bool CanShowInCarousel { get; set; }
-        public string Style { get; set; }
-        public string TitleLocKey { get; set; }
-        public string SubtitleLocKey { get; set; }
-        public List<string> PopIds { get; set; }
+        public bool canShowInCarousel { get; set; }
+        public string style { get; set; }
+        public string titleLocalizationKey { get; set; }
+        public string subtitleLocalizationKey { get; set; }
+        public List<string> popIds { get; set; }
         public MainHubAppearance() { }
         public MainHubAppearance(string fandomName, Dictionary<string, string> popDict)
         {
             List<string> mainHubRarities = new List<string>() { "epic", "legendary", "rare" };
             List<string> addToMePopId = new List<string>();
 
-            CanShowInCarousel = true;
-            TitleLocKey = fandomName + "BoxTitle";
-            Style = "Pink";
+            canShowInCarousel = true;
+            titleLocalizationKey = fandomName + "BoxTitle";
+            style = "Pink";
             
             foreach (var x in mainHubRarities)
                 foreach (KeyValuePair<string, string> entry in popDict)
                     if (x == entry.Value)
                         addToMePopId.Add(entry.Key);
 
-            PopIds = addToMePopId;
+            popIds = addToMePopId;
         }
         public static MainHubAppearance GenerateHubAppearance(Form1 form)
         {
@@ -44,11 +44,11 @@ namespace JsonValidator
 
             MainHubAppearance mainHubApp = new MainHubAppearance()
             {
-                CanShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked,
-                Style = comboBoxes.Find(x => x.Name == "style2CB").Text,
-                TitleLocKey = comboBoxes.Find(x => x.Name == "titleLocKeyCB").Text,
-                SubtitleLocKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text,
-                PopIds = _popIds,
+                canShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked,
+                style = comboBoxes.Find(x => x.Name == "style2CB").Text,
+                titleLocalizationKey = comboBoxes.Find(x => x.Name == "titleLocKeyCB").Text,
+                subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text,
+                popIds = _popIds,
 
             };
             return mainHubApp;

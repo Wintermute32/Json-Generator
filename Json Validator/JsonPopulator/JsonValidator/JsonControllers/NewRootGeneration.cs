@@ -1,23 +1,15 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using System.IO;
 using System;
 using System.Collections.Generic;
-using JsonValidator.JsonConverters;
-using JsonValidator.StoreConfigUpdate;
 
 namespace JsonValidator
 {
     public class NewRootGeneration
     {
-        private FormatBoxString fbs = new FormatBoxString();    
+        //private FormatBoxString fbs = new FormatBoxString();    
         public NewRoot GenerateNewRoot(Form1 form)
         {
-            //AppearanceConverter appearance = new AppearanceConverter(form);
-            //PrizesConverter prizesConverter = new PrizesConverter();
-            //TierConverter tierConverter = new TierConverter();
-
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
             var dateTimePicker = form.Controls.OfType<DateTimePicker>().ToList();
@@ -27,20 +19,20 @@ namespace JsonValidator
 
             NewRoot finalRoot = new NewRoot()
             {
-                BoxID = AmmendBoxID(comboBoxes, textBoxes, boxTypeDict),
+                boxId = AmmendBoxID(comboBoxes, textBoxes, boxTypeDict),
                 EventNumber = textBoxes.Find(x => x.Name == "eventNumBox").Text,
-                FandomID = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
-                StartDate = dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
-                EndDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
-                Appearance = Appearance.GenerateAppearance(form),
-                BehaviorType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
-                FeaturedPopIdList = GetFeaturedPops(flowBoxes),
-                Prizes = Prize.GeneratePrizeList(flowBoxes),
-                Tiers = Tier.GenerateTierListConverter(flowBoxes),
+                fandomId = textBoxes.Find(x => x.Name == "fandomIdCB").Text,
+                startDate = dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
+                endDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
+                appearance = Appearance.GenerateAppearance(form),
+                behaviorType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
+                featuredPopIds = GetFeaturedPops(flowBoxes),
+                prizes = Prize.GeneratePrizeList(flowBoxes),
+                tiers = Tier.GenerateTierListConverter(flowBoxes),
                 LastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
 
-            finalRoot.FixDates(finalRoot.StartDate);
+            finalRoot.FixDates(finalRoot.startDate);
 
             return finalRoot;
         }
@@ -52,22 +44,42 @@ namespace JsonValidator
             {
                 {"isEventBox", checkBoxes.Find(x => x.Name == "isEventCheck").Checked},
                 {"isOEDBox", checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked},
-                {"isOtherBox", checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked}
+                {"isOtherBox", checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked},
+                {"isVIPBox", checkBoxes.Find(x => x.Name == "isVipBox").Checked}
             };
-
             return boxTypeDict;
         }
-        public bool UpdateBoxType(NewRoot finalRoot)
+        public void UpdateBoxType(NewRoot finalRoot)
         {
-            if (finalRoot.Appearance.IsEventBox)
+            if (finalRoot.appearance.isEventBox)
+                finalRoot.appearance.isEventBox = false;
+           
+            if (finalRoot.appearance.IsVIPBox)
             {
-                finalRoot.BoxReplacesID = finalRoot.BoxID;
-                finalRoot.BoxID = finalRoot.BoxID.Replace("VIP0", "VIP1");
-                finalRoot.LastChanceBoxPrizes = null;
-                return true;
+                finalRoot.boxVipReplaces = finalRoot.boxId.Replace("VIP1", "VIP0");
+                finalRoot.LastChanceBoxPrizes = null;;
             }
-            return false;
+
+            if (finalRoot.appearance.IsOtherBox)
+            {
+                finalRoot.appearance.isEventBox = false;
+                finalRoot.LastChanceBoxPrizes = null;
+            }
+
+            if (finalRoot.appearance.IsOEDBox)
+                finalRoot.LastChanceBoxPrizes = null;
         }
+        //public bool UpdateBoxType(NewRoot finalRoot)
+        //{
+        //    if (finalRoot.appearance.isEventBox)
+        //    {
+        //        finalRoot.boxVipReplaces = finalRoot.boxId;
+        //        finalRoot.boxId = finalRoot.boxId.Replace("VIP0", "VIP1");
+        //        finalRoot.LastChanceBoxPrizes = null;
+        //        return true;
+        //    }
+        //    return false;
+        //}
         private List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
         {
             var popLists = flowlist.Find(x => x.Name == "lastChanceBoxPanel").Controls.OfType<GroupBox>().ToList();
@@ -77,10 +89,10 @@ namespace JsonValidator
             {
                 var combos = x.Controls.OfType<ComboBox>().ToList();
                 LastChanceBoxPrize lastCBox = new LastChanceBoxPrize();
-                lastCBox.RewardType = combos[0].Text;
-                lastCBox.RewardID = combos[1].Text;
-                lastCBox.Amount = Convert.ToInt32(combos[2].Text);
-                lastCBox.Instances = Convert.ToInt32(combos[3].Text);
+                lastCBox.rewardType = combos[0].Text;
+                lastCBox.rewardId = combos[1].Text;
+                lastCBox.amount = Convert.ToInt32(combos[2].Text);
+                lastCBox.instances = Convert.ToInt32(combos[3].Text);
                 lastChanceList.Add(lastCBox);
             }
             return lastChanceList;
@@ -106,6 +118,9 @@ namespace JsonValidator
             if (boxTypeDict["isEventBox"])
                  boxId = "e" + formBoxNum + "_bxtFE_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
+            if (boxTypeDict["isVIPBox"])
+                boxId = "e" + formBoxNum + "_bxtFE_VIP1_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+
             if (boxTypeDict["isOEDBox"])
                  boxId = "e" + formBoxNum + "_bxtOED_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
@@ -127,7 +142,7 @@ namespace JsonValidator
             foreach (var x in popDict)
             {
                 LastChanceBoxPrize lastChanceP = new LastChanceBoxPrize();
-                lastChanceP.RewardID = x.Key;
+                lastChanceP.rewardId = x.Key;
                 lcbpList.Add(lastChanceP);
             }
 
@@ -138,16 +153,14 @@ namespace JsonValidator
                 switch (i)
                 {
                     case 0:
-                        lcbpList[i].Amount = 1; lcbpList[i].Instances = 3; break;
+                        lcbpList[i].amount = 1; lcbpList[i].instances = 3; break;
                     case 1:
-                        lcbpList[i].Amount = 2; lcbpList[i].Instances = 2; break;
+                        lcbpList[i].amount = 2; lcbpList[i].instances = 2; break;
                     case 2:
-                        lcbpList[i].Amount = 3; lcbpList[i].Instances = 2; break;
+                        lcbpList[i].amount = 3; lcbpList[i].instances = 2; break;
                     case 3:
-                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
-
                     case 4:
-                        lcbpList[i].Amount = 6; lcbpList[i].Instances = 1; break;
+                        lcbpList[i].amount = 6; lcbpList[i].instances = 1; break;
                 }
 
             }

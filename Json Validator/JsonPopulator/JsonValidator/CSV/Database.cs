@@ -26,6 +26,9 @@ namespace JsonValidator.CSV
         }
         public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
         {
+            if (databasePath == null)
+                return null;
+
             string[] allLines = null;
             
             if (File.Exists(databasePath))
@@ -55,6 +58,16 @@ namespace JsonValidator.CSV
                 return true;
 
             return false;
-        } 
+        }
+        public List<string> ParsePopDictionary(Dictionary<string, string> popDict)
+        {
+            List<string> popIDs = new List<string>();
+            foreach (var x in popDict)
+            {
+                if (x.Key != null)
+                    popIDs.Add(x.Key);
+            }
+            return popIDs;
+        }
     }
 }

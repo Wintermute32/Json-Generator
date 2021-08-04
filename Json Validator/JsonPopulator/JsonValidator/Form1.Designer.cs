@@ -117,7 +117,6 @@ namespace JsonValidator
             this.mainSubB = new System.Windows.Forms.Button();
             this.featuredSubB = new System.Windows.Forms.Button();
             this.genJsonBtn = new System.Windows.Forms.Button();
-            this.dragDropBoxData = new System.Windows.Forms.TextBox();
             this.dragDropBoxPlaybook = new System.Windows.Forms.TextBox();
             this.dragDropBoxGacha = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -128,13 +127,15 @@ namespace JsonValidator
             this.OtherBoxCheck = new System.Windows.Forms.CheckBox();
             this.eventNumBox = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.fileDirectoryTextBox = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.titleLocCB = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.isVipBox = new System.Windows.Forms.CheckBox();
+            this.fileDirectoryTextBox = new System.Windows.Forms.TextBox();
+            this.dragDropBoxData = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.PrizeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -999,17 +1000,6 @@ namespace JsonValidator
             this.genJsonBtn.UseVisualStyleBackColor = true;
             this.genJsonBtn.Click += new System.EventHandler(this.genJsonBtn_Click);
             // 
-            // dragDropBoxData
-            // 
-            this.dragDropBoxData.AllowDrop = true;
-            this.dragDropBoxData.Location = new System.Drawing.Point(70, 34);
-            this.dragDropBoxData.Name = "dragDropBoxData";
-            this.dragDropBoxData.Size = new System.Drawing.Size(120, 20);
-            this.dragDropBoxData.TabIndex = 83;
-            this.dragDropBoxData.Text = global::JsonValidator.Properties.Settings.Default.PathPreserve;
-            this.dragDropBoxData.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragDrop);
-            this.dragDropBoxData.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragOver);
-            // 
             // dragDropBoxPlaybook
             // 
             this.dragDropBoxPlaybook.AllowDrop = true;
@@ -1069,7 +1059,7 @@ namespace JsonValidator
             // oedBoxCheck
             // 
             this.oedBoxCheck.AutoSize = true;
-            this.oedBoxCheck.Location = new System.Drawing.Point(108, 325);
+            this.oedBoxCheck.Location = new System.Drawing.Point(245, 325);
             this.oedBoxCheck.Name = "oedBoxCheck";
             this.oedBoxCheck.Size = new System.Drawing.Size(70, 17);
             this.oedBoxCheck.TabIndex = 90;
@@ -1080,7 +1070,7 @@ namespace JsonValidator
             // OtherBoxCheck
             // 
             this.OtherBoxCheck.AutoSize = true;
-            this.OtherBoxCheck.Location = new System.Drawing.Point(198, 325);
+            this.OtherBoxCheck.Location = new System.Drawing.Point(169, 325);
             this.OtherBoxCheck.Name = "OtherBoxCheck";
             this.OtherBoxCheck.Size = new System.Drawing.Size(73, 17);
             this.OtherBoxCheck.TabIndex = 91;
@@ -1104,18 +1094,6 @@ namespace JsonValidator
             this.label32.Size = new System.Drawing.Size(118, 13);
             this.label32.TabIndex = 94;
             this.label32.Text = "Top Store File Directory";
-            // 
-            // fileDirectoryTextBox
-            // 
-            this.fileDirectoryTextBox.AllowDrop = true;
-            this.fileDirectoryTextBox.Location = new System.Drawing.Point(217, 34);
-            this.fileDirectoryTextBox.Name = "fileDirectoryTextBox";
-            this.fileDirectoryTextBox.Size = new System.Drawing.Size(243, 20);
-            this.fileDirectoryTextBox.TabIndex = 95;
-            this.fileDirectoryTextBox.Text = global::JsonValidator.Properties.Settings.Default.PathPreserve;
-            this.fileDirectoryTextBox.TextChanged += new System.EventHandler(this.fileDirectoryTextBox_TextChanged);
-            this.fileDirectoryTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.fileDirectoryTextBox_DragDrop_1);
-            this.fileDirectoryTextBox.DragOver += new System.Windows.Forms.DragEventHandler(this.fileDirectoryTextBox_DragOver_1);
             // 
             // button10
             // 
@@ -1178,11 +1156,45 @@ namespace JsonValidator
             this.label36.TabIndex = 101;
             this.label36.Text = "2:";
             // 
+            // isVipBox
+            // 
+            this.isVipBox.AutoSize = true;
+            this.isVipBox.Location = new System.Drawing.Point(99, 325);
+            this.isVipBox.Name = "isVipBox";
+            this.isVipBox.Size = new System.Drawing.Size(64, 17);
+            this.isVipBox.TabIndex = 102;
+            this.isVipBox.Text = "VIP Box";
+            this.isVipBox.UseVisualStyleBackColor = true;
+            this.isVipBox.Click += new System.EventHandler(this.isVipBox_Click);
+            // 
+            // fileDirectoryTextBox
+            // 
+            this.fileDirectoryTextBox.AllowDrop = true;
+            this.fileDirectoryTextBox.Location = new System.Drawing.Point(217, 34);
+            this.fileDirectoryTextBox.Name = "fileDirectoryTextBox";
+            this.fileDirectoryTextBox.Size = new System.Drawing.Size(243, 20);
+            this.fileDirectoryTextBox.TabIndex = 95;
+            this.fileDirectoryTextBox.Text = global::JsonValidator.Properties.Settings.Default.PathPreserve;
+            this.fileDirectoryTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.fileDirectoryTextBox_DragDrop_1);
+            this.fileDirectoryTextBox.DragOver += new System.Windows.Forms.DragEventHandler(this.fileDirectoryTextBox_DragOver_1);
+            // 
+            // dragDropBoxData
+            // 
+            this.dragDropBoxData.AllowDrop = true;
+            this.dragDropBoxData.Location = new System.Drawing.Point(70, 34);
+            this.dragDropBoxData.Name = "dragDropBoxData";
+            this.dragDropBoxData.Size = new System.Drawing.Size(120, 20);
+            this.dragDropBoxData.TabIndex = 83;
+            this.dragDropBoxData.Text = global::JsonValidator.Properties.Settings.Default.PathPreserve;
+            this.dragDropBoxData.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragDrop);
+            this.dragDropBoxData.DragOver += new System.Windows.Forms.DragEventHandler(this.dragDropBoxData_DragOver);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 1316);
+            this.Controls.Add(this.isVipBox);
             this.Controls.Add(this.label36);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label34);
@@ -1283,7 +1295,6 @@ namespace JsonValidator
             this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.PrizeGroupBox.ResumeLayout(false);
@@ -1400,6 +1411,7 @@ namespace JsonValidator
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.CheckBox isVipBox;
     }
 }
 

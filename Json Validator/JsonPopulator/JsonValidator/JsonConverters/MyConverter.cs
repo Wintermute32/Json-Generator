@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace JsonValidator
 {
-    //custom class derived from Newtonsoft JsonConvert to give us more control over the way we format
+    //custom class derived from Newtonsoft JsonConvert to give more control over the way we format
     //and generate our Json file. 
     class MyConverter : JsonConverter
     {

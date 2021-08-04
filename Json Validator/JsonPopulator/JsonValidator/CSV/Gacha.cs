@@ -47,12 +47,12 @@ namespace JsonValidator.CSV
 
                 if (gachaList[i].Amount != "" && gachaList[i].Instances != "")
                 {
-                    addMePrize.RewardID = gachaList[i].PopID;
-                    addMePrize.RewardType = gachaList[i].RewardType;
-                    addMePrize.Amount = Convert.ToInt32(gachaList[i].Amount);
-                    addMePrize.Instances = Convert.ToInt32(gachaList[i].Instances);
+                    addMePrize.rewardId = gachaList[i].PopID;
+                    addMePrize.rewardType = gachaList[i].RewardType;
+                    addMePrize.amount = Convert.ToInt32(gachaList[i].Amount);
+                    addMePrize.instances = Convert.ToInt32(gachaList[i].Instances);
                 }
-                if (addMePrize.RewardType != null)
+                if (addMePrize.rewardType != null)
                     prizeList.Add(addMePrize);
             }
             return prizeList;

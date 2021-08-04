@@ -82,10 +82,10 @@ namespace JsonValidator
         private void AssignComboBoxText(IPrizeBox prize, GroupBox newGroup)
         {
             var controls = newGroup.Controls;
-            controls[0].Text = prize.RewardType;
-            controls[1].Text = prize.RewardID;
-            controls[2].Text = prize.Amount.ToString();
-            controls[3].Text = prize.Instances.ToString();
+            controls[0].Text = prize.rewardType;
+            controls[1].Text = prize.rewardId;
+            controls[2].Text = prize.amount.ToString();
+            controls[3].Text = prize.instances.ToString();
         }
     }
 }

@@ -5,9 +5,9 @@ namespace JsonValidator
 
     public interface IPrizeBox
     {
-        string RewardType { get; set; }
-        string RewardID { get; set; }
-        int Amount { get; set; }
-        int Instances { get; set; }
+        string rewardType { get; set; }
+        string rewardId { get; set; }
+        int amount { get; set; }
+        int instances { get; set; }
     };
 }

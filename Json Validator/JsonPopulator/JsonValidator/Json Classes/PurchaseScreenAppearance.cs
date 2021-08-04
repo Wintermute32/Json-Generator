@@ -6,11 +6,14 @@ namespace JsonValidator
 {
     public class PurchaseScreenAppearance
     {
-        public string TitleLocKey { get; set; }
-        public List<string> PopIds { get; set; }
+        public string titleLocalizationKey { get; set; }
+        public List<string> popIds { get; set; }
         public PurchaseScreenAppearance() { }
         public PurchaseScreenAppearance(string fandomName, Dictionary<string, string> pops)
         {
+            if (pops == null)
+                return; 
+
             List<string> purchaseRarities = new List<string>() {"common", "rare", "epic", "legendary"};
             List<string> addToMePopId = new List<string>();
 
@@ -19,8 +22,8 @@ namespace JsonValidator
                     if (x == entry.Value)
                         addToMePopId.Add(entry.Key);
 
-            PopIds = addToMePopId;
-            TitleLocKey = fandomName + "BoxTitle";
+            popIds = addToMePopId;
+            titleLocalizationKey = fandomName + "BoxTitle";
         }
         public static PurchaseScreenAppearance GeneratePurchaseScreenApeparance(Form1 form)
         {
@@ -36,8 +39,8 @@ namespace JsonValidator
             }
             PurchaseScreenAppearance purchaseScreenAppearance = new PurchaseScreenAppearance()
             {
-                TitleLocKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
-                PopIds = _popIds
+                titleLocalizationKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
+                popIds = _popIds
             };
 
             return purchaseScreenAppearance;

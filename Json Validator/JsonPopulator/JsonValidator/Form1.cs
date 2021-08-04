@@ -39,24 +39,24 @@ namespace JsonValidator
             //takes completed NewRoot Object and populates forum UI values
             eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
             eventNumBox.Text = eventObject.EventNumber;
-            fandomIdCB.Text = eventObject.FandomID;
-            startDatePicker.Value = DateTime.Parse(eventObject.StartDate);
-            endDatePicker.Value = DateTime.Parse(eventObject.EndDate);
-            isEventCheck.Checked = eventObject.Appearance.IsEventBox;
-            MysteryBoxCB.Text = eventObject.Appearance.MysteryBoxType;
-            themeCB.Text = eventObject.Appearance.Theme;
-            styleCB.Text = eventObject.Appearance.StoreButtonAppearance.Style;
-            ribbonLocKeyCB.Text = eventObject.Appearance.StoreButtonAppearance.RibbonLocKey;
-            titleLocCB.Text = eventObject.Appearance.StoreButtonAppearance.TitleLocKey;
-            subLocCB.Text = eventObject.Appearance.StoreButtonAppearance.SubtitleLocKey;
-            orderCB.Text = eventObject.Appearance.StoreButtonAppearance.Order.ToString();
-            discountCB.Text = eventObject.Appearance.StoreButtonAppearance.Discount.ToString();
-            purTitleLocKey.Text = eventObject.Appearance.PurchaseScreenAppearance.TitleLocKey;
-            canShowCarouselBox.Checked = eventObject.Appearance.MainHubAppearance.CanShowInCarousel;
-            behaviorCB.Text = eventObject.BehaviorType;
-            style2CB.Text = eventObject.Appearance.MainHubAppearance.Style; //might not be populating Right
-            titleLocKeyCB.Text = eventObject.Appearance.MainHubAppearance.TitleLocKey;
-            mainhubSubLocKey.Text = eventObject.Appearance.MainHubAppearance.SubtitleLocKey;
+            fandomIdCB.Text = eventObject.fandomId;
+            startDatePicker.Value = DateTime.Parse(eventObject.startDate);
+            endDatePicker.Value = DateTime.Parse(eventObject.endDate);
+            isEventCheck.Checked = eventObject.appearance.isEventBox;
+            MysteryBoxCB.Text = eventObject.appearance.mysteryBoxType;
+            themeCB.Text = eventObject.appearance.theme;
+            styleCB.Text = eventObject.appearance.storeButtonAppearance.style;
+            ribbonLocKeyCB.Text = eventObject.appearance.storeButtonAppearance.ribbonLocalizationKey;
+            titleLocCB.Text = eventObject.appearance.storeButtonAppearance.titleLocalizationKey;
+            subLocCB.Text = eventObject.appearance.storeButtonAppearance.subtitleLocalizationKey;
+            orderCB.Text = eventObject.appearance.storeButtonAppearance.order.ToString();
+            discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
+            purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
+            canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
+            behaviorCB.Text = eventObject.behaviorType;
+            style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
+            titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+            mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
 
             formControls.GenerateRuntimePopPanels(eventObject, databasePath);
         }
@@ -74,7 +74,6 @@ namespace JsonValidator
         {
              formControls.GeneratePopSelector("", storePopsPanel);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             formControls.GeneratePopSelector("", purchasePopsPanel);
@@ -209,15 +208,9 @@ namespace JsonValidator
             if (formControls == null)
                 formControls = new FormControls(dragDropBoxData.Text, playbookPath);
         }
-
         private void dragDropBoxData_DragOver(object sender, DragEventArgs e)
         {
             DragOverBehavior(e);
-        }
-
-        private void fileDirectoryTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
         private void fileDirectoryTextBox_DragDrop_1(object sender, DragEventArgs e)
         {
@@ -228,11 +221,6 @@ namespace JsonValidator
         private void fileDirectoryTextBox_DragOver_1(object sender, DragEventArgs e)
         {
             DragOverBehavior(e);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -247,6 +235,9 @@ namespace JsonValidator
 
             if (OtherBoxCheck.Checked == true)
                 OtherBoxCheck.Checked = false;
+
+            if (isVipBox.Checked == true)
+                isVipBox.Checked = false;
         }
 
         private void oedBoxCheck_Click(object sender, EventArgs e)
@@ -256,6 +247,9 @@ namespace JsonValidator
 
             if (OtherBoxCheck.Checked == true)
                 OtherBoxCheck.Checked = false;
+
+            if (isVipBox.Checked == true)
+                isVipBox.Checked = false;
         }
 
         private void OtherBoxCheck_Click(object sender, EventArgs e)
@@ -265,6 +259,21 @@ namespace JsonValidator
 
             if (oedBoxCheck.Checked == true)
                 oedBoxCheck.Checked = false;
+
+            if (isVipBox.Checked == true)
+                isVipBox.Checked = false;
+        }
+
+        private void isVipBox_Click(object sender, EventArgs e)
+        {
+            if (isEventCheck.Checked == true)
+                isEventCheck.Checked = false;
+
+            if (oedBoxCheck.Checked == true)
+                oedBoxCheck.Checked = false;
+
+            if (OtherBoxCheck.Checked == true)
+                OtherBoxCheck.Checked = false;
         }
     }
 }

@@ -52,7 +52,9 @@ namespace JsonValidator
         public void UpdateBoxType(NewRoot finalRoot)
         {
             if (finalRoot.appearance.isEventBox)
+            {
                 finalRoot.appearance.isEventBox = false;
+            }
            
             if (finalRoot.appearance.IsVIPBox)
             {
@@ -69,17 +71,7 @@ namespace JsonValidator
             if (finalRoot.appearance.IsOEDBox)
                 finalRoot.LastChanceBoxPrizes = null;
         }
-        //public bool UpdateBoxType(NewRoot finalRoot)
-        //{
-        //    if (finalRoot.appearance.isEventBox)
-        //    {
-        //        finalRoot.boxVipReplaces = finalRoot.boxId;
-        //        finalRoot.boxId = finalRoot.boxId.Replace("VIP0", "VIP1");
-        //        finalRoot.LastChanceBoxPrizes = null;
-        //        return true;
-        //    }
-        //    return false;
-        //}
+
         private List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
         {
             var popLists = flowlist.Find(x => x.Name == "lastChanceBoxPanel").Controls.OfType<GroupBox>().ToList();

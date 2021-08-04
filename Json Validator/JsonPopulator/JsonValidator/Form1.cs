@@ -57,7 +57,6 @@ namespace JsonValidator
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
             titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
-
             formControls.GenerateRuntimePopPanels(eventObject, databasePath);
         }
         private void button1_Click(object sender, EventArgs e)

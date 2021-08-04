@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JsonValidator.JsonControllers;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Text;
@@ -10,37 +11,23 @@ namespace JsonValidator.StoreConfigUpdate
 {
     class FormatBoxString
     {
-        //this will be a combo of Regex to pick specifc lines
-        //and string 'padding' to control the amount of indentation
-        public string Indent(int count, string input)
+        public string FormatNewJson(NewRoot finalRoot) //this should take a dict of bools.
         {
-            //Regex rx = new Regex(@"^\s*", RegexOptions.Multiline);
-            var newString = input.PadLeft(input.Length + count);
+            GenerateNewJson genNewJson = new GenerateNewJson();
+            var jsonOutput = TestFormatString(genNewJson.SerializeJson(finalRoot));
 
-            return newString;
+            //if (isEventBox)
+            //{
+            //    jsonOutput = jsonOutput.TrimEnd() + ','; //removing white space and adding comma
+            //    finalRoot.LastChanceBoxPrizes = null;
+            //    jsonOutput += '\n' + TestFormatString(genNewJson.SerializeJson(finalRoot)).TrimEnd()+',';
+            //    return jsonOutput;
+            //}
+
+            jsonOutput = jsonOutput.TrimEnd() + ',';
+            return jsonOutput;
         }
-        public string FormatString(string jsonString)
-        {
-            Regex rx = new Regex(@"^\s*", RegexOptions.Multiline);
-            MatchCollection whiteSpaceMatches;
-            List<string> spitMeout = new List<string>();
-            string output = "";
-            string[] lines = jsonString.Split(new[] { Environment.NewLine },StringSplitOptions.None);
-
-            foreach (var x in lines)
-            {
-                whiteSpaceMatches = rx.Matches(x);
-                Debug.WriteLine("White space matches" + whiteSpaceMatches);
-                spitMeout.Add(Indent(whiteSpaceMatches.Count, x) + '\n');
-            }
-           
-            foreach (var x in spitMeout)
-                output += x;
-
-            return output;
-        }
-
-        public string TestFormatString(string Json)
+        private string TestFormatString(string Json)
         { 
             string[] lines = Json.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             List<string> outputString = new List<string>();
@@ -73,8 +60,12 @@ namespace JsonValidator.StoreConfigUpdate
                 Debug.WriteLine(x);
                 output += (x + '\n');
             }
-
             return output;
+        }
+        private string Indent(int count, string input)
+        {
+            var newString = input.PadLeft(input.Length + count);
+            return newString;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
+using JsonValidator.JsonControllers;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace JsonValidator.StoreConfigUpdate
     //get index of that line, and insert newbox string there for each boxconfig file.
     public class StoreConfig
     {
-        JsonGeneration jGenObj = new JsonGeneration();
+        GenerateNewJson jGenObj = new GenerateNewJson();
         public void AddToMysteryBoxConfig()
         {
             List<string> boxFile;

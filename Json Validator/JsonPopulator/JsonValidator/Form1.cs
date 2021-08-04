@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JsonValidator.JsonControllers;
 using System.Diagnostics;
 using JsonValidator.StoreConfigUpdate;
 using JsonValidator.CSV;
@@ -15,6 +16,7 @@ namespace JsonValidator
 {
     public partial class Form1 : Form
     {
+        //path values assign by drag-drop events below
         string databasePath;
         string playbookPath;
         string gachaPath;
@@ -22,20 +24,21 @@ namespace JsonValidator
 
         List<string> boxIDs = new List<string>();
         NewRoot eventObject;
-        FormControls formControls = new FormControls();
+        FormControls formControls;
         StoreConfig sCU = new StoreConfig();
 
         public Form1()
         {
             InitializeComponent();
             this.AutoScroll = true;
+            FormControls formControls = new FormControls(databasePath, playbookPath);
         }
         
         private void InitializeFormComponents(string eventID)
         {
             //takes completed NewRoot Object and populates forum UI values
             eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
-            eventNumBox.Text = eventObject.evetnNumber;
+            eventNumBox.Text = eventObject.EventNumber;
             fandomIdCB.Text = eventObject.fandomId;
             startDatePicker.Value = DateTime.Parse(eventObject.startDate);
             endDatePicker.Value = DateTime.Parse(eventObject.endDate);
@@ -50,7 +53,7 @@ namespace JsonValidator
             discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
             purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
-            behaviorCB.Text = eventObject.behaviourType;
+            behaviorCB.Text = eventObject.behaviorType;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
             titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
@@ -64,17 +67,13 @@ namespace JsonValidator
             {
                formControls.RemoveRuntimeComboBoxes(this);
                string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
-
-                Debug.WriteLine("Event ID for this before initialize is " + eventID);
-
-                InitializeFormComponents(eventID);
+               InitializeFormComponents(eventID);
             } 
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
              formControls.GeneratePopSelector("", storePopsPanel);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             formControls.GeneratePopSelector("", purchasePopsPanel);
@@ -102,12 +101,12 @@ namespace JsonValidator
 
         private void button8_Click(object sender, EventArgs e)
         {
-            TierBoxM tierBox = new TierBoxM(tierPanel, databasePath, new Tier());
+            TierBoxM tierBox = new TierBoxM(tierPanel, new Tier());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            TierBoxS tierBox = new TierBoxS(tierPanel, databasePath, new Tier());
+            TierBoxS tierBox = new TierBoxS(tierPanel, new Tier());
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -154,7 +153,7 @@ namespace JsonValidator
         {
             try
             {
-                JsonGeneration jGen = new JsonGeneration();
+                GenerateNewJson jGen = new GenerateNewJson();
                 jGen.GenerateMyJson(this);
             }
             catch
@@ -172,8 +171,8 @@ namespace JsonValidator
             playbookPath = dragDropBoxPlaybook.Text;
             Debug.WriteLine(playbookPath);
             formControls = new FormControls(dragDropBoxData.Text, playbookPath);
-            Converters converter = new Converters();
-            boxIDs = converter.GetBoxIds(playbookPath);
+
+            boxIDs = Playbook.GetBoxIds(playbookPath);
             boxIdCB.DataSource = boxIDs;
         }
         private void dragDropBoxGacha_DragDrop(object sender, DragEventArgs e)
@@ -209,15 +208,9 @@ namespace JsonValidator
             if (formControls == null)
                 formControls = new FormControls(dragDropBoxData.Text, playbookPath);
         }
-
         private void dragDropBoxData_DragOver(object sender, DragEventArgs e)
         {
             DragOverBehavior(e);
-        }
-
-        private void fileDirectoryTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
         private void fileDirectoryTextBox_DragDrop_1(object sender, DragEventArgs e)
         {
@@ -228,11 +221,6 @@ namespace JsonValidator
         private void fileDirectoryTextBox_DragOver_1(object sender, DragEventArgs e)
         {
             DragOverBehavior(e);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -247,6 +235,9 @@ namespace JsonValidator
 
             if (OtherBoxCheck.Checked == true)
                 OtherBoxCheck.Checked = false;
+
+            if (isVipBox.Checked == true)
+                isVipBox.Checked = false;
         }
 
         private void oedBoxCheck_Click(object sender, EventArgs e)
@@ -256,6 +247,9 @@ namespace JsonValidator
 
             if (OtherBoxCheck.Checked == true)
                 OtherBoxCheck.Checked = false;
+
+            if (isVipBox.Checked == true)
+                isVipBox.Checked = false;
         }
 
         private void OtherBoxCheck_Click(object sender, EventArgs e)
@@ -265,6 +259,21 @@ namespace JsonValidator
 
             if (oedBoxCheck.Checked == true)
                 oedBoxCheck.Checked = false;
+
+            if (isVipBox.Checked == true)
+                isVipBox.Checked = false;
+        }
+
+        private void isVipBox_Click(object sender, EventArgs e)
+        {
+            if (isEventCheck.Checked == true)
+                isEventCheck.Checked = false;
+
+            if (oedBoxCheck.Checked == true)
+                oedBoxCheck.Checked = false;
+
+            if (OtherBoxCheck.Checked == true)
+                OtherBoxCheck.Checked = false;
         }
     }
 }

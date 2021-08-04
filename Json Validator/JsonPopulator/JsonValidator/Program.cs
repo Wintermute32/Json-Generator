@@ -1,15 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
-using System.Text;
-using System.Diagnostics;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
 using System.Windows.Forms;
 using JsonValidator.CSV;
 
@@ -24,49 +14,46 @@ namespace JsonValidator
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
-
        public static NewRoot GetJsonObject(string databasePath, string playbookPath, string gachaPath, string eventID)
-        {
-            //returns completed NewRoot Object
-
-            Converters converters = new Converters();
+       {
             Database database = new Database();
             Gacha gacha = new Gacha();
-            Playbook eventPlaybook;
+            Playbook eventPlaybook = new Playbook();
+            Tier tiers = new Tier();
 
+            eventPlaybook = UpdatePlaybookObj(playbookPath, eventID, eventPlaybook);
+
+            Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.StartDateAlternative, databasePath);
+            StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);
+            PurchaseScreenAppearance psA = new PurchaseScreenAppearance(eventID, popDict);
+            MainHubAppearance mhA = new MainHubAppearance(eventID, popDict);
+            List<Gacha> gachaList = gacha.GachaPopulator(gachaPath);
+            NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
+
+            newRoot.appearance = new Appearance(sba, psA, mhA);
+            newRoot.prizes = gacha.PrizeList(gachaList);
+            newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
+            newRoot.LastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
+
+            return newRoot;
+       }
+       private static Playbook UpdatePlaybookObj(string playbookPath, string eventID, Playbook eventPlaybook)
+       {
             try
             {
-                eventPlaybook = converters.PlaybookPopulator(playbookPath, eventID);
-                eventPlaybook.FixStartDate(eventPlaybook.startDate);
+                eventPlaybook = eventPlaybook.PlaybookPopulator(playbookPath, eventID);
+                eventPlaybook.FixStartDate(eventPlaybook.StartDate);
             }
             catch (Exception)
             {
-                string message = "This ID wasn't found in the playbook. Check playbook ID and upate";
-                string title = "Playbbok Error";
+
+                string message = "This ID wasn't found in the playbook. Check playbook ID and update";
+                string title = "Playbook Error";
                 MessageBox.Show(message, title);
-                eventPlaybook = new Playbook { eventID = "not found", startDateAlternate = "0/0/0000"};
+                eventPlaybook = new Playbook { EventID = "not found", StartDateAlternative = "0/0/0000" };
             }
 
-            //List<Database> eventPopData = converters.DatabasePopulator(databasePath, eventPlaybook.startDate); //this isn't working
-
-            Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.startDateAlternate, databasePath);
-
-            NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
-            StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);
-
-            PurchaseScreenAppearance psA = new PurchaseScreenAppearance(eventID, popDict);
-            MainHubAppearance mhA = new MainHubAppearance(eventID, popDict);
-            Tier tiers = new Tier();
-
-            Appearance appearance = new Appearance(sba, psA, mhA);
-            newRoot.appearance = appearance;
-
-            List<Gacha> gachaList = converters.GachaPopulator(gachaPath);
-            newRoot.prizes = gacha.PrizeList(gachaList);
-            newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
-            newRoot.lastChanceBoxPrizes = converters.AssignBoxValues(popDict);
-
-            return newRoot;
-        }
+            return eventPlaybook;
+       }
     }
 }

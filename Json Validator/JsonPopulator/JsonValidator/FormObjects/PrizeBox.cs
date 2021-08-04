@@ -1,24 +1,22 @@
-﻿using System;
+﻿using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using JsonValidator.CSV;
-
+//Last Chance and Prize panel use same format of form controls.
+//The form population is started by the constructor
 namespace JsonValidator
 {
-    public class PrizeBox
+  public class PrizeBox
     {
-        public ComboBox comboB1;
-        public ComboBox comboB2;
-        public ComboBox comboB3;
-        public ComboBox comboB4;
+        public ComboBox _comboB1, _comboB2, _comboB3, _comboB4;
+        public TextBox TextBox;
+        public PrizeBox() { }
         public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
-            GeneratePrizeLine(flowPanel, databasePath, prize);
+            GroupBox newGroupB = GeneratePrizePops(flowPanel, databasePath);
+            AssignComboBoxText(prize, newGroupB);
         }
-        public void GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
-        {
-            Database database = new Database();
-
+        private GroupBox GeneratePrizePops(FlowLayoutPanel flowPanel, string databasePath)
+        {           
             GroupBox newGroupB = new GroupBox()
             {
                 Name = "PrizeGroupBox",
@@ -28,20 +26,19 @@ namespace JsonValidator
                 Margin = new Padding(0)
             };
 
-            ComboBox combo1 = new ComboBox()
-            {
+             _comboB1 = new ComboBox()
+             {
                 FormattingEnabled = true,
                 Location = new System.Drawing.Point(9, 19),
                 Name = "comboBox1",
                 Size = new System.Drawing.Size(70, 21),
                 TabIndex = 1,
                 AutoCompleteMode = AutoCompleteMode.SuggestAppend,
-                AutoCompleteSource = AutoCompleteSource.ListItems
-            };
+                AutoCompleteSource = AutoCompleteSource.ListItems,
+                DataSource = new List<string>() { "pop", "" },
+             };
 
-            this.comboB1 = combo1;
-
-            ComboBox combo2 = new ComboBox()
+            _comboB2 = new ComboBox()
             {
                 FormattingEnabled = true,
                 Location = new System.Drawing.Point(85, 19),
@@ -50,49 +47,45 @@ namespace JsonValidator
                 TabIndex = 5,
                 AutoCompleteMode = AutoCompleteMode.SuggestAppend,
                 AutoCompleteSource = AutoCompleteSource.ListItems,
+                DataSource = Database.GetAllPopID(databasePath)
             };
 
-            this.comboB2 = combo2;
-
-
-            ComboBox combo3 = new ComboBox()
+            _comboB3 = new ComboBox()
             {
                 FormattingEnabled = true,
                 Location = new System.Drawing.Point(239, 19),
                 Name = "comboBox3",
                 Size = new System.Drawing.Size(52, 21),
                 TabIndex = 3,
+                DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }
             };
 
-            this.comboB3 = combo3;
-
-            ComboBox combo4 = new ComboBox()
+            _comboB4 = new ComboBox()
             {
                 FormattingEnabled = true,
                 Location = new System.Drawing.Point(297, 19),
                 Name = "comboBox4",
                 Size = new System.Drawing.Size(51, 21),
                 TabIndex = 6,
+                DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }
             };
+            
+            List<ComboBox> comboBList = new List<ComboBox>() { _comboB1, _comboB2, _comboB3, _comboB4 };
+            
+            foreach (var x in comboBList)
+                newGroupB.Controls.Add(x);
 
-            this.comboB4 = combo4;
-
-            combo1.DataSource = new List<string>() { "pop", "" };
-            combo2.DataSource = database.GetAllPopID(databasePath);
-            combo3.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-            combo4.DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-
-            newGroupB.Controls.Add(comboB1);
-            newGroupB.Controls.Add(comboB2);
-            newGroupB.Controls.Add(comboB3);
-            newGroupB.Controls.Add(comboB4);
             flowPanel.Controls.Add(newGroupB);
 
-            comboB1.Text = prize.rewardType;
-            comboB2.Text = prize.rewardId;
-            comboB3.Text = prize.amount.ToString();
-            comboB4.Text = prize.instances.ToString();
+            return newGroupB;
         }
-
+        private void AssignComboBoxText(IPrizeBox prize, GroupBox newGroup)
+        {
+            var controls = newGroup.Controls;
+            controls[0].Text = prize.rewardType;
+            controls[1].Text = prize.rewardId;
+            controls[2].Text = prize.amount.ToString();
+            controls[3].Text = prize.instances.ToString();
+        }
     }
 }

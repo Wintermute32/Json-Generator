@@ -26,7 +26,7 @@ namespace JsonValidator
                 Location = new System.Drawing.Point(7, 20),
                 Size = new System.Drawing.Size(51, 20),
                 TabIndex = 0,
-                Text = tier.Cost.ToString()
+                Text = tier.cost.ToString()
             };
 
             _comboB2 = new ComboBox()
@@ -36,7 +36,7 @@ namespace JsonValidator
                 Location = new System.Drawing.Point(64, 19),
                 Size = new System.Drawing.Size(38, 21),
                 TabIndex = 1,
-                Text = tier.NumPulls.ToString(),
+                Text = tier.numPulls.ToString(),
             };
 
             List<Control> controlsList = new List<Control>() { TextBox, _comboB2 };
@@ -50,11 +50,11 @@ namespace JsonValidator
         }
         private void AssignComboBoxText(Tier tier, GroupBox newGroup)
         {
-            if (tier.Guarantee != null)
+            if (tier.guarantee != null)
             {
                 var controls = newGroup.Controls;
-                controls[0].Text = tier.Cost.ToString();
-                controls[1].Text = tier.NumPulls.ToString();
+                controls[0].Text = tier.cost.ToString();
+                controls[1].Text = tier.numPulls.ToString();
             }
         }
     }

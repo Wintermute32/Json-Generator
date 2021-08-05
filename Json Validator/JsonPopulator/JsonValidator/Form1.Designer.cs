@@ -46,7 +46,7 @@ namespace JsonValidator
             this.label6 = new System.Windows.Forms.Label();
             this.styleCB = new System.Windows.Forms.ComboBox();
             this.ribbonLocKeyCB = new System.Windows.Forms.ComboBox();
-            this.titleLocKeyCB = new System.Windows.Forms.ComboBox();
+            this.mainHubTitleLocKeyCB = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.purchaseScreenTitleLocLbl = new System.Windows.Forms.Label();
@@ -306,14 +306,14 @@ namespace JsonValidator
             this.ribbonLocKeyCB.Size = new System.Drawing.Size(137, 21);
             this.ribbonLocKeyCB.TabIndex = 20;
             // 
-            // titleLocKeyCB
+            // mainHubTitleLocKeyCB
             // 
-            this.titleLocKeyCB.FormattingEnabled = true;
-            this.titleLocKeyCB.Location = new System.Drawing.Point(145, 933);
-            this.titleLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
-            this.titleLocKeyCB.Name = "titleLocKeyCB";
-            this.titleLocKeyCB.Size = new System.Drawing.Size(137, 21);
-            this.titleLocKeyCB.TabIndex = 21;
+            this.mainHubTitleLocKeyCB.FormattingEnabled = true;
+            this.mainHubTitleLocKeyCB.Location = new System.Drawing.Point(145, 933);
+            this.mainHubTitleLocKeyCB.MinimumSize = new System.Drawing.Size(4, 0);
+            this.mainHubTitleLocKeyCB.Name = "mainHubTitleLocKeyCB";
+            this.mainHubTitleLocKeyCB.Size = new System.Drawing.Size(137, 21);
+            this.mainHubTitleLocKeyCB.TabIndex = 21;
             // 
             // label7
             // 
@@ -1273,7 +1273,7 @@ namespace JsonValidator
             this.Controls.Add(this.purchaseScreenTitleLocLbl);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.titleLocKeyCB);
+            this.Controls.Add(this.mainHubTitleLocKeyCB);
             this.Controls.Add(this.ribbonLocKeyCB);
             this.Controls.Add(this.styleCB);
             this.Controls.Add(this.label6);
@@ -1322,7 +1322,7 @@ namespace JsonValidator
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox styleCB;
         private System.Windows.Forms.ComboBox ribbonLocKeyCB;
-        private System.Windows.Forms.ComboBox titleLocKeyCB;
+        private System.Windows.Forms.ComboBox mainHubTitleLocKeyCB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label purchaseScreenTitleLocLbl;

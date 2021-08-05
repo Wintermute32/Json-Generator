@@ -68,23 +68,26 @@ namespace JsonValidator
 
             foreach (var x in newRoot.tiers)
             {
-                if (x.IsGuarantee == true && x.Guarantee.LuckyPopPrize == null)
+                if (x.IsGuarantee == true && x.guarantee.LuckyPopPrize == null)
                     new TierBoxL(layoutPanels["tierPanel"], databasePath, x);
 
-                else if (x.IsGuarantee == true && x.Guarantee.LuckyPopPrize != null)
+                else if (x.IsGuarantee == true && x.guarantee.LuckyPopPrize != null)
                     new TierBoxM(layoutPanels["tierPanel"], x);
 
                 else if (x.IsGuarantee != true)
                     new TierBoxS(layoutPanels["tierPanel"], x);
             }
         }
-        public void RemoveRuntimeComboBoxes(Form1 form1)
+        public void ResetFormControls(Form1 form1)
         {
             foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
                 item.Controls.Clear();
 
             foreach (Control item in form1.Controls.OfType<CheckBox>())
                 item.Controls.Clear();
+
+            foreach (CheckBox item in form1.Controls.OfType<CheckBox>())
+                item.Checked = false;
         }
         public void GeneratePopSelector(string popName, FlowLayoutPanel flowPanel)
         {
@@ -110,18 +113,6 @@ namespace JsonValidator
             var controlList = panel.Controls.OfType<Control>().ToList();
             if (controlList.Count > 0)
                 panel.Controls.Remove(controlList[controlList.Count - 1]);
-        }
-        public void ResetAllControls(Control form)
-        {
-            ComboBox ctrlInQ;
-            foreach (Control control in form.Controls)
-            {
-                if (control is ComboBox)
-                {
-                    ctrlInQ = (ComboBox)control;
-                    ctrlInQ.SelectedIndex = 0;
-                }
-            }
         }
         public string AmendBoxId(string eventID)
         {

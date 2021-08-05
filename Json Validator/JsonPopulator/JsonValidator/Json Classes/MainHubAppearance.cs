@@ -46,7 +46,7 @@ namespace JsonValidator
             {
                 canShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked,
                 style = comboBoxes.Find(x => x.Name == "style2CB").Text,
-                titleLocalizationKey = comboBoxes.Find(x => x.Name == "titleLocKeyCB").Text,
+                titleLocalizationKey = comboBoxes.Find(x => x.Name == "mainHubTitleLocKeyCB").Text,
                 subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text,
                 popIds = _popIds,
 

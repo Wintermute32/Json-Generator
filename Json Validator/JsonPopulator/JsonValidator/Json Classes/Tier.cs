@@ -9,8 +9,8 @@ namespace JsonValidator
 {
     public class Tier
     {
-        public int Cost { get; set; }
-        public int NumPulls { get; set; }
+        public int cost { get; set; }
+        public int numPulls { get; set; }
         [JsonIgnore]
         public bool IsGuarantee { get; set; }
         [JsonIgnore]
@@ -19,7 +19,7 @@ namespace JsonValidator
         public string BoxGuarantee { get; set; } //will get passed to Guarantee Object   
         [JsonIgnore]
         public string Amount { get; set; }
-        public Guarantee Guarantee { get; set; }
+        public Guarantee guarantee { get; set; }
         public List<Tier> GenerateTierList(List<Gacha> gachaList)
         {
             List<Tier> tierList = new List<Tier>();
@@ -27,8 +27,8 @@ namespace JsonValidator
             for (int i = 0; i < gachaList.Count; i++)
             {
                 Tier tier = new Tier();
-                tier.Cost = Convert.ToInt32(gachaList[i].Cost.Replace(",", ""));
-                tier.NumPulls = Convert.ToInt32(gachaList[i].BoxPulls);
+                tier.cost = Convert.ToInt32(gachaList[i].Cost.Replace(",", ""));
+                tier.numPulls = Convert.ToInt32(gachaList[i].BoxPulls);
                 tier.BoxGuarantee = gachaList[i].Guarantee;
 
                 if (gachaList[i].Guarantee != null) //incase gacha CSV doesn't include Guarantee Header
@@ -63,7 +63,7 @@ namespace JsonValidator
                                     if (entry.Value == x)
                                         guarantee.SpecificPopId = entry.Key;
                             }
-                        guarantee.specificPopAmount = tierList[i].Amount;
+                        guarantee.Amount = tierList[i].Amount;
                   
                      if (tierList[i].BoxGuarantee == "Random Event Pop")
                         guarantee.LuckyPopPrize = true;
@@ -71,7 +71,7 @@ namespace JsonValidator
                      else
                         guarantee.LuckyPopPrize = null;
                    
-                     tierList[i].Guarantee = guarantee;
+                     tierList[i].guarantee = guarantee;
                     }
                 }
            return tierList;
@@ -95,22 +95,22 @@ namespace JsonValidator
                         {
                             try
                             {
-                                tier.Cost = Convert.ToInt32(texts[0].Text);
-                                tier.NumPulls = Convert.ToInt32(combos[0].Text);
-                                tier.Guarantee = new Guarantee()
+                                tier.cost = Convert.ToInt32(texts[0].Text);
+                                tier.numPulls = Convert.ToInt32(combos[0].Text);
+                                tier.guarantee = new Guarantee()
                                 {
                                     SpecificPopId = combos[1].Text,
-                                    specificPopAmount = combos[2].Text
+                                    Amount = combos[2].Text
                                 };
                             }
                             catch
                             {
-                                tier.Cost = 0;
-                                tier.NumPulls = 0;
-                                tier.Guarantee = new Guarantee()
+                                tier.cost = 0;
+                                tier.numPulls = 0;
+                                tier.guarantee = new Guarantee()
                                 {
                                     SpecificPopId = "You didn't fill",
-                                    specificPopAmount = "this out right",
+                                    Amount = "this out right",
                                 };
                             }
                             break;
@@ -120,16 +120,16 @@ namespace JsonValidator
                         {
                             try
                             {
-                                tier.Cost = Convert.ToInt32(texts[0].Text);
-                                tier.NumPulls = Convert.ToInt32(combos[0].Text);
-                                tier.Guarantee = new Guarantee() { LuckyPopPrize = Convert.ToBoolean(combos[1].Text) };
+                                tier.cost = Convert.ToInt32(texts[0].Text);
+                                tier.numPulls = Convert.ToInt32(combos[0].Text);
+                                tier.guarantee = new Guarantee() { LuckyPopPrize = Convert.ToBoolean(combos[1].Text) };
                             }
 
                             catch
                             {
-                                tier.Cost = 0;
-                                tier.NumPulls = 0;
-                                tier.Guarantee = new Guarantee() { LuckyPopPrize = false };
+                                tier.cost = 0;
+                                tier.numPulls = 0;
+                                tier.guarantee = new Guarantee() { LuckyPopPrize = false };
                             }
                             break;
                         }
@@ -138,13 +138,13 @@ namespace JsonValidator
                         {
                             try
                             {
-                                tier.Cost = Convert.ToInt32(texts[0].Text);
-                                tier.NumPulls = Convert.ToInt32(combos[0].Text);
+                                tier.cost = Convert.ToInt32(texts[0].Text);
+                                tier.numPulls = Convert.ToInt32(combos[0].Text);
                             }
                             catch (Exception)
                             {
-                                tier.NumPulls = 0;
-                                tier.Cost = 0;
+                                tier.numPulls = 0;
+                                tier.cost = 0;
                             }
                             break;
                         }

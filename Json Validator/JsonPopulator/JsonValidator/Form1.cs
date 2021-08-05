@@ -55,7 +55,7 @@ namespace JsonValidator
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
             behaviorCB.Text = eventObject.behaviorType;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
-            titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+            mainHubTitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
             formControls.GenerateRuntimePopPanels(eventObject, databasePath);
         }
@@ -64,8 +64,8 @@ namespace JsonValidator
             //program halts instead of crashes if custom ID is used
             if (boxIdCB.SelectedItem != null)
             {
-               formControls.RemoveRuntimeComboBoxes(this);
-               string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
+                formControls.ResetFormControls(this);
+                string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
                InitializeFormComponents(eventID);
             } 
         }
@@ -237,6 +237,8 @@ namespace JsonValidator
 
             if (isVipBox.Checked == true)
                 isVipBox.Checked = false;
+
+            UpdateFormBasedOnBoxType();
         }
 
         private void oedBoxCheck_Click(object sender, EventArgs e)
@@ -249,6 +251,8 @@ namespace JsonValidator
 
             if (isVipBox.Checked == true)
                 isVipBox.Checked = false;
+
+            UpdateFormBasedOnBoxType();
         }
 
         private void OtherBoxCheck_Click(object sender, EventArgs e)
@@ -261,6 +265,8 @@ namespace JsonValidator
 
             if (isVipBox.Checked == true)
                 isVipBox.Checked = false;
+
+            UpdateFormBasedOnBoxType();
         }
 
         private void isVipBox_Click(object sender, EventArgs e)
@@ -273,6 +279,61 @@ namespace JsonValidator
 
             if (OtherBoxCheck.Checked == true)
                 OtherBoxCheck.Checked = false;
+
+            UpdateFormBasedOnBoxType();
+        }
+
+        private void UpdateFormBasedOnBoxType()
+        {
+
+            if (isEventCheck.Checked == true)
+            {
+                styleCB.Text = "LargePink";
+                ribbonLocKeyCB.Text = "EventBoxRibbon";
+                string boxTitle = fandomIdCB.Text.Replace("Fandom", "") + "BoxTitle";
+                titleLocCB.Text = boxTitle;
+                purTitleLocKey.Text = boxTitle;
+                mainHubTitleLocKeyCB.Text = boxTitle;
+                mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
+                style2CB.Text = "Pink";
+
+            }
+            
+            if (isVipBox.Checked == true)
+            {
+                styleCB.Text = "VIP";
+                ribbonLocKeyCB.Text = "VIPEventBoxRibbon";
+                string vipBoxTitle = fandomIdCB.Text.Replace("Fandom", "") + "VIPBoxTitle";
+                titleLocCB.Text = vipBoxTitle;
+                purTitleLocKey.Text = vipBoxTitle;
+                mainHubTitleLocKeyCB.Text = vipBoxTitle;
+                mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
+                style2CB.Text = "VIP";
+            }
+
+            if (OtherBoxCheck.Checked == true)
+            {
+                isEventCheck.Checked = false;
+                styleCB.Text = "MediumPurple";
+                this.ribbonLocKeyCB.Text = "GeneralBoxRibbon";
+                string boxTitle = fandomIdCB.Text.Replace("Fandom", "").Replace("Box", "") + "BoxTitle";
+                this.titleLocCB.Text = boxTitle;
+                this.purTitleLocKey.Text = boxTitle;
+                this.mainHubTitleLocKeyCB.Text = boxTitle;
+                mainhubSubLocKey.Text = fandomIdCB.Text.Replace("Fandom", "").Replace("Box", "") + "BoxSubtitle";
+                style2CB.Text = "Purple";
+            }
+
+            if (oedBoxCheck.Checked == true)
+            {
+                styleCB.Text = "LargePink";
+                this.ribbonLocKeyCB.Text = "EventBoxRibbon";
+                string boxTitle = fandomIdCB.Text.Replace("Fandom", "") + "BoxTitle";
+                this.titleLocCB.Text = boxTitle;
+                this.purTitleLocKey.Text = boxTitle;
+                this.mainHubTitleLocKeyCB.Text = boxTitle;
+                style2CB.Text = "Pink";
+            }
         }
     }
 }

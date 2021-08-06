@@ -13,6 +13,8 @@ namespace JsonValidator
         string DataBPath;
         string PlayBPath;
         List<ComboBox> comboList = new List<ComboBox>();
+
+        public FormControls() { }
         public FormControls(string databasePath, string playbookPath)
         {
             this.DataBPath = databasePath;
@@ -116,7 +118,8 @@ namespace JsonValidator
         }
         public string AmendBoxId(string eventID)
         {
-            eventID = eventID.Substring(eventID.LastIndexOf('_') + 1); //this is where we ammend the st
+            eventID = eventID.Substring(eventID.LastIndexOf('_') + 1);
+            Debug.WriteLine("Amended event ID " + eventID);
             return eventID;
         }
     }

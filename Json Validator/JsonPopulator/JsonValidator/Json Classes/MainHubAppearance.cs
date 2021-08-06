@@ -19,6 +19,7 @@ namespace JsonValidator
 
             canShowInCarousel = true;
             titleLocalizationKey = fandomName + "BoxTitle";
+            subtitleLocalizationKey = "EventCarouselitemSubtitle";
             style = "Pink";
             
             foreach (var x in mainHubRarities)

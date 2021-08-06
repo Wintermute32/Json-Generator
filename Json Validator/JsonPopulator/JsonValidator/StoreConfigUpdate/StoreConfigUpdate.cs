@@ -12,46 +12,33 @@ using System.Windows.Forms;
 
 namespace JsonValidator.StoreConfigUpdate
 {
-    //Get list of just box ID's per each MysteryStoreConfig File (5x files)
-    //add newBoxID to list and sort alphabetically (works because of ID Number value)
-    //For each MysterBoxConfig ID list, get the boxID directly after the newBoxID
-    //return list of ID's that come right after newBoxID (done to ensure insert still works despite non-parity between BoxConfig files)
-    //Convert boxfiles to List<string> and find line containing the 'justAfterID'.
-    //get index of that line, and insert newbox string there for each boxconfig file.
     public class StoreConfig
     {
         GenerateNewJson jGenObj = new GenerateNewJson();
         public void AddToMysteryBoxConfig()
         {
             List<string> boxFile;
-            string directoryPath = Application.OpenForms["Form1"].Controls["fileDirectoryTextBox"].Text; //way to access desigern controls w/o changing access modifier
+            string directoryPath = Application.OpenForms["Form1"].Controls["fileDirectoryTextBox"].Text;
             
             string[] storeConfigPaths = new string[0];
             
             if (Directory.Exists(directoryPath))
                 storeConfigPaths = Directory.GetFiles(directoryPath,  "*" + "MysteryBoxesConfig" + "*.*", SearchOption.AllDirectories);
 
-            //Below path is for testing purposes. used to generate list of Index positions for new box file per-variant file.
-
+            //Below path for testing. used to generate list of Index positions for new box file per-variant file.
             var testFilePath = jGenObj.GetTestFilePath();
 
             List<string> insertAboveID = GetInsertID(storeConfigPaths, testFilePath);
-
 
            string newBox = File.ReadAllText(testFilePath);
 
             for (int i = 0; i < storeConfigPaths.Length; i++) 
             {
                 boxFile = File.ReadAllLines(storeConfigPaths[i]).ToList(); 
-                //use insertAboveID value to find exisitng box file
-                //and insert newbox above it.
                 foreach (var x in boxFile)
                 {
                     if (x.Contains(insertAboveID[i]))
-                    {
-                        //would like to find a way to dynamically get index of the above {
-                        //to protect against extra spaces from improperly formatted code in the box file
-                        
+                    {                 
                         //var index = boxFile.IndexOf(x);
                        int insertPos = GetInsertPos(x, boxFile);
                        boxFile.Insert(insertPos, newBox); 
@@ -96,7 +83,7 @@ namespace JsonValidator.StoreConfigUpdate
             for (int i = 0; i < storeConfigFilePaths.Length; i++)
             {
                 boxIDsPerVariant.Add(GetBoxID(storeConfigFilePaths[i])); //For each Variant Box File, Add List of Box Id's
-                boxIDsPerVariant[i].Add(newBoxIds);//add our NewBox ID
+                boxIDsPerVariant[i].Add(newBoxIds);
                 boxIDsPerVariant[i].Sort(); 
             }
 

@@ -32,7 +32,7 @@ namespace JsonValidator
                 LastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
 
-            finalRoot.FixDates(finalRoot.startDate);
+            finalRoot.FixDates(finalRoot);
 
             return finalRoot;
         }

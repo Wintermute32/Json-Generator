@@ -30,15 +30,24 @@ namespace JsonValidator
             fandomId = playbook.FandomName;
             FixDates(playbook.StartDate);
             SetFeaturedPopIds(popDict);
-        } 
+        }
         public void FixDates(string startDate)
         {
-           var revisedStart = DateTime.Parse(startDate).ToString("MM/dd/yyyy HH:mm");
-           var revisedEnd = DateTime.Parse(startDate).AddDays(6).ToString("MM/dd/yyyy HH:mm");
+            var revisedStart = DateTime.Parse(startDate).ToString("MM/dd/yyyy HH:mm");
+            var revisedEnd = DateTime.Parse(startDate).AddDays(6).ToString("MM/dd/yyyy HH:mm");
 
-           this.startDate = revisedStart;
-           this.endDate = revisedEnd;
+            this.startDate = revisedStart;
+            this.endDate = revisedEnd;
         }
+        
+        public void FixDates(NewRoot newRoot)
+        {  //two signatures incase working on non-event box
+            var revisedStart = DateTime.Parse(newRoot.startDate).ToString("MM/dd/yyyy HH:mm");
+            var revisedEnd = DateTime.Parse(newRoot.endDate).ToString("MM/dd/yyyy HH:mm");
+            newRoot.startDate = revisedStart;
+            newRoot.endDate = revisedEnd;
+        }
+
         private void SetFeaturedPopIds(Dictionary<string, string> popIdDict)
         {
             List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };

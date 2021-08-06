@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using JsonValidator.JsonControllers;
 using System.Diagnostics;
@@ -22,16 +18,17 @@ namespace JsonValidator
         string gachaPath;
         string directoryPath;
 
-        List<string> boxIDs = new List<string>();
+        List<string> boxIDs;
         NewRoot eventObject;
         FormControls formControls;
-        StoreConfig sCU = new StoreConfig();
-
+        StoreConfig sCU;
         public Form1()
         {
             InitializeComponent();
             this.AutoScroll = true;
-            FormControls formControls = new FormControls(databasePath, playbookPath);
+            formControls = new FormControls(databasePath, playbookPath);
+            sCU = new StoreConfig();
+            boxIDs = new List<string>();
         }
         
         private void InitializeFormComponents(string eventID)
@@ -62,12 +59,14 @@ namespace JsonValidator
         private void button1_Click(object sender, EventArgs e)
         {
             //program halts instead of crashes if custom ID is used
-            if (boxIdCB.SelectedItem != null)
+            if (boxIdCB.SelectedItem != null && File.Exists(dragDropBoxData.Text))
             {
                 formControls.ResetFormControls(this);
                 string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
-               InitializeFormComponents(eventID);
-            } 
+                InitializeFormComponents(eventID);
+            }
+            else
+                MessageBox.Show("Something's wrong. You're either missing a file or this box name doesn't exist in the playbook", "Try Again");
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -283,15 +282,14 @@ namespace JsonValidator
             UpdateFormBasedOnBoxType();
         }
 
-        private void UpdateFormBasedOnBoxType()
+        public void UpdateFormBasedOnBoxType()
         {
-
             if (isEventCheck.Checked == true)
             {
                 styleCB.Text = "LargePink";
                 ribbonLocKeyCB.Text = "EventBoxRibbon";
-                string boxTitle = fandomIdCB.Text.Replace("Fandom", "") + "BoxTitle";
-                titleLocCB.Text = boxTitle;
+                string boxTitle = formControls.AmendBoxId(boxIdCB.Text) + "BoxTitle";
+                titleLocCB.Text = boxTitle;      
                 purTitleLocKey.Text = boxTitle;
                 mainHubTitleLocKeyCB.Text = boxTitle;
                 mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
@@ -303,7 +301,7 @@ namespace JsonValidator
             {
                 styleCB.Text = "VIP";
                 ribbonLocKeyCB.Text = "VIPEventBoxRibbon";
-                string vipBoxTitle = fandomIdCB.Text.Replace("Fandom", "") + "VIPBoxTitle";
+                string vipBoxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box","") + "VIPBoxTitle";
                 titleLocCB.Text = vipBoxTitle;
                 purTitleLocKey.Text = vipBoxTitle;
                 mainHubTitleLocKeyCB.Text = vipBoxTitle;
@@ -316,7 +314,7 @@ namespace JsonValidator
                 isEventCheck.Checked = false;
                 styleCB.Text = "MediumPurple";
                 this.ribbonLocKeyCB.Text = "GeneralBoxRibbon";
-                string boxTitle = fandomIdCB.Text.Replace("Fandom", "").Replace("Box", "") + "BoxTitle";
+                string boxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "BoxTitle";
                 this.titleLocCB.Text = boxTitle;
                 this.purTitleLocKey.Text = boxTitle;
                 this.mainHubTitleLocKeyCB.Text = boxTitle;
@@ -328,7 +326,7 @@ namespace JsonValidator
             {
                 styleCB.Text = "LargePink";
                 this.ribbonLocKeyCB.Text = "EventBoxRibbon";
-                string boxTitle = fandomIdCB.Text.Replace("Fandom", "") + "BoxTitle";
+                string boxTitle = boxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "BoxTitle";
                 this.titleLocCB.Text = boxTitle;
                 this.purTitleLocKey.Text = boxTitle;
                 this.mainHubTitleLocKeyCB.Text = boxTitle;

@@ -16,29 +16,38 @@ namespace JsonValidator
         public string startDate { get; set; }
         public string endDate { get; set; }
         public Appearance appearance { get; set; }
-        public string behaviorType { get; set; }
+        public string behaviourType { get; set; }
         public List<string> featuredPopIds { get; set; }
         public List<Prize> prizes { get; set; }
         public List<Tier> tiers { get; set; }
-        public List<LastChanceBoxPrize> LastChanceBoxPrizes { get; set; }         
+        public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }         
         public NewRoot(){} //Used when generating TestJson
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict) //used to populate Winforms UI
         {
-            behaviorType = "PullBased";
+            behaviourType = "PullBased";
             boxId = "e" + playbook.EventNumber + "_bxtFE_VIP0_" + playbook.BoxID.Trim();
             EventNumber = playbook.EventNumber;
             fandomId = playbook.FandomName;
             FixDates(playbook.StartDate);
             SetFeaturedPopIds(popDict);
-        } 
+        }
         public void FixDates(string startDate)
         {
-           var revisedStart = DateTime.Parse(startDate).ToString("MM/dd/yyyy HH:mm");
-           var revisedEnd = DateTime.Parse(startDate).AddDays(6).ToString("MM/dd/yyyy HH:mm");
+            var revisedStart = DateTime.Parse(startDate).ToString("MM/dd/yyyy HH:mm");
+            var revisedEnd = DateTime.Parse(startDate).AddDays(6).ToString("MM/dd/yyyy HH:mm");
 
-           this.startDate = revisedStart;
-           this.endDate = revisedEnd;
+            this.startDate = revisedStart;
+            this.endDate = revisedEnd;
         }
+        
+        public void FixDates(NewRoot newRoot)
+        {  //two signatures incase working on non-event box
+            var revisedStart = DateTime.Parse(newRoot.startDate).ToString("MM/dd/yyyy HH:mm");
+            var revisedEnd = DateTime.Parse(newRoot.endDate).ToString("MM/dd/yyyy HH:mm");
+            newRoot.startDate = revisedStart;
+            newRoot.endDate = revisedEnd;
+        }
+
         private void SetFeaturedPopIds(Dictionary<string, string> popIdDict)
         {
             List<string> rarityList = new List<string>() { "common", "rare", "epic", "legendary" };

@@ -73,13 +73,13 @@ namespace JsonValidator
         }   
         private void AssignComboBoxText(Tier tier, GroupBox newGroup)
         {
-            if (tier.Guarantee != null) //ensuring we dont crash when using + UI button
+            if (tier.guarantee != null) //ensuring we dont crash when using + UI button
             {
                 var controls = newGroup.Controls;
-                controls[0].Text = tier.Cost.ToString();
-                controls[1].Text = tier.NumPulls.ToString();
-                controls[2].Text = tier.Guarantee.SpecificPopId;
-                controls[3].Text = tier.Guarantee.specificPopAmount;
+                controls[0].Text = tier.cost.ToString();
+                controls[1].Text = tier.numPulls.ToString();
+                controls[2].Text = tier.guarantee.SpecificPopId;
+                controls[3].Text = tier.guarantee.Amount;
             }
         }
         

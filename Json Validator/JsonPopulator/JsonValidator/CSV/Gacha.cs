@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using CsvHelper;
+using System.Windows.Forms;
 using CsvHelper.Configuration;
 using System.Globalization;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace JsonValidator.CSV
 
         public string RewardType = "pop";
 
-        public List<Prize> PrizeList(List<Gacha> gachaList)
+        public List<Prize> GeneratePrizeList(List<Gacha> gachaList, List<string> popIDList)
         {
             List<Prize> prizeList = new List<Prize>();
 
@@ -47,7 +48,14 @@ namespace JsonValidator.CSV
 
                 if (gachaList[i].Amount != "" && gachaList[i].Instances != "")
                 {
-                    addMePrize.rewardId = gachaList[i].PopID;
+
+                    var rawPopID = gachaList[i].PopID.Replace(" ", "");
+                    
+                    if (popIDList.Contains(rawPopID))
+                        addMePrize.rewardId = rawPopID;
+                    else
+                        addMePrize.rewardId = "Pop ID not found in Database";
+                    
                     addMePrize.rewardType = gachaList[i].RewardType;
                     addMePrize.amount = Convert.ToInt32(gachaList[i].Amount);
                     addMePrize.instances = Convert.ToInt32(gachaList[i].Instances);
@@ -75,7 +83,7 @@ namespace JsonValidator.CSV
 
                 if (gachaData.Count == 0)
                 {
-                    Console.WriteLine("Gacha's Not Found");
+                    MessageBox.Show("Gacha CSV Not Found!", "Incorret File");
                 }
 
                 return gachaData;
@@ -84,7 +92,6 @@ namespace JsonValidator.CSV
             {
                 return new List<Gacha>();
             }
-
         }
     }
 }

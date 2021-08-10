@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using CsvHelper.Configuration.Attributes;
 
 namespace JsonValidator.CSV
@@ -16,6 +17,12 @@ namespace JsonValidator.CSV
         public string EventExclusive { get; set; }
         public static List<string> GetAllPopID(string databasePath)
         {
+            
+            if (!File.Exists(databasePath))
+            {
+                return new List<string>() { "no IDs Found" };
+            }
+
             string[] allLines = File.ReadAllLines(databasePath);
             List<string> popIDs = new List<string>();
 
@@ -27,7 +34,7 @@ namespace JsonValidator.CSV
         public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
         {
             if (databasePath == null)
-                return null;
+                return new Dictionary<string, string>() {{ "No Id's Found", "No Ids Found" }};
 
             string[] allLines = null;
             

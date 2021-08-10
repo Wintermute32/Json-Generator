@@ -31,29 +31,17 @@ namespace JsonValidator
             NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
 
             newRoot.appearance = new Appearance(sba, psA, mhA);
-            newRoot.prizes = gacha.PrizeList(gachaList);
+            newRoot.prizes = gacha.GeneratePrizeList(gachaList, Database.GetAllPopID(databasePath));
             newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
-            newRoot.LastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
+            newRoot.lastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
 
             return newRoot;
        }
        private static Playbook UpdatePlaybookObj(string playbookPath, string eventID, Playbook eventPlaybook)
-       {
-            try
-            {
-                eventPlaybook = eventPlaybook.PlaybookPopulator(playbookPath, eventID);
-                eventPlaybook.FixStartDate(eventPlaybook.StartDate);
-            }
-            catch (Exception)
-            {
-
-                string message = "This ID wasn't found in the playbook. Check playbook ID and update";
-                string title = "Playbook Error";
-                MessageBox.Show(message, title);
-                eventPlaybook = new Playbook { EventID = "not found", StartDateAlternative = "0/0/0000" };
-            }
-
-            return eventPlaybook;
+       {   
+          eventPlaybook = eventPlaybook.PlaybookPopulator(playbookPath, eventID);
+          eventPlaybook.FixStartDate(eventPlaybook.StartDate);
+          return eventPlaybook;
        }
     }
 }

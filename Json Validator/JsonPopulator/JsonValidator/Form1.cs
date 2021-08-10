@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using JsonValidator.JsonControllers;
 using System.Diagnostics;
@@ -22,16 +18,17 @@ namespace JsonValidator
         string gachaPath;
         string directoryPath;
 
-        List<string> boxIDs = new List<string>();
+        List<string> boxIDs;
         NewRoot eventObject;
         FormControls formControls;
-        StoreConfig sCU = new StoreConfig();
-
+        StoreConfig sCU;
         public Form1()
         {
             InitializeComponent();
             this.AutoScroll = true;
-            FormControls formControls = new FormControls(databasePath, playbookPath);
+            formControls = new FormControls(databasePath, playbookPath);
+            sCU = new StoreConfig();
+            boxIDs = new List<string>();
         }
         
         private void InitializeFormComponents(string eventID)
@@ -53,21 +50,23 @@ namespace JsonValidator
             discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
             purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
-            behaviorCB.Text = eventObject.behaviorType;
+            behaviorCB.Text = eventObject.behaviourType;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
-            titleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
+            mainHubTitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
             formControls.GenerateRuntimePopPanels(eventObject, databasePath);
         }
         private void button1_Click(object sender, EventArgs e)
         {
             //program halts instead of crashes if custom ID is used
-            if (boxIdCB.SelectedItem != null)
+            if (boxIdCB.SelectedItem != null && File.Exists(dragDropBoxData.Text))
             {
-               formControls.RemoveRuntimeComboBoxes(this);
-               string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
-               InitializeFormComponents(eventID);
-            } 
+                formControls.ResetFormControls(this);
+                string eventID = formControls.AmendBoxId(boxIdCB.SelectedItem.ToString());
+                InitializeFormComponents(eventID);
+            }
+            else
+                MessageBox.Show("Something's wrong. You're either missing a file or this box name doesn't exist in the playbook", "Try Again");
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -237,6 +236,8 @@ namespace JsonValidator
 
             if (isVipBox.Checked == true)
                 isVipBox.Checked = false;
+
+            UpdateFormBasedOnBoxType();
         }
 
         private void oedBoxCheck_Click(object sender, EventArgs e)
@@ -249,6 +250,8 @@ namespace JsonValidator
 
             if (isVipBox.Checked == true)
                 isVipBox.Checked = false;
+
+            UpdateFormBasedOnBoxType();
         }
 
         private void OtherBoxCheck_Click(object sender, EventArgs e)
@@ -261,20 +264,76 @@ namespace JsonValidator
 
             if (isVipBox.Checked == true)
                 isVipBox.Checked = false;
+
+            UpdateFormBasedOnBoxType();
         }
 
         private void isVipBox_Click(object sender, EventArgs e)
         {
+            //if (isEventCheck.Checked == true)
+            //    isEventCheck.Checked = false;
+
+            //if (oedBoxCheck.Checked == true)
+            //    oedBoxCheck.Checked = false;
+
+            //if (OtherBoxCheck.Checked == true)
+            //    OtherBoxCheck.Checked = false;
+
+            UpdateFormBasedOnBoxType();
+        }
+
+        public void UpdateFormBasedOnBoxType()
+        {
+
             if (isEventCheck.Checked == true)
+            {
+                styleCB.Text = "LargePink";
+                ribbonLocKeyCB.Text = "EventBoxRibbon";
+                string boxTitle = formControls.AmendBoxId(boxIdCB.Text) + "BoxTitle";
+                titleLocCB.Text = boxTitle;      
+                purTitleLocKey.Text = boxTitle;
+                mainHubTitleLocKeyCB.Text = boxTitle;
+                mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
+                style2CB.Text = "Pink";
+
+            }
+          
+            if (OtherBoxCheck.Checked == true)
+            {
                 isEventCheck.Checked = false;
+                styleCB.Text = "MediumPurple";
+                this.ribbonLocKeyCB.Text = "GeneralBoxRibbon";
+                string boxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "BoxTitle";
+                this.titleLocCB.Text = boxTitle;
+                this.purTitleLocKey.Text = boxTitle;
+                this.mainHubTitleLocKeyCB.Text = boxTitle;
+                mainhubSubLocKey.Text = fandomIdCB.Text.Replace("Fandom", "").Replace("Box", "") + "BoxSubtitle";
+                style2CB.Text = "Purple";
+            }
 
             if (oedBoxCheck.Checked == true)
-                oedBoxCheck.Checked = false;
+            {
+                styleCB.Text = "LargePink";
+                this.ribbonLocKeyCB.Text = "EventBoxRibbon";
+                string boxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "BoxTitle";
+                this.titleLocCB.Text = boxTitle;
+                this.purTitleLocKey.Text = boxTitle;
+                this.mainHubTitleLocKeyCB.Text = boxTitle;
+                style2CB.Text = "Pink";
+            }
 
-            if (OtherBoxCheck.Checked == true)
-                OtherBoxCheck.Checked = false;
+            if (isVipBox.Checked == true)
+            {
+                styleCB.Text = "VIP";
+                ribbonLocKeyCB.Text = "VIPEventBoxRibbon";
+                string vipBoxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "VIPBoxTitle";
+                titleLocCB.Text = vipBoxTitle;
+                purTitleLocKey.Text = vipBoxTitle;
+                mainHubTitleLocKeyCB.Text = vipBoxTitle;
+                mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
+                style2CB.Text = "VIP";
+            }
         }
     }
 }
-    
-
+   

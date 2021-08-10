@@ -16,15 +16,15 @@ namespace JsonValidator
         public string startDate { get; set; }
         public string endDate { get; set; }
         public Appearance appearance { get; set; }
-        public string behaviorType { get; set; }
+        public string behaviourType { get; set; }
         public List<string> featuredPopIds { get; set; }
         public List<Prize> prizes { get; set; }
         public List<Tier> tiers { get; set; }
-        public List<LastChanceBoxPrize> LastChanceBoxPrizes { get; set; }         
+        public List<LastChanceBoxPrize> lastChanceBoxPrizes { get; set; }         
         public NewRoot(){} //Used when generating TestJson
         public NewRoot(Playbook playbook, Dictionary<string, string> popDict) //used to populate Winforms UI
         {
-            behaviorType = "PullBased";
+            behaviourType = "PullBased";
             boxId = "e" + playbook.EventNumber + "_bxtFE_VIP0_" + playbook.BoxID.Trim();
             EventNumber = playbook.EventNumber;
             fandomId = playbook.FandomName;

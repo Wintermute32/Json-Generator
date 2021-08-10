@@ -33,7 +33,7 @@ namespace JsonValidator
             newRoot.appearance = new Appearance(sba, psA, mhA);
             newRoot.prizes = gacha.GeneratePrizeList(gachaList, Database.GetAllPopID(databasePath));
             newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
-            newRoot.LastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
+            newRoot.lastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
 
             return newRoot;
        }

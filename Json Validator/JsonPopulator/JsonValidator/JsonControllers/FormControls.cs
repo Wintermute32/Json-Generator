@@ -65,7 +65,7 @@ namespace JsonValidator
             foreach (var x in newRoot.prizes)
                 new PrizeBox(layoutPanels["prizePanel"], databasePath, x);
 
-            foreach (var x in newRoot.LastChanceBoxPrizes)
+            foreach (var x in newRoot.lastChanceBoxPrizes)
                 new PrizeBox(layoutPanels["lastChanceBoxPanel"], databasePath, x);
 
             foreach (var x in newRoot.tiers)

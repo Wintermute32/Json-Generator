@@ -18,8 +18,7 @@ namespace JsonValidator.StoreConfigUpdate
         public void AddToMysteryBoxConfig()
         {
             List<string> boxFile;
-            string directoryPath = Application.OpenForms["Form1"].Controls["fileDirectoryTextBox"].Text;
-            
+            string directoryPath = Application.OpenForms["Form1"].Controls["fileDirectoryTextBox"].Text;         
             string[] storeConfigPaths = new string[0];
             
             if (Directory.Exists(directoryPath))

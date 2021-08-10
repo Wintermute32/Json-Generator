@@ -50,7 +50,7 @@ namespace JsonValidator
             discountCB.Text = eventObject.appearance.storeButtonAppearance.discount.ToString();
             purTitleLocKey.Text = eventObject.appearance.purchaseScreenAppearance.titleLocalizationKey;
             canShowCarouselBox.Checked = eventObject.appearance.mainHubAppearance.canShowInCarousel;
-            behaviorCB.Text = eventObject.behaviorType;
+            behaviorCB.Text = eventObject.behaviourType;
             style2CB.Text = eventObject.appearance.mainHubAppearance.style; //might not be populating Right
             mainHubTitleLocKeyCB.Text = eventObject.appearance.mainHubAppearance.titleLocalizationKey;
             mainhubSubLocKey.Text = eventObject.appearance.mainHubAppearance.subtitleLocalizationKey;
@@ -270,20 +270,21 @@ namespace JsonValidator
 
         private void isVipBox_Click(object sender, EventArgs e)
         {
-            if (isEventCheck.Checked == true)
-                isEventCheck.Checked = false;
+            //if (isEventCheck.Checked == true)
+            //    isEventCheck.Checked = false;
 
-            if (oedBoxCheck.Checked == true)
-                oedBoxCheck.Checked = false;
+            //if (oedBoxCheck.Checked == true)
+            //    oedBoxCheck.Checked = false;
 
-            if (OtherBoxCheck.Checked == true)
-                OtherBoxCheck.Checked = false;
+            //if (OtherBoxCheck.Checked == true)
+            //    OtherBoxCheck.Checked = false;
 
             UpdateFormBasedOnBoxType();
         }
 
         public void UpdateFormBasedOnBoxType()
         {
+
             if (isEventCheck.Checked == true)
             {
                 styleCB.Text = "LargePink";
@@ -296,19 +297,7 @@ namespace JsonValidator
                 style2CB.Text = "Pink";
 
             }
-            
-            if (isVipBox.Checked == true)
-            {
-                styleCB.Text = "VIP";
-                ribbonLocKeyCB.Text = "VIPEventBoxRibbon";
-                string vipBoxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box","") + "VIPBoxTitle";
-                titleLocCB.Text = vipBoxTitle;
-                purTitleLocKey.Text = vipBoxTitle;
-                mainHubTitleLocKeyCB.Text = vipBoxTitle;
-                mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
-                style2CB.Text = "VIP";
-            }
-
+          
             if (OtherBoxCheck.Checked == true)
             {
                 isEventCheck.Checked = false;
@@ -326,14 +315,25 @@ namespace JsonValidator
             {
                 styleCB.Text = "LargePink";
                 this.ribbonLocKeyCB.Text = "EventBoxRibbon";
-                string boxTitle = boxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "BoxTitle";
+                string boxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "BoxTitle";
                 this.titleLocCB.Text = boxTitle;
                 this.purTitleLocKey.Text = boxTitle;
                 this.mainHubTitleLocKeyCB.Text = boxTitle;
                 style2CB.Text = "Pink";
             }
+
+            if (isVipBox.Checked == true)
+            {
+                styleCB.Text = "VIP";
+                ribbonLocKeyCB.Text = "VIPEventBoxRibbon";
+                string vipBoxTitle = formControls.AmendBoxId(boxIdCB.Text).Replace("Box", "") + "VIPBoxTitle";
+                titleLocCB.Text = vipBoxTitle;
+                purTitleLocKey.Text = vipBoxTitle;
+                mainHubTitleLocKeyCB.Text = vipBoxTitle;
+                mainhubSubLocKey.Text = "EventCarouselitemSubtitle";
+                style2CB.Text = "VIP";
+            }
         }
     }
 }
-    
-
+   

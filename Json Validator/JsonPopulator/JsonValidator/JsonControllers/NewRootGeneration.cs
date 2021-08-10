@@ -25,11 +25,11 @@ namespace JsonValidator
                 startDate = dateTimePicker.Find(x => x.Name == "startDatePicker").Text,
                 endDate = dateTimePicker.Find(x => x.Name == "endDatePicker").Text,
                 appearance = Appearance.GenerateAppearance(form),
-                behaviorType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
+                behaviourType = comboBoxes.Find(x => x.Name == "behaviorCB").Text,
                 featuredPopIds = GetFeaturedPops(flowBoxes),
                 prizes = Prize.GeneratePrizeList(flowBoxes),
                 tiers = Tier.GenerateTierListConverter(flowBoxes),
-                LastChanceBoxPrizes = GetLastChanceList(flowBoxes),
+                lastChanceBoxPrizes = GetLastChanceList(flowBoxes),
             };
 
             finalRoot.FixDates(finalRoot);
@@ -53,23 +53,26 @@ namespace JsonValidator
         {
             if (finalRoot.appearance.isEventBox)
             {
-                finalRoot.appearance.isEventBox = false;
+                finalRoot.appearance.isEventBox = true;
             }
            
             if (finalRoot.appearance.IsVIPBox)
             {
                 finalRoot.boxVipReplaces = finalRoot.boxId.Replace("VIP1", "VIP0");
-                finalRoot.LastChanceBoxPrizes = null;;
+                finalRoot.lastChanceBoxPrizes = null;;
             }
 
             if (finalRoot.appearance.IsOtherBox)
             {
                 finalRoot.appearance.isEventBox = false;
-                finalRoot.LastChanceBoxPrizes = null;
+                finalRoot.lastChanceBoxPrizes = null;
             }
 
             if (finalRoot.appearance.IsOEDBox)
-                finalRoot.LastChanceBoxPrizes = null;
+            {
+                finalRoot.appearance.isEventBox = true;
+                finalRoot.lastChanceBoxPrizes = null;
+            }
         }
 
         private List<LastChanceBoxPrize> GetLastChanceList(List<FlowLayoutPanel> flowlist)
@@ -110,8 +113,8 @@ namespace JsonValidator
             if (boxTypeDict["isEventBox"])
                  boxId = "e" + formBoxNum + "_bxtFE_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
-            if (boxTypeDict["isVIPBox"])
-                boxId = "e" + formBoxNum + "_bxtFE_VIP1_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
+            //if (boxTypeDict["isVIPBox"])
+                //boxId = "e" + formBoxNum + "_bxtFE_VIP1_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
 
             if (boxTypeDict["isOEDBox"])
                  boxId = "e" + formBoxNum + "_bxtOED_VIP0_" + formBoxId.Substring(formBoxId.IndexOf('_') + 1);
@@ -124,6 +127,9 @@ namespace JsonValidator
 
             if (boxId.Contains("marc"))
                 boxId = boxId.Replace("_marcFE", "");
+
+            if (boxTypeDict["isVIPBox"])
+                boxId = boxId.Replace("VIP0", "VIP1");
 
             return boxId;
         }

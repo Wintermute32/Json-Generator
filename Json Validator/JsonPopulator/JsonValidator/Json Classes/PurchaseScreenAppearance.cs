@@ -25,7 +25,7 @@ namespace JsonValidator
             popIds = addToMePopId;
             titleLocalizationKey = fandomName + "BoxTitle";
         }
-        public static PurchaseScreenAppearance GeneratePurchaseScreenApeparance(Form1 form)
+        public PurchaseScreenAppearance (Form1 form)
         {
             var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
             var textBoxes = form.Controls.OfType<TextBox>().ToList();
@@ -37,13 +37,10 @@ namespace JsonValidator
             {
                 _popIds.Add(x.Text);
             }
-            PurchaseScreenAppearance purchaseScreenAppearance = new PurchaseScreenAppearance()
-            {
-                titleLocalizationKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text,
-                popIds = _popIds
-            };
 
-            return purchaseScreenAppearance;
+            titleLocalizationKey = textBoxes.Find(x => x.Name == "purTitleLocKey").Text;
+            popIds = _popIds;
+
         }
     }
 

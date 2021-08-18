@@ -29,7 +29,7 @@ namespace JsonValidator
 
             popIds = addToMePopId;
         }
-        public static MainHubAppearance GenerateHubAppearance(Form1 form)
+        public MainHubAppearance(Form1 form)
         {
             var flowBoxes = form.Controls.OfType<FlowLayoutPanel>().ToList();
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
@@ -43,16 +43,11 @@ namespace JsonValidator
                 _popIds.Add(x.Text);
             }
 
-            MainHubAppearance mainHubApp = new MainHubAppearance()
-            {
-                canShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked,
-                style = comboBoxes.Find(x => x.Name == "style2CB").Text,
-                titleLocalizationKey = comboBoxes.Find(x => x.Name == "mainHubTitleLocKeyCB").Text,
-                subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text,
-                popIds = _popIds,
-
-            };
-            return mainHubApp;
+            canShowInCarousel = checkBoxes.Find(x => x.Name == "canShowCarouselBox").Checked;
+            style = comboBoxes.Find(x => x.Name == "style2CB").Text;
+            titleLocalizationKey = comboBoxes.Find(x => x.Name == "mainHubTitleLocKeyCB").Text;
+            subtitleLocalizationKey = comboBoxes.Find(x => x.Name == "mainhubSubLocKey").Text;
+            popIds = _popIds;
         }
     }
 }

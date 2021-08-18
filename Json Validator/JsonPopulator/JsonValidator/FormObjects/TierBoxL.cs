@@ -11,7 +11,7 @@ namespace JsonValidator
             var newGroupB = GeneratePrizeLine(flowPanel, databasePath);
             AssignComboBoxText(tier, newGroupB);
         }
-        public GroupBox GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath)
+        private GroupBox GeneratePrizeLine(FlowLayoutPanel flowPanel, string databasePath)
         {
             GroupBox newGroupB = new GroupBox()
             {

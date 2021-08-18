@@ -51,20 +51,21 @@ namespace JsonValidator.StoreConfigUpdate
 
                 outputString.Add(Indent(indentAmt, trimmed));
 
-              if (trimmed.Contains("{"))
+                if (trimmed.Contains("{"))
                  indentAmt += 4;
             }
-           
+
             foreach (var x in outputString)
             {
                 Debug.WriteLine(x);
                 output += (x + '\n');
             }
+
             return output;
         }
         private string Indent(int count, string input)
         {
-            var newString = input.PadLeft(input.Length + count);
+            var newString = input.PadLeft(input.Length + (count/4),'\t');
             return newString;
         }
     }

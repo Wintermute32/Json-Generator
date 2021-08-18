@@ -29,26 +29,23 @@ namespace JsonValidator
             purchaseScreenAppearance = psA;
             mainHubAppearance = mhA;
         }
-        public static Appearance GenerateAppearance(Form1 form)
+        public Appearance(Form1 form)
         {
+            //takes completed form to make Json
             var comboBoxes = form.Controls.OfType<ComboBox>().ToList();
             var checkBoxes = form.Controls.OfType<CheckBox>().ToList();
 
-            Appearance appearance = new Appearance()
-            {
-                isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked,
-                IsVIPBox = checkBoxes.Find(x => x.Name == "isVipBox").Checked,
-                IsOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked,
-                IsOtherBox = checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked,
-                mysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text,
+            isEventBox = checkBoxes.Find(x => x.Name == "isEventCheck").Checked;
+            IsVIPBox = checkBoxes.Find(x => x.Name == "isVipBox").Checked;
+            IsOEDBox = checkBoxes.Find(x => x.Name == "oedBoxCheck").Checked;
+            IsOtherBox = checkBoxes.Find(x => x.Name == "OtherBoxCheck").Checked;
+            mysteryBoxType = comboBoxes.Find(x => x.Name == "MysteryBoxCB").Text;
 
-                theme = comboBoxes.Find(x => x.Name == "themeCB").Text,
-                storeButtonAppearance = StoreButtonAppearance.GenerateStoreBA(form),
-                purchaseScreenAppearance = PurchaseScreenAppearance.GeneratePurchaseScreenApeparance(form),
-                mainHubAppearance = MainHubAppearance.GenerateHubAppearance(form),
-            };
+            theme = comboBoxes.Find(x => x.Name == "themeCB").Text;
+            storeButtonAppearance = new StoreButtonAppearance(form);
+            purchaseScreenAppearance = new PurchaseScreenAppearance(form);
+            mainHubAppearance = new MainHubAppearance(form);
 
-            return appearance;
         }
     }
 }

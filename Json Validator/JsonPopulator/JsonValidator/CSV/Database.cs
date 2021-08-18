@@ -33,6 +33,8 @@ namespace JsonValidator.CSV
         }
         public Dictionary<string, string> GetPopDict(string startDate, string databasePath)
         {
+            Dictionary<string, string> popDict = new Dictionary<string, string>();
+
             if (databasePath == null)
                 return new Dictionary<string, string>() {{ "No Id's Found", "No Ids Found" }};
 
@@ -40,9 +42,7 @@ namespace JsonValidator.CSV
             
             if (File.Exists(databasePath))
                 allLines = File.ReadAllLines(databasePath);
-            
-            Dictionary<string, string> popDict = new Dictionary<string, string>();
-            
+                        
             for (int i = 0;  i < allLines.Length; i++)
             {
                 bool isEvent = false;

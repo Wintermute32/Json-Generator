@@ -60,7 +60,6 @@ namespace JsonValidator
         {
             //prizeBox obj generates by way of its constructors.
             //TierBoxL/M/S contructors add boxes to Tier Panels
-            //Maybe not best way to do this.
 
             foreach (var x in newRoot.prizes)
                 new PrizeBox(layoutPanels["prizePanel"], databasePath, x);
@@ -85,6 +84,7 @@ namespace JsonValidator
             foreach (Control item in form1.Controls.OfType<FlowLayoutPanel>())
                 item.Controls.Clear();
 
+            //should be able to Upcast this and save a third foreach loop
             foreach (Control item in form1.Controls.OfType<CheckBox>())
                 item.Controls.Clear();
 

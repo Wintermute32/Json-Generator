@@ -34,7 +34,7 @@ namespace JsonValidator
 		private void InitializeFormComponents(string eventID)
 		{
 			//takes completed NewRoot Object and populates forum UI values
-			//This should be in a different class(not the Program class either, but in New Root);
+			//This should be in a different class(not the Program class either);
 			eventObject = Program.GetJsonObject(databasePath, playbookPath, gachaPath, eventID);
 			eventNumBox.Text = eventObject.EventNumber;
 			fandomIdCB.Text = eventObject.fandomId;

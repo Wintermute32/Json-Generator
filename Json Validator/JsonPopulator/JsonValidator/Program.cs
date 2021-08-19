@@ -21,7 +21,7 @@ namespace JsonValidator
             Playbook eventPlaybook = new Playbook();
             Tier tiers = new Tier();
 
-            eventPlaybook = UpdatePlaybookObj(playbookPath, eventID, eventPlaybook);
+            eventPlaybook = Playbook.UpdatePlaybookObj(playbookPath, eventID, eventPlaybook);
 
             Dictionary<string, string> popDict = database.GetPopDict(eventPlaybook.StartDateAlternative, databasePath);
             StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);
@@ -37,11 +37,6 @@ namespace JsonValidator
 
             return newRoot;
        }
-       private static Playbook UpdatePlaybookObj(string playbookPath, string eventID, Playbook eventPlaybook)
-       {   
-          eventPlaybook = eventPlaybook.PlaybookPopulator(playbookPath, eventID);
-          eventPlaybook.FixStartDate(eventPlaybook.StartDate);
-          return eventPlaybook;
-       }
+ 
     }
 }

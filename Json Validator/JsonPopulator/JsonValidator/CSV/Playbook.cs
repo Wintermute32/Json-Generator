@@ -76,5 +76,11 @@ namespace JsonValidator.CSV
             var playbookRecords = csv.GetRecords<Playbook>().ToList();
             return playbookRecords;
         }
+        public static Playbook UpdatePlaybookObj(string playbookPath, string eventID, Playbook eventPlaybook)
+        {
+            eventPlaybook = eventPlaybook.PlaybookPopulator(playbookPath, eventID);
+            eventPlaybook.FixStartDate(eventPlaybook.StartDate);
+            return eventPlaybook;
+        }
     }
 }

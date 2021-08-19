@@ -11,7 +11,7 @@ namespace JsonValidator.StoreConfigUpdate
 {
     class FormatBoxString
     {
-        public string FormatNewJson(NewRoot finalRoot) //this should take a dict of bools.
+        public string FormatNewJson(NewRoot finalRoot)
         {
             GenerateNewJson genNewJson = new GenerateNewJson();
             var jsonOutput = TestFormatString(genNewJson.SerializeJson(finalRoot));
@@ -56,10 +56,7 @@ namespace JsonValidator.StoreConfigUpdate
             }
 
             foreach (var x in outputString)
-            {
-                Debug.WriteLine(x);
                 output += (x + '\n');
-            }
 
             return output;
         }

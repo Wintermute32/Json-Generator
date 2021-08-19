@@ -83,6 +83,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormObjects\CustomControls.cs" />
     <Compile Include="JsonControllers\FormControls.cs" />
     <Compile Include="FormObjects\ITierBox.cs" />
     <Compile Include="Json Classes\Appearance.cs" />

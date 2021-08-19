@@ -1,43 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using JsonValidator.FormObjects;
 
 namespace JsonValidator
 {
-    public class TierBoxM : PrizeBox
+    public class TierBoxM : CustomControls
     {
         public TierBoxM(FlowLayoutPanel flowPanel, Tier tier)
         {
-            var newGroupB = GeneratePrizeLine(flowPanel);
+            var newGroupB = GenerateControlsPanel(tier);
+            AddToFlowPanel(flowPanel, newGroupB);
             AssignComboBoxText(tier, newGroupB);
         }
-        private GroupBox GeneratePrizeLine(FlowLayoutPanel flowPanel)
+        public override GroupBox GenerateControlsPanel(Tier tier)
         {
-            GroupBox newGroupB = new GroupBox()
-            {
-                Name = "TierGroupBox",
-                Location = new System.Drawing.Point(122, 1015),
-                Size = new System.Drawing.Size(257, 46),
-                TabIndex = 57,
-                TabStop = false,
-            };
-
-             TextBox = new TextBox()
-            {
-                Location = new System.Drawing.Point(7, 20),
-                Size = new System.Drawing.Size(51, 20),
-                TabIndex = 0
-            };
-
-             _comboB2 = new ComboBox()
-            {
-                FormattingEnabled = true,
-                Name = "amtBox",
-                Location = new System.Drawing.Point(64, 19),
-                Size = new System.Drawing.Size(38, 21),
-                TabIndex = 1
-            };
-
-             _comboB3 = new ComboBox()
+            var newGroupB = base.GenerateControlsPanel(tier);
+           
+            _comboB3 = new ComboBox()
             {
                 FormattingEnabled = true,
                 Location = new System.Drawing.Point(122, 19),
@@ -48,25 +27,17 @@ namespace JsonValidator
                 AutoCompleteSource = AutoCompleteSource.ListItems,
                 DataSource = new List<bool>() { true, false }
             };
-
-            List<Control> controlsList = new List<Control>() { TextBox, _comboB2, _comboB3};
-
-            foreach (var x in controlsList)
-                newGroupB.Controls.Add(x);
-
-            flowPanel.Controls.Add(newGroupB);
-
+            
+            newGroupB.Controls.Add(_comboB3);   
             return newGroupB;
         }
-        private void AssignComboBoxText(Tier tier, GroupBox newGroup)
+        public override Control.ControlCollection AssignComboBoxText(Tier tier, GroupBox newGroup)
         {
+            var controls =  base.AssignComboBoxText(tier, newGroup);
             if (tier.guarantee != null)
-            {
-                var controls = newGroup.Controls;
-                controls[0].Text = tier.cost.ToString();
-                controls[1].Text = tier.numPulls.ToString();
                 controls[2].Text = tier.guarantee.LuckyPopPrize.ToString();
-            }
+
+            return controls;
         }
     }
 }

@@ -1,21 +1,20 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
 using JsonValidator.CSV;
+using JsonValidator.FormObjects;
 //Last Chance and Prize panel use same format of form controls.
 //The form population is started by the constructor
 namespace JsonValidator
 {
-  public class PrizeBox
-    {
-        public ComboBox _comboB1, _comboB2, _comboB3, _comboB4;
-        public TextBox TextBox;
-        public PrizeBox() { }
+  public class PrizeBox : CustomControls
+  {
         public PrizeBox(FlowLayoutPanel flowPanel, string databasePath, IPrizeBox prize)
         {
-            GroupBox newGroupB = GeneratePrizePops(flowPanel, databasePath);
+            GroupBox newGroupB = GeneratePrizePops(databasePath);
+            AddToFlowPanel(flowPanel, newGroupB);
             AssignComboBoxText(prize, newGroupB);
         }
-        private GroupBox GeneratePrizePops(FlowLayoutPanel flowPanel, string databasePath)
+        private GroupBox GeneratePrizePops(string databasePath)
         {           
             GroupBox newGroupB = new GroupBox()
             {
@@ -38,7 +37,7 @@ namespace JsonValidator
                 DataSource = new List<string>() { "pop", "" },
              };
 
-            _comboB2 = new ComboBox()
+            comboB2 = new ComboBox()
             {
                 FormattingEnabled = true,
                 Location = new System.Drawing.Point(85, 19),
@@ -70,12 +69,10 @@ namespace JsonValidator
                 DataSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }
             };
             
-            List<ComboBox> comboBList = new List<ComboBox>() { _comboB1, _comboB2, _comboB3, _comboB4 };
+            List<ComboBox> comboBList = new List<ComboBox>() { _comboB1, comboB2, _comboB3, _comboB4 };
             
             foreach (var x in comboBList)
                 newGroupB.Controls.Add(x);
-
-            flowPanel.Controls.Add(newGroupB);
 
             return newGroupB;
         }
@@ -87,5 +84,5 @@ namespace JsonValidator
             controls[2].Text = prize.amount.ToString();
             controls[3].Text = prize.instances.ToString();
         }
-    }
+  }
 }

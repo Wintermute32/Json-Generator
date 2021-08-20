@@ -36,8 +36,6 @@ namespace JsonValidator
                         if (Char.IsNumber(x))
                             tier.Amount = x.ToString();
 
-                Console.WriteLine("The tier obejct guarantee field should be: " + gachaList[i].Guarantee);
-
                 if (gachaList[i].Guarantee != "" && gachaList[i].Guarantee != null) //account for Json serialization not skipping null values
                     tier.IsGuarantee = true;
 
@@ -87,9 +85,7 @@ namespace JsonValidator
                 var combos = x.Controls.OfType<ComboBox>().ToList();
                 var texts = x.Controls.OfType<TextBox>().ToList();
 
-                int comboCount = combos.Count;
-
-                switch (comboCount)
+                switch (combos.Count)
                 {
                     case 3:
                         {
@@ -154,6 +150,7 @@ namespace JsonValidator
             }
             return tierpoplist;
         }
+
     }
 
 }

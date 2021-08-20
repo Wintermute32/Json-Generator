@@ -48,7 +48,6 @@ namespace JsonValidator.CSV
 
                 if (gachaList[i].Amount != "" && gachaList[i].Instances != "")
                 {
-
                     var rawPopID = gachaList[i].PopID.Replace(" ", "");
                     
                     if (popIDList.Contains(rawPopID))

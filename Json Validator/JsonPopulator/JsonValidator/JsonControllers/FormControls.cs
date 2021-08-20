@@ -104,9 +104,7 @@ namespace JsonValidator
             };
 
             flowPanel.Controls.Add(ComboB);
-            
-            //if (DataBPath != null)
-            //    ComboB.DataSource = popIds;         
+                
             if (popName != "")
                 ComboB.Text = popName;
         }

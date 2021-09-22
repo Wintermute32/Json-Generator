@@ -38,13 +38,9 @@ namespace JsonValidator.CSV
         public string Instances { get; set; }
 
         public string RewardType = "pop";
-        public static List<Prize> PrizeList { get; private set; }
 
-        public Gacha(string path, List<string> popIDList)
-		{
-            PrizeList = GeneratePrizeList(GoogleGachaPopulator(path), popIDList);
-		}
-
+        //Getting errors below when trying to convert Amount below.
+        //possibly the string CSV isn't finding it correctly.
         public List<Prize> GeneratePrizeList(List<Gacha> gachaList, List<string> popIDList)
         {
             List<Prize> prizeList = new List<Prize>();
@@ -77,38 +73,39 @@ namespace JsonValidator.CSV
         /// </summary>
         /// <param name="gachaPath"></param>
         /// <returns></returns>
-        //public List<Gacha> GachaPopulator(string gachaPath)
-        //{
-        //    var config = new CsvConfiguration(CultureInfo.InvariantCulture);
-        //    config.HeaderValidated = null;
-        //    config.MissingFieldFound = null;
-        //    config.IgnoreBlankLines = true;
-        //    config.BadDataFound = null;
+        public List<Gacha> GachaPopulator(string gachaPath)
+        {
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture);
+            config.HeaderValidated = null;
+            config.MissingFieldFound = null;
+            config.IgnoreBlankLines = true;
+            config.BadDataFound = null;
 
-        //    try
-        //    {
-        //        var reader = new StreamReader(gachaPath);
-        //        reader.ReadLine();
+            try
+            {
+                var reader = new StreamReader(gachaPath);
+                reader.ReadLine();
 
-        //        var csv = new CsvReader(reader, config);
-        //        var gachaData = csv.GetRecords<Gacha>().ToList();
-        //        gachaData.RemoveRange(21, gachaData.Count - 21);
+                var csv = new CsvReader(reader, config);
+                var gachaData = csv.GetRecords<Gacha>().ToList();
+                gachaData.RemoveRange(21, gachaData.Count - 21);
 
-        //        if (gachaData.Count == 0)
-        //        {
-        //            MessageBox.Show("Gacha CSV Not Found!", "Incorret File");
-        //        }
+                if (gachaData.Count == 0)
+                {
+                    MessageBox.Show("Gacha CSV Not Found!", "Incorret File");
+                }
 
-        //        return gachaData;
-        //    }
-        //    catch
-        //    {
-        //        return new List<Gacha>();
-        //    }
-        //}
+                return gachaData;
+            }
+            catch
+            {
+                return new List<Gacha>();
+            }
+        }
 
         public List<Gacha> GoogleGachaPopulator(string gachaPath)
         {
+
             Debug.WriteLine("GATCHA INPUT IS : \n" + gachaPath);
             var config = new CsvConfiguration(CultureInfo.InvariantCulture);
             config.HeaderValidated = null;

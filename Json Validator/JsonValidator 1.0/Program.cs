@@ -18,25 +18,24 @@ namespace JsonValidator
 
 	   public static NewRoot GetJsonObject(string databasePath, string playbookPath, string gachaPath, string eventID)
 	   {
-			
+			Gacha gacha = new Gacha();
 			Playbook eventPlaybook = new Playbook();
 			Tier tiers = new Tier();
 			eventPlaybook = Playbook.UpdatePlaybookObj(playbookPath, eventID, eventPlaybook);
 			new Database(databasePath, eventPlaybook.StartDateAlternative);
-			Gacha gacha = new Gacha(gachaPath, Database.PopIDList);
 
 			Dictionary<string, string> popDict = Database.PopDict; 
 			StoreButtonAppearance sba = new StoreButtonAppearance(eventID, popDict);
 			PurchaseScreenAppearance psA = new PurchaseScreenAppearance(eventID, popDict);
 			MainHubAppearance mhA = new MainHubAppearance(eventID, popDict);
 			//List<Gacha> gachaList = gacha.GachaPopulator(gachaPath);
-			//List<Gacha> gachaList = gacha.GoogleGachaPopulator(gachaPath);
+			List<Gacha> gachaList = gacha.GoogleGachaPopulator(gachaPath);
 
 			NewRoot newRoot = new NewRoot(eventPlaybook, popDict);
 
 			newRoot.appearance = new Appearance(sba, psA, mhA);
-			newRoot.prizes = Gacha.PrizeList;
-			newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(new List<Gacha>()), popDict);
+			newRoot.prizes = gacha.GeneratePrizeList(gachaList, Database.PopIDList);
+			newRoot.tiers = tiers.AssignGuarantee(tiers.GenerateTierList(gachaList), popDict);
 			newRoot.lastChanceBoxPrizes = NewRootGeneration.AssignBoxValues(popDict);
 
 			return newRoot;

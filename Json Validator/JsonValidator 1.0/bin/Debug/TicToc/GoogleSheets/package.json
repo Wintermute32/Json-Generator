@@ -1,0 +1,19 @@
+{
+  "name": "com.tictocgames.googlesheets",
+  "displayName": "TicToc.GoogleSheets",
+  "description": "Helps get data from Google Sheets for development. Not meant for production use!",
+  "version": "1.0.17",
+  "unity": "2019.2",
+  "keywords": [
+    "Spreadsheet",
+    "Google Sheets"
+  ],
+  "editorOnly": false,
+  "author": "Tic Toc Games",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "1.1.2"
+  },
+  "publishConfig": {
+      "registry": "https://npm.tictocgames.com"
+  }
+}

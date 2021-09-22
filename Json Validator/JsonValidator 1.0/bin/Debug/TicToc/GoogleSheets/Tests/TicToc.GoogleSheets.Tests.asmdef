@@ -1,0 +1,18 @@
+{
+    "name": "TicToc.GoogleSheets.Tests",
+    "references": [
+        "GUID:585a5f23900419b43a22a8ad54f66b33"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": []
+}
